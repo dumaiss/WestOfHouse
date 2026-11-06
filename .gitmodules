@@ -1,0 +1,3 @@
+[submodule "vendor/infocom-zork1"]
+	path = vendor/infocom-zork1
+	url = https://github.com/dumaiss/zork1.git

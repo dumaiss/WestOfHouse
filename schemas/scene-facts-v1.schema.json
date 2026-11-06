@@ -1,0 +1,888 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://westofhouse.local/schemas/scene-facts-v1.schema.json",
+  "title": "ZIL Scene Facts Extraction",
+  "description": "Source-backed scene facts extracted from ZIL before composition, prompt generation, image generation, or hotspot annotation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "scene"
+  ],
+  "properties": {
+    "schema": {
+      "const": "scene_facts_v1"
+    },
+    "scene": {
+      "$ref": "#/$defs/scene"
+    }
+  },
+  "$defs": {
+    "scalar": {
+      "type": [
+        "string",
+        "number",
+        "integer",
+        "boolean",
+        "null"
+      ]
+    },
+    "sourceReferenceIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "operand": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "value"
+          ],
+          "properties": {
+            "value": {
+              "$ref": "#/$defs/scalar"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "state_variable"
+          ],
+          "properties": {
+            "state_variable": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "object",
+            "property"
+          ],
+          "properties": {
+            "object": {
+              "type": "string"
+            },
+            "property": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "condition": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "op"
+          ],
+          "properties": {
+            "op": {
+              "const": "true"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "op",
+            "args"
+          ],
+          "properties": {
+            "op": {
+              "enum": [
+                "and",
+                "or"
+              ]
+            },
+            "args": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/condition"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "op",
+            "arg"
+          ],
+          "properties": {
+            "op": {
+              "const": "not"
+            },
+            "arg": {
+              "$ref": "#/$defs/condition"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "op",
+            "left",
+            "right"
+          ],
+          "properties": {
+            "op": {
+              "enum": [
+                "eq",
+                "neq",
+                "gt",
+                "gte",
+                "lt",
+                "lte"
+              ]
+            },
+            "left": {
+              "$ref": "#/$defs/operand"
+            },
+            "right": {
+              "$ref": "#/$defs/operand"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "op",
+            "object",
+            "flag"
+          ],
+          "properties": {
+            "op": {
+              "enum": [
+                "flag_set",
+                "flag_clear"
+              ]
+            },
+            "object": {
+              "type": "string"
+            },
+            "flag": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "op",
+            "object",
+            "location"
+          ],
+          "properties": {
+            "op": {
+              "enum": [
+                "located_in",
+                "not_located_in"
+              ]
+            },
+            "object": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "op",
+            "expression"
+          ],
+          "properties": {
+            "op": {
+              "const": "source_expression"
+            },
+            "expression": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "fact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subject",
+        "predicate",
+        "value",
+        "basis"
+      ],
+      "properties": {
+        "subject": {
+          "type": "string"
+        },
+        "predicate": {
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/$defs/scalar"
+        },
+        "basis": {
+          "enum": [
+            "explicit_text",
+            "source_flag",
+            "source_location",
+            "source_property",
+            "source_operation"
+          ]
+        },
+        "source_text": {
+          "type": "string"
+        },
+        "source_refs": {
+          "$ref": "#/$defs/sourceReferenceIds"
+        }
+      }
+    },
+    "effect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "operation"
+      ],
+      "properties": {
+        "operation": {
+          "enum": [
+            "set_variable",
+            "increment_variable",
+            "set_flag",
+            "clear_flag",
+            "move_object",
+            "remove_object",
+            "enable_event",
+            "disable_event",
+            "set_room_munged",
+            "set_parser_referent",
+            "call_routine",
+            "other"
+          ]
+        },
+        "target": {
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/$defs/scalar"
+        },
+        "amount": {
+          "type": "integer"
+        },
+        "flag": {
+          "type": "string"
+        },
+        "destination": {
+          "type": "string"
+        },
+        "routine": {
+          "type": "string"
+        },
+        "arguments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/scalar"
+          }
+        },
+        "source_expression": {
+          "type": "string"
+        },
+        "source_refs": {
+          "$ref": "#/$defs/sourceReferenceIds"
+        }
+      }
+    },
+    "conditionalEffect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "condition",
+        "effects"
+      ],
+      "properties": {
+        "condition": {
+          "$ref": "#/$defs/condition"
+        },
+        "effects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/effect"
+          }
+        },
+        "output_text": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "action": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "verbs"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "verbs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "direct_object": {
+          "type": "string"
+        },
+        "indirect_object": {
+          "type": "string"
+        },
+        "condition": {
+          "$ref": "#/$defs/condition"
+        },
+        "handler": {
+          "type": "string"
+        },
+        "output_text": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "effects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/effect"
+          }
+        },
+        "conditional_effects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/conditionalEffect"
+          }
+        },
+        "source_refs": {
+          "$ref": "#/$defs/sourceReferenceIds"
+        }
+      }
+    },
+    "description": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "text"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "trigger": {
+          "enum": [
+            "look",
+            "enter",
+            "event",
+            "other"
+          ]
+        },
+        "condition": {
+          "$ref": "#/$defs/condition"
+        },
+        "text": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "source_refs": {
+          "$ref": "#/$defs/sourceReferenceIds"
+        }
+      }
+    },
+    "exit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "directions",
+        "condition"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "directions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "destination": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "condition": {
+          "$ref": "#/$defs/condition"
+        },
+        "blocked_text": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "effects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/effect"
+          }
+        },
+        "source_refs": {
+          "$ref": "#/$defs/sourceReferenceIds"
+        }
+      }
+    },
+    "sceneObject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind",
+        "location",
+        "synonyms",
+        "adjectives",
+        "source_flags",
+        "source_properties",
+        "actions"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "object",
+            "pseudo_object",
+            "local_global",
+            "global_object"
+          ]
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "location": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "synonyms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "adjectives": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "source_flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "source_properties": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/scalar"
+          }
+        },
+        "initial_facts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/fact"
+          }
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/action"
+          }
+        },
+        "source_refs": {
+          "$ref": "#/$defs/sourceReferenceIds"
+        }
+      }
+    },
+    "dependency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind",
+        "reason"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "object",
+            "global",
+            "room",
+            "routine",
+            "event"
+          ]
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "initial_location": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "reason": {
+          "type": "string"
+        },
+        "source_refs": {
+          "$ref": "#/$defs/sourceReferenceIds"
+        }
+      }
+    },
+    "stateVariable": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind",
+        "value_type",
+        "initial_value"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "global",
+            "object_flag",
+            "object_location",
+            "room_flag",
+            "derived"
+          ]
+        },
+        "value_type": {
+          "enum": [
+            "boolean",
+            "integer",
+            "string",
+            "object_id"
+          ]
+        },
+        "initial_value": {
+          "$ref": "#/$defs/scalar"
+        },
+        "source_expression": {
+          "type": "string"
+        },
+        "source_refs": {
+          "$ref": "#/$defs/sourceReferenceIds"
+        }
+      }
+    },
+    "state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "stable",
+        "condition",
+        "facts",
+        "entry_text"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "stable": {
+          "type": "boolean"
+        },
+        "condition": {
+          "$ref": "#/$defs/condition"
+        },
+        "facts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/fact"
+          }
+        },
+        "entry_text": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source_refs": {
+          "$ref": "#/$defs/sourceReferenceIds"
+        }
+      }
+    },
+    "trigger": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "action",
+            "clock",
+            "enter",
+            "exit",
+            "engine_event"
+          ]
+        },
+        "verb": {
+          "type": "string"
+        },
+        "direct_object": {
+          "type": "string"
+        },
+        "indirect_object": {
+          "type": "string"
+        },
+        "routine": {
+          "type": "string"
+        },
+        "event": {
+          "type": "string"
+        }
+      }
+    },
+    "transition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "trigger",
+        "from",
+        "to_state",
+        "terminal",
+        "effects",
+        "conditional_effects",
+        "output_text"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "trigger": {
+          "$ref": "#/$defs/trigger"
+        },
+        "from": {
+          "$ref": "#/$defs/condition"
+        },
+        "to_state": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "terminal": {
+          "type": "boolean"
+        },
+        "effects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/effect"
+          }
+        },
+        "conditional_effects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/conditionalEffect"
+          }
+        },
+        "output_text": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source_refs": {
+          "$ref": "#/$defs/sourceReferenceIds"
+        }
+      }
+    },
+    "sourceReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "file",
+        "line_start",
+        "line_end",
+        "subject"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "file": {
+          "type": "string"
+        },
+        "line_start": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "line_end": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "subject": {
+          "type": "string"
+        }
+      }
+    },
+    "scene": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "descriptions",
+        "source_flags",
+        "exits",
+        "objects",
+        "dependencies",
+        "state_variables",
+        "states",
+        "transitions",
+        "notes",
+        "source_references"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "descriptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/description"
+          }
+        },
+        "source_flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "exits": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/exit"
+          }
+        },
+        "objects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/sceneObject"
+          }
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/dependency"
+          }
+        },
+        "state_variables": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/stateVariable"
+          }
+        },
+        "states": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/state"
+          }
+        },
+        "transitions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/transition"
+          }
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source_references": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/sourceReference"
+          }
+        }
+      }
+    }
+  }
+}
