@@ -164,19 +164,148 @@ every scene must be resized and quantized to
 palette file contains every byte value, its component codes, and a canonical
 RGB preview for modern tools.
 
-## Runtime direction
+## Host-side runtime design
 
-The intended runtime host will:
+### Authority and responsibilities
 
-- drive the parser and story state without requiring the Z-machine code to
-  access the console or display directly;
-- receive the current scene and state from the game engine;
-- render the corresponding pre-generated image;
-- expose only the objects, exits, and actions valid in that state;
-- translate hotspot selections into ordinary parser commands;
-- keep typed commands available as the authoritative interaction path.
+The Z-machine interpreter and the existing Zork story already contain the game
+engine, parser, world model, and rules. They remain authoritative. The host is
+a presentation layer: it renders the world described by the current
+Z-machine state and submits commands back to the existing parser.
 
-The native Z80 host engine and parser integration are still under development.
+The host must not:
+
+- reproduce ZIL rules or decide whether a command is valid;
+- invent state, objects, transitions, or semantic events that the story does
+  not contain;
+- require fictional engine messages such as `PLAY_SOUND`;
+- alter the result of a parser command.
+
+The parser validates every submitted command, including commands suggested by
+a hotspot.
+
+### Observing existing Z-machine state
+
+A presentation adapter must expose the subset of existing VM state required by
+the asset catalog. Candidate inputs include:
+
+- the current room;
+- the object tree and object locations;
+- object attribute bits such as visibility, open/closed, or lighting flags;
+- relevant globals, flags, and counters;
+- the narrative text already emitted by the story.
+
+These are observations of data the Z-machine already owns, not new game facts.
+The exact observation mechanism is still to be designed. For an unmodified Z3
+story, it may involve reading the object table and selected globals or
+observing the corresponding interpreter operations.
+
+The adapter must not interpret those values as new game rules. Build-time
+tables map the observed values to stable numeric scene, state, and object IDs.
+
+### Complete image and hotspot set per state
+
+Every renderable state of a scene has:
+
+- one complete 256×159 image;
+- one hotspot set authored against that exact image.
+
+There are no partial scene images and no runtime image overlays. When the
+selected state changes, the host replaces the complete scene bitmap and uses
+the hotspot set belonging to the new image.
+
+```text
+observed Z-machine state
+        ↓
+scene-state lookup
+        ↓
+complete image + matching hotspot set
+```
+
+Objects that are inactive, absent, removed, or invisible in the selected state
+must not be hit-testable. Existing Z-machine object state supplies that
+information; the runtime representation can apply it as active/inactive bits
+over the object catalog. Build-time `not_visible` records may be retained for
+validation but need not be stored in the final runtime data.
+
+### Object catalog and suggested commands
+
+The mechanically extracted scene facts may contain a set of possible action
+verbs for an object. That complete set is useful for provenance and asset
+generation, but it does not need to become a complete context menu.
+
+Each generated hotspot normally selects one preferred action for display:
+
+```text
+target: BLUE-BUTTON
+suggested verb: READ
+suggested command: READ BLUE BUTTON
+```
+
+The suggestion is not an exhaustive declaration of what the parser accepts.
+Clicking the hotspot places the suggested command in the input line. The user
+may edit it before submitting it—for example, changing `READ BLUE BUTTON` to
+`PUSH BLUE BUTTON`.
+
+The resulting separation is:
+
+```text
+scene facts       all mechanically extracted possible actions
+state hotspots    visible targets, rectangles, and one suggested command
+Zork parser       final authority over command validity and outcome
+```
+
+Unless the source proves otherwise, the design assumes that an object's
+displayed suggestion can remain fixed while the parser produces
+state-dependent results. If a visible object's suggested verb must itself
+change by state, that choice belongs in each state's independently generated
+hotspot set.
+
+### Turn flow
+
+```text
+typed or hotspot-suggested command
+        ↓
+existing Zork parser and story execute one turn
+        ↓
+existing VM state and narrative output change
+        ↓
+presentation adapter observes the new state
+        ↓
+host selects the complete image and hotspot set
+```
+
+The host does not need a high-level transition notification. It can render the
+state observed after the turn. Whether the adapter supplies a complete
+snapshot or a compact delta is an implementation and storage decision, not a
+change to the game model.
+
+Environmental audio may later be associated with a complete generated scene
+state when justified by the extracted facts. It must not depend on an event
+invented for the Z-machine.
+
+### Build-time and runtime representations
+
+JSON is an offline extraction, enrichment, generation, and validation format.
+The Z80 will not parse it. A later build step will compile the required data
+into compact binary structures using numeric IDs.
+
+The binary design is intentionally deferred until the required runtime data
+and Z-machine observation boundary are proven. Work still required includes:
+
+1. Identify the minimum existing VM values that distinguish every rendered
+   scene state.
+2. Determine how the interpreter or adapter exposes those values without
+   changing story semantics.
+3. Define the deterministic mapping from observed VM state to a complete image
+   and hotspot set.
+4. Verify whether any visible object's preferred hotspot suggestion genuinely
+   changes independently of the scene state.
+5. Design the compact Z80 binary catalog, state records, object-active bits,
+   and asset indexing.
+
+The native Z80 host and Z-machine presentation adapter are still under
+development.
 
 ## Licensing boundary
 
