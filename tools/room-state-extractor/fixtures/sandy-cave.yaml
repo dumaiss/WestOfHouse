@@ -1,0 +1,48 @@
+schema: "room_state_dictionary_v1"
+rooms:
+  -
+    id: "SANDY-CAVE"
+    status: "incomplete"
+    observe:
+      -
+        id: "BEACH-DIG"
+        kind: "global"
+        symbol: "BEACH-DIG"
+        value_type: "signed16"
+      -
+        id: "SCARAB.INVISIBLE"
+        kind: "object_attribute"
+        object: "SCARAB"
+        attribute: "INVISIBLE"
+        value_type: "boolean"
+    states:
+      -
+        id: "INITIAL"
+        match:
+          ref: "BEACH-DIG"
+          eq: -1
+      -
+        id: "BEACH-DIG-STATE-0"
+        match:
+          ref: "BEACH-DIG"
+          eq: 0
+      -
+        id: "BEACH-DIG-STATE-1"
+        match:
+          ref: "BEACH-DIG"
+          eq: 1
+      -
+        id: "BEACH-DIG-STATE-2"
+        match:
+          ref: "BEACH-DIG"
+          eq: 2
+      -
+        id: "POST-SAND-FUNCTION-718C9EE8E654"
+        match:
+          all:
+            -
+              ref: "BEACH-DIG"
+              eq: 3
+            -
+              ref: "SCARAB.INVISIBLE"
+              eq: false

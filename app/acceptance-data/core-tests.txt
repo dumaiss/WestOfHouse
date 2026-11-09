@@ -1,0 +1,19 @@
+make: Entering directory '/home/kitamura/Documents/WestOfHouse/libzvm'
+mkdir -p build/optimized/host
+cc   -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 -std=c99 -Wall -Wextra -Werror -Itests/host/include -I../../ZephyrOS/build/kos-sdk-0.2.0/include/abi -I../../ZephyrOS/build/kos-sdk-0.2.0/include -Iinclude -Itests tests/test_story_cache.c tests/story_cache.c ../../ZephyrOS/user/sdk/src/reader_full.c -o build/optimized/host/test_story_cache
+build/optimized/host/test_story_cache
+story_cache: PASS dynamic=4 static=4 storage=4096 bytes
+mkdir -p build/optimized/host
+cc   -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 -std=c99 -Wall -Wextra -Werror -Itests/host/include -I../../ZephyrOS/build/kos-sdk-0.2.0/include/abi -I../../ZephyrOS/build/kos-sdk-0.2.0/include -Iinclude -Isrc tests/test_zvm.c src/zvm.c src/memory.c src/variables.c src/frames.c src/objects.c src/decode.c src/execute.c src/opcodes.c src/text.c src/dictionary.c src/input.c src/services.c -o build/optimized/host/test_zvm
+build/optimized/host/test_zvm
+zvmtest: PASS
+make zvmtest
+make[1]: Entering directory '/home/kitamura/Documents/WestOfHouse/libzvm'
+Optimized build ready:
+  /home/kitamura/Documents/WestOfHouse/libzvm/build/ZVMTEST.EXE
+  /home/kitamura/Documents/WestOfHouse/libzvm/build/libzvm.lib
+Checksums: /home/kitamura/Documents/WestOfHouse/libzvm/build/SHA256SUMS
+make[1]: Leaving directory '/home/kitamura/Documents/WestOfHouse/libzvm'
+python3 ../../ZephyrOS/build/kos-sdk-0.2.0/tools/exepack.py validate build/optimized/target/user/zvmtest.exe
+exepack: build/optimized/target/user/zvmtest.exe OK (43184 bytes, sha256 cdb232076754b499f23907a2c49a5790d59a0b10db1ae21ccdf8a70afe2e2ddf)
+make: Leaving directory '/home/kitamura/Documents/WestOfHouse/libzvm'

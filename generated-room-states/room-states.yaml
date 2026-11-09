@@ -1,0 +1,1765 @@
+schema: "room_state_dictionary_v1"
+rooms:
+  -
+    id: "ARAGAIN-FALLS"
+    status: "ready"
+    observe:
+      -
+        id: "RAINBOW-FLAG"
+        kind: "global"
+        symbol: "RAINBOW-FLAG"
+        value_type: "boolean"
+    states:
+      -
+        id: "LOOK-A38F64AE6DA2"
+        match:
+          ref: "RAINBOW-FLAG"
+          eq: false
+      -
+        id: "LOOK-DD7E93BD2458"
+        match:
+          ref: "RAINBOW-FLAG"
+          ne: false
+  -
+    id: "ATLANTIS-ROOM"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "ATTIC"
+    status: "incomplete"
+    observe:
+      -
+        id: "DOME-FLAG"
+        kind: "global"
+        symbol: "DOME-FLAG"
+        value_type: "boolean"
+      -
+        id: "ROPE.NDESCBIT"
+        kind: "object_attribute"
+        object: "ROPE"
+        attribute: "NDESCBIT"
+        value_type: "boolean"
+    states:
+      -
+        id: "INITIAL"
+        status: "unresolved"
+      -
+        id: "POST-ROPE-FUNCTION-03A35DFC4152"
+        match:
+          all:
+            -
+              ref: "DOME-FLAG"
+              eq: false
+            -
+              ref: "ROPE.NDESCBIT"
+              eq: false
+      -
+        id: "POST-ROPE-FUNCTION-11683019530A"
+        status: "unresolved"
+      -
+        id: "POST-ROPE-FUNCTION-F678716CD25E"
+        status: "unresolved"
+  -
+    id: "BAT-ROOM"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "LOOK-31EE5DE2A6EE"
+        match: true
+  -
+    id: "CANYON-BOTTOM"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "CANYON-VIEW"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "CELLAR"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "LOOK-584D7B5798BA"
+        match: true
+  -
+    id: "CHASM-ROOM"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "CLEARING"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "CLIFF-MIDDLE"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "COLD-PASSAGE"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "CYCLOPS-ROOM"
+    status: "incomplete"
+    observe:
+      -
+        id: "CYCLOPS-FLAG"
+        kind: "global"
+        symbol: "CYCLOPS-FLAG"
+        value_type: "boolean"
+      -
+        id: "MAGIC-FLAG"
+        kind: "global"
+        symbol: "MAGIC-FLAG"
+        value_type: "boolean"
+    states:
+      -
+        id: "LOOK-01270FE89CB9"
+        status: "unresolved"
+      -
+        id: "LOOK-17F32AC71B89"
+        match:
+          all:
+            -
+              ref: "MAGIC-FLAG"
+              ne: false
+            -
+              not:
+                all:
+                  -
+                    ref: "MAGIC-FLAG"
+                    eq: false
+                  -
+                    ref: "CYCLOPS-FLAG"
+                    ne: false
+      -
+        id: "LOOK-6DB5BBED31F9"
+        status: "unresolved"
+      -
+        id: "LOOK-D32002B7C603"
+        match:
+          all:
+            -
+              ref: "MAGIC-FLAG"
+              eq: false
+            -
+              ref: "CYCLOPS-FLAG"
+              ne: false
+      -
+        id: "LOOK-FC16C728F351"
+        status: "unresolved"
+      -
+        id: "LOOK-FEDCFE2160C9"
+        status: "unresolved"
+  -
+    id: "DAM-BASE"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "DAM-LOBBY"
+    status: "incomplete"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        status: "unresolved"
+      -
+        id: "POST-MATCH-FUNCTION-1C515F21B29D"
+        status: "unresolved"
+      -
+        id: "POST-MATCH-FUNCTION-41FDA3126B66"
+        status: "unresolved"
+      -
+        id: "POST-MATCH-FUNCTION-5142E79C1020"
+        status: "contradictory"
+      -
+        id: "POST-MATCH-FUNCTION-67AB36ACF15D"
+        status: "unresolved"
+      -
+        id: "POST-MATCH-FUNCTION-68257CB91C04"
+        status: "contradictory"
+      -
+        id: "POST-MATCH-FUNCTION-7DE50324B580"
+        status: "unresolved"
+  -
+    id: "DAM-ROOM"
+    status: "ready"
+    observe:
+      -
+        id: "GATE-FLAG"
+        kind: "global"
+        symbol: "GATE-FLAG"
+        value_type: "boolean"
+      -
+        id: "GATES-OPEN"
+        kind: "global"
+        symbol: "GATES-OPEN"
+        value_type: "boolean"
+      -
+        id: "LOW-TIDE"
+        kind: "global"
+        symbol: "LOW-TIDE"
+        value_type: "boolean"
+    states:
+      -
+        id: "LOOK-183AEB3E60D3"
+        match:
+          all:
+            -
+              ref: "GATE-FLAG"
+              eq: false
+            -
+              ref: "GATES-OPEN"
+              ne: false
+            -
+              not:
+                all:
+                  -
+                    ref: "GATES-OPEN"
+                    ne: false
+                  -
+                    ref: "LOW-TIDE"
+                    ne: false
+      -
+        id: "LOOK-25CF5EFFF46F"
+        match:
+          all:
+            -
+              ref: "GATE-FLAG"
+              eq: false
+            -
+              not:
+                any:
+                  -
+                    all:
+                      -
+                        ref: "GATES-OPEN"
+                        ne: false
+                      -
+                        ref: "LOW-TIDE"
+                        ne: false
+                  -
+                    ref: "GATES-OPEN"
+                    ne: false
+                  -
+                    ref: "LOW-TIDE"
+                    ne: false
+      -
+        id: "LOOK-2FAC36355994"
+        match:
+          all:
+            -
+              ref: "GATE-FLAG"
+              eq: false
+            -
+              ref: "GATES-OPEN"
+              ne: false
+            -
+              ref: "LOW-TIDE"
+              ne: false
+      -
+        id: "LOOK-5E1652E22E13"
+        match:
+          all:
+            -
+              ref: "GATE-FLAG"
+              eq: false
+            -
+              ref: "LOW-TIDE"
+              ne: false
+            -
+              not:
+                any:
+                  -
+                    all:
+                      -
+                        ref: "GATES-OPEN"
+                        ne: false
+                      -
+                        ref: "LOW-TIDE"
+                        ne: false
+                  -
+                    ref: "GATES-OPEN"
+                    ne: false
+      -
+        id: "LOOK-AAFC5BC75952"
+        match:
+          all:
+            -
+              ref: "GATE-FLAG"
+              ne: false
+            -
+              ref: "GATES-OPEN"
+              ne: false
+            -
+              ref: "LOW-TIDE"
+              ne: false
+      -
+        id: "LOOK-D408181E3B17"
+        match:
+          all:
+            -
+              ref: "GATE-FLAG"
+              ne: false
+            -
+              ref: "GATES-OPEN"
+              ne: false
+            -
+              not:
+                all:
+                  -
+                    ref: "GATES-OPEN"
+                    ne: false
+                  -
+                    ref: "LOW-TIDE"
+                    ne: false
+      -
+        id: "LOOK-EF803B95AAE8"
+        match:
+          all:
+            -
+              ref: "GATE-FLAG"
+              ne: false
+            -
+              ref: "LOW-TIDE"
+              ne: false
+            -
+              not:
+                any:
+                  -
+                    all:
+                      -
+                        ref: "GATES-OPEN"
+                        ne: false
+                      -
+                        ref: "LOW-TIDE"
+                        ne: false
+                  -
+                    ref: "GATES-OPEN"
+                    ne: false
+      -
+        id: "LOOK-F5EB88ED9C82"
+        match:
+          all:
+            -
+              ref: "GATE-FLAG"
+              ne: false
+            -
+              not:
+                any:
+                  -
+                    all:
+                      -
+                        ref: "GATES-OPEN"
+                        ne: false
+                      -
+                        ref: "LOW-TIDE"
+                        ne: false
+                  -
+                    ref: "GATES-OPEN"
+                    ne: false
+                  -
+                    ref: "LOW-TIDE"
+                    ne: false
+  -
+    id: "DAMP-CAVE"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "DEAD-END-1"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "DEAD-END-2"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "DEAD-END-3"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "DEAD-END-4"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "DEAD-END-5"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "DEEP-CANYON"
+    status: "ready"
+    observe:
+      -
+        id: "GATES-OPEN"
+        kind: "global"
+        symbol: "GATES-OPEN"
+        value_type: "boolean"
+      -
+        id: "LOW-TIDE"
+        kind: "global"
+        symbol: "LOW-TIDE"
+        value_type: "boolean"
+    states:
+      -
+        id: "LOOK-A083A39E7651"
+        match:
+          all:
+            -
+              ref: "LOW-TIDE"
+              eq: false
+            -
+              ref: "GATES-OPEN"
+              ne: false
+      -
+        id: "LOOK-D6A8BC3AD7BE"
+        match:
+          all:
+            -
+              ref: "GATES-OPEN"
+              eq: false
+            -
+              ref: "LOW-TIDE"
+              ne: false
+      -
+        id: "LOOK-F8FCD16BBA92"
+        match:
+          not:
+            any:
+              -
+                all:
+                  -
+                    ref: "GATES-OPEN"
+                    eq: false
+                  -
+                    ref: "LOW-TIDE"
+                    ne: false
+              -
+                all:
+                  -
+                    ref: "LOW-TIDE"
+                    eq: false
+                  -
+                    ref: "GATES-OPEN"
+                    ne: false
+  -
+    id: "DOME-ROOM"
+    status: "ready"
+    observe:
+      -
+        id: "DOME-FLAG"
+        kind: "global"
+        symbol: "DOME-FLAG"
+        value_type: "boolean"
+    states:
+      -
+        id: "LOOK-0D8CE95169D7"
+        match:
+          ref: "DOME-FLAG"
+          ne: false
+      -
+        id: "LOOK-CDF246C6FE2A"
+        match:
+          ref: "DOME-FLAG"
+          eq: false
+  -
+    id: "EAST-OF-CHASM"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "EAST-OF-HOUSE"
+    status: "ready"
+    observe:
+      -
+        id: "KITCHEN-WINDOW.OPENBIT"
+        kind: "object_attribute"
+        object: "KITCHEN-WINDOW"
+        attribute: "OPENBIT"
+        value_type: "boolean"
+    states:
+      -
+        id: "LOOK-4ACD09F6346B"
+        match:
+          ref: "KITCHEN-WINDOW.OPENBIT"
+          ne: true
+      -
+        id: "LOOK-B3743B9659AF"
+        match:
+          ref: "KITCHEN-WINDOW.OPENBIT"
+          eq: true
+  -
+    id: "EGYPT-ROOM"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "END-OF-RAINBOW"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "ENGRAVINGS-CAVE"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "ENTRANCE-TO-HADES"
+    status: "ready"
+    observe:
+      -
+        id: "DEAD"
+        kind: "global"
+        symbol: "DEAD"
+        value_type: "boolean"
+      -
+        id: "LLD-FLAG"
+        kind: "global"
+        symbol: "LLD-FLAG"
+        value_type: "boolean"
+    states:
+      -
+        id: "LOOK-12DF34E64BFB"
+        match:
+          not:
+            all:
+              -
+                ref: "DEAD"
+                eq: false
+              -
+                ref: "LLD-FLAG"
+                eq: false
+      -
+        id: "LOOK-C4CBA21BEBA2"
+        match:
+          all:
+            -
+              ref: "DEAD"
+              eq: false
+            -
+              ref: "LLD-FLAG"
+              eq: false
+  -
+    id: "EW-PASSAGE"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "FOREST-1"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "FOREST-2"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "FOREST-3"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "GALLERY"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "GAS-ROOM"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "GRATING-CLEARING"
+    status: "ready"
+    observe:
+      -
+        id: "GRATE-REVEALED"
+        kind: "global"
+        symbol: "GRATE-REVEALED"
+        value_type: "boolean"
+      -
+        id: "GRATE.OPENBIT"
+        kind: "object_attribute"
+        object: "GRATE"
+        attribute: "OPENBIT"
+        value_type: "boolean"
+    states:
+      -
+        id: "LOOK-2DA88419F9BF"
+        match:
+          all:
+            -
+              ref: "GRATE-REVEALED"
+              ne: false
+            -
+              ref: "GRATE.OPENBIT"
+              ne: true
+      -
+        id: "LOOK-7292436AE4FD"
+        match:
+          not:
+            any:
+              -
+                ref: "GRATE.OPENBIT"
+                eq: true
+              -
+                ref: "GRATE-REVEALED"
+                ne: false
+      -
+        id: "LOOK-AF0D9108EB57"
+        match:
+          ref: "GRATE.OPENBIT"
+          eq: true
+  -
+    id: "GRATING-ROOM"
+    status: "incomplete"
+    observe:
+      -
+        id: "GRATE.OPENBIT"
+        kind: "object_attribute"
+        object: "GRATE"
+        attribute: "OPENBIT"
+        value_type: "boolean"
+      -
+        id: "GRUNLOCK"
+        kind: "global"
+        symbol: "GRUNLOCK"
+        value_type: "boolean"
+    states:
+      -
+        id: "LOOK-48644D1B8C55"
+        match:
+          not:
+            any:
+              -
+                ref: "GRATE.OPENBIT"
+                eq: true
+              -
+                ref: "GRUNLOCK"
+                ne: false
+      -
+        id: "LOOK-74E22E4B6FB2"
+        match:
+          all:
+            -
+              ref: "GRUNLOCK"
+              ne: false
+            -
+              ref: "GRATE.OPENBIT"
+              ne: true
+      -
+        id: "LOOK-C32D4D702045"
+        match:
+          ref: "GRATE.OPENBIT"
+          eq: true
+      -
+        id: "POST-GRATE-FUNCTION-7BD7DD42DDFA"
+        status: "unresolved"
+  -
+    id: "IN-STREAM"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "KITCHEN"
+    status: "ready"
+    observe:
+      -
+        id: "KITCHEN-WINDOW.OPENBIT"
+        kind: "object_attribute"
+        object: "KITCHEN-WINDOW"
+        attribute: "OPENBIT"
+        value_type: "boolean"
+    states:
+      -
+        id: "LOOK-6DBE643B0841"
+        match:
+          ref: "KITCHEN-WINDOW.OPENBIT"
+          ne: true
+      -
+        id: "LOOK-DE296868739F"
+        match:
+          ref: "KITCHEN-WINDOW.OPENBIT"
+          eq: true
+  -
+    id: "LADDER-BOTTOM"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "LADDER-TOP"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "LAND-OF-LIVING-DEAD"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "LIVING-ROOM"
+    status: "incomplete"
+    observe:
+      -
+        id: "RUG-MOVED"
+        kind: "global"
+        symbol: "RUG-MOVED"
+        value_type: "boolean"
+      -
+        id: "TRAP-DOOR.INVISIBLE"
+        kind: "object_attribute"
+        object: "TRAP-DOOR"
+        attribute: "INVISIBLE"
+        value_type: "boolean"
+      -
+        id: "TRAP-DOOR.OPENBIT"
+        kind: "object_attribute"
+        object: "TRAP-DOOR"
+        attribute: "OPENBIT"
+        value_type: "boolean"
+      -
+        id: "TRAP-DOOR.TOUCHBIT"
+        kind: "object_attribute"
+        object: "TRAP-DOOR"
+        attribute: "TOUCHBIT"
+        value_type: "boolean"
+    states:
+      -
+        id: "LOOK-01BE1293376B"
+        status: "unresolved"
+      -
+        id: "LOOK-4C35D2A006EC"
+        status: "unresolved"
+      -
+        id: "LOOK-5B4C4750931F"
+        status: "unresolved"
+      -
+        id: "LOOK-8B511529C3C2"
+        status: "unresolved"
+      -
+        id: "LOOK-9ADA81680DF7"
+        status: "unresolved"
+      -
+        id: "LOOK-BACFA7AD6B78"
+        status: "unresolved"
+      -
+        id: "LOOK-DAB1A6534E35"
+        status: "unresolved"
+      -
+        id: "LOOK-F63F105AE16A"
+        status: "unresolved"
+      -
+        id: "POST-RUG-FCN-8536C292402B"
+        match:
+          all:
+            -
+              ref: "TRAP-DOOR.INVISIBLE"
+              eq: false
+            -
+              ref: "RUG-MOVED"
+              eq: true
+        status: "ambiguous"
+      -
+        id: "POST-TRAP-DOOR-FCN-AE99A4D6CC11"
+        match:
+          all:
+            -
+              ref: "TRAP-DOOR.OPENBIT"
+              eq: false
+            -
+              ref: "TRAP-DOOR.TOUCHBIT"
+              eq: false
+        status: "ambiguous"
+  -
+    id: "LOUD-ROOM"
+    status: "ready"
+    observe:
+      -
+        id: "GATES-OPEN"
+        kind: "global"
+        symbol: "GATES-OPEN"
+        value_type: "boolean"
+      -
+        id: "LOUD-FLAG"
+        kind: "global"
+        symbol: "LOUD-FLAG"
+        value_type: "boolean"
+      -
+        id: "LOW-TIDE"
+        kind: "global"
+        symbol: "LOW-TIDE"
+        value_type: "boolean"
+    states:
+      -
+        id: "LOOK-1003B53A382F"
+        match:
+          any:
+            -
+              all:
+                -
+                  ref: "GATES-OPEN"
+                  eq: false
+                -
+                  ref: "LOW-TIDE"
+                  ne: false
+            -
+              ref: "LOUD-FLAG"
+              ne: false
+      -
+        id: "LOOK-DB173A7B909D"
+        match:
+          not:
+            any:
+              -
+                all:
+                  -
+                    ref: "GATES-OPEN"
+                    eq: false
+                  -
+                    ref: "LOW-TIDE"
+                    ne: false
+              -
+                ref: "LOUD-FLAG"
+                ne: false
+  -
+    id: "LOWER-SHAFT"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "MACHINE-ROOM"
+    status: "incomplete"
+    observe:
+      -
+        id: "MACHINE.OPENBIT"
+        kind: "object_attribute"
+        object: "MACHINE"
+        attribute: "OPENBIT"
+        value_type: "boolean"
+    states:
+      -
+        id: "LOOK-12B047283F82"
+        match:
+          ref: "MACHINE.OPENBIT"
+          ne: true
+        status: "ambiguous"
+      -
+        id: "LOOK-1AFCCD72346D"
+        match:
+          ref: "MACHINE.OPENBIT"
+          eq: true
+      -
+        id: "POST-MACHINE-F-36647D41A0F7"
+        status: "unresolved"
+      -
+        id: "POST-MACHINE-F-3B5A4BED76A8"
+        match:
+          ref: "MACHINE.OPENBIT"
+          eq: false
+        status: "ambiguous"
+      -
+        id: "POST-MACHINE-F-CC1FE147707F"
+        status: "unresolved"
+  -
+    id: "MAINTENANCE-ROOM"
+    status: "incomplete"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        status: "unresolved"
+      -
+        id: "POST-BUTTON-F-22951005A6EF"
+        status: "unresolved"
+      -
+        id: "POST-BUTTON-F-80D46805D383"
+        status: "unresolved"
+      -
+        id: "POST-BUTTON-F-BBB2AF8D229A"
+        status: "unresolved"
+  -
+    id: "MAZE-1"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "MAZE-10"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "MAZE-11"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "MAZE-12"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "MAZE-13"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "MAZE-14"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "MAZE-15"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "MAZE-2"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "MAZE-3"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "MAZE-4"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "MAZE-5"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "MAZE-6"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "MAZE-7"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "MAZE-8"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "MAZE-9"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "MINE-1"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "MINE-2"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "MINE-3"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "MINE-4"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "MINE-ENTRANCE"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "MIRROR-ROOM-1"
+    status: "ready"
+    observe:
+      -
+        id: "MIRROR-MUNG"
+        kind: "global"
+        symbol: "MIRROR-MUNG"
+        value_type: "boolean"
+    states:
+      -
+        id: "LOOK-09722ADD1423"
+        match:
+          ref: "MIRROR-MUNG"
+          ne: false
+      -
+        id: "LOOK-0FB4A68B2D6C"
+        match:
+          ref: "MIRROR-MUNG"
+          eq: false
+  -
+    id: "MIRROR-ROOM-2"
+    status: "ready"
+    observe:
+      -
+        id: "MIRROR-MUNG"
+        kind: "global"
+        symbol: "MIRROR-MUNG"
+        value_type: "boolean"
+    states:
+      -
+        id: "LOOK-09722ADD1423"
+        match:
+          ref: "MIRROR-MUNG"
+          ne: false
+      -
+        id: "LOOK-0FB4A68B2D6C"
+        match:
+          ref: "MIRROR-MUNG"
+          eq: false
+  -
+    id: "MOUNTAINS"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "NARROW-PASSAGE"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "NORTH-OF-HOUSE"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "NORTH-TEMPLE"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "NS-PASSAGE"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "ON-RAINBOW"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "PATH"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "RESERVOIR"
+    status: "ready"
+    observe:
+      -
+        id: "LOW-TIDE"
+        kind: "global"
+        symbol: "LOW-TIDE"
+        value_type: "boolean"
+    states:
+      -
+        id: "LOOK-8CBFAA778666"
+        match:
+          ref: "LOW-TIDE"
+          ne: false
+      -
+        id: "LOOK-EB9A6FD9C313"
+        match:
+          ref: "LOW-TIDE"
+          eq: false
+  -
+    id: "RESERVOIR-NORTH"
+    status: "ready"
+    observe:
+      -
+        id: "GATES-OPEN"
+        kind: "global"
+        symbol: "GATES-OPEN"
+        value_type: "boolean"
+      -
+        id: "LOW-TIDE"
+        kind: "global"
+        symbol: "LOW-TIDE"
+        value_type: "boolean"
+    states:
+      -
+        id: "LOOK-3F8156A3B59F"
+        match:
+          all:
+            -
+              ref: "GATES-OPEN"
+              ne: false
+            -
+              not:
+                all:
+                  -
+                    ref: "GATES-OPEN"
+                    ne: false
+                  -
+                    ref: "LOW-TIDE"
+                    ne: false
+      -
+        id: "LOOK-8E0C0E5B26A2"
+        match:
+          all:
+            -
+              ref: "GATES-OPEN"
+              ne: false
+            -
+              ref: "LOW-TIDE"
+              ne: false
+      -
+        id: "LOOK-AF3761505961"
+        match:
+          all:
+            -
+              ref: "LOW-TIDE"
+              ne: false
+            -
+              not:
+                any:
+                  -
+                    all:
+                      -
+                        ref: "GATES-OPEN"
+                        ne: false
+                      -
+                        ref: "LOW-TIDE"
+                        ne: false
+                  -
+                    ref: "GATES-OPEN"
+                    ne: false
+      -
+        id: "LOOK-DE5C3C4A172E"
+        match:
+          not:
+            any:
+              -
+                all:
+                  -
+                    ref: "GATES-OPEN"
+                    ne: false
+                  -
+                    ref: "LOW-TIDE"
+                    ne: false
+              -
+                ref: "GATES-OPEN"
+                ne: false
+              -
+                ref: "LOW-TIDE"
+                ne: false
+  -
+    id: "RESERVOIR-SOUTH"
+    status: "ready"
+    observe:
+      -
+        id: "GATES-OPEN"
+        kind: "global"
+        symbol: "GATES-OPEN"
+        value_type: "boolean"
+      -
+        id: "LOW-TIDE"
+        kind: "global"
+        symbol: "LOW-TIDE"
+        value_type: "boolean"
+    states:
+      -
+        id: "LOOK-59F1E792382B"
+        match:
+          all:
+            -
+              ref: "GATES-OPEN"
+              ne: false
+            -
+              not:
+                all:
+                  -
+                    ref: "GATES-OPEN"
+                    ne: false
+                  -
+                    ref: "LOW-TIDE"
+                    ne: false
+      -
+        id: "LOOK-7102492C0E61"
+        match:
+          not:
+            any:
+              -
+                all:
+                  -
+                    ref: "GATES-OPEN"
+                    ne: false
+                  -
+                    ref: "LOW-TIDE"
+                    ne: false
+              -
+                ref: "GATES-OPEN"
+                ne: false
+              -
+                ref: "LOW-TIDE"
+                ne: false
+      -
+        id: "LOOK-AB0139B0FEE6"
+        match:
+          all:
+            -
+              ref: "LOW-TIDE"
+              ne: false
+            -
+              not:
+                any:
+                  -
+                    all:
+                      -
+                        ref: "GATES-OPEN"
+                        ne: false
+                      -
+                        ref: "LOW-TIDE"
+                        ne: false
+                  -
+                    ref: "GATES-OPEN"
+                    ne: false
+      -
+        id: "LOOK-EC761344CEB6"
+        match:
+          all:
+            -
+              ref: "GATES-OPEN"
+              ne: false
+            -
+              ref: "LOW-TIDE"
+              ne: false
+  -
+    id: "RIVER-1"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "RIVER-2"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "RIVER-3"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "RIVER-4"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "RIVER-5"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "ROUND-ROOM"
+    status: "incomplete"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        status: "unresolved"
+      -
+        id: "POST-ROBBER-FUNCTION-13B40FADB7BF"
+        status: "unresolved"
+      -
+        id: "POST-ROBBER-FUNCTION-14B174F9609C"
+        status: "unresolved"
+      -
+        id: "POST-ROBBER-FUNCTION-2BBE998CDD2E"
+        status: "unresolved"
+      -
+        id: "POST-ROBBER-FUNCTION-398B67B2BF62"
+        status: "unresolved"
+      -
+        id: "POST-ROBBER-FUNCTION-9ABE8A7FC022"
+        status: "unresolved"
+      -
+        id: "POST-ROBBER-FUNCTION-CCA5834D7A01"
+        status: "unresolved"
+      -
+        id: "POST-ROBBER-FUNCTION-EA8CCCD05CFE"
+        status: "unresolved"
+      -
+        id: "POST-ROBBER-FUNCTION-FC2122E4CE07"
+        status: "unresolved"
+  -
+    id: "SANDY-BEACH"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "SANDY-CAVE"
+    status: "incomplete"
+    observe:
+      -
+        id: "BEACH-DIG"
+        kind: "global"
+        symbol: "BEACH-DIG"
+        value_type: "signed16"
+      -
+        id: "SCARAB.INVISIBLE"
+        kind: "object_attribute"
+        object: "SCARAB"
+        attribute: "INVISIBLE"
+        value_type: "boolean"
+    states:
+      -
+        id: "INITIAL"
+        match:
+          ref: "BEACH-DIG"
+          eq: -1
+      -
+        id: "BEACH-DIG-STATE-0"
+        match:
+          ref: "BEACH-DIG"
+          eq: 0
+      -
+        id: "BEACH-DIG-STATE-1"
+        match:
+          ref: "BEACH-DIG"
+          eq: 1
+      -
+        id: "BEACH-DIG-STATE-2"
+        match:
+          ref: "BEACH-DIG"
+          eq: 2
+      -
+        id: "POST-SAND-FUNCTION-718C9EE8E654"
+        match:
+          all:
+            -
+              ref: "BEACH-DIG"
+              eq: 3
+            -
+              ref: "SCARAB.INVISIBLE"
+              eq: false
+  -
+    id: "SHAFT-ROOM"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "SHORE"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "SLIDE-ROOM"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "SMALL-CAVE"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "SMELLY-ROOM"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "SOUTH-OF-HOUSE"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "SOUTH-TEMPLE"
+    status: "incomplete"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        status: "unresolved"
+      -
+        id: "POST-CANDLES-FCN-117707383254"
+        status: "unresolved"
+      -
+        id: "POST-CANDLES-FCN-CF80D0415F2E"
+        status: "unresolved"
+      -
+        id: "POST-CANDLES-FCN-E7CA682FE322"
+        status: "unresolved"
+  -
+    id: "SQUEEKY-ROOM"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "STONE-BARROW"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "STRANGE-PASSAGE"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "STREAM-VIEW"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "STUDIO"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "TIMBER-ROOM"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "TINY-CAVE"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "TORCH-ROOM"
+    status: "ready"
+    observe:
+      -
+        id: "DOME-FLAG"
+        kind: "global"
+        symbol: "DOME-FLAG"
+        value_type: "boolean"
+    states:
+      -
+        id: "LOOK-42D6C3BB6AB5"
+        match:
+          ref: "DOME-FLAG"
+          ne: false
+      -
+        id: "LOOK-4703A4F94993"
+        match:
+          ref: "DOME-FLAG"
+          eq: false
+  -
+    id: "TREASURE-ROOM"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "TROLL-ROOM"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "TWISTING-PASSAGE"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "UP-A-TREE"
+    status: "incomplete"
+    observe: []
+    states:
+      -
+        id: "LOOK-1C843A54E82D"
+        status: "unresolved"
+      -
+        id: "LOOK-53342DB6179F"
+        status: "unresolved"
+  -
+    id: "WEST-OF-HOUSE"
+    status: "ready"
+    observe:
+      -
+        id: "WON-FLAG"
+        kind: "global"
+        symbol: "WON-FLAG"
+        value_type: "boolean"
+    states:
+      -
+        id: "LOOK-68B304A687F9"
+        match:
+          ref: "WON-FLAG"
+          eq: false
+      -
+        id: "LOOK-9A941A2A2FC0"
+        match:
+          ref: "WON-FLAG"
+          ne: false
+  -
+    id: "WHITE-CLIFFS-NORTH"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "WHITE-CLIFFS-SOUTH"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true
+  -
+    id: "WINDING-PASSAGE"
+    status: "ready"
+    observe: []
+    states:
+      -
+        id: "INITIAL"
+        match: true

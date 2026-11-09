@@ -1,0 +1,8 @@
+command	/fs/WOH.EXE
+prompt	/> 
+timeout	300
+capture	/home/kitamura/Documents/WestOfHouse/app/build/interface/run/console.txt
+result	/home/kitamura/Documents/WestOfHouse/app/build/interface/run/result.txt
+exit	1
+osmap	/home/kitamura/Documents/ZephyrOS/build/konaos.map
+program	/home/kitamura/Documents/WestOfHouse/app/build/target/user/woh/woh.map

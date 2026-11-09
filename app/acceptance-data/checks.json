@@ -1,0 +1,94 @@
+{
+  "boundaries": [
+    {
+      "command": null,
+      "here": 180,
+      "state": 1,
+      "output_bytes": 380,
+      "output_hash": 1984862764
+    },
+    {
+      "command": "look",
+      "here": 180,
+      "state": 1,
+      "output_bytes": 511,
+      "output_hash": 1391939494
+    },
+    {
+      "command": "open mailbox",
+      "here": 180,
+      "state": 1,
+      "output_bytes": 558,
+      "output_hash": 2096320972
+    },
+    {
+      "command": "inventory",
+      "here": 180,
+      "state": 1,
+      "output_bytes": 582,
+      "output_hash": 3901688225
+    },
+    {
+      "command": "north",
+      "here": 81,
+      "state": 1,
+      "output_bytes": 758,
+      "output_hash": 2820024303
+    },
+    {
+      "command": "east",
+      "here": 79,
+      "state": 1,
+      "output_bytes": 922,
+      "output_hash": 3869957533
+    },
+    {
+      "command": "open window",
+      "here": 79,
+      "state": 2,
+      "output_bytes": 990,
+      "output_hash": 2157503673
+    },
+    {
+      "command": "close window",
+      "here": 79,
+      "state": 1,
+      "output_bytes": 1040,
+      "output_hash": 3260179369
+    },
+    {
+      "command": "xyzzy",
+      "here": 79,
+      "state": 1,
+      "output_bytes": 1070,
+      "output_hash": 397319049
+    },
+    {
+      "command": "score",
+      "here": 79,
+      "state": 1,
+      "output_bytes": 1160,
+      "output_hash": 1103448539
+    },
+    {
+      "command": "quit",
+      "here": 79,
+      "state": 1,
+      "output_bytes": 1300,
+      "output_hash": 1340938054
+    },
+    {
+      "command": "y",
+      "here": 79,
+      "state": 1,
+      "output_bytes": 1300,
+      "output_hash": 1340938054
+    }
+  ],
+  "narrative_sha256": "fa2269c2b4c0bbfc2ceaf16a7da61bfefe7d9c3d0ccd4b30fe68c853337ab42d",
+  "cursor_bitmap_unchanged": true,
+  "menu_restoration_exact": true,
+  "scene_unchanged_outside_overlay": true,
+  "two_sprite_cursor_white_and_dark_blue": true,
+  "note": "Target observed through read-only telemetry; reference runs the same unchanged VM core."
+}

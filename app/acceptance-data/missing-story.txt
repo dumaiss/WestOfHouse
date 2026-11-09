@@ -1,0 +1,6 @@
+/>
+woh: cannot open story file (code -1, VM 1, PC 0)
+woh: story path zork1.z3
+woh: cannot open story file (code -1, VM 1, PC 0)
+woh: story path zork1.z3
+/>

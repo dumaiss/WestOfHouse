@@ -1,0 +1,6246 @@
+{
+  "schema": "room_state_diagnostics_v2",
+  "source_hashes": {
+    "1actions.zil": "94be62a8e11e488e866dc1fc126d63bcf2674fa1fd3710cca1d8d01cb3fb4f8b",
+    "1dungeon.zil": "8e223dc75ce64cff8542266101742ea73774533787c5257e8df4a262e4f02766",
+    "gclock.zil": "92c4d66f18eeba8de1497215a0e17ade6c2cf1e5e050f016cf99160e41b154c6",
+    "gglobals.zil": "5945abfeeff71cd2b2088653c7572d3c72bf14d5af65c41b4425d945a6bb6e0a",
+    "gmacros.zil": "d665c73e9231429a772877357fd56d57c946838a5260a74f705c2dc898ebd8f5",
+    "gmain.zil": "712e27ab29d36f3d36c7994ec6d41011cb869990d8780a03bb2ee8148d3f1740",
+    "gparser.zil": "5c996d3048925ac8781a00c56ce66ec2e58df2c075cc587bceef6355b5c9c1a1",
+    "gsyntax.zil": "b0f0b4de6068bb85cf96306a16e07f410518669d12260682d3ac71e2e42b5621",
+    "gverbs.zil": "e1150d6300e262f774b59fe96f8139980dfad3c41f0e93f3af49140b5f57e74e",
+    "zork1.zil": "12bbbe01a0df6f542b06145abdc28a42591bd8333f02cc6761501b1ef018e104"
+  },
+  "summary": {
+    "rooms_processed": 110,
+    "rooms_ready": 99,
+    "rooms_not_ready": 11,
+    "single_state_rooms": 83,
+    "multiple_state_rooms": 27,
+    "resolved_states": 139,
+    "unresolved_states": 42,
+    "ambiguous_states": 4,
+    "contradictory_states": 2,
+    "rooms_with_recognition_overlaps": 2,
+    "rooms_with_recognition_coverage_gaps": 9,
+    "rooms_with_recognition_uncertainty": 0,
+    "observation_types": [
+      "global",
+      "object_attribute"
+    ]
+  },
+  "rooms": [
+    {
+      "room": "ARAGAIN-FALLS",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "LOOK-A38F64AE6DA2": "resolved",
+          "LOOK-DD7E93BD2458": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "LOOK-A38F64AE6DA2",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 2622
+          },
+          "condition": {
+            "ref": "RAINBOW-FLAG",
+            "eq": false
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-DD7E93BD2458",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 2622
+          },
+          "condition": {
+            "ref": "RAINBOW-FLAG",
+            "ne": false
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "ATLANTIS-ROOM",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1923
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "ATTIC",
+      "status": "incomplete",
+      "validation": {
+        "ready": false,
+        "blocking_reasons": [
+          "unresolved_states",
+          "recognition_coverage_gap"
+        ],
+        "state_status": {
+          "INITIAL": "unresolved",
+          "POST-ROPE-FUNCTION-03A35DFC4152": "resolved",
+          "POST-ROPE-FUNCTION-11683019530A": "unresolved",
+          "POST-ROPE-FUNCTION-F678716CD25E": "unresolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": {
+          "DOME-FLAG": false,
+          "ROPE.NDESCBIT": true
+        },
+        "uncertainty": [],
+        "predicate_partition_complete": false
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1443
+          },
+          "condition": {
+            "unknown": "No source-proven default complement for presentation variants"
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            "No source-proven default complement for presentation variants"
+          ]
+        },
+        {
+          "id": "POST-ROPE-FUNCTION-03A35DFC4152",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 3030
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "DOME-FLAG",
+                "eq": false
+              },
+              {
+                "ref": "ROPE.NDESCBIT",
+                "eq": false
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "POST-ROPE-FUNCTION-11683019530A",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 3030
+          },
+          "condition": {
+            "all": [
+              {
+                "any": [
+                  {
+                    "not": {
+                      "unknown": ".RLOC"
+                    }
+                  },
+                  {
+                    "not": {
+                      "unknown": "<IN? .RLOC ,ROOMS>"
+                    }
+                  }
+                ]
+              },
+              {
+                "ref": "ROPE.parent",
+                "eq": "ATTIC"
+              },
+              {
+                "ref": "DOME-FLAG",
+                "eq": true
+              },
+              {
+                "ref": "ROPE.NDESCBIT",
+                "eq": true
+              },
+              {
+                "unknown": "<EQUAL? ,PRSI ,RAILING>"
+              },
+              {
+                "unknown": "<SET RLOC <LOC ,ROPE>>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            ".RLOC",
+            "<IN? .RLOC ,ROOMS>",
+            "<EQUAL? ,PRSI ,RAILING>",
+            "<SET RLOC <LOC ,ROPE>>"
+          ]
+        },
+        {
+          "id": "POST-ROPE-FUNCTION-F678716CD25E",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 3030
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "DOME-FLAG",
+                "eq": true
+              },
+              {
+                "ref": "ROPE.NDESCBIT",
+                "eq": true
+              },
+              {
+                "not": {
+                  "any": [
+                    {
+                      "not": {
+                        "unknown": ".RLOC"
+                      }
+                    },
+                    {
+                      "not": {
+                        "unknown": "<IN? .RLOC ,ROOMS>"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "unknown": "<EQUAL? ,PRSI ,RAILING>"
+              },
+              {
+                "unknown": "<SET RLOC <LOC ,ROPE>>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            ".RLOC",
+            "<IN? .RLOC ,ROOMS>",
+            "<EQUAL? ,PRSI ,RAILING>",
+            "<SET RLOC <LOC ,ROPE>>"
+          ]
+        }
+      ]
+    },
+    {
+      "room": "BAT-ROOM",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "LOOK-31EE5DE2A6EE": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "LOOK-31EE5DE2A6EE",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 2479
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "CANYON-BOTTOM",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2358
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "CANYON-VIEW",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2384
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "CELLAR",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "LOOK-584D7B5798BA": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "LOOK-584D7B5798BA",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 532
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "CHASM-ROOM",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2008
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "CLEARING",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1410
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "CLIFF-MIDDLE",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2370
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "COLD-PASSAGE",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1883
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "CYCLOPS-ROOM",
+      "status": "incomplete",
+      "validation": {
+        "ready": false,
+        "blocking_reasons": [
+          "unresolved_states",
+          "recognition_coverage_gap"
+        ],
+        "state_status": {
+          "LOOK-01270FE89CB9": "unresolved",
+          "LOOK-17F32AC71B89": "resolved",
+          "LOOK-6DB5BBED31F9": "unresolved",
+          "LOOK-D32002B7C603": "resolved",
+          "LOOK-FC16C728F351": "unresolved",
+          "LOOK-FEDCFE2160C9": "unresolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": {
+          "CYCLOPS-FLAG": false,
+          "MAGIC-FLAG": false
+        },
+        "uncertainty": [],
+        "predicate_partition_complete": false
+      },
+      "states": [
+        {
+          "id": "LOOK-01270FE89CB9",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1617
+          },
+          "condition": {
+            "all": [
+              {
+                "not": {
+                  "any": [
+                    {
+                      "all": [
+                        {
+                          "ref": "MAGIC-FLAG",
+                          "eq": false
+                        },
+                        {
+                          "ref": "CYCLOPS-FLAG",
+                          "ne": false
+                        }
+                      ]
+                    },
+                    {
+                      "ref": "MAGIC-FLAG",
+                      "ne": false
+                    }
+                  ]
+                }
+              },
+              {
+                "unknown": "<0? ,CYCLOWRATH>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            "<0? ,CYCLOWRATH>"
+          ]
+        },
+        {
+          "id": "LOOK-17F32AC71B89",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1617
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "MAGIC-FLAG",
+                "ne": false
+              },
+              {
+                "not": {
+                  "all": [
+                    {
+                      "ref": "MAGIC-FLAG",
+                      "eq": false
+                    },
+                    {
+                      "ref": "CYCLOPS-FLAG",
+                      "ne": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-6DB5BBED31F9",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1617
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "CYCLOWRATH",
+                "lt": 0
+              },
+              {
+                "not": {
+                  "any": [
+                    {
+                      "all": [
+                        {
+                          "ref": "MAGIC-FLAG",
+                          "eq": false
+                        },
+                        {
+                          "ref": "CYCLOPS-FLAG",
+                          "ne": false
+                        }
+                      ]
+                    },
+                    {
+                      "ref": "CYCLOWRATH",
+                      "gt": 0
+                    },
+                    {
+                      "ref": "MAGIC-FLAG",
+                      "ne": false
+                    },
+                    {
+                      "unknown": "<0? ,CYCLOWRATH>"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            "<0? ,CYCLOWRATH>"
+          ]
+        },
+        {
+          "id": "LOOK-D32002B7C603",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1617
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "MAGIC-FLAG",
+                "eq": false
+              },
+              {
+                "ref": "CYCLOPS-FLAG",
+                "ne": false
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-FC16C728F351",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1617
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "CYCLOWRATH",
+                "gt": 0
+              },
+              {
+                "not": {
+                  "any": [
+                    {
+                      "all": [
+                        {
+                          "ref": "MAGIC-FLAG",
+                          "eq": false
+                        },
+                        {
+                          "ref": "CYCLOPS-FLAG",
+                          "ne": false
+                        }
+                      ]
+                    },
+                    {
+                      "ref": "MAGIC-FLAG",
+                      "ne": false
+                    },
+                    {
+                      "unknown": "<0? ,CYCLOWRATH>"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            "<0? ,CYCLOWRATH>"
+          ]
+        },
+        {
+          "id": "LOOK-FEDCFE2160C9",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1617
+          },
+          "condition": {
+            "not": {
+              "any": [
+                {
+                  "all": [
+                    {
+                      "ref": "MAGIC-FLAG",
+                      "eq": false
+                    },
+                    {
+                      "ref": "CYCLOPS-FLAG",
+                      "ne": false
+                    }
+                  ]
+                },
+                {
+                  "ref": "CYCLOWRATH",
+                  "gt": 0
+                },
+                {
+                  "ref": "CYCLOWRATH",
+                  "lt": 0
+                },
+                {
+                  "ref": "MAGIC-FLAG",
+                  "ne": false
+                },
+                {
+                  "unknown": "<0? ,CYCLOWRATH>"
+                }
+              ]
+            }
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            "<0? ,CYCLOWRATH>"
+          ]
+        }
+      ]
+    },
+    {
+      "room": "DAM-BASE",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2176
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "DAM-LOBBY",
+      "status": "incomplete",
+      "validation": {
+        "ready": false,
+        "blocking_reasons": [
+          "unresolved_states",
+          "contradictory_states",
+          "recognition_coverage_gap"
+        ],
+        "state_status": {
+          "INITIAL": "unresolved",
+          "POST-MATCH-FUNCTION-1C515F21B29D": "unresolved",
+          "POST-MATCH-FUNCTION-41FDA3126B66": "unresolved",
+          "POST-MATCH-FUNCTION-5142E79C1020": "contradictory",
+          "POST-MATCH-FUNCTION-67AB36ACF15D": "unresolved",
+          "POST-MATCH-FUNCTION-68257CB91C04": "contradictory",
+          "POST-MATCH-FUNCTION-7DE50324B580": "unresolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [
+          "POST-MATCH-FUNCTION-5142E79C1020",
+          "POST-MATCH-FUNCTION-68257CB91C04"
+        ],
+        "overlaps": [],
+        "coverage_gap": {},
+        "uncertainty": [],
+        "predicate_partition_complete": false
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2147
+          },
+          "condition": {
+            "unknown": "No source-proven default complement for presentation variants"
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            "No source-proven default complement for presentation variants"
+          ]
+        },
+        {
+          "id": "POST-MATCH-FUNCTION-1C515F21B29D",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 2265
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "MATCH.FLAMEBIT",
+                "eq": true
+              },
+              {
+                "ref": "MATCH.ONBIT",
+                "eq": true
+              },
+              {
+                "not": {
+                  "any": [
+                    {
+                      "ref": "MATCH-COUNT",
+                      "le": 0
+                    },
+                    {
+                      "unknown": "<EQUAL? ,HERE ,LOWER-SHAFT ,TIMBER-ROOM>"
+                    }
+                  ]
+                }
+              },
+              {
+                "not": {
+                  "unknown": ",LIT"
+                }
+              },
+              {
+                "unknown": "<ENABLE <QUEUE I-MATCH 2>>; <SETG LIT T>; <V-LOOK>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            "<EQUAL? ,HERE ,LOWER-SHAFT ,TIMBER-ROOM>",
+            ",LIT",
+            "<ENABLE <QUEUE I-MATCH 2>>; <SETG LIT T>; <V-LOOK>"
+          ]
+        },
+        {
+          "id": "POST-MATCH-FUNCTION-41FDA3126B66",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 2265
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "MATCH.FLAMEBIT",
+                "eq": false
+              },
+              {
+                "ref": "MATCH.ONBIT",
+                "eq": false
+              },
+              {
+                "not": {
+                  "unknown": ",LIT"
+                }
+              },
+              {
+                "unknown": "<SETG LIT <LIT? ,HERE>>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            ",LIT",
+            "<SETG LIT <LIT? ,HERE>>"
+          ]
+        },
+        {
+          "id": "POST-MATCH-FUNCTION-5142E79C1020",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 2265
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "MATCH.FLAMEBIT",
+                "eq": true
+              },
+              {
+                "ref": "MATCH.ONBIT",
+                "eq": true
+              },
+              {
+                "ref": "MATCH-COUNT",
+                "le": 0
+              },
+              {
+                "not": {
+                  "any": [
+                    {
+                      "ref": "MATCH-COUNT",
+                      "le": 0
+                    },
+                    {
+                      "unknown": "<EQUAL? ,HERE ,LOWER-SHAFT ,TIMBER-ROOM>"
+                    }
+                  ]
+                }
+              },
+              {
+                "unknown": ",LIT"
+              },
+              {
+                "unknown": "<ENABLE <QUEUE I-MATCH 2>>"
+              }
+            ]
+          },
+          "status": "contradictory",
+          "unsupported_expressions": [
+            "<EQUAL? ,HERE ,LOWER-SHAFT ,TIMBER-ROOM>",
+            ",LIT",
+            "<ENABLE <QUEUE I-MATCH 2>>"
+          ]
+        },
+        {
+          "id": "POST-MATCH-FUNCTION-67AB36ACF15D",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 2265
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "MATCH.FLAMEBIT",
+                "eq": true
+              },
+              {
+                "ref": "MATCH.ONBIT",
+                "eq": true
+              },
+              {
+                "not": {
+                  "any": [
+                    {
+                      "ref": "MATCH-COUNT",
+                      "le": 0
+                    },
+                    {
+                      "unknown": "<EQUAL? ,HERE ,LOWER-SHAFT ,TIMBER-ROOM>"
+                    }
+                  ]
+                }
+              },
+              {
+                "unknown": ",LIT"
+              },
+              {
+                "unknown": "<ENABLE <QUEUE I-MATCH 2>>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            "<EQUAL? ,HERE ,LOWER-SHAFT ,TIMBER-ROOM>",
+            ",LIT",
+            "<ENABLE <QUEUE I-MATCH 2>>"
+          ]
+        },
+        {
+          "id": "POST-MATCH-FUNCTION-68257CB91C04",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 2265
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "MATCH.FLAMEBIT",
+                "eq": true
+              },
+              {
+                "ref": "MATCH.ONBIT",
+                "eq": true
+              },
+              {
+                "ref": "MATCH-COUNT",
+                "le": 0
+              },
+              {
+                "not": {
+                  "any": [
+                    {
+                      "ref": "MATCH-COUNT",
+                      "le": 0
+                    },
+                    {
+                      "unknown": "<EQUAL? ,HERE ,LOWER-SHAFT ,TIMBER-ROOM>"
+                    }
+                  ]
+                }
+              },
+              {
+                "not": {
+                  "unknown": ",LIT"
+                }
+              },
+              {
+                "unknown": "<ENABLE <QUEUE I-MATCH 2>>; <SETG LIT T>; <V-LOOK>"
+              }
+            ]
+          },
+          "status": "contradictory",
+          "unsupported_expressions": [
+            "<EQUAL? ,HERE ,LOWER-SHAFT ,TIMBER-ROOM>",
+            ",LIT",
+            "<ENABLE <QUEUE I-MATCH 2>>; <SETG LIT T>; <V-LOOK>"
+          ]
+        },
+        {
+          "id": "POST-MATCH-FUNCTION-7DE50324B580",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 2265
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "MATCH.FLAMEBIT",
+                "eq": false
+              },
+              {
+                "ref": "MATCH.ONBIT",
+                "eq": false
+              },
+              {
+                "unknown": ",LIT"
+              },
+              {
+                "unknown": "<SETG LIT <LIT? ,HERE>>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            ",LIT",
+            "<SETG LIT <LIT? ,HERE>>"
+          ]
+        }
+      ]
+    },
+    {
+      "room": "DAM-ROOM",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "LOOK-183AEB3E60D3": "resolved",
+          "LOOK-25CF5EFFF46F": "resolved",
+          "LOOK-2FAC36355994": "resolved",
+          "LOOK-5E1652E22E13": "resolved",
+          "LOOK-AAFC5BC75952": "resolved",
+          "LOOK-D408181E3B17": "resolved",
+          "LOOK-EF803B95AAE8": "resolved",
+          "LOOK-F5EB88ED9C82": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "LOOK-183AEB3E60D3",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1157
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "GATE-FLAG",
+                "eq": false
+              },
+              {
+                "ref": "GATES-OPEN",
+                "ne": false
+              },
+              {
+                "not": {
+                  "all": [
+                    {
+                      "ref": "GATES-OPEN",
+                      "ne": false
+                    },
+                    {
+                      "ref": "LOW-TIDE",
+                      "ne": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-25CF5EFFF46F",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1157
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "GATE-FLAG",
+                "eq": false
+              },
+              {
+                "not": {
+                  "any": [
+                    {
+                      "all": [
+                        {
+                          "ref": "GATES-OPEN",
+                          "ne": false
+                        },
+                        {
+                          "ref": "LOW-TIDE",
+                          "ne": false
+                        }
+                      ]
+                    },
+                    {
+                      "ref": "GATES-OPEN",
+                      "ne": false
+                    },
+                    {
+                      "ref": "LOW-TIDE",
+                      "ne": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-2FAC36355994",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1157
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "GATE-FLAG",
+                "eq": false
+              },
+              {
+                "ref": "GATES-OPEN",
+                "ne": false
+              },
+              {
+                "ref": "LOW-TIDE",
+                "ne": false
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-5E1652E22E13",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1157
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "GATE-FLAG",
+                "eq": false
+              },
+              {
+                "ref": "LOW-TIDE",
+                "ne": false
+              },
+              {
+                "not": {
+                  "any": [
+                    {
+                      "all": [
+                        {
+                          "ref": "GATES-OPEN",
+                          "ne": false
+                        },
+                        {
+                          "ref": "LOW-TIDE",
+                          "ne": false
+                        }
+                      ]
+                    },
+                    {
+                      "ref": "GATES-OPEN",
+                      "ne": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-AAFC5BC75952",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1157
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "GATE-FLAG",
+                "ne": false
+              },
+              {
+                "ref": "GATES-OPEN",
+                "ne": false
+              },
+              {
+                "ref": "LOW-TIDE",
+                "ne": false
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-D408181E3B17",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1157
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "GATE-FLAG",
+                "ne": false
+              },
+              {
+                "ref": "GATES-OPEN",
+                "ne": false
+              },
+              {
+                "not": {
+                  "all": [
+                    {
+                      "ref": "GATES-OPEN",
+                      "ne": false
+                    },
+                    {
+                      "ref": "LOW-TIDE",
+                      "ne": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-EF803B95AAE8",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1157
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "GATE-FLAG",
+                "ne": false
+              },
+              {
+                "ref": "LOW-TIDE",
+                "ne": false
+              },
+              {
+                "not": {
+                  "any": [
+                    {
+                      "all": [
+                        {
+                          "ref": "GATES-OPEN",
+                          "ne": false
+                        },
+                        {
+                          "ref": "LOW-TIDE",
+                          "ne": false
+                        }
+                      ]
+                    },
+                    {
+                      "ref": "GATES-OPEN",
+                      "ne": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-F5EB88ED9C82",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1157
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "GATE-FLAG",
+                "ne": false
+              },
+              {
+                "not": {
+                  "any": [
+                    {
+                      "all": [
+                        {
+                          "ref": "GATES-OPEN",
+                          "ne": false
+                        },
+                        {
+                          "ref": "LOW-TIDE",
+                          "ne": false
+                        }
+                      ]
+                    },
+                    {
+                      "ref": "GATES-OPEN",
+                      "ne": false
+                    },
+                    {
+                      "ref": "LOW-TIDE",
+                      "ne": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "DAMP-CAVE",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1976
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "DEAD-END-1",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1575
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "DEAD-END-2",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1592
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "DEAD-END-3",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1629
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "DEAD-END-4",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1688
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "DEAD-END-5",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2514
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "DEEP-CANYON",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "LOOK-A083A39E7651": "resolved",
+          "LOOK-D6A8BC3AD7BE": "resolved",
+          "LOOK-F8FCD16BBA92": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "LOOK-A083A39E7651",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1731
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "LOW-TIDE",
+                "eq": false
+              },
+              {
+                "ref": "GATES-OPEN",
+                "ne": false
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-D6A8BC3AD7BE",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1731
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "GATES-OPEN",
+                "eq": false
+              },
+              {
+                "ref": "LOW-TIDE",
+                "ne": false
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-F8FCD16BBA92",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1731
+          },
+          "condition": {
+            "not": {
+              "any": [
+                {
+                  "all": [
+                    {
+                      "ref": "GATES-OPEN",
+                      "eq": false
+                    },
+                    {
+                      "ref": "LOW-TIDE",
+                      "ne": false
+                    }
+                  ]
+                },
+                {
+                  "all": [
+                    {
+                      "ref": "LOW-TIDE",
+                      "eq": false
+                    },
+                    {
+                      "ref": "GATES-OPEN",
+                      "ne": false
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "DOME-ROOM",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "LOOK-0D8CE95169D7": "resolved",
+          "LOOK-CDF246C6FE2A": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "LOOK-0D8CE95169D7",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1031
+          },
+          "condition": {
+            "ref": "DOME-FLAG",
+            "ne": false
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-CDF246C6FE2A",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1031
+          },
+          "condition": {
+            "ref": "DOME-FLAG",
+            "eq": false
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "EAST-OF-CHASM",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1494
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "EAST-OF-HOUSE",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "LOOK-4ACD09F6346B": "resolved",
+          "LOOK-B3743B9659AF": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "LOOK-4ACD09F6346B",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 18
+          },
+          "condition": {
+            "ref": "KITCHEN-WINDOW.OPENBIT",
+            "ne": true
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-B3743B9659AF",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 18
+          },
+          "condition": {
+            "ref": "KITCHEN-WINDOW.OPENBIT",
+            "eq": true
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "EGYPT-ROOM",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2066
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "END-OF-RAINBOW",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2342
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "ENGRAVINGS-CAVE",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2057
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "ENTRANCE-TO-HADES",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "LOOK-12DF34E64BFB": "resolved",
+          "LOOK-C4CBA21BEBA2": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "LOOK-12DF34E64BFB",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1059
+          },
+          "condition": {
+            "not": {
+              "all": [
+                {
+                  "ref": "DEAD",
+                  "eq": false
+                },
+                {
+                  "ref": "LLD-FLAG",
+                  "eq": false
+                }
+              ]
+            }
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-C4CBA21BEBA2",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1059
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "DEAD",
+                "eq": false
+              },
+              {
+                "ref": "LLD-FLAG",
+                "eq": false
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "EW-PASSAGE",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1938
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "FOREST-1",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1309
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "FOREST-2",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1324
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "FOREST-3",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1349
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "GALLERY",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1507
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "GAS-ROOM",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2476
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "GRATING-CLEARING",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "LOOK-2DA88419F9BF": "resolved",
+          "LOOK-7292436AE4FD": "resolved",
+          "LOOK-AF0D9108EB57": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "LOOK-2DA88419F9BF",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 819
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "GRATE-REVEALED",
+                "ne": false
+              },
+              {
+                "ref": "GRATE.OPENBIT",
+                "ne": true
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-7292436AE4FD",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 819
+          },
+          "condition": {
+            "not": {
+              "any": [
+                {
+                  "ref": "GRATE.OPENBIT",
+                  "eq": true
+                },
+                {
+                  "ref": "GRATE-REVEALED",
+                  "ne": false
+                }
+              ]
+            }
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-AF0D9108EB57",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 819
+          },
+          "condition": {
+            "ref": "GRATE.OPENBIT",
+            "eq": true
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "GRATING-ROOM",
+      "status": "incomplete",
+      "validation": {
+        "ready": false,
+        "blocking_reasons": [
+          "unresolved_states"
+        ],
+        "state_status": {
+          "LOOK-48644D1B8C55": "resolved",
+          "LOOK-74E22E4B6FB2": "resolved",
+          "LOOK-C32D4D702045": "resolved",
+          "POST-GRATE-FUNCTION-7BD7DD42DDFA": "unresolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": false
+      },
+      "states": [
+        {
+          "id": "LOOK-48644D1B8C55",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 836
+          },
+          "condition": {
+            "not": {
+              "any": [
+                {
+                  "ref": "GRATE.OPENBIT",
+                  "eq": true
+                },
+                {
+                  "ref": "GRUNLOCK",
+                  "ne": false
+                }
+              ]
+            }
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-74E22E4B6FB2",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 836
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "GRUNLOCK",
+                "ne": false
+              },
+              {
+                "ref": "GRATE.OPENBIT",
+                "ne": true
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-C32D4D702045",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 836
+          },
+          "condition": {
+            "ref": "GRATE.OPENBIT",
+            "eq": true
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "POST-GRATE-FUNCTION-7BD7DD42DDFA",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 850
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "LEAVES.parent",
+                "eq": "GRATING-ROOM"
+              },
+              {
+                "ref": "GRATE-REVEALED",
+                "eq": true
+              },
+              {
+                "ref": "GRATE.OPENBIT",
+                "eq": true
+              },
+              {
+                "ref": "GRATING-ROOM.ONBIT",
+                "eq": true
+              },
+              {
+                "ref": "GRUNLOCK",
+                "ne": false
+              },
+              {
+                "not": {
+                  "unknown": "<EQUAL? ,HERE ,CLEARING>"
+                }
+              },
+              {
+                "unknown": "<OPEN-CLOSE ,GRATE <COND (<EQUAL? ,HERE ,CLEARING> \"The grating opens.\") (T \"The grating opens to reveal trees above you.\")> \"The grating is closed.\">"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            "<EQUAL? ,HERE ,CLEARING>",
+            "<OPEN-CLOSE ,GRATE <COND (<EQUAL? ,HERE ,CLEARING> \"The grating opens.\") (T \"The grating opens to reveal trees above you.\")> \"The grating is closed.\">"
+          ]
+        }
+      ]
+    },
+    {
+      "room": "IN-STREAM",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1819
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "KITCHEN",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "LOOK-6DBE643B0841": "resolved",
+          "LOOK-DE296868739F": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "LOOK-6DBE643B0841",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 386
+          },
+          "condition": {
+            "ref": "KITCHEN-WINDOW.OPENBIT",
+            "ne": true
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-DE296868739F",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 386
+          },
+          "condition": {
+            "ref": "KITCHEN-WINDOW.OPENBIT",
+            "eq": true
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "LADDER-BOTTOM",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2501
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "LADDER-TOP",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2489
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "LAND-OF-LIVING-DEAD",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2040
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "LIVING-ROOM",
+      "status": "incomplete",
+      "validation": {
+        "ready": false,
+        "blocking_reasons": [
+          "unresolved_states",
+          "ambiguous_states",
+          "recognition_coverage_gap"
+        ],
+        "state_status": {
+          "LOOK-01BE1293376B": "unresolved",
+          "LOOK-4C35D2A006EC": "unresolved",
+          "LOOK-5B4C4750931F": "unresolved",
+          "LOOK-8B511529C3C2": "unresolved",
+          "LOOK-9ADA81680DF7": "unresolved",
+          "LOOK-BACFA7AD6B78": "unresolved",
+          "LOOK-DAB1A6534E35": "unresolved",
+          "LOOK-F63F105AE16A": "unresolved",
+          "POST-RUG-FCN-8536C292402B": "ambiguous",
+          "POST-TRAP-DOOR-FCN-AE99A4D6CC11": "ambiguous"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [
+          {
+            "states": [
+              "POST-RUG-FCN-8536C292402B",
+              "POST-TRAP-DOOR-FCN-AE99A4D6CC11"
+            ],
+            "witness": {
+              "RUG-MOVED": true,
+              "TRAP-DOOR.INVISIBLE": false,
+              "TRAP-DOOR.OPENBIT": false,
+              "TRAP-DOOR.TOUCHBIT": false
+            }
+          }
+        ],
+        "coverage_gap": {
+          "RUG-MOVED": false,
+          "TRAP-DOOR.INVISIBLE": false,
+          "TRAP-DOOR.OPENBIT": false,
+          "TRAP-DOOR.TOUCHBIT": true
+        },
+        "uncertainty": [],
+        "predicate_partition_complete": false
+      },
+      "states": [
+        {
+          "id": "LOOK-01BE1293376B",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 450
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "MAGIC-FLAG",
+                "eq": false
+              },
+              {
+                "ref": "TRAP-DOOR.OPENBIT",
+                "eq": true
+              },
+              {
+                "unknown": ".RUG?"
+              },
+              {
+                "unknown": "<SET RUG? ,RUG-MOVED>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            ".RUG?",
+            "<SET RUG? ,RUG-MOVED>"
+          ]
+        },
+        {
+          "id": "LOOK-4C35D2A006EC",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 450
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "MAGIC-FLAG",
+                "eq": false
+              },
+              {
+                "not": {
+                  "any": [
+                    {
+                      "all": [
+                        {
+                          "ref": "TRAP-DOOR.OPENBIT",
+                          "eq": true
+                        },
+                        {
+                          "unknown": ".RUG?"
+                        }
+                      ]
+                    },
+                    {
+                      "ref": "TRAP-DOOR.OPENBIT",
+                      "eq": true
+                    },
+                    {
+                      "unknown": ".RUG?"
+                    }
+                  ]
+                }
+              },
+              {
+                "unknown": "<SET RUG? ,RUG-MOVED>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            ".RUG?",
+            ".RUG?",
+            "<SET RUG? ,RUG-MOVED>"
+          ]
+        },
+        {
+          "id": "LOOK-5B4C4750931F",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 450
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "TRAP-DOOR.OPENBIT",
+                "eq": true
+              },
+              {
+                "ref": "MAGIC-FLAG",
+                "ne": false
+              },
+              {
+                "not": {
+                  "any": [
+                    {
+                      "all": [
+                        {
+                          "ref": "TRAP-DOOR.OPENBIT",
+                          "eq": true
+                        },
+                        {
+                          "unknown": ".RUG?"
+                        }
+                      ]
+                    },
+                    {
+                      "unknown": ".RUG?"
+                    }
+                  ]
+                }
+              },
+              {
+                "unknown": "<SET RUG? ,RUG-MOVED>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            ".RUG?",
+            ".RUG?",
+            "<SET RUG? ,RUG-MOVED>"
+          ]
+        },
+        {
+          "id": "LOOK-8B511529C3C2",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 450
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "MAGIC-FLAG",
+                "eq": false
+              },
+              {
+                "ref": "TRAP-DOOR.OPENBIT",
+                "eq": true
+              },
+              {
+                "not": {
+                  "any": [
+                    {
+                      "all": [
+                        {
+                          "ref": "TRAP-DOOR.OPENBIT",
+                          "eq": true
+                        },
+                        {
+                          "unknown": ".RUG?"
+                        }
+                      ]
+                    },
+                    {
+                      "unknown": ".RUG?"
+                    }
+                  ]
+                }
+              },
+              {
+                "unknown": "<SET RUG? ,RUG-MOVED>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            ".RUG?",
+            ".RUG?",
+            "<SET RUG? ,RUG-MOVED>"
+          ]
+        },
+        {
+          "id": "LOOK-9ADA81680DF7",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 450
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "MAGIC-FLAG",
+                "ne": false
+              },
+              {
+                "not": {
+                  "any": [
+                    {
+                      "all": [
+                        {
+                          "ref": "TRAP-DOOR.OPENBIT",
+                          "eq": true
+                        },
+                        {
+                          "unknown": ".RUG?"
+                        }
+                      ]
+                    },
+                    {
+                      "ref": "TRAP-DOOR.OPENBIT",
+                      "eq": true
+                    },
+                    {
+                      "unknown": ".RUG?"
+                    }
+                  ]
+                }
+              },
+              {
+                "unknown": "<SET RUG? ,RUG-MOVED>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            ".RUG?",
+            ".RUG?",
+            "<SET RUG? ,RUG-MOVED>"
+          ]
+        },
+        {
+          "id": "LOOK-BACFA7AD6B78",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 450
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "MAGIC-FLAG",
+                "eq": false
+              },
+              {
+                "not": {
+                  "all": [
+                    {
+                      "ref": "TRAP-DOOR.OPENBIT",
+                      "eq": true
+                    },
+                    {
+                      "unknown": ".RUG?"
+                    }
+                  ]
+                }
+              },
+              {
+                "unknown": ".RUG?"
+              },
+              {
+                "unknown": "<SET RUG? ,RUG-MOVED>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            ".RUG?",
+            ".RUG?",
+            "<SET RUG? ,RUG-MOVED>"
+          ]
+        },
+        {
+          "id": "LOOK-DAB1A6534E35",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 450
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "TRAP-DOOR.OPENBIT",
+                "eq": true
+              },
+              {
+                "ref": "MAGIC-FLAG",
+                "ne": false
+              },
+              {
+                "unknown": ".RUG?"
+              },
+              {
+                "unknown": "<SET RUG? ,RUG-MOVED>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            ".RUG?",
+            "<SET RUG? ,RUG-MOVED>"
+          ]
+        },
+        {
+          "id": "LOOK-F63F105AE16A",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 450
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "MAGIC-FLAG",
+                "ne": false
+              },
+              {
+                "not": {
+                  "all": [
+                    {
+                      "ref": "TRAP-DOOR.OPENBIT",
+                      "eq": true
+                    },
+                    {
+                      "unknown": ".RUG?"
+                    }
+                  ]
+                }
+              },
+              {
+                "unknown": ".RUG?"
+              },
+              {
+                "unknown": "<SET RUG? ,RUG-MOVED>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            ".RUG?",
+            ".RUG?",
+            "<SET RUG? ,RUG-MOVED>"
+          ]
+        },
+        {
+          "id": "POST-RUG-FCN-8536C292402B",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 579
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "TRAP-DOOR.INVISIBLE",
+                "eq": false
+              },
+              {
+                "ref": "RUG-MOVED",
+                "eq": true
+              }
+            ]
+          },
+          "status": "ambiguous",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "POST-TRAP-DOOR-FCN-AE99A4D6CC11",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 504
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "TRAP-DOOR.OPENBIT",
+                "eq": false
+              },
+              {
+                "ref": "TRAP-DOOR.TOUCHBIT",
+                "eq": false
+              }
+            ]
+          },
+          "status": "ambiguous",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "LOUD-ROOM",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "LOOK-1003B53A382F": "resolved",
+          "LOOK-DB173A7B909D": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "LOOK-1003B53A382F",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1661
+          },
+          "condition": {
+            "any": [
+              {
+                "all": [
+                  {
+                    "ref": "GATES-OPEN",
+                    "eq": false
+                  },
+                  {
+                    "ref": "LOW-TIDE",
+                    "ne": false
+                  }
+                ]
+              },
+              {
+                "ref": "LOUD-FLAG",
+                "ne": false
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-DB173A7B909D",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1661
+          },
+          "condition": {
+            "not": {
+              "any": [
+                {
+                  "all": [
+                    {
+                      "ref": "GATES-OPEN",
+                      "eq": false
+                    },
+                    {
+                      "ref": "LOW-TIDE",
+                      "ne": false
+                    }
+                  ]
+                },
+                {
+                  "ref": "LOUD-FLAG",
+                  "ne": false
+                }
+              ]
+            }
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "LOWER-SHAFT",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2536
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "MACHINE-ROOM",
+      "status": "incomplete",
+      "validation": {
+        "ready": false,
+        "blocking_reasons": [
+          "unresolved_states",
+          "ambiguous_states"
+        ],
+        "state_status": {
+          "LOOK-12B047283F82": "ambiguous",
+          "LOOK-1AFCCD72346D": "resolved",
+          "POST-MACHINE-F-36647D41A0F7": "unresolved",
+          "POST-MACHINE-F-3B5A4BED76A8": "ambiguous",
+          "POST-MACHINE-F-CC1FE147707F": "unresolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [
+          {
+            "states": [
+              "LOOK-12B047283F82",
+              "POST-MACHINE-F-3B5A4BED76A8"
+            ],
+            "witness": {
+              "MACHINE.OPENBIT": false
+            }
+          }
+        ],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": false
+      },
+      "states": [
+        {
+          "id": "LOOK-12B047283F82",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 2489
+          },
+          "condition": {
+            "ref": "MACHINE.OPENBIT",
+            "ne": true
+          },
+          "status": "ambiguous",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-1AFCCD72346D",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 2489
+          },
+          "condition": {
+            "ref": "MACHINE.OPENBIT",
+            "eq": true
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "POST-MACHINE-F-36647D41A0F7",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 2502
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "MACHINE.OPENBIT",
+                "eq": true
+              },
+              {
+                "unknown": "<FIRST? ,MACHINE>"
+              },
+              {
+                "unknown": "<PRINT-CONTENTS ,MACHINE>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            "<FIRST? ,MACHINE>",
+            "<PRINT-CONTENTS ,MACHINE>"
+          ]
+        },
+        {
+          "id": "POST-MACHINE-F-3B5A4BED76A8",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 2502
+          },
+          "condition": {
+            "ref": "MACHINE.OPENBIT",
+            "eq": false
+          },
+          "status": "ambiguous",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "POST-MACHINE-F-CC1FE147707F",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 2502
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "MACHINE.OPENBIT",
+                "eq": true
+              },
+              {
+                "unknown": "Mutation invalidates compound guard: {\"not\":{\"any\":[{\"eq\":true,\"ref\":\"MACHINE.OPENBIT\"},{\"unknown\":\"<FIRST? ,MACHINE>\"}]}}"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            "Mutation invalidates compound guard: {\"not\":{\"any\":[{\"eq\":true,\"ref\":\"MACHINE.OPENBIT\"},{\"unknown\":\"<FIRST? ,MACHINE>\"}]}}"
+          ]
+        }
+      ]
+    },
+    {
+      "room": "MAINTENANCE-ROOM",
+      "status": "incomplete",
+      "validation": {
+        "ready": false,
+        "blocking_reasons": [
+          "unresolved_states",
+          "recognition_coverage_gap"
+        ],
+        "state_status": {
+          "INITIAL": "unresolved",
+          "POST-BUTTON-F-22951005A6EF": "unresolved",
+          "POST-BUTTON-F-80D46805D383": "unresolved",
+          "POST-BUTTON-F-BBB2AF8D229A": "unresolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": {},
+        "uncertainty": [],
+        "predicate_partition_complete": false
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2159
+          },
+          "condition": {
+            "unknown": "No source-proven default complement for presentation variants"
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            "No source-proven default complement for presentation variants"
+          ]
+        },
+        {
+          "id": "POST-BUTTON-F-22951005A6EF",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1298
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "MAINTENANCE-ROOM.ONBIT",
+                "eq": true
+              },
+              {
+                "not": {
+                  "unknown": "<EQUAL? ,PRSO ,BLUE-BUTTON>"
+                }
+              },
+              {
+                "unknown": "<EQUAL? ,PRSO ,RED-BUTTON>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            "<EQUAL? ,PRSO ,BLUE-BUTTON>",
+            "<EQUAL? ,PRSO ,RED-BUTTON>"
+          ]
+        },
+        {
+          "id": "POST-BUTTON-F-80D46805D383",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1298
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "MAINTENANCE-ROOM.ONBIT",
+                "eq": false
+              },
+              {
+                "not": {
+                  "unknown": "<EQUAL? ,PRSO ,BLUE-BUTTON>"
+                }
+              },
+              {
+                "unknown": "<EQUAL? ,PRSO ,RED-BUTTON>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            "<EQUAL? ,PRSO ,BLUE-BUTTON>",
+            "<EQUAL? ,PRSO ,RED-BUTTON>"
+          ]
+        },
+        {
+          "id": "POST-BUTTON-F-BBB2AF8D229A",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1298
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "WATER-LEVEL",
+                "eq": 1
+              },
+              {
+                "ref": "LEAK.INVISIBLE",
+                "eq": false
+              },
+              {
+                "unknown": "<0? ,WATER-LEVEL>"
+              },
+              {
+                "unknown": "<ENABLE <QUEUE I-MAINT-ROOM -1>>"
+              },
+              {
+                "unknown": "<EQUAL? ,PRSO ,BLUE-BUTTON>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            "<0? ,WATER-LEVEL>",
+            "<ENABLE <QUEUE I-MAINT-ROOM -1>>",
+            "<EQUAL? ,PRSO ,BLUE-BUTTON>"
+          ]
+        }
+      ]
+    },
+    {
+      "room": "MAZE-1",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1538
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "MAZE-10",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1648
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "MAZE-11",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1657
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "MAZE-12",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1677
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "MAZE-13",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1695
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "MAZE-14",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1705
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "MAZE-15",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1715
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "MAZE-2",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1548
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "MAZE-3",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1557
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "MAZE-4",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1566
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "MAZE-5",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1582
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "MAZE-6",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1599
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "MAZE-7",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1609
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "MAZE-8",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1620
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "MAZE-9",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1636
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "MINE-1",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2565
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "MINE-2",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2574
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "MINE-3",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2583
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "MINE-4",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2592
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "MINE-ENTRANCE",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2418
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "MIRROR-ROOM-1",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "LOOK-09722ADD1423": "resolved",
+          "LOOK-0FB4A68B2D6C": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "LOOK-09722ADD1423",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 959
+          },
+          "condition": {
+            "ref": "MIRROR-MUNG",
+            "ne": false
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-0FB4A68B2D6C",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 959
+          },
+          "condition": {
+            "ref": "MIRROR-MUNG",
+            "eq": false
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "MIRROR-ROOM-2",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "LOOK-09722ADD1423": "resolved",
+          "LOOK-0FB4A68B2D6C": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "LOOK-09722ADD1423",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 959
+          },
+          "condition": {
+            "ref": "MIRROR-MUNG",
+            "ne": false
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-0FB4A68B2D6C",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 959
+          },
+          "condition": {
+            "ref": "MIRROR-MUNG",
+            "eq": false
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "MOUNTAINS",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1337
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "NARROW-PASSAGE",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1893
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "NORTH-OF-HOUSE",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1264
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "NORTH-TEMPLE",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2098
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "NS-PASSAGE",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1998
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "ON-RAINBOW",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2330
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "PATH",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1363
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "RESERVOIR",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "LOOK-8CBFAA778666": "resolved",
+          "LOOK-EB9A6FD9C313": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "LOOK-8CBFAA778666",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1452
+          },
+          "condition": {
+            "ref": "LOW-TIDE",
+            "ne": false
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-EB9A6FD9C313",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1452
+          },
+          "condition": {
+            "ref": "LOW-TIDE",
+            "eq": false
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "RESERVOIR-NORTH",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "LOOK-3F8156A3B59F": "resolved",
+          "LOOK-8E0C0E5B26A2": "resolved",
+          "LOOK-AF3761505961": "resolved",
+          "LOOK-DE5C3C4A172E": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "LOOK-3F8156A3B59F",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1465
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "GATES-OPEN",
+                "ne": false
+              },
+              {
+                "not": {
+                  "all": [
+                    {
+                      "ref": "GATES-OPEN",
+                      "ne": false
+                    },
+                    {
+                      "ref": "LOW-TIDE",
+                      "ne": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-8E0C0E5B26A2",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1465
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "GATES-OPEN",
+                "ne": false
+              },
+              {
+                "ref": "LOW-TIDE",
+                "ne": false
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-AF3761505961",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1465
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "LOW-TIDE",
+                "ne": false
+              },
+              {
+                "not": {
+                  "any": [
+                    {
+                      "all": [
+                        {
+                          "ref": "GATES-OPEN",
+                          "ne": false
+                        },
+                        {
+                          "ref": "LOW-TIDE",
+                          "ne": false
+                        }
+                      ]
+                    },
+                    {
+                      "ref": "GATES-OPEN",
+                      "ne": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-DE5C3C4A172E",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1465
+          },
+          "condition": {
+            "not": {
+              "any": [
+                {
+                  "all": [
+                    {
+                      "ref": "GATES-OPEN",
+                      "ne": false
+                    },
+                    {
+                      "ref": "LOW-TIDE",
+                      "ne": false
+                    }
+                  ]
+                },
+                {
+                  "ref": "GATES-OPEN",
+                  "ne": false
+                },
+                {
+                  "ref": "LOW-TIDE",
+                  "ne": false
+                }
+              ]
+            }
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "RESERVOIR-SOUTH",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "LOOK-59F1E792382B": "resolved",
+          "LOOK-7102492C0E61": "resolved",
+          "LOOK-AB0139B0FEE6": "resolved",
+          "LOOK-EC761344CEB6": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "LOOK-59F1E792382B",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1416
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "GATES-OPEN",
+                "ne": false
+              },
+              {
+                "not": {
+                  "all": [
+                    {
+                      "ref": "GATES-OPEN",
+                      "ne": false
+                    },
+                    {
+                      "ref": "LOW-TIDE",
+                      "ne": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-7102492C0E61",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1416
+          },
+          "condition": {
+            "not": {
+              "any": [
+                {
+                  "all": [
+                    {
+                      "ref": "GATES-OPEN",
+                      "ne": false
+                    },
+                    {
+                      "ref": "LOW-TIDE",
+                      "ne": false
+                    }
+                  ]
+                },
+                {
+                  "ref": "GATES-OPEN",
+                  "ne": false
+                },
+                {
+                  "ref": "LOW-TIDE",
+                  "ne": false
+                }
+              ]
+            }
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-AB0139B0FEE6",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1416
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "LOW-TIDE",
+                "ne": false
+              },
+              {
+                "not": {
+                  "any": [
+                    {
+                      "all": [
+                        {
+                          "ref": "GATES-OPEN",
+                          "ne": false
+                        },
+                        {
+                          "ref": "LOW-TIDE",
+                          "ne": false
+                        }
+                      ]
+                    },
+                    {
+                      "ref": "GATES-OPEN",
+                      "ne": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-EC761344CEB6",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1416
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "GATES-OPEN",
+                "ne": false
+              },
+              {
+                "ref": "LOW-TIDE",
+                "ne": false
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "RIVER-1",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2190
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "RIVER-2",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2204
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "RIVER-3",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2219
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "RIVER-4",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2258
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "RIVER-5",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2274
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "ROUND-ROOM",
+      "status": "incomplete",
+      "validation": {
+        "ready": false,
+        "blocking_reasons": [
+          "unresolved_states",
+          "recognition_coverage_gap"
+        ],
+        "state_status": {
+          "INITIAL": "unresolved",
+          "POST-ROBBER-FUNCTION-13B40FADB7BF": "unresolved",
+          "POST-ROBBER-FUNCTION-14B174F9609C": "unresolved",
+          "POST-ROBBER-FUNCTION-2BBE998CDD2E": "unresolved",
+          "POST-ROBBER-FUNCTION-398B67B2BF62": "unresolved",
+          "POST-ROBBER-FUNCTION-9ABE8A7FC022": "unresolved",
+          "POST-ROBBER-FUNCTION-CCA5834D7A01": "unresolved",
+          "POST-ROBBER-FUNCTION-EA8CCCD05CFE": "unresolved",
+          "POST-ROBBER-FUNCTION-FC2122E4CE07": "unresolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": {},
+        "uncertainty": [],
+        "predicate_partition_complete": false
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1952
+          },
+          "condition": {
+            "unknown": "No source-proven default complement for presentation variants"
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            "No source-proven default complement for presentation variants"
+          ]
+        },
+        {
+          "id": "POST-ROBBER-FUNCTION-13B40FADB7BF",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1947
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "LARGE-BAG.parent",
+                "eq": "THIEF"
+              },
+              {
+                "ref": "STILETTO.parent",
+                "eq": "THIEF"
+              },
+              {
+                "ref": "THIEF.INVISIBLE",
+                "eq": true
+              },
+              {
+                "ref": "THIEF.FIGHTBIT",
+                "ne": true
+              },
+              {
+                "unknown": ".X"
+              },
+              {
+                "unknown": "<FIRST? ,THIEF>"
+              },
+              {
+                "unknown": "<MOVE ,PRSO ,HERE>; <SET X <>>; <MOVE-ALL ,THIEF ,HERE>"
+              },
+              {
+                "unknown": "<PROB 10 0>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            ".X",
+            "<FIRST? ,THIEF>",
+            "<MOVE ,PRSO ,HERE>; <SET X <>>; <MOVE-ALL ,THIEF ,HERE>",
+            "<PROB 10 0>"
+          ]
+        },
+        {
+          "id": "POST-ROBBER-FUNCTION-14B174F9609C",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1947
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "LARGE-BAG.parent",
+                "eq": "THIEF"
+              },
+              {
+                "ref": "STILETTO.parent",
+                "eq": "THIEF"
+              },
+              {
+                "ref": "THIEF.INVISIBLE",
+                "eq": true
+              },
+              {
+                "ref": "THIEF.FIGHTBIT",
+                "ne": true
+              },
+              {
+                "not": {
+                  "unknown": "<FIRST? ,THIEF>"
+                }
+              },
+              {
+                "unknown": ".X"
+              },
+              {
+                "unknown": "<MOVE ,PRSO ,HERE>; <SET X <>>; <SET X T>"
+              },
+              {
+                "unknown": "<PROB 10 0>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            "<FIRST? ,THIEF>",
+            ".X",
+            "<MOVE ,PRSO ,HERE>; <SET X <>>; <SET X T>",
+            "<PROB 10 0>"
+          ]
+        },
+        {
+          "id": "POST-ROBBER-FUNCTION-2BBE998CDD2E",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1947
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "LARGE-BAG.parent",
+                "eq": "THIEF"
+              },
+              {
+                "ref": "THIEF.INVISIBLE",
+                "eq": true
+              },
+              {
+                "ref": "STILETTO.parent",
+                "ne": "THIEF"
+              },
+              {
+                "ref": "THIEF.FIGHTBIT",
+                "ne": true
+              },
+              {
+                "not": {
+                  "unknown": ".X"
+                }
+              },
+              {
+                "not": {
+                  "unknown": "<FIRST? ,THIEF>"
+                }
+              },
+              {
+                "unknown": "<MOVE ,PRSO ,HERE>; <SET X <>>"
+              },
+              {
+                "unknown": "<PROB 10 0>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            ".X",
+            "<FIRST? ,THIEF>",
+            "<MOVE ,PRSO ,HERE>; <SET X <>>",
+            "<PROB 10 0>"
+          ]
+        },
+        {
+          "id": "POST-ROBBER-FUNCTION-398B67B2BF62",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1947
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "LARGE-BAG.parent",
+                "eq": "THIEF"
+              },
+              {
+                "ref": "STILETTO.parent",
+                "eq": "THIEF"
+              },
+              {
+                "ref": "THIEF.INVISIBLE",
+                "eq": true
+              },
+              {
+                "ref": "THIEF.FIGHTBIT",
+                "ne": true
+              },
+              {
+                "not": {
+                  "unknown": "<FIRST? ,THIEF>"
+                }
+              },
+              {
+                "unknown": ".X"
+              },
+              {
+                "unknown": "<MOVE ,PRSO ,HERE>; <SET X <>>"
+              },
+              {
+                "unknown": "<PROB 10 0>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            "<FIRST? ,THIEF>",
+            ".X",
+            "<MOVE ,PRSO ,HERE>; <SET X <>>",
+            "<PROB 10 0>"
+          ]
+        },
+        {
+          "id": "POST-ROBBER-FUNCTION-9ABE8A7FC022",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1947
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "LARGE-BAG.parent",
+                "eq": "THIEF"
+              },
+              {
+                "ref": "STILETTO.parent",
+                "eq": null
+              },
+              {
+                "ref": "THIEF.INVISIBLE",
+                "eq": true
+              },
+              {
+                "ref": "THIEF.FIGHTBIT",
+                "ne": true
+              },
+              {
+                "not": {
+                  "unknown": ".X"
+                }
+              },
+              {
+                "unknown": "<FIRST? ,THIEF>"
+              },
+              {
+                "unknown": "<MOVE ,PRSO ,HERE>; <SET X <>>; <SET X T>; <MOVE-ALL ,THIEF ,HERE>"
+              },
+              {
+                "unknown": "<PROB 10 0>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            ".X",
+            "<FIRST? ,THIEF>",
+            "<MOVE ,PRSO ,HERE>; <SET X <>>; <SET X T>; <MOVE-ALL ,THIEF ,HERE>",
+            "<PROB 10 0>"
+          ]
+        },
+        {
+          "id": "POST-ROBBER-FUNCTION-CCA5834D7A01",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1947
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "LARGE-BAG.parent",
+                "eq": "THIEF"
+              },
+              {
+                "ref": "THIEF.INVISIBLE",
+                "eq": true
+              },
+              {
+                "ref": "STILETTO.parent",
+                "ne": "THIEF"
+              },
+              {
+                "ref": "THIEF.FIGHTBIT",
+                "ne": true
+              },
+              {
+                "not": {
+                  "unknown": ".X"
+                }
+              },
+              {
+                "unknown": "<FIRST? ,THIEF>"
+              },
+              {
+                "unknown": "<MOVE ,PRSO ,HERE>; <SET X <>>; <MOVE-ALL ,THIEF ,HERE>"
+              },
+              {
+                "unknown": "<PROB 10 0>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            ".X",
+            "<FIRST? ,THIEF>",
+            "<MOVE ,PRSO ,HERE>; <SET X <>>; <MOVE-ALL ,THIEF ,HERE>",
+            "<PROB 10 0>"
+          ]
+        },
+        {
+          "id": "POST-ROBBER-FUNCTION-EA8CCCD05CFE",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1947
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "LARGE-BAG.parent",
+                "eq": "THIEF"
+              },
+              {
+                "ref": "STILETTO.parent",
+                "eq": "THIEF"
+              },
+              {
+                "ref": "THIEF.INVISIBLE",
+                "eq": true
+              },
+              {
+                "ref": "THIEF.FIGHTBIT",
+                "ne": true
+              },
+              {
+                "unknown": ".X"
+              },
+              {
+                "unknown": "<FIRST? ,THIEF>"
+              },
+              {
+                "unknown": "<MOVE ,PRSO ,HERE>; <SET X <>>; <SET X T>; <MOVE-ALL ,THIEF ,HERE>"
+              },
+              {
+                "unknown": "<PROB 10 0>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            ".X",
+            "<FIRST? ,THIEF>",
+            "<MOVE ,PRSO ,HERE>; <SET X <>>; <SET X T>; <MOVE-ALL ,THIEF ,HERE>",
+            "<PROB 10 0>"
+          ]
+        },
+        {
+          "id": "POST-ROBBER-FUNCTION-FC2122E4CE07",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1947
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "LARGE-BAG.parent",
+                "eq": "THIEF"
+              },
+              {
+                "ref": "STILETTO.parent",
+                "eq": null
+              },
+              {
+                "ref": "THIEF.INVISIBLE",
+                "eq": true
+              },
+              {
+                "ref": "THIEF.FIGHTBIT",
+                "ne": true
+              },
+              {
+                "not": {
+                  "unknown": ".X"
+                }
+              },
+              {
+                "not": {
+                  "unknown": "<FIRST? ,THIEF>"
+                }
+              },
+              {
+                "unknown": "<MOVE ,PRSO ,HERE>; <SET X <>>; <SET X T>"
+              },
+              {
+                "unknown": "<PROB 10 0>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            ".X",
+            "<FIRST? ,THIEF>",
+            "<MOVE ,PRSO ,HERE>; <SET X <>>; <SET X T>",
+            "<PROB 10 0>"
+          ]
+        }
+      ]
+    },
+    {
+      "room": "SANDY-BEACH",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2298
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "SANDY-CAVE",
+      "status": "incomplete",
+      "validation": {
+        "ready": false,
+        "blocking_reasons": [
+          "recognition_coverage_gap"
+        ],
+        "state_status": {
+          "INITIAL": "resolved",
+          "BEACH-DIG-STATE-0": "resolved",
+          "BEACH-DIG-STATE-1": "resolved",
+          "BEACH-DIG-STATE-2": "resolved",
+          "POST-SAND-FUNCTION-718C9EE8E654": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": {
+          "BEACH-DIG": -32768,
+          "SCARAB.INVISIBLE": false
+        },
+        "uncertainty": [],
+        "predicate_partition_complete": false
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2311
+          },
+          "condition": {
+            "ref": "BEACH-DIG",
+            "eq": -1
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "BEACH-DIG-STATE-0",
+          "basis": "indexed_presentation_text",
+          "source": {
+            "file": "1actions.zil",
+            "line": 2869
+          },
+          "condition": {
+            "ref": "BEACH-DIG",
+            "eq": 0
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "BEACH-DIG-STATE-1",
+          "basis": "indexed_presentation_text",
+          "source": {
+            "file": "1actions.zil",
+            "line": 2869
+          },
+          "condition": {
+            "ref": "BEACH-DIG",
+            "eq": 1
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "BEACH-DIG-STATE-2",
+          "basis": "indexed_presentation_text",
+          "source": {
+            "file": "1actions.zil",
+            "line": 2869
+          },
+          "condition": {
+            "ref": "BEACH-DIG",
+            "eq": 2
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "POST-SAND-FUNCTION-718C9EE8E654",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 2855
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "BEACH-DIG",
+                "eq": 3
+              },
+              {
+                "ref": "SCARAB.INVISIBLE",
+                "eq": false
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "SHAFT-ROOM",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2449
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "SHORE",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2286
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "SLIDE-ROOM",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2601
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "SMALL-CAVE",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1857
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "SMELLY-ROOM",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2463
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "SOUTH-OF-HOUSE",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1280
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "SOUTH-TEMPLE",
+      "status": "incomplete",
+      "validation": {
+        "ready": false,
+        "blocking_reasons": [
+          "unresolved_states",
+          "recognition_coverage_gap"
+        ],
+        "state_status": {
+          "INITIAL": "unresolved",
+          "POST-CANDLES-FCN-117707383254": "unresolved",
+          "POST-CANDLES-FCN-CF80D0415F2E": "unresolved",
+          "POST-CANDLES-FCN-E7CA682FE322": "unresolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": {},
+        "uncertainty": [],
+        "predicate_partition_complete": false
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2116
+          },
+          "condition": {
+            "unknown": "No source-proven default complement for presentation variants"
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            "No source-proven default complement for presentation variants"
+          ]
+        },
+        {
+          "id": "POST-CANDLES-FCN-117707383254",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 2343
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "CANDLES.ONBIT",
+                "eq": true
+              },
+              {
+                "ref": "MATCH.ONBIT",
+                "eq": true
+              },
+              {
+                "not": {
+                  "any": [
+                    {
+                      "ref": "CANDLES.RMUNGBIT",
+                      "eq": true
+                    },
+                    {
+                      "not": {
+                        "unknown": ",PRSI"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "unknown": "<ENABLE <INT I-CANDLES>>"
+              },
+              {
+                "unknown": "<EQUAL? ,PRSI ,MATCH>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            ",PRSI",
+            "<ENABLE <INT I-CANDLES>>",
+            "<EQUAL? ,PRSI ,MATCH>"
+          ]
+        },
+        {
+          "id": "POST-CANDLES-FCN-CF80D0415F2E",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 2343
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "CANDLES.ONBIT",
+                "eq": false
+              },
+              {
+                "ref": "CANDLES.TOUCHBIT",
+                "eq": true
+              },
+              {
+                "not": {
+                  "unknown": ",LIT"
+                }
+              },
+              {
+                "unknown": "<DISABLE <INT I-CANDLES>>; <SETG LIT <LIT? ,HERE>>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            ",LIT",
+            "<DISABLE <INT I-CANDLES>>; <SETG LIT <LIT? ,HERE>>"
+          ]
+        },
+        {
+          "id": "POST-CANDLES-FCN-E7CA682FE322",
+          "basis": "explicit_presentation_mutation",
+          "source": {
+            "file": "1actions.zil",
+            "line": 2343
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "CANDLES.ONBIT",
+                "eq": false
+              },
+              {
+                "ref": "CANDLES.TOUCHBIT",
+                "eq": true
+              },
+              {
+                "unknown": ",LIT"
+              },
+              {
+                "unknown": "<DISABLE <INT I-CANDLES>>; <SETG LIT <LIT? ,HERE>>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            ",LIT",
+            "<DISABLE <INT I-CANDLES>>; <SETG LIT <LIT? ,HERE>>"
+          ]
+        }
+      ]
+    },
+    {
+      "room": "SQUEEKY-ROOM",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2431
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "STONE-BARROW",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1254
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "STRANGE-PASSAGE",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1740
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "STREAM-VIEW",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1807
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "STUDIO",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1518
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "TIMBER-ROOM",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2521
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "TINY-CAVE",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1870
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "TORCH-ROOM",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "LOOK-42D6C3BB6AB5": "resolved",
+          "LOOK-4703A4F94993": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "LOOK-42D6C3BB6AB5",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1019
+          },
+          "condition": {
+            "ref": "DOME-FLAG",
+            "ne": false
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-4703A4F94993",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 1019
+          },
+          "condition": {
+            "ref": "DOME-FLAG",
+            "eq": false
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "TREASURE-ROOM",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1752
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "TROLL-ROOM",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1479
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "TWISTING-PASSAGE",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1913
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "UP-A-TREE",
+      "status": "incomplete",
+      "validation": {
+        "ready": false,
+        "blocking_reasons": [
+          "unresolved_states",
+          "recognition_coverage_gap"
+        ],
+        "state_status": {
+          "LOOK-1C843A54E82D": "unresolved",
+          "LOOK-53342DB6179F": "unresolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": {},
+        "uncertainty": [],
+        "predicate_partition_complete": false
+      },
+      "states": [
+        {
+          "id": "LOOK-1C843A54E82D",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 2881
+          },
+          "condition": {
+            "all": [
+              {
+                "unknown": "<NEXT? .F>"
+              },
+              {
+                "unknown": "<PRINT-CONTENTS ,PATH>"
+              },
+              {
+                "unknown": "<SET F <FIRST? ,PATH>>"
+              }
+            ]
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            "<NEXT? .F>",
+            "<PRINT-CONTENTS ,PATH>",
+            "<SET F <FIRST? ,PATH>>"
+          ]
+        },
+        {
+          "id": "LOOK-53342DB6179F",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 2881
+          },
+          "condition": {
+            "not": {
+              "all": [
+                {
+                  "unknown": "<NEXT? .F>"
+                },
+                {
+                  "unknown": "<SET F <FIRST? ,PATH>>"
+                }
+              ]
+            }
+          },
+          "status": "unresolved",
+          "unsupported_expressions": [
+            "<NEXT? .F>",
+            "<SET F <FIRST? ,PATH>>"
+          ]
+        }
+      ]
+    },
+    {
+      "room": "WEST-OF-HOUSE",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "LOOK-68B304A687F9": "resolved",
+          "LOOK-9A941A2A2FC0": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "LOOK-68B304A687F9",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 8
+          },
+          "condition": {
+            "ref": "WON-FLAG",
+            "eq": false
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-9A941A2A2FC0",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 8
+          },
+          "condition": {
+            "ref": "WON-FLAG",
+            "ne": false
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "WHITE-CLIFFS-NORTH",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2233
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "WHITE-CLIFFS-SOUTH",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 2246
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    },
+    {
+      "room": "WINDING-PASSAGE",
+      "status": "ready",
+      "validation": {
+        "ready": true,
+        "blocking_reasons": [],
+        "state_status": {
+          "INITIAL": "resolved"
+        },
+        "observation_issues": [],
+        "contradictory_states": [],
+        "overlaps": [],
+        "coverage_gap": null,
+        "uncertainty": [],
+        "predicate_partition_complete": true
+      },
+      "states": [
+        {
+          "id": "INITIAL",
+          "basis": "base_room_description",
+          "source": {
+            "file": "1dungeon.zil",
+            "line": 1903
+          },
+          "condition": true,
+          "status": "resolved",
+          "unsupported_expressions": []
+        }
+      ]
+    }
+  ]
+}

@@ -43,3 +43,23 @@ West of House is an independent project and is not affiliated with or endorsed b
 The original Infocom source is preserved
 in the [`dumaiss/zork1`](https://github.com/dumaiss/zork1) submodule, forked
 from [`historicalsource/zork1`](https://github.com/historicalsource/zork1).
+
+## Graphical shell (G0)
+
+The native [G0 graphical shell](app/README.md) embeds libzvm and libgfx, with
+the fixed test image, live numeric state, narrative paging and mouse menus.
+Build its two-file bundle with `make -C app`. Enter the game directory and
+launch `woh.exe` with no arguments; it loads `zork1.z3` from the CWD.
+
+## Build-time room-state dictionary
+
+The [ZIL state-reporting pipeline](tools/state-reporting/README.md) compiles the
+ready dictionary definitions into the story. Run `make -C libzvm story` for the
+optimized ZVMTest, instrumented story and matching bindings in `libzvm/build/`.
+ZVMTest displays the numeric `(HERE, WOH-STATE)` pair at input.
+
+The independent [room-state extractor](tools/room-state-extractor/README.md)
+reads the original ZIL and emits symbolic observations and recognition predicates
+for a future generic graphical host. Its diagnostics report unresolved recognition conditions, overlaps and coverage
+gaps. Legacy comparison is optional and never affects room readiness. See the
+[corpus results](tools/room-state-extractor/CORPUS.md) for current coverage.

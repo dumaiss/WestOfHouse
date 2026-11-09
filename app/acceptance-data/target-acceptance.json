@@ -1,0 +1,147 @@
+{
+  "startup": {
+    "arguments": "",
+    "story_lookup": "CWD/zork1.z3"
+  },
+  "interface": {
+    "boundaries": [
+      {
+        "command": null,
+        "here": 180,
+        "state": 1,
+        "output_bytes": 380,
+        "output_hash": 1984862764
+      },
+      {
+        "command": "look",
+        "here": 180,
+        "state": 1,
+        "output_bytes": 511,
+        "output_hash": 1391939494
+      },
+      {
+        "command": "open mailbox",
+        "here": 180,
+        "state": 1,
+        "output_bytes": 558,
+        "output_hash": 2096320972
+      },
+      {
+        "command": "inventory",
+        "here": 180,
+        "state": 1,
+        "output_bytes": 582,
+        "output_hash": 3901688225
+      },
+      {
+        "command": "north",
+        "here": 81,
+        "state": 1,
+        "output_bytes": 758,
+        "output_hash": 2820024303
+      },
+      {
+        "command": "east",
+        "here": 79,
+        "state": 1,
+        "output_bytes": 922,
+        "output_hash": 3869957533
+      },
+      {
+        "command": "open window",
+        "here": 79,
+        "state": 2,
+        "output_bytes": 990,
+        "output_hash": 2157503673
+      },
+      {
+        "command": "close window",
+        "here": 79,
+        "state": 1,
+        "output_bytes": 1040,
+        "output_hash": 3260179369
+      },
+      {
+        "command": "xyzzy",
+        "here": 79,
+        "state": 1,
+        "output_bytes": 1070,
+        "output_hash": 397319049
+      },
+      {
+        "command": "score",
+        "here": 79,
+        "state": 1,
+        "output_bytes": 1160,
+        "output_hash": 1103448539
+      },
+      {
+        "command": "quit",
+        "here": 79,
+        "state": 1,
+        "output_bytes": 1300,
+        "output_hash": 1340938054
+      },
+      {
+        "command": "y",
+        "here": 79,
+        "state": 1,
+        "output_bytes": 1300,
+        "output_hash": 1340938054
+      }
+    ],
+    "narrative_sha256": "fa2269c2b4c0bbfc2ceaf16a7da61bfefe7d9c3d0ccd4b30fe68c853337ab42d",
+    "cursor_bitmap_unchanged": true,
+    "menu_restoration_exact": true,
+    "scene_unchanged_outside_overlay": true,
+    "two_sprite_cursor_white_and_dark_blue": true,
+    "note": "Target observed through read-only telemetry; reference runs the same unchanged VM core."
+  },
+  "performance": {
+    "0": {
+      "calls": 1,
+      "total_us": 130790,
+      "max_us": 130790
+    },
+    "1": {
+      "calls": 1,
+      "total_us": 815180,
+      "max_us": 815180
+    },
+    "2": {
+      "calls": 13,
+      "total_us": 698112,
+      "max_us": 75136
+    },
+    "3": {
+      "calls": 8,
+      "total_us": 395596,
+      "max_us": 63001
+    },
+    "4": {
+      "calls": 170,
+      "total_us": 3098547,
+      "max_us": 23859
+    },
+    "5": {
+      "calls": 5,
+      "total_us": 101785,
+      "max_us": 22963
+    },
+    "6": {
+      "calls": 4,
+      "total_us": 49075,
+      "max_us": 12416
+    }
+  },
+  "errors": {
+    "missing-story": {
+      "diagnostic": "cannot open story file",
+      "returned_to_shell": true
+    },
+    "mismatched-story": {
+      "diagnostic": "story does not match the compiled global bindings",
+      "returned_to_shell": true
+    }
+  }
+}

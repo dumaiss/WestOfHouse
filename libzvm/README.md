@@ -19,14 +19,35 @@ and the exported KonaOS SDK. The default SDK path is
 `../../ZephyrOS/build/kos-sdk-0.2.0`; override it for another installation:
 
 ```sh
-make
+make                         # Optimized library and ZVMTEST
+make release                 # Explicitly force the accepted optimized settings
 make KOS_SDK_ROOT=/path/to/kos-sdk
 ```
 
-The default executable is
-`build/cache-4-4/c-s512-fast/target/user/zvmtest.exe`; the archive is
-`build/cache-4-4/c-s512-fast/lib/libzvm.lib`. Configuration variants use separate
-build directories. The production target build needs only the exported SDK.
+**Get the executable from `build/ZVMTEST.EXE`.** The matching library is
+`build/libzvm.lib`; `build/SHA256SUMS` identifies both artifacts. A successful
+build prints these absolute paths. The production target build needs only the
+exported SDK.
+
+Plain `make` and `make zvmtest` use the accepted M3.5 configuration: four dynamic
+and four static cache pages, the Z80 cache fast path, a 512-byte native stack,
+and no profiling, stack probe or experimental text helper. `make release`
+explicitly selects those settings even when configuration overrides are present.
+
+Intermediate optimized files live under `build/optimized/`. Explicit diagnostic,
+reference and experimental configurations live under `build/variants/` and never
+overwrite the delivery artifacts. For example:
+
+```sh
+make zvmtest ZVM_PROFILE=1    # Diagnostic executable; path printed after build
+make zvmtest ZVM_CACHE_ASM=0  # C reference cache implementation
+make release                 # Refresh the optimized delivery artifacts
+make help
+```
+
+Older `build/cache-*`, `build/target`, `build/profile*` and `build/m35` directories
+may contain historical binaries and measurements. They are not delivery paths;
+the current Makefile does not build there. They are preserved until `make clean`.
 
 | Setting | Default | Purpose |
 | --- | --- | --- |
@@ -61,6 +82,21 @@ seven-command script, `-b` for a ten-command benchmark, `-d` for discard output,
 or `-B` for both benchmark sinks. KonaOS `argv[0]` is the first flag, without an
 executable-name argument. Benchmark targets are described in the
 [M3.5 performance report](docs/m35-performance.md).
+
+## Story state reporting
+
+```sh
+make story                   # Optimized ZVMTest + instrumented story bundle
+make run-state-zork          # Keyboard play with numeric HERE / WOH-STATE
+make test-state-reporting    # Compiled-story host regression and state tests
+```
+
+Deploy `build/ZVMTEST.EXE`, `build/ZORK1.Z3` and `build/ZORK1.WOH` together.
+`build/STATE-SHA256SUMS` identifies the bundle. The story computes room-local
+state IDs from the ready dictionary definitions; incomplete rooms report zero.
+The test application's host adapter uses compiler-generated global bindings
+and the existing public VM API. See [pipeline documentation](../tools/state-reporting/README.md)
+and [acceptance results](../tools/state-reporting/ACCEPTANCE.md).
 
 ## Status and evidence
 

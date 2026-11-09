@@ -1,0 +1,1163 @@
+{
+  "schema": "woh_local_state_ids_v1",
+  "unknown_value": 0,
+  "rooms": [
+    {
+      "room": "ARAGAIN-FALLS",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "LOOK-A38F64AE6DA2"
+        },
+        {
+          "value": 2,
+          "id": "LOOK-DD7E93BD2458"
+        }
+      ]
+    },
+    {
+      "room": "ATLANTIS-ROOM",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "ATTIC",
+      "status": "incomplete",
+      "states": []
+    },
+    {
+      "room": "BAT-ROOM",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "LOOK-31EE5DE2A6EE"
+        }
+      ]
+    },
+    {
+      "room": "CANYON-BOTTOM",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "CANYON-VIEW",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "CELLAR",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "LOOK-584D7B5798BA"
+        }
+      ]
+    },
+    {
+      "room": "CHASM-ROOM",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "CLEARING",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "CLIFF-MIDDLE",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "COLD-PASSAGE",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "CYCLOPS-ROOM",
+      "status": "incomplete",
+      "states": []
+    },
+    {
+      "room": "DAM-BASE",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "DAM-LOBBY",
+      "status": "incomplete",
+      "states": []
+    },
+    {
+      "room": "DAM-ROOM",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "LOOK-183AEB3E60D3"
+        },
+        {
+          "value": 2,
+          "id": "LOOK-25CF5EFFF46F"
+        },
+        {
+          "value": 3,
+          "id": "LOOK-2FAC36355994"
+        },
+        {
+          "value": 4,
+          "id": "LOOK-5E1652E22E13"
+        },
+        {
+          "value": 5,
+          "id": "LOOK-AAFC5BC75952"
+        },
+        {
+          "value": 6,
+          "id": "LOOK-D408181E3B17"
+        },
+        {
+          "value": 7,
+          "id": "LOOK-EF803B95AAE8"
+        },
+        {
+          "value": 8,
+          "id": "LOOK-F5EB88ED9C82"
+        }
+      ]
+    },
+    {
+      "room": "DAMP-CAVE",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "DEAD-END-1",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "DEAD-END-2",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "DEAD-END-3",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "DEAD-END-4",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "DEAD-END-5",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "DEEP-CANYON",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "LOOK-A083A39E7651"
+        },
+        {
+          "value": 2,
+          "id": "LOOK-D6A8BC3AD7BE"
+        },
+        {
+          "value": 3,
+          "id": "LOOK-F8FCD16BBA92"
+        }
+      ]
+    },
+    {
+      "room": "DOME-ROOM",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "LOOK-0D8CE95169D7"
+        },
+        {
+          "value": 2,
+          "id": "LOOK-CDF246C6FE2A"
+        }
+      ]
+    },
+    {
+      "room": "EAST-OF-CHASM",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "EAST-OF-HOUSE",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "LOOK-4ACD09F6346B"
+        },
+        {
+          "value": 2,
+          "id": "LOOK-B3743B9659AF"
+        }
+      ]
+    },
+    {
+      "room": "EGYPT-ROOM",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "END-OF-RAINBOW",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "ENGRAVINGS-CAVE",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "ENTRANCE-TO-HADES",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "LOOK-12DF34E64BFB"
+        },
+        {
+          "value": 2,
+          "id": "LOOK-C4CBA21BEBA2"
+        }
+      ]
+    },
+    {
+      "room": "EW-PASSAGE",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "FOREST-1",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "FOREST-2",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "FOREST-3",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "GALLERY",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "GAS-ROOM",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "GRATING-CLEARING",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "LOOK-2DA88419F9BF"
+        },
+        {
+          "value": 2,
+          "id": "LOOK-7292436AE4FD"
+        },
+        {
+          "value": 3,
+          "id": "LOOK-AF0D9108EB57"
+        }
+      ]
+    },
+    {
+      "room": "GRATING-ROOM",
+      "status": "incomplete",
+      "states": []
+    },
+    {
+      "room": "IN-STREAM",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "KITCHEN",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "LOOK-6DBE643B0841"
+        },
+        {
+          "value": 2,
+          "id": "LOOK-DE296868739F"
+        }
+      ]
+    },
+    {
+      "room": "LADDER-BOTTOM",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "LADDER-TOP",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "LAND-OF-LIVING-DEAD",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "LIVING-ROOM",
+      "status": "incomplete",
+      "states": []
+    },
+    {
+      "room": "LOUD-ROOM",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "LOOK-1003B53A382F"
+        },
+        {
+          "value": 2,
+          "id": "LOOK-DB173A7B909D"
+        }
+      ]
+    },
+    {
+      "room": "LOWER-SHAFT",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "MACHINE-ROOM",
+      "status": "incomplete",
+      "states": []
+    },
+    {
+      "room": "MAINTENANCE-ROOM",
+      "status": "incomplete",
+      "states": []
+    },
+    {
+      "room": "MAZE-1",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "MAZE-10",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "MAZE-11",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "MAZE-12",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "MAZE-13",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "MAZE-14",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "MAZE-15",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "MAZE-2",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "MAZE-3",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "MAZE-4",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "MAZE-5",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "MAZE-6",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "MAZE-7",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "MAZE-8",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "MAZE-9",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "MINE-1",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "MINE-2",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "MINE-3",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "MINE-4",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "MINE-ENTRANCE",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "MIRROR-ROOM-1",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "LOOK-09722ADD1423"
+        },
+        {
+          "value": 2,
+          "id": "LOOK-0FB4A68B2D6C"
+        }
+      ]
+    },
+    {
+      "room": "MIRROR-ROOM-2",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "LOOK-09722ADD1423"
+        },
+        {
+          "value": 2,
+          "id": "LOOK-0FB4A68B2D6C"
+        }
+      ]
+    },
+    {
+      "room": "MOUNTAINS",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "NARROW-PASSAGE",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "NORTH-OF-HOUSE",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "NORTH-TEMPLE",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "NS-PASSAGE",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "ON-RAINBOW",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "PATH",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "RESERVOIR",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "LOOK-8CBFAA778666"
+        },
+        {
+          "value": 2,
+          "id": "LOOK-EB9A6FD9C313"
+        }
+      ]
+    },
+    {
+      "room": "RESERVOIR-NORTH",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "LOOK-3F8156A3B59F"
+        },
+        {
+          "value": 2,
+          "id": "LOOK-8E0C0E5B26A2"
+        },
+        {
+          "value": 3,
+          "id": "LOOK-AF3761505961"
+        },
+        {
+          "value": 4,
+          "id": "LOOK-DE5C3C4A172E"
+        }
+      ]
+    },
+    {
+      "room": "RESERVOIR-SOUTH",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "LOOK-59F1E792382B"
+        },
+        {
+          "value": 2,
+          "id": "LOOK-7102492C0E61"
+        },
+        {
+          "value": 3,
+          "id": "LOOK-AB0139B0FEE6"
+        },
+        {
+          "value": 4,
+          "id": "LOOK-EC761344CEB6"
+        }
+      ]
+    },
+    {
+      "room": "RIVER-1",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "RIVER-2",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "RIVER-3",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "RIVER-4",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "RIVER-5",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "ROUND-ROOM",
+      "status": "incomplete",
+      "states": []
+    },
+    {
+      "room": "SANDY-BEACH",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "SANDY-CAVE",
+      "status": "incomplete",
+      "states": []
+    },
+    {
+      "room": "SHAFT-ROOM",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "SHORE",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "SLIDE-ROOM",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "SMALL-CAVE",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "SMELLY-ROOM",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "SOUTH-OF-HOUSE",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "SOUTH-TEMPLE",
+      "status": "incomplete",
+      "states": []
+    },
+    {
+      "room": "SQUEEKY-ROOM",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "STONE-BARROW",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "STRANGE-PASSAGE",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "STREAM-VIEW",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "STUDIO",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "TIMBER-ROOM",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "TINY-CAVE",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "TORCH-ROOM",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "LOOK-42D6C3BB6AB5"
+        },
+        {
+          "value": 2,
+          "id": "LOOK-4703A4F94993"
+        }
+      ]
+    },
+    {
+      "room": "TREASURE-ROOM",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "TROLL-ROOM",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "TWISTING-PASSAGE",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "UP-A-TREE",
+      "status": "incomplete",
+      "states": []
+    },
+    {
+      "room": "WEST-OF-HOUSE",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "LOOK-68B304A687F9"
+        },
+        {
+          "value": 2,
+          "id": "LOOK-9A941A2A2FC0"
+        }
+      ]
+    },
+    {
+      "room": "WHITE-CLIFFS-NORTH",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "WHITE-CLIFFS-SOUTH",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    {
+      "room": "WINDING-PASSAGE",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    }
+  ]
+}

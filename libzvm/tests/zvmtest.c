@@ -7,6 +7,7 @@
 #include "kos/reader.h"
 #include "story_cache.h"
 #include "stack_probe.h"
+#include "state_report.h"
 #include <diag.h>
 #include "klibc/stdio.h"
 
@@ -180,6 +181,55 @@ typedef struct {
 static paged_story_t paged_story;
 
 static char play_line[82];
+static woh_state_report_t state_reporting;
+static char binding_path[96];
+static uint8_t binding_bytes[WOH_BINDINGS_SIZE];
+static uint8_t binding_header[WOH_STORY_HEADER_SIZE];
+
+/* A story and its same-stem .WOH file are deployed together. Absence supports
+ * uninstrumented stories; a present but invalid file is a load error. */
+static int load_state_bindings(const char *path)
+{
+	uint8_t n = 0, dot = 255u, used = 0, extra;
+	int handle, got;
+	state_reporting.enabled = 0;
+	while (path[n]) {
+		if (n >= sizeof(binding_path) - 5u)
+			return -1;
+		binding_path[n] = path[n];
+		if (path[n] == '/')
+			dot = 255u;
+		else if (path[n] == '.')
+			dot = n;
+		++n;
+	}
+	if (dot != 255u)
+		n = dot;
+	binding_path[n++] = '.';
+	binding_path[n++] = 'W';
+	binding_path[n++] = 'O';
+	binding_path[n++] = 'H';
+	binding_path[n] = 0;
+	handle = open(binding_path, KFS_O_READ);
+	if (handle < 0)
+		return 0;
+	while (used < WOH_BINDINGS_SIZE) {
+		got = read((unsigned int)handle, binding_bytes + used, WOH_BINDINGS_SIZE - used);
+		if (got <= 0) {
+			close((unsigned int)handle);
+			return -1;
+		}
+		used += (uint8_t)got;
+	}
+	got = read((unsigned int)handle, &extra, 1);
+	close((unsigned int)handle);
+	if (got != 0 || kos_reader_read_full(&play_story.reader, 0, binding_header,
+					    WOH_STORY_HEADER_SIZE) != WOH_STORY_HEADER_SIZE ||
+	    !woh_state_report_init(&state_reporting, binding_bytes, used, binding_header))
+		return -1;
+	return 1;
+}
+
 
 static zvm_error_t play_output(void *user, uint8_t channel, uint8_t byte)
 {
@@ -283,6 +333,11 @@ static int play_zork(const char *path, uint8_t automated)
 		close((unsigned int)file);
 		return 1;
 	}
+	if (load_state_bindings(path) < 0) {
+		printf("zvmtest: invalid story state bindings\n");
+		close((unsigned int)file);
+		return 1;
+	}
 #if defined(ZVM_PROFILE) && ZVM_PROFILE
 	if (benchmarking) {
 		original_read_at = play_story.reader.read_at;
@@ -375,6 +430,16 @@ static int play_zork(const char *path, uint8_t automated)
 			if (benchmarking) {
 				console_flush();
 				bench_end(command_index ? "input" : "startup", command_index);
+			}
+			if (state_reporting.enabled) {
+				uint16_t here, state;
+				if (woh_state_report_read(&vm, &state_reporting, &here, &state) != ZVM_OK) {
+					printf("zvmtest: state observation failed\n");
+					play_cleanup(file);
+					return 1;
+				}
+				printf("\r\nHERE:      %u\r\nWOH-STATE: %u\r\n",
+				       (unsigned)here, (unsigned)state);
 			}
 			if (automated) {
 				uint8_t i;

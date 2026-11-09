@@ -1,0 +1,10 @@
+{
+  "schema": "woh_story_bindings_v1",
+  "story_sha256": "cce1fdc54f18a6616e124db2de245aec1da943b458ebdee61bf1c6ff0a4038d4",
+  "metadata_sha256": "2ed5a7d50a599dea9c7b1d717e4f98b9d40c4a9c52883ccd0835a979cb11aa3b",
+  "globals": {
+    "HERE": 0,
+    "WOH-STATE": 151
+  },
+  "source": "ZILf ZAP .GVAR declaration order; zero-based indices"
+}

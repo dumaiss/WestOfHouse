@@ -1,0 +1,88 @@
+{
+  "bss": {
+    "linked": 7324,
+    "size": 7324
+  },
+  "entry": {
+    "address": 349,
+    "offset": 93,
+    "symbol": "kos_entry"
+  },
+  "format": "exe-v2",
+  "header": {
+    "abi_version": 1,
+    "bss_size": 7324,
+    "entry_offset": 93,
+    "file_size": 107956,
+    "flags": 0,
+    "format_version": 2,
+    "header_size": 36,
+    "image_size": 48896,
+    "magic": "4b455832",
+    "primary_payload_offset": 36,
+    "reserved0": 0,
+    "reserved1": 0,
+    "segment_count": 4,
+    "segment_table_offset": 48932,
+    "stack_size": 768,
+    "total_segment_slots": 9
+  },
+  "image": {
+    "fill_bytes": 9710,
+    "linked_bytes": 41133,
+    "sha256": "253aab614f2aa2b56552c15a976904793d45d0dee89111f2820d88ce33a01650",
+    "size": 48896
+  },
+  "name": "woh.exe",
+  "output": "build/WestOfHouse/woh.exe",
+  "scratch": {
+    "size": 16,
+    "symbol": "kos_scratch"
+  },
+  "segments": [
+    {
+      "bss_size": 5290,
+      "flags": 0,
+      "id": 1,
+      "image_size": 9024,
+      "kind": "FAR_CODE",
+      "payload_offset": 48996,
+      "sha256": "38b886ef9113ba897923aa524594e07d37eed6a697791696b756d4a5d9b5362e"
+    },
+    {
+      "bss_size": 0,
+      "flags": 0,
+      "id": 2,
+      "image_size": 9231,
+      "kind": "FAR_CODE",
+      "payload_offset": 58020,
+      "sha256": "e2afa9ece200edfc3d1cee410d61b8a9a68671e684cef6f9c826c0508800c11c"
+    },
+    {
+      "bss_size": 0,
+      "flags": 0,
+      "id": 3,
+      "image_size": 32768,
+      "kind": "DATA",
+      "payload_offset": 67252,
+      "sha256": "395a6c4b04384ca8866bfd94687960925c9f20019c58efe65e6e547cfd4c882a"
+    },
+    {
+      "bss_size": 0,
+      "flags": 0,
+      "id": 4,
+      "image_size": 7936,
+      "kind": "DATA",
+      "payload_offset": 100020,
+      "sha256": "6277a5ca0ab7cfcf65512ea27fd8e151df5b30ef4f7c8a8de3949cc9301227c4"
+    }
+  ],
+  "sha256": "2b9f1ad007451d541b83ba1e261720b6335e104a006eb904ddf5591ce5062939",
+  "size": 107956,
+  "stack": {
+    "base": 56576,
+    "size": 768,
+    "top": 57344
+  },
+  "tool": "exepack.py"
+}

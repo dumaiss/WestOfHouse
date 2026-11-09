@@ -1,0 +1,214 @@
+[
+  {
+    "capture": "/home/kitamura/Documents/WestOfHouse/build/state-reporting/benchmark-baseline/run/console.txt",
+    "records": [
+      {
+        "mode": "normal",
+        "phase": "final",
+        "turn": 0,
+        "room": 180,
+        "score": 0,
+        "moves": 9,
+        "output_bytes": 1204,
+        "hash": 1232506913
+      },
+      {
+        "mode": "normal",
+        "phase": "input",
+        "turn": 1,
+        "counts": 188062,
+        "us": 4814387
+      },
+      {
+        "mode": "normal",
+        "phase": "input",
+        "turn": 2,
+        "counts": 209789,
+        "us": 5370598
+      },
+      {
+        "mode": "normal",
+        "phase": "input",
+        "turn": 3,
+        "counts": 229592,
+        "us": 5877555
+      },
+      {
+        "mode": "normal",
+        "phase": "input",
+        "turn": 4,
+        "counts": 221008,
+        "us": 5657804
+      },
+      {
+        "mode": "normal",
+        "phase": "input",
+        "turn": 5,
+        "counts": 167927,
+        "us": 4298931
+      },
+      {
+        "mode": "normal",
+        "phase": "input",
+        "turn": 6,
+        "counts": 138047,
+        "us": 3534003
+      },
+      {
+        "mode": "normal",
+        "phase": "input",
+        "turn": 7,
+        "counts": 187545,
+        "us": 4801152
+      },
+      {
+        "mode": "normal",
+        "phase": "input",
+        "turn": 8,
+        "counts": 213178,
+        "us": 5457356
+      },
+      {
+        "mode": "normal",
+        "phase": "input",
+        "turn": 9,
+        "counts": 212802,
+        "us": 5447731
+      },
+      {
+        "mode": "normal",
+        "phase": "input",
+        "turn": 10,
+        "counts": 209314,
+        "us": 5358438
+      },
+      {
+        "mode": "normal",
+        "phase": "load",
+        "turn": 0,
+        "counts": 145565,
+        "us": 3726464
+      },
+      {
+        "mode": "normal",
+        "phase": "startup",
+        "turn": 0,
+        "counts": 82472,
+        "us": 2111283
+      },
+      {
+        "mode": "normal",
+        "phase": "timer-pair",
+        "turn": 0,
+        "counts": 54,
+        "us": 1382
+      }
+    ]
+  },
+  {
+    "capture": "/home/kitamura/Documents/WestOfHouse/build/state-reporting/benchmark-instrumented/run/console.txt",
+    "records": [
+      {
+        "mode": "normal",
+        "phase": "final",
+        "turn": 0,
+        "room": 180,
+        "score": 0,
+        "moves": 9,
+        "output_bytes": 1204,
+        "hash": 1232506913
+      },
+      {
+        "mode": "normal",
+        "phase": "input",
+        "turn": 1,
+        "counts": 202859,
+        "us": 5193190
+      },
+      {
+        "mode": "normal",
+        "phase": "input",
+        "turn": 2,
+        "counts": 223908,
+        "us": 5732044
+      },
+      {
+        "mode": "normal",
+        "phase": "input",
+        "turn": 3,
+        "counts": 244015,
+        "us": 6246784
+      },
+      {
+        "mode": "normal",
+        "phase": "input",
+        "turn": 4,
+        "counts": 235150,
+        "us": 6019840
+      },
+      {
+        "mode": "normal",
+        "phase": "input",
+        "turn": 5,
+        "counts": 182731,
+        "us": 4677913
+      },
+      {
+        "mode": "normal",
+        "phase": "input",
+        "turn": 6,
+        "counts": 152390,
+        "us": 3901184
+      },
+      {
+        "mode": "normal",
+        "phase": "input",
+        "turn": 7,
+        "counts": 202178,
+        "us": 5175756
+      },
+      {
+        "mode": "normal",
+        "phase": "input",
+        "turn": 8,
+        "counts": 228783,
+        "us": 5856844
+      },
+      {
+        "mode": "normal",
+        "phase": "input",
+        "turn": 9,
+        "counts": 230442,
+        "us": 5899315
+      },
+      {
+        "mode": "normal",
+        "phase": "input",
+        "turn": 10,
+        "counts": 224157,
+        "us": 5738419
+      },
+      {
+        "mode": "normal",
+        "phase": "load",
+        "turn": 0,
+        "counts": 148402,
+        "us": 3799091
+      },
+      {
+        "mode": "normal",
+        "phase": "startup",
+        "turn": 0,
+        "counts": 94566,
+        "us": 2420889
+      },
+      {
+        "mode": "normal",
+        "phase": "timer-pair",
+        "turn": 0,
+        "counts": 47,
+        "us": 1203
+      }
+    ]
+  }
+]

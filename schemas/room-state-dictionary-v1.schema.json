@@ -1,0 +1,384 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Symbolic Room-State Dictionary v1",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "const": "room_state_dictionary_v1"
+    },
+    "rooms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "ready",
+              "incomplete"
+            ]
+          },
+          "observe": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "value_type": {
+                      "enum": [
+                        "signed16",
+                        "unsigned16",
+                        "boolean",
+                        "object_ref"
+                      ]
+                    },
+                    "kind": {
+                      "const": "global"
+                    },
+                    "symbol": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "value_type",
+                    "kind",
+                    "symbol"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "value_type": {
+                      "const": "boolean"
+                    },
+                    "kind": {
+                      "const": "object_attribute"
+                    },
+                    "object": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "attribute": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "value_type",
+                    "kind",
+                    "object",
+                    "attribute"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "value_type": {
+                      "const": "object_ref"
+                    },
+                    "kind": {
+                      "const": "object_parent"
+                    },
+                    "object": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "value_type",
+                    "kind",
+                    "object"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "value_type": {
+                      "enum": [
+                        "signed16",
+                        "unsigned16",
+                        "boolean",
+                        "object_ref"
+                      ]
+                    },
+                    "kind": {
+                      "const": "object_property"
+                    },
+                    "object": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "property": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "value_type",
+                    "kind",
+                    "object",
+                    "property"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "states": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "match": {
+                      "$ref": "#/$defs/condition"
+                    },
+                    "status": {
+                      "const": "ambiguous"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "match"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "status": {
+                      "enum": [
+                        "unresolved",
+                        "contradictory"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "status"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "observe",
+          "states"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schema",
+    "rooms"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "condition": {
+      "oneOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "eq": {
+              "type": [
+                "integer",
+                "boolean",
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "ref",
+            "eq"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "ne": {
+              "type": [
+                "integer",
+                "boolean",
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "ref",
+            "ne"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "lt": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "ref",
+            "lt"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "le": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "ref",
+            "le"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "gt": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "ref",
+            "gt"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "ref": {
+              "type": "string",
+              "minLength": 1
+            },
+            "ge": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "ref",
+            "ge"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "all": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/condition"
+              }
+            }
+          },
+          "required": [
+            "all"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "any": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/condition"
+              }
+            }
+          },
+          "required": [
+            "any"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "not": {
+              "$ref": "#/$defs/condition"
+            }
+          },
+          "required": [
+            "not"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  }
+}

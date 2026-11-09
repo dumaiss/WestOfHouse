@@ -1,0 +1,125 @@
+{
+  "keyboard": {
+    "pairs": [
+      [
+        180,
+        1
+      ],
+      [
+        81,
+        1
+      ],
+      [
+        79,
+        1
+      ],
+      [
+        79,
+        2
+      ],
+      [
+        79,
+        1
+      ]
+    ],
+    "confirmation": [
+      "confirmation",
+      "79",
+      "1",
+      "4",
+      "44.674190"
+    ],
+    "returned_to_shell": true
+  },
+  "benchmark": {
+    "turns": [
+      {
+        "phase": "startup",
+        "turn": 0,
+        "baseline_us": 2111283,
+        "instrumented_us": 2420889,
+        "added_us": 309606
+      },
+      {
+        "phase": "input",
+        "turn": 1,
+        "baseline_us": 4814387,
+        "instrumented_us": 5193190,
+        "added_us": 378803
+      },
+      {
+        "phase": "input",
+        "turn": 2,
+        "baseline_us": 5370598,
+        "instrumented_us": 5732044,
+        "added_us": 361446
+      },
+      {
+        "phase": "input",
+        "turn": 3,
+        "baseline_us": 5877555,
+        "instrumented_us": 6246784,
+        "added_us": 369229
+      },
+      {
+        "phase": "input",
+        "turn": 4,
+        "baseline_us": 5657804,
+        "instrumented_us": 6019840,
+        "added_us": 362036
+      },
+      {
+        "phase": "input",
+        "turn": 5,
+        "baseline_us": 4298931,
+        "instrumented_us": 4677913,
+        "added_us": 378982
+      },
+      {
+        "phase": "input",
+        "turn": 6,
+        "baseline_us": 3534003,
+        "instrumented_us": 3901184,
+        "added_us": 367181
+      },
+      {
+        "phase": "input",
+        "turn": 7,
+        "baseline_us": 4801152,
+        "instrumented_us": 5175756,
+        "added_us": 374604
+      },
+      {
+        "phase": "input",
+        "turn": 8,
+        "baseline_us": 5457356,
+        "instrumented_us": 5856844,
+        "added_us": 399488
+      },
+      {
+        "phase": "input",
+        "turn": 9,
+        "baseline_us": 5447731,
+        "instrumented_us": 5899315,
+        "added_us": 451584
+      },
+      {
+        "phase": "input",
+        "turn": 10,
+        "baseline_us": 5358438,
+        "instrumented_us": 5738419,
+        "added_us": 379981
+      }
+    ],
+    "final": {
+      "room": 180,
+      "score": 0,
+      "moves": 9,
+      "output_bytes": 1204,
+      "hash": 1232506913
+    },
+    "baseline_us": 52729238,
+    "instrumented_us": 56862178,
+    "note": "Single paired target-timer sample, includes cache effects; host print time excluded by existing harness."
+  }
+}

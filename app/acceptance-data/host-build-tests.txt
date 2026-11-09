@@ -1,0 +1,53 @@
+make: Entering directory '/home/kitamura/Documents/WestOfHouse/app'
+sdcc -mz80 -c --nostdinc --Werror -I../../ZephyrOS/build/kos-sdk-0.2.0/include/abi -I../../ZephyrOS/build/kos-sdk-0.2.0/include -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 --constseg RCONST  -Isrc  -Igfx  -Ibuild/assets  -I../libzvm/include  -I../libzvm/tests  -I../../ZephyrOS/build/kos-sdk-0.2.0/include/kos -I . -c src/main.c -o build/target/user/woh/main.rel
+make -C ../libzvm release KOS_SDK_ROOT=/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0
+make[1]: Entering directory '/home/kitamura/Documents/WestOfHouse/libzvm'
+make zvmtest ZVM_PROFILE=0 ZVM_ASM=0 ZVM_CACHE_ASM=1 ZVM_STACK_PROBE=0 ZVM_STACK=512 DYN_CACHE_PAGES=4 STATIC_CACHE_PAGES=4
+make[2]: Entering directory '/home/kitamura/Documents/WestOfHouse/libzvm'
+Optimized build ready:
+  /home/kitamura/Documents/WestOfHouse/libzvm/build/ZVMTEST.EXE
+  /home/kitamura/Documents/WestOfHouse/libzvm/build/libzvm.lib
+Checksums: /home/kitamura/Documents/WestOfHouse/libzvm/build/SHA256SUMS
+make[2]: Leaving directory '/home/kitamura/Documents/WestOfHouse/libzvm'
+make[1]: Leaving directory '/home/kitamura/Documents/WestOfHouse/libzvm'
+mkdir -p build/lib
+cp ../libzvm/build/libzvm.lib build/lib/libzvm.lib
+{ printf '%s\n' '-n' '-m' '-w'; printf '%s\n' '-i build/target/user/woh/woh.ihx'; printf '%s\n' '-b _KOS_SDK_DATA = 0x0100'; printf '%s\n' '-b _CODE = 0x015D';   printf '%s\n'  ../../ZephyrOS/build/kos-sdk-0.2.0/lib/crt0.rel  build/target/user/woh/main.rel build/target/user/woh/game.rel build/target/user/woh/game_output.rel build/target/user/woh/render.rel build/target/user/woh/panel.rel build/target/user/woh/menu.rel build/target/user/woh/fixture.rel build/target/user/woh/story_cache.rel build/target/user/woh/story_cache_z80.rel   ; for lib in build/lib/libzvm.lib build/lib/libgfx.lib build/lib/libtui.lib; do printf '%s\n' "-l $lib"; done; printf '%s\n' '-l ../../ZephyrOS/build/kos-sdk-0.2.0/lib/libkos.lib'; printf '%s\n' '-e'; } > build/target/user/woh/woh.lk
+python3 ../../ZephyrOS/build/kos-sdk-0.2.0/tools/exeplace.py link build/target/user/woh/woh.lk build/target/user/woh/place 768 build/target/user/woh/game_output.rel build/target/user/woh/story_cache.rel build/target/user/woh/story_cache_z80.rel 'libgfx.lib(gfx_mode.rel)=resident' 'build/target/user/woh/fixture.rel=home' '--declared=libzvm.lib(memory.rel)' '--declared=libzvm.lib(text.rel)' '--declared=libzvm.lib(services.rel)' '--declared=libtui.lib(tui_mouse.rel)'
+sdldz80 -f build/target/user/woh/place/placed.lk
+ASlink >> -f build/target/user/woh/place/placed.lk
+ASlink >> -n
+touch build/target/user/woh/woh.link
+python3 ../../ZephyrOS/build/kos-sdk-0.2.0/tools/exemanifest.py build/target/user/woh/woh.map build/target/user/woh/woh.json --name woh.exe --entry kos_entry --stack 768  --scratch kos_scratch:16  --placement build/target/user/woh/place/placement.json
+python3 ../../ZephyrOS/build/kos-sdk-0.2.0/tools/exepack.py pack build/target/user/woh/woh.json build/target/user/woh.exe --objdir build/target/user/woh --report build/target/user/woh/woh.report.json
+exepack: build/target/user/woh/woh.json -> build/target/user/woh.exe (67219 bytes, entry 015Dh, sha256 f1e56ee25248526d)
+python3 ../../ZephyrOS/build/kos-sdk-0.2.0/tools/exepack.py validate build/target/user/woh.exe
+exepack: build/target/user/woh.exe OK (67219 bytes, sha256 f1e56ee25248526dae27fac9877fdb84484030b13406129452de016caac280b5)
+mkdir -p build/WestOfHouse
+python3 tools/bundle.py --sdk ../../ZephyrOS/build/kos-sdk-0.2.0 --manifest build/target/user/woh/woh.json --assets build/assets --output build/WestOfHouse/woh.exe
+exepack: build/target/user/woh/woh-bundle.json -> build/WestOfHouse/woh.exe (107956 bytes, entry 015Dh, sha256 2b9f1ad007451d54)
+exepack: build/WestOfHouse/woh.exe OK (107956 bytes, sha256 2b9f1ad007451d541b83ba1e261720b6335e104a006eb904ddf5591ce5062939)
+cp ../libzvm/build/ZORK1.Z3 build/WestOfHouse/zork1.z3
+cd build/WestOfHouse && sha256sum woh.exe zork1.z3 > SHA256SUMS
+G0 bundle: /home/kitamura/Documents/WestOfHouse/app/build/WestOfHouse/woh.exe
+           /home/kitamura/Documents/WestOfHouse/app/build/WestOfHouse/zork1.z3
+mkdir -p build/host
+cc -std=c99 -Wall -Wextra -Werror -I../../ZephyrOS/build/kos-sdk-0.2.0/include/abi -Isrc tests/test_panel.c src/panel.c src/menu.c src/fixture.c -o build/host/test_panel
+build/host/test_panel
+panel/menu tests passed; history model 1913 bytes
+cc -std=c99 -Wall -Wextra -Werror -Itests/host -I../libzvm/tests/host/include -I../../ZephyrOS/build/kos-sdk-0.2.0/include/abi -I../../ZephyrOS/build/kos-sdk-0.2.0/include -Isrc -Igfx tests/test_render.c src/render.c src/panel.c src/menu.c src/fixture.c -o build/host/test_render
+build/host/test_render "../docs/DIG_STATE_INITIAL.g7"
+render contract tests passed: fixed scene, zero state, geometry, history, prompt, menu restoration
+cc -std=c99 -Wall -Wextra -Werror -Itests/host -I../libzvm/tests/host/include -I../../ZephyrOS/build/kos-sdk-0.2.0/include/abi -I../../ZephyrOS/build/kos-sdk-0.2.0/include -Isrc -Ibuild/assets -I../libzvm/include -I../libzvm/tests tests/test_game.c src/game.c src/game_output.c src/panel.c ../libzvm/tests/story_cache.c ../../ZephyrOS/user/sdk/src/reader_full.c ../libzvm/src/decode.c ../libzvm/src/dictionary.c ../libzvm/src/execute.c ../libzvm/src/frames.c ../libzvm/src/input.c ../libzvm/src/memory.c ../libzvm/src/objects.c ../libzvm/src/opcodes.c ../libzvm/src/services.c ../libzvm/src/text.c ../libzvm/src/variables.c ../libzvm/src/zvm.c -o build/host/test_game
+build/host/test_game "../libzvm/build/ZORK1.Z3"
+game integration tests passed: actual story, movement, file/read/binding/allocation/staging/VM faults and cleanup
+WOH_SDK_ROOT=/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0 python3 -m unittest discover -s tests -p 'test_*.py' -v
+test_sdk_member_payloads_are_preserved (test_archive.ArchiveTests.test_sdk_member_payloads_are_preserved) ... ok
+test_existing_inputs (test_prepare.PrepareTests.test_existing_inputs) ... ok
+test_mismatch_and_image_dimensions (test_prepare.PrepareTests.test_mismatch_and_image_dimensions) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.016s
+
+OK
+make: Leaving directory '/home/kitamura/Documents/WestOfHouse/app'

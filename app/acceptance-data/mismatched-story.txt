@@ -1,0 +1,4 @@
+/>
+woh: story does not match the compiled global bindings (code -3, VM 1, PC 0)
+woh: story path zork1.z3
+/>

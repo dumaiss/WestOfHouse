@@ -1,0 +1,8 @@
+                             zvmtest: story 85522 bytes, dynamic 11044
+                                                                      zvmtest: alloca
+ting 11044 bytes of XMEM
+                        zvmtest: XMEM allocation result 1
+                                                         zvmtest: XMEM requested 1104
+4 allocated 16384 flags 0 type 1
+                                zvmtest: application bank 1 valid-bank-mask 0x7F
+Zork I: /fs/ZORK1.Z3

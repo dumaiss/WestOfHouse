@@ -1,0 +1,212 @@
+{
+  "dam_room_fixture": [
+    {
+      "values": {
+        "GATE-FLAG": false,
+        "GATES-OPEN": false,
+        "LOW-TIDE": false
+      },
+      "state": 2
+    },
+    {
+      "values": {
+        "GATE-FLAG": false,
+        "GATES-OPEN": false,
+        "LOW-TIDE": true
+      },
+      "state": 4
+    },
+    {
+      "values": {
+        "GATE-FLAG": false,
+        "GATES-OPEN": true,
+        "LOW-TIDE": false
+      },
+      "state": 1
+    },
+    {
+      "values": {
+        "GATE-FLAG": false,
+        "GATES-OPEN": true,
+        "LOW-TIDE": true
+      },
+      "state": 3
+    },
+    {
+      "values": {
+        "GATE-FLAG": true,
+        "GATES-OPEN": false,
+        "LOW-TIDE": false
+      },
+      "state": 8
+    },
+    {
+      "values": {
+        "GATE-FLAG": true,
+        "GATES-OPEN": false,
+        "LOW-TIDE": true
+      },
+      "state": 7
+    },
+    {
+      "values": {
+        "GATE-FLAG": true,
+        "GATES-OPEN": true,
+        "LOW-TIDE": false
+      },
+      "state": 6
+    },
+    {
+      "values": {
+        "GATE-FLAG": true,
+        "GATES-OPEN": true,
+        "LOW-TIDE": true
+      },
+      "state": 5
+    }
+  ],
+  "regression": {
+    "turns": [
+      {
+        "command": null,
+        "baseline_instructions": 396,
+        "instrumented_instructions": 498,
+        "added_instructions": 102
+      },
+      {
+        "command": "look",
+        "baseline_instructions": 1425,
+        "instrumented_instructions": 1528,
+        "added_instructions": 103
+      },
+      {
+        "command": "open mailbox",
+        "baseline_instructions": 1514,
+        "instrumented_instructions": 1617,
+        "added_instructions": 103
+      },
+      {
+        "command": "take leaflet",
+        "baseline_instructions": 1652,
+        "instrumented_instructions": 1755,
+        "added_instructions": 103
+      },
+      {
+        "command": "read leaflet",
+        "baseline_instructions": 1545,
+        "instrumented_instructions": 1648,
+        "added_instructions": 103
+      },
+      {
+        "command": "inventory",
+        "baseline_instructions": 1229,
+        "instrumented_instructions": 1332,
+        "added_instructions": 103
+      },
+      {
+        "command": "score",
+        "baseline_instructions": 1056,
+        "instrumented_instructions": 1159,
+        "added_instructions": 103
+      },
+      {
+        "command": "look",
+        "baseline_instructions": 1424,
+        "instrumented_instructions": 1527,
+        "added_instructions": 103
+      },
+      {
+        "command": "examine mailbox",
+        "baseline_instructions": 1532,
+        "instrumented_instructions": 1635,
+        "added_instructions": 103
+      },
+      {
+        "command": "close mailbox",
+        "baseline_instructions": 1507,
+        "instrumented_instructions": 1610,
+        "added_instructions": 103
+      },
+      {
+        "command": "open mailbox",
+        "baseline_instructions": 1519,
+        "instrumented_instructions": 1622,
+        "added_instructions": 103
+      },
+      {
+        "command": "north",
+        "baseline_instructions": 1215,
+        "instrumented_instructions": 1286,
+        "added_instructions": 71
+      },
+      {
+        "command": "east",
+        "baseline_instructions": 1209,
+        "instrumented_instructions": 1238,
+        "added_instructions": 29
+      },
+      {
+        "command": "open window",
+        "baseline_instructions": 1551,
+        "instrumented_instructions": 1580,
+        "added_instructions": 29
+      },
+      {
+        "command": "close window",
+        "baseline_instructions": 1540,
+        "instrumented_instructions": 1569,
+        "added_instructions": 29
+      },
+      {
+        "command": "quit",
+        "baseline_instructions": 936,
+        "instrumented_instructions": 937,
+        "added_instructions": 1
+      },
+      {
+        "command": "y",
+        "baseline_instructions": 5,
+        "instrumented_instructions": 5,
+        "added_instructions": 0
+      }
+    ],
+    "identical_output_sha256": "295fb411557527fe8b7c48f4a44dd0648051c359e0c71d866713fce17380dd4a",
+    "termination": "ZVM_FINISHED",
+    "fixture_note": "Global/Dam fixtures use public logical writes; no full win walkthrough claimed."
+  },
+  "won_flag_fixture": [
+    1,
+    2,
+    1
+  ],
+  "incomplete_sandy_cave": [
+    126,
+    0
+  ],
+  "normal_transitions_and_window": [
+    [
+      180,
+      1
+    ],
+    [
+      81,
+      1
+    ],
+    [
+      79,
+      1
+    ],
+    [
+      79,
+      2
+    ],
+    [
+      79,
+      1
+    ]
+  ],
+  "loud_room_shared_read": [
+    138,
+    1
+  ]
+}

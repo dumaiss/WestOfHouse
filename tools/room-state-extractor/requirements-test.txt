@@ -1,0 +1,3 @@
+# Acceptance tests only; generation uses the Python standard library.
+PyYAML>=6
+jsonschema>=4

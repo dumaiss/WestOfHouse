@@ -59,6 +59,15 @@ convention. Its assertions and [assembly contract](docs/m35-cache-asm.md) must
 remain aligned with `story_cache.h`. Do not reorder fields casually. The native
 C stack reservation and the VM's evaluation stack are separate resources.
 
+## Build outputs
+
+Use `make` for the accepted optimized configuration or `make release` to force
+its settings explicitly. Deliver `build/ZVMTEST.EXE` and `build/libzvm.lib`;
+`build/SHA256SUMS` records their identity. Development variants selected with
+`make zvmtest ZVM_PROFILE=1` (or other configuration overrides) stay under
+`build/variants/` and cannot replace those artifacts. See `make help` and the
+[README](README.md) for configuration details.
+
 ## Verification for implementation changes
 
 Use the commands in [README](README.md) to select the affected layer:

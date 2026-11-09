@@ -1,0 +1,8 @@
+............
+----------------------------------------------------------------------
+Ran 12 tests in 14.685s
+
+OK
+/home/kitamura/Documents/WestOfHouse/build/state-reporting/baseline/ZORK1.Z3
+/home/kitamura/Documents/WestOfHouse/build/state-reporting/instrumented/ZORK1.Z3
+/home/kitamura/Documents/WestOfHouse/build/state-reporting/tmpb8ant5kj/ZORK1.Z3

@@ -1,0 +1,21 @@
+{
+  "schema": "woh_story_build_v1",
+  "baseline": true,
+  "story_sha256": "096be27293e20a2503ec137d1f421976910968bb3bc681d30ae767a1a41ab177",
+  "source_sha256": {
+    "1actions.zil": "94be62a8e11e488e866dc1fc126d63bcf2674fa1fd3710cca1d8d01cb3fb4f8b",
+    "1dungeon.zil": "8e223dc75ce64cff8542266101742ea73774533787c5257e8df4a262e4f02766",
+    "gclock.zil": "92c4d66f18eeba8de1497215a0e17ade6c2cf1e5e050f016cf99160e41b154c6",
+    "gglobals.zil": "5945abfeeff71cd2b2088653c7572d3c72bf14d5af65c41b4425d945a6bb6e0a",
+    "gmacros.zil": "d665c73e9231429a772877357fd56d57c946838a5260a74f705c2dc898ebd8f5",
+    "gmain.zil": "712e27ab29d36f3d36c7994ec6d41011cb869990d8780a03bb2ee8148d3f1740",
+    "gparser.zil": "5c996d3048925ac8781a00c56ce66ec2e58df2c075cc587bceef6355b5c9c1a1",
+    "gsyntax.zil": "b0f0b4de6068bb85cf96306a16e07f410518669d12260682d3ac71e2e42b5621",
+    "gverbs.zil": "e1150d6300e262f774b59fe96f8139980dfad3c41f0e93f3af49140b5f57e74e",
+    "zork1.zil": "e6c361add109914987d6b0e610a0f22632049e864a48a0994f6b2518b0adca0a"
+  },
+  "tools_sha256": {
+    "zilf": "ede1e0320ec6d70d7203283094b8da64d9c3d5c672e3bd98695fa896c0787891",
+    "zapf": "d31d3d879d29cdc3c9c0b97ba10170a61856e7f77fdb9adf35cd76df3028a2cd"
+  }
+}

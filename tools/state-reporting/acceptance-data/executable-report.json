@@ -1,0 +1,51 @@
+{
+  "bss": {
+    "linked": 9638,
+    "size": 9638
+  },
+  "entry": {
+    "address": 349,
+    "offset": 93,
+    "symbol": "kos_entry"
+  },
+  "format": "exe-v2",
+  "header": {
+    "abi_version": 1,
+    "bss_size": 9638,
+    "entry_offset": 93,
+    "file_size": 43184,
+    "flags": 0,
+    "format_version": 2,
+    "header_size": 36,
+    "image_size": 43148,
+    "magic": "4b455832",
+    "primary_payload_offset": 36,
+    "reserved0": 0,
+    "reserved1": 0,
+    "segment_count": 0,
+    "segment_table_offset": 43184,
+    "stack_size": 512,
+    "total_segment_slots": 0
+  },
+  "image": {
+    "fill_bytes": 2176,
+    "linked_bytes": 43055,
+    "sha256": "1289cc1ec5ac3ea1cd67896f72767c28b4ccb4c227d1876d2df13f185217de49",
+    "size": 43148
+  },
+  "name": "zvmtest.exe",
+  "output": "build/optimized/target/user/zvmtest.exe",
+  "scratch": {
+    "size": 16,
+    "symbol": "kos_scratch"
+  },
+  "segments": [],
+  "sha256": "cdb232076754b499f23907a2c49a5790d59a0b10db1ae21ccdf8a70afe2e2ddf",
+  "size": 43184,
+  "stack": {
+    "base": 56832,
+    "size": 512,
+    "top": 57344
+  },
+  "tool": "exepack.py"
+}
