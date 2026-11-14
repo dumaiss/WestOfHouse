@@ -1,0 +1,698 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "TROLL-ROOM",
+  "title": "The Troll Room",
+  "runtime_room": 102,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is a small room with passages to the east and south and a\nforbidding hole leading west. Bloodstains and deep scratches\n(perhaps made by an axe) mar the walls."
+        ],
+        "source_refs": [
+          "SRC-ROOM-TROLL-ROOM"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "TROLL",
+        "description": "troll",
+        "kind": "object",
+        "initial_location": "TROLL-ROOM",
+        "source_flags": [
+          "ACTORBIT",
+          "OPENBIT",
+          "TRYTAKEBIT"
+        ],
+        "source_properties": {
+          "STRENGTH": 2,
+          "LDESC": "A nasty-looking troll, brandishing a bloody axe, blocks all passages\nout of the room."
+        },
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-TROLL"
+        ]
+      },
+      {
+        "id": "AXE",
+        "description": "bloody axe",
+        "kind": "object",
+        "initial_location": "TROLL",
+        "source_flags": [
+          "WEAPONBIT",
+          "TRYTAKEBIT",
+          "TAKEBIT",
+          "NDESCBIT"
+        ],
+        "source_properties": {
+          "SIZE": 25
+        },
+        "visibility": "contained_context",
+        "reason": "Contained object; not independently placed in the room illustration.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-AXE"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-TROLL-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-SOUTH",
+        "directions": [
+          "south"
+        ],
+        "destination": "CELLAR",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-TROLL-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "EW-PASSAGE",
+        "condition": {
+          "op": "source_expression",
+          "expression": "TROLL-FLAG"
+        },
+        "blocked_text": [
+          "The troll fends you off with a menacing gesture."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-TROLL-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "MAZE-1",
+        "condition": {
+          "op": "source_expression",
+          "expression": "TROLL-FLAG"
+        },
+        "blocked_text": [
+          "The troll fends you off with a menacing gesture."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-TROLL-ROOM"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "CAVES"
+    ],
+    "camera": "Stand clear of the central space looking toward the western hole.",
+    "composition": "Retain east/south passages and the forbidding western opening, with bloodstains and deep wall scratches. Use the source-listed troll and bloody axe as the coarse room presentation.",
+    "lighting_palette": "Low neutral fill, restrained dark red stains and rough gray-brown rock.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/troll-room.scene.json",
+    "scene_sha256": "dbbfd91385a7b7e3e1f201c6276d2bfef8969befb043c5de35c2ac7aa63bbf78",
+    "source_references": [
+      {
+        "id": "SRC-GLOBAL-P-CONT",
+        "file": "gparser.zil",
+        "line_start": 58,
+        "line_end": 58,
+        "subject": "P-CONT"
+      },
+      {
+        "id": "SRC-GLOBAL-TROLL-FLAG",
+        "file": "1dungeon.zil",
+        "line_start": 1233,
+        "line_end": 1233,
+        "subject": "TROLL-FLAG"
+      },
+      {
+        "id": "SRC-OBJECT-AXE",
+        "file": "1dungeon.zil",
+        "line_start": 180,
+        "line_end": 187,
+        "subject": "AXE"
+      },
+      {
+        "id": "SRC-OBJECT-TROLL",
+        "file": "1dungeon.zil",
+        "line_start": 1036,
+        "line_end": 1046,
+        "subject": "TROLL"
+      },
+      {
+        "id": "SRC-ROOM-TROLL-ROOM",
+        "file": "1dungeon.zil",
+        "line_start": 1479,
+        "line_end": 1492,
+        "subject": "TROLL-ROOM"
+      },
+      {
+        "id": "SRC-ROUTINE-AXE-F",
+        "file": "1actions.zil",
+        "line_start": 622,
+        "line_end": 624,
+        "subject": "AXE-F"
+      },
+      {
+        "id": "SRC-ROUTINE-TROLL-FCN",
+        "file": "1actions.zil",
+        "line_start": 640,
+        "line_end": 764,
+        "subject": "TROLL-FCN"
+      },
+      {
+        "id": "SRC-ROUTINE-TROLL-ROOM-F",
+        "file": "1actions.zil",
+        "line_start": 4175,
+        "line_end": 4178,
+        "subject": "TROLL-ROOM-F"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [
+      {
+        "id": "TROLL.FIGHTBIT",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<FSET ,TROLL ,FIGHTBIT>",
+        "source_refs": []
+      },
+      {
+        "id": "AXE.location",
+        "kind": "object_location",
+        "value_type": "object_id",
+        "initial_value": "TROLL",
+        "source_expression": "<MOVE ,AXE ,TROLL>",
+        "source_refs": [
+          "SRC-OBJECT-AXE"
+        ]
+      },
+      {
+        "id": "TROLL.location",
+        "kind": "object_location",
+        "value_type": "object_id",
+        "initial_value": "TROLL-ROOM",
+        "source_expression": "<REMOVE-CAREFULLY ,TROLL>",
+        "source_refs": [
+          "SRC-OBJECT-TROLL"
+        ]
+      },
+      {
+        "id": "P-CONT",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL P-CONT <>>",
+        "source_refs": [
+          "SRC-GLOBAL-P-CONT"
+        ]
+      },
+      {
+        "id": "TROLL-FLAG",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL TROLL-FLAG <>>",
+        "source_refs": [
+          "SRC-GLOBAL-TROLL-FLAG"
+        ]
+      }
+    ],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "flag_clear",
+              "object": "TROLL",
+              "flag": "FIGHTBIT"
+            },
+            {
+              "op": "located_in",
+              "object": "AXE",
+              "location": "TROLL"
+            },
+            {
+              "op": "located_in",
+              "object": "TROLL",
+              "location": "TROLL-ROOM"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "P-CONT"
+              },
+              "right": {
+                "value": false
+              }
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "TROLL-FLAG"
+              },
+              "right": {
+                "value": false
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-TROLL-ROOM"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-2",
+        "condition": {
+          "op": "eq",
+          "left": {
+            "state_variable": "P-CONT"
+          },
+          "right": {
+            "value": false
+          }
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-3",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "flag_set",
+              "object": "TROLL",
+              "flag": "FIGHTBIT"
+            },
+            {
+              "op": "located_in",
+              "object": "AXE",
+              "location": "TROLL"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "TROLL-FLAG"
+              },
+              "right": {
+                "value": true
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-4",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "flag_set",
+              "object": "TROLL",
+              "flag": "FIGHTBIT"
+            },
+            {
+              "op": "located_in",
+              "object": "AXE",
+              "location": "TROLL"
+            },
+            {
+              "op": "located_in",
+              "object": "PRSO",
+              "location": "HERE"
+            },
+            {
+              "op": "flag_set",
+              "object": "TROLL",
+              "flag": "FIGHTBIT"
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-5",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "flag_set",
+              "object": "TROLL",
+              "flag": "FIGHTBIT"
+            },
+            {
+              "op": "located_in",
+              "object": "AXE",
+              "location": "TROLL"
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-6",
+        "condition": {
+          "op": "eq",
+          "left": {
+            "state_variable": "TROLL-FLAG"
+          },
+          "right": {
+            "value": true
+          }
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-7",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "located_in",
+              "object": "PRSO",
+              "location": "HERE"
+            },
+            {
+              "op": "flag_set",
+              "object": "TROLL",
+              "flag": "FIGHTBIT"
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-8",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <REMOVE-CAREFULLY ,PRSO>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-TROLL-FCN-TELL-1",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-2-TROLL-FCN-THROW-GIVE-TAKE-MOVE-MUNG-3",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-3-TROLL-FCN-THROW-GIVE-TAKE-MOVE-MUNG-3",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-4-TROLL-FCN-THROW-GIVE-TAKE-MOVE-MUNG-3",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-5-TROLL-FCN-THROW-GIVE-TAKE-MOVE-MUNG-3",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-6-TROLL-FCN-THROW-GIVE-TAKE-MOVE-MUNG-3",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-7-TROLL-FCN-THROW-GIVE-TAKE-MOVE-MUNG-3",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-8-TROLL-FCN-THROW-GIVE-TAKE-MOVE-MUNG-3",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-9-TROLL-FCN-THROW-GIVE-TAKE-MOVE-MUNG-3",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-10-TROLL-FCN-THROW-GIVE-TAKE-MOVE-MUNG-3",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-11-TROLL-FCN-THROW-GIVE-TAKE-MOVE-MUNG-3",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-12-TROLL-FCN-THROW-GIVE-TAKE-MOVE-MUNG-3",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-13-TROLL-FCN-THROW-GIVE-TAKE-MOVE-MUNG-3",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-14-TROLL-FCN-THROW-GIVE-TAKE-MOVE-MUNG-3",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-15-TROLL-FCN-THROW-GIVE-TAKE-MOVE-MUNG-3",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-16-TROLL-FCN-THROW-GIVE-TAKE-MOVE-MUNG-3",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-17-TROLL-FCN-THROW-GIVE-TAKE-MOVE-MUNG-3",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-18-TROLL-FCN-THROW-GIVE-TAKE-MOVE-MUNG-3",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-19-TROLL-FCN-THROW-GIVE-TAKE-MOVE-MUNG-3",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-20-TROLL-FCN-THROW-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-21-TROLL-FCN-THROW-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-22-TROLL-FCN-THROW-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-23-TROLL-FCN-THROW-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-24-TROLL-FCN-THROW-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-25-TROLL-FCN-THROW-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-26-TROLL-FCN-THROW-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-27-TROLL-FCN-THROW-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-28-TROLL-FCN-THROW-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-29-TROLL-FCN-THROW-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-30-TROLL-FCN-THROW-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-31-TROLL-FCN-THROW-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-32-TROLL-FCN-THROW-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-33-TROLL-FCN-THROW-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-34-TROLL-FCN-THROW-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-35-TROLL-FCN-THROW-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-36-TROLL-FCN-THROW-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-37-TROLL-FCN-THROW-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-TROLL-FCN"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values.",
+      "ACTION-STATE conditions describe source mutations and may overlap; arbitrary ZIL was not executed."
+    ]
+  },
+  "unresolved": []
+}

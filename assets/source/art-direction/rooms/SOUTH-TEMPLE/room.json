@@ -1,0 +1,415 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "SOUTH-TEMPLE",
+  "title": "Altar",
+  "runtime_room": 212,
+  "runtime_status": "incomplete",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is the south end of a large temple. In front of you is what\nappears to be an altar. In one corner is a small hole in the floor\nwhich leads into darkness. You probably could not get back up it."
+        ],
+        "source_refs": [
+          "SRC-ROOM-SOUTH-TEMPLE"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "ALTAR",
+        "description": "altar",
+        "kind": "object",
+        "initial_location": "SOUTH-TEMPLE",
+        "source_flags": [
+          "NDESCBIT",
+          "SURFACEBIT",
+          "CONTBIT",
+          "OPENBIT"
+        ],
+        "source_properties": {
+          "CAPACITY": 50
+        },
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-ALTAR"
+        ]
+      },
+      {
+        "id": "BOOK",
+        "description": "black book",
+        "kind": "object",
+        "initial_location": "ALTAR",
+        "source_flags": [
+          "READBIT",
+          "TAKEBIT",
+          "CONTBIT",
+          "BURNBIT",
+          "TURNBIT"
+        ],
+        "source_properties": {
+          "SIZE": 10,
+          "FDESC": "On the altar is a large black book, open to page 569."
+        },
+        "visibility": "contained_context",
+        "reason": "Contained object; not independently placed in the room illustration.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-BOOK"
+        ]
+      },
+      {
+        "id": "CANDLES",
+        "description": "pair of candles",
+        "kind": "object",
+        "initial_location": "SOUTH-TEMPLE",
+        "source_flags": [
+          "TAKEBIT",
+          "FLAMEBIT",
+          "ONBIT",
+          "LIGHTBIT"
+        ],
+        "source_properties": {
+          "SIZE": 10,
+          "FDESC": "On the two ends of the altar are burning candles."
+        },
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/2",
+        "source_refs": [
+          "SRC-OBJECT-CANDLES"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-SOUTH-TEMPLE"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "NORTH-TEMPLE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-SOUTH-TEMPLE"
+        ]
+      },
+      {
+        "id": "EXIT-DOWN",
+        "directions": [
+          "down"
+        ],
+        "destination": "TINY-CAVE",
+        "condition": {
+          "op": "source_expression",
+          "expression": "COFFIN-CURE"
+        },
+        "blocked_text": [
+          "You haven't a prayer of getting the coffin down there."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-SOUTH-TEMPLE"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "ONBIT",
+      "SACREDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "DOME-TEMPLE"
+    ],
+    "camera": "Stand at the southern temple approach looking across the altar.",
+    "composition": "Use the altar and small floor hole as separate shapes; preserve canonical book and candle carriers as room dressing, with no legible text.",
+    "lighting_palette": "Somber stone, ivory highlights and explicit candlelight only when supported.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/south-temple.scene.json",
+    "scene_sha256": "15e25aa5413de419441bf6df7610dddbd8b1f5054c7a590d889475065127ed6c",
+    "source_references": [
+      {
+        "id": "SRC-GLOBAL-LIT",
+        "file": "gverbs.zil",
+        "line_start": 1626,
+        "line_end": 1626,
+        "subject": "LIT"
+      },
+      {
+        "id": "SRC-OBJECT-ALTAR",
+        "file": "1dungeon.zil",
+        "line_start": 205,
+        "line_end": 210,
+        "subject": "ALTAR"
+      },
+      {
+        "id": "SRC-OBJECT-BOOK",
+        "file": "1dungeon.zil",
+        "line_start": 212,
+        "line_end": 231,
+        "subject": "BOOK"
+      },
+      {
+        "id": "SRC-OBJECT-CANDLES",
+        "file": "1dungeon.zil",
+        "line_start": 670,
+        "line_end": 678,
+        "subject": "CANDLES"
+      },
+      {
+        "id": "SRC-OBJECT-INTNUM",
+        "file": "gglobals.zil",
+        "line_start": 31,
+        "line_end": 35,
+        "subject": "INTNUM"
+      },
+      {
+        "id": "SRC-ROOM-SOUTH-TEMPLE",
+        "file": "1dungeon.zil",
+        "line_start": 2116,
+        "line_end": 2129,
+        "subject": "SOUTH-TEMPLE"
+      },
+      {
+        "id": "SRC-ROUTINE-BLACK-BOOK",
+        "file": "1actions.zil",
+        "line_start": 2187,
+        "line_end": 2205,
+        "subject": "BLACK-BOOK"
+      },
+      {
+        "id": "SRC-ROUTINE-CANDLES-FCN",
+        "file": "1actions.zil",
+        "line_start": 2343,
+        "line_end": 2404,
+        "subject": "CANDLES-FCN"
+      },
+      {
+        "id": "SRC-ROUTINE-SOUTH-TEMPLE-FCN",
+        "file": "1actions.zil",
+        "line_start": 2573,
+        "line_end": 2576,
+        "subject": "SOUTH-TEMPLE-FCN"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [
+      {
+        "id": "CANDLES.ONBIT",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": true,
+        "source_expression": "<FCLEAR ,CANDLES ,ONBIT>",
+        "source_refs": []
+      },
+      {
+        "id": "CANDLES.location",
+        "kind": "object_location",
+        "value_type": "object_id",
+        "initial_value": "SOUTH-TEMPLE",
+        "source_expression": "<REMOVE-CAREFULLY ,CANDLES>",
+        "source_refs": [
+          "SRC-OBJECT-CANDLES"
+        ]
+      },
+      {
+        "id": "CANDLES.TOUCHBIT",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<FSET ,CANDLES ,TOUCHBIT>",
+        "source_refs": []
+      },
+      {
+        "id": "LIT",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL LIT <>>",
+        "source_refs": [
+          "SRC-GLOBAL-LIT"
+        ]
+      }
+    ],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "flag_set",
+              "object": "CANDLES",
+              "flag": "ONBIT"
+            },
+            {
+              "op": "located_in",
+              "object": "CANDLES",
+              "location": "SOUTH-TEMPLE"
+            },
+            {
+              "op": "flag_clear",
+              "object": "CANDLES",
+              "flag": "TOUCHBIT"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "LIT"
+              },
+              "right": {
+                "value": false
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-SOUTH-TEMPLE"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-2",
+        "condition": {
+          "op": "flag_set",
+          "object": "CANDLES",
+          "flag": "ONBIT"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-CANDLES-FCN"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-3",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <REMOVE-CAREFULLY ,CANDLES>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-CANDLES-FCN"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-4",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "flag_clear",
+              "object": "CANDLES",
+              "flag": "ONBIT"
+            },
+            {
+              "op": "flag_set",
+              "object": "CANDLES",
+              "flag": "TOUCHBIT"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "LIT"
+              },
+              "right": {
+                "value": "<LIT? ,HERE>"
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-CANDLES-FCN"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-BLACK-BOOK-BURN-4",
+        "source_refs": [
+          "SRC-ROUTINE-BLACK-BOOK"
+        ]
+      },
+      {
+        "id": "TRANSITION-2-CANDLES-FCN-LAMP-ON-BURN-1",
+        "source_refs": [
+          "SRC-ROUTINE-CANDLES-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-3-CANDLES-FCN-LAMP-ON-BURN-1",
+        "source_refs": [
+          "SRC-ROUTINE-CANDLES-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-4-CANDLES-FCN-LAMP-OFF-3",
+        "source_refs": [
+          "SRC-ROUTINE-CANDLES-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-5-CANDLES-FCN-LAMP-OFF-3",
+        "source_refs": [
+          "SRC-ROUTINE-CANDLES-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-6-CANDLES-FCN-LAMP-OFF-3",
+        "source_refs": [
+          "SRC-ROUTINE-CANDLES-FCN"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values.",
+      "ACTION-STATE conditions describe source mutations and may overlap; arbitrary ZIL was not executed."
+    ]
+  },
+  "unresolved": [
+    {
+      "kind": "runtime_unknown",
+      "detail": "The resolver returns state 0; no positive runtime state or image is assigned."
+    }
+  ]
+}

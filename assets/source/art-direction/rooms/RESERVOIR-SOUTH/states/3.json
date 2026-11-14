@@ -1,0 +1,140 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "state",
+  "room": "RESERVOIR-SOUTH",
+  "title": "Reservoir South",
+  "runtime_room": 50,
+  "runtime_state": 3,
+  "symbolic_state": "LOOK-AB0139B0FEE6",
+  "condition": {
+    "all": [
+      {
+        "ref": "LOW-TIDE",
+        "ne": false
+      },
+      {
+        "not": {
+          "any": [
+            {
+              "all": [
+                {
+                  "ref": "GATES-OPEN",
+                  "ne": false
+                },
+                {
+                  "ref": "LOW-TIDE",
+                  "ne": false
+                }
+              ]
+            },
+            {
+              "ref": "GATES-OPEN",
+              "ne": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "extracted_states": [],
+  "description_ids": [
+    "M-LOOK-3"
+  ],
+  "canonical": [
+    {
+      "text": "You are in a long room, to the north of which is a wide area which\nwas formerly a reservoir, but now is merely a stream. You notice,\nhowever, that the level of the stream is rising quickly and that\nbefore long it will be impossible to cross here.",
+      "pointer": "/scene/descriptions/2/text/0",
+      "source_refs": [
+        "SRC-ROOM-RESERVOIR-SOUTH",
+        "SRC-ROUTINE-RESERVOIR-SOUTH-FCN"
+      ]
+    },
+    {
+      "text": "There is a path along the stream to the east or west, a steep pathway\nclimbing southwest along the edge of a chasm, and a path leading into a\ncanyon to the southeast.",
+      "pointer": "/scene/descriptions/2/text/1",
+      "source_refs": [
+        "SRC-ROOM-RESERVOIR-SOUTH",
+        "SRC-ROUTINE-RESERVOIR-SOUTH-FCN"
+      ]
+    }
+  ],
+  "required_environmental_features": [
+    "You are in a long room, to the north of which is a wide area which\nwas formerly a reservoir, but now is merely a stream. You notice,\nhowever, that the level of the stream is rising quickly and that\nbefore long it will be impossible to cross here.",
+    "There is a path along the stream to the east or west, a steep pathway\nclimbing southwest along the edge of a chasm, and a path leading into a\ncanyon to the southeast."
+  ],
+  "required_visible_objects": [],
+  "artistic": {
+    "continuity": [
+      "DAM-RESERVOIR"
+    ],
+    "camera": "Stand at the southern shore looking north across the long basin.",
+    "composition": "Keep east/west streamside paths, southwest steep chasm route and southeast canyon route distinct; hold basin contours fixed across water levels.",
+    "lighting_palette": "Cool water reflection, gray-brown shoreline and low fill.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "state_artistic": {
+    "visual_treatment": "The former reservoir is a stream rising across the low basin margin.",
+    "omit_source_dressing": []
+  },
+  "invariants": {
+    "canonical_text": [
+      "There is a path along the stream to the east or west, a steep pathway\nclimbing southwest along the edge of a chasm, and a path leading into a\ncanyon to the southeast."
+    ],
+    "artistic": {
+      "continuity": [
+        "DAM-RESERVOIR"
+      ],
+      "camera": "Stand at the southern shore looking north across the long basin.",
+      "composition": "Keep east/west streamside paths, southwest steep chasm route and southeast canyon route distinct; hold basin contours fixed across water levels.",
+      "lighting_palette": "Cool water reflection, gray-brown shoreline and low fill.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    }
+  },
+  "changes": [
+    "You are in a long room, to the north of which is a wide area which\nwas formerly a reservoir, but now is merely a stream. You notice,\nhowever, that the level of the stream is rising quickly and that\nbefore long it will be impossible to cross here."
+  ],
+  "reference": {
+    "room": "RESERVOIR-SOUTH",
+    "runtime_room": 50,
+    "runtime_state": 1,
+    "asset_key": "room-50-state-1",
+    "status": "preferred future Phase 2 reference; no illustration exists yet"
+  },
+  "asset_key": "room-50-state-3",
+  "target": {
+    "width": 256,
+    "height": 159,
+    "hardware": "Yamaha V9958",
+    "eventual_encoding": "YJK",
+    "phase": 1,
+    "source_aspect": "4:3 landscape",
+    "crop": "Safe center crop from 4:3 to 256:159; protect subjects within the central 82.8% of source height and central 90% of width."
+  },
+  "prompt": "Create one complete static illustration of Reservoir South.\n\nViewpoint: Stand at the southern shore looking north across the long basin.\n\nThe scene establishes these features: You are in a long room, to the north of which is a wide area which was formerly a reservoir, but now is merely a stream. You notice, however, that the level of the stream is rising quickly and that before long it will be impossible to cross here. There is a path along the stream to the east or west, a steep pathway climbing southwest along the edge of a chasm, and a path leading into a canyon to the southeast.\n\nComposition: Keep east/west streamside paths, southwest steep chasm route and southeast canyon route distinct; hold basin contours fixed across water levels.\n\nAppearance of this illustration: The former reservoir is a stream rising across the low basin margin.\n\nLighting and color: Cool water reflection, gray-brown shoreline and low fill.\n\nShared world design: Massive plain concrete engineering, dark iron fittings, restrained green/red/blue/yellow controls; lock bank contours and dam silhouette across water states.\n\nStyle: Painterly adventure-game illustration recalling fine late-1980s and early-1990s computer artwork; natural proportions, restrained brushwork, readable silhouettes and broad tonal masses. Aim for roughly 256 visually significant colors, broad related color regions, controlled shading and clear dark/light separation. No exact RGB-count requirement, photographic color noise, excessive gradients or microtextures.\n\nKeep this room camera, underlying architecture, terrain layout, light direction and palette consistent across its variants. Depict the complete scene, including the appearance stated above.\n\nLandscape source composition near 4:3. Final scene is 256 by 159 pixels. Allow safe center cropping to 256:159, keeping essential subjects inside the central 82.8 percent of source height and away from the side boundaries. Use clear silhouettes and broad readable shapes at that final size.\n\nExclude game UI, borders, captions, labels, readable lettering, photographic detail, pixel grids and enlarged pixels. Do not add characters, significant props, openings or events beyond the established scene. Do not depict an action in progress or a before/after collage.\n",
+  "negative_prompt": "No UI, borders, readable text, photorealism, pixel grid, invented props, extra exits or transient action events.",
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/reservoir-south.scene.json",
+    "scene_sha256": "4b1f22f6b205582217cf50a66d2fe275adcf4d8f052b40657587ad3e05ca59da",
+    "runtime_source": {
+      "file": "1actions.zil",
+      "line": 1416,
+      "expression": "(<EQUAL? .RARG ,M-LOOK> <COND (<AND ,LOW-TIDE ,GATES-OPEN> <TELL \"You are in a long room, to the north of which was formerly a lake.\\nHowever, with the water level lowered, there is merely a wide stream\\nrunning through the center of the room.\">) (,GATES-OPEN <TELL \"You are in a long room. To the north is a large lake, too deep\\nto cross. You notice, however, that the water level appears to be\\ndropping at a rapid rate. Before long, it might be possible to cross\\nto the other side from here.\">) (,LOW-TIDE <TELL \"You are in a long room, to the north of which is a wide area which\\nwas formerly a reservoir, but now is merely a stream. You notice,\\nhowever, that the level of the stream is rising quickly and that\\nbefore long it will be impossible to cross here.\">) (T <TELL \"You are in a long room on the south shore of a large lake, far\\ntoo deep and wide for crossing.\">)> <CRLF> <TELL \"There is a path along the stream to the east or west, a steep pathway\\nclimbing southwest along the edge of a chasm, and a path leading into a\\ncanyon to the southeast.\" CR>)"
+    },
+    "mapping_file": "generated-zil/woh-state-ids.json",
+    "mapping_sha256": "c48cbe6f1866460c9141af8f50be2b1120255b13ae8fa44a72cbb1714c3a2137",
+    "dictionary_file": "generated-room-states/room-states.yaml",
+    "dictionary_sha256": "87783e0895b9ebf9d5155dff22e440735c5ac68caca748c1d77840d6c1aacfa0",
+    "story_sha256": "cce1fdc54f18a6616e124db2de245aec1da943b458ebdee61bf1c6ff0a4038d4"
+  },
+  "unresolved": [
+    {
+      "kind": "legacy_state_relationship_unresolved",
+      "state": "LOOK-AB0139B0FEE6",
+      "detail": "Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly."
+    }
+  ]
+}

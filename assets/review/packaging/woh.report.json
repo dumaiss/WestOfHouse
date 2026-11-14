@@ -1,0 +1,70 @@
+{
+  "bss": {
+    "linked": 7424,
+    "size": 7424
+  },
+  "entry": {
+    "address": 349,
+    "offset": 93,
+    "symbol": "kos_entry"
+  },
+  "format": "exe-v2",
+  "header": {
+    "abi_version": 1,
+    "bss_size": 7424,
+    "entry_offset": 93,
+    "file_size": 73196,
+    "flags": 0,
+    "format_version": 2,
+    "header_size": 36,
+    "image_size": 48896,
+    "magic": "4b455832",
+    "primary_payload_offset": 36,
+    "reserved0": 0,
+    "reserved1": 0,
+    "segment_count": 2,
+    "segment_table_offset": 48932,
+    "stack_size": 768,
+    "total_segment_slots": 4
+  },
+  "image": {
+    "fill_bytes": 6493,
+    "linked_bytes": 44470,
+    "sha256": "312a8a6886cd433e913aeafbbb41128f1ea8d28fc9bd574b18bd522ff0f60627",
+    "size": 48896
+  },
+  "name": "woh.exe",
+  "output": "build/target/user/woh.exe",
+  "scratch": {
+    "size": 16,
+    "symbol": "kos_scratch"
+  },
+  "segments": [
+    {
+      "bss_size": 0,
+      "flags": 0,
+      "id": 1,
+      "image_size": 15205,
+      "kind": "FAR_CODE",
+      "payload_offset": 48964,
+      "sha256": "863a99165f4f6a9de149df64bd02a392251c0af94c0461e9a98f45e411157e2e"
+    },
+    {
+      "bss_size": 5290,
+      "flags": 0,
+      "id": 2,
+      "image_size": 9024,
+      "kind": "FAR_CODE",
+      "payload_offset": 64172,
+      "sha256": "d616cbfb1e3cb800e2c79d10d8664b44d4b1877ac1f3ea061f16a5837e73ec8d"
+    }
+  ],
+  "sha256": "0793494234b068a259ea12c28bd3717c032b2972d303dda4f7d06ada8394fc5c",
+  "size": 73196,
+  "stack": {
+    "base": 56576,
+    "size": 768,
+    "top": 57344
+  },
+  "tool": "exepack.py"
+}

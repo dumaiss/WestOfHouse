@@ -1,0 +1,189 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "EW-PASSAGE",
+  "title": "East-West Passage",
+  "runtime_room": 41,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is a narrow east-west passageway. There is a narrow stairway\nleading down at the north end of the room."
+        ],
+        "source_refs": [
+          "SRC-ROOM-EW-PASSAGE"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "STAIRS",
+        "description": "stairs",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT",
+          "CLIMBBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-STAIRS"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-EW-PASSAGE"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "ROUND-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-EW-PASSAGE"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "TROLL-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-EW-PASSAGE"
+        ]
+      },
+      {
+        "id": "EXIT-DOWN",
+        "directions": [
+          "down"
+        ],
+        "destination": "CHASM-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-EW-PASSAGE"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "CHASM-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-EW-PASSAGE"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "CAVES"
+    ],
+    "camera": "Look along the east-west axis from a slightly offset position.",
+    "composition": "Give the northern descending stair a clear mouth distinct from the continuing corridor; keep the space narrow.",
+    "lighting_palette": "Cool low fill on compressed stone planes.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/ew-passage.scene.json",
+    "scene_sha256": "46d5e8fef540032bc0e20dc96ff6c2b685258d899c4e374a4d7b0dca7ab88d40",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-STAIRS",
+        "file": "gglobals.zil",
+        "line_start": 102,
+        "line_end": 108,
+        "subject": "STAIRS"
+      },
+      {
+        "id": "SRC-ROOM-EW-PASSAGE",
+        "file": "1dungeon.zil",
+        "line_start": 1938,
+        "line_end": 1950,
+        "subject": "EW-PASSAGE"
+      },
+      {
+        "id": "SRC-ROUTINE-STAIRS-F",
+        "file": "gglobals.zil",
+        "line_start": 110,
+        "line_end": 113,
+        "subject": "STAIRS-F"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-EW-PASSAGE"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

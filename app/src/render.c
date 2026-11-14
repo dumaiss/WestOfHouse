@@ -4,15 +4,21 @@
 #include "gfx_border.h"
 #include "render.h"
 #include "layout.h"
+#include "resources.h"
 
 #define BG 0x01u
 static const struct gfx_text_style narrative = {COLOR_TEXT, BG, 0, 0};
 static const struct gfx_text_style amber = {COLOR_COMMAND, BG, 0, 0};
-static const struct gfx_text_style hint = {0xB5u, BG, 0, 0};
-static const struct gfx_text_style overlay = {COLOR_TEXT, BG, 0, 0};
-static const struct gfx_text_style menu_normal = {COLOR_TEXT, 0x25u, 0, 0};
+static const struct gfx_text_style hint = {6u, BG, 0, 0};
+static const struct gfx_text_style menu_normal = {COLOR_TEXT, 2u, 0, 0};
 static const struct gfx_text_style menu_selected = {BG, COLOR_COMMAND, 0, 0};
-static const uint8_t row_y[PANEL_ROWS] = {146,154,162,170,178,186,194};
+/* Palette indices belong to UI pixels (A set); scene pixels use YJK.
+ * Sprites retain the SDK's fixed GRAPHIC 7 sprite colours. */
+static const struct gfx_rgb ui_palette[7] = {
+    {0,0,0}, {0,0,73}, {36,36,73}, {109,73,73},
+    {255,182,0}, {255,255,146}, {182,182,73}
+};
+static const uint8_t row_y[PANEL_ROWS] = {161,169,177,185,193};
 /* Keep the SDK's pinned 6x8 letters (including bottom-row descenders).
  * Its two CP850 arrow slots contain placeholders; define those two only. */
 static const uint8_t glyphs[2][8] = {
@@ -23,7 +29,7 @@ static const uint8_t glyph_codes[2] = {0x1E,0x1F};
 typedef struct { uint16_t calls; uint32_t total, maximum; } perf_t;
 static perf_t metrics[PERF_COUNT];
 static int timer_handle;
-static uint8_t opened, scene_loaded, overlay_valid;
+static uint8_t opened, scene_loaded;
 static uint16_t last_room, last_state;
 static uint8_t upload_buffer[256];
 
@@ -45,58 +51,72 @@ static void stop(uint8_t op, uint32_t before)
 
 int render_open(void)
 {
-    uint32_t before;
-    uint8_t i;
     timer_handle = timer_open();
-    before = start();
     if (gfx_open() < 0) return -1;
     opened = 1;
-    if (gfx_set_mode(GFX_MODE_256x212_256) < 0 || gfx_clear(BG) < 0) return -2;
+    return 0;
+}
+
+int render_game_screen(void)
+{
+    uint32_t before = start();
+    uint8_t i;
+    if (gfx_set_mode(GFX_MODE_256x212_YJK_YAE) < 0 ||
+        gfx_set_palette(0,7u,ui_palette) < 0 || gfx_clear(BG) < 0) return -2;
     for (i = 0; i < 2u; ++i)
         if (gfx_font_set_glyph(GFX_FONT_6X8, glyph_codes[i], glyphs[i]) < 0) return -3;
-    if (gfx_fill_rect(0,SCENE_HEIGHT,256,1,0x4D,GFX_OP_COPY) < 0) return -4;
+    if (gfx_fill_rect(0,SCENE_HEIGHT,256,1,3u,GFX_OP_COPY) < 0) return -4;
     stop(PERF_SETUP, before);
     return 0;
 }
 
-/* Future scene lookup replaces only this operation. The fixed scene is
- * streamed once from EXE blobs, then the clean VRAM page serves menu restores. */
+/* No UI is drawn over the native title. It remains visible until the
+ * controller receives the first decoded key. */
+int render_title(void)
+{
+    uint16_t remaining = 54272u, chunk;
+    if (resources_title() < 0 || gfx_set_mode(GFX_MODE_256x212_YJK) < 0 ||
+        gfx_upload_begin(0,0,256,212) < 0) return -1;
+    while (remaining) {
+        chunk = remaining > sizeof(upload_buffer) ? sizeof(upload_buffer) : remaining;
+        if (resources_pixels(upload_buffer,chunk) != (int)chunk ||
+            gfx_upload_write(upload_buffer,chunk) != (int)chunk) {
+            (void)gfx_upload_end(); return -2;
+        }
+        remaining -= chunk;
+    }
+    if (gfx_upload_end() < 0 || gfx_wait() < 0) return -3;
+    return gfx_display_enable(1);
+}
+
+/* Stream one complete native YJK+YAE image through resident chunks. The story
+ * reader shares this archive and always seeks absolutely on its next read. */
 int render_scene(uint16_t room, uint16_t state)
 {
-    uint8_t part;
-    uint16_t offset, size, chunk;
+    uint16_t remaining, chunk;
     uint32_t before;
-    int handle;
-    char text[24];
-    if (!scene_loaded) {
-        before = start();
-        if (gfx_upload_begin(0,0,256,SCENE_HEIGHT) < 0) return -1;
-        for (part = 1; part <= 2u; ++part) {
-            handle = blob(part);
-            size = part == 1u ? 32768u : SCENE_TAIL_BYTES;
-            if (handle < 1) { (void)gfx_upload_end(); return -2; }
-            for (offset = 0; offset < size; offset += chunk) {
-                chunk = size - offset;
-                if (chunk > sizeof(upload_buffer)) chunk = sizeof(upload_buffer);
-                if (xread((unsigned int)handle, offset, upload_buffer, chunk) != (int)chunk ||
-                    gfx_upload_write(upload_buffer, chunk) != (int)chunk) {
-                    (void)gfx_upload_end(); return -3;
-                }
+    int result;
+    if (scene_loaded && room == last_room && state == last_state) return 0;
+    before = start();
+    result = resources_scene(room,state);
+    if (result < 0) return -1;
+    if (result) {
+        if (gfx_upload_begin(0,0,256,SCENE_HEIGHT) < 0) return -2;
+        remaining = 40704u;
+        while (remaining) {
+            chunk = remaining > sizeof(upload_buffer) ? sizeof(upload_buffer) : remaining;
+            if (resources_pixels(upload_buffer,chunk) != (int)chunk ||
+                gfx_upload_write(upload_buffer,chunk) != (int)chunk) {
+                (void)gfx_upload_end(); return -3;
             }
+            remaining -= chunk;
         }
-        if (gfx_upload_end() < 0 || gfx_copy_rect(0,0,0,256,256,SCENE_HEIGHT) < 0 || gfx_wait() < 0) return -4;
-        scene_loaded = 1;
-        stop(PERF_SCENE, before);
-    }
-    if (overlay_valid && room == last_room && state == last_state) return 0;
-    if (gfx_fill_rect(2,2,138,18,BG,GFX_OP_COPY) < 0) return -5;
-    snprintf(text,sizeof(text),"HERE:      %u",(unsigned)room);
-    if (gfx_text(2,3,text,&overlay) < 0) return -5;
-    snprintf(text,sizeof(text),"WOH-STATE: %u",(unsigned)state);
-    if (gfx_text(2,11,text,&overlay) < 0) return -5;
-    /* Cache the overlay too, so a generic menu may cover this region. */
-    if (gfx_copy_rect(2,2,2,258,138,18) < 0) return -5;
-    last_room = room; last_state = state; overlay_valid = 1;
+        if (gfx_upload_end() < 0) return -4;
+    } else if (gfx_fill_rect(0,0,256,SCENE_HEIGHT,BG,GFX_OP_COPY) < 0) return -4;
+    /* Missing/unbound artwork has no borrowed scene or hotspots. */
+    if (gfx_copy_rect(0,0,0,256,256,SCENE_HEIGHT) < 0 || gfx_wait() < 0) return -5;
+    scene_loaded = 1; last_room = room; last_state = state;
+    stop(PERF_SCENE,before);
     return gfx_display_enable(1);
 }
 
@@ -154,11 +174,11 @@ int render_menu(const menu_t *m)
     uint8_t i;
     uint16_t y = m->y + 2u;
     uint32_t before = start();
-    if (gfx_fill_rect(m->x+2u,m->y+2u,50,32,0,GFX_OP_COPY) < 0 ||
-        gfx_fill_rect(m->x,m->y,50,32,0x25,GFX_OP_COPY) < 0 ||
-        gfx_rect(m->x,m->y,50,32,COLOR_TEXT,GFX_OP_COPY) < 0) return -1;
-    for (i = 0; i < MENU_ITEMS; ++i, y += 9u) {
-        if (gfx_fill_rect(m->x+1u,y,48,9,i == m->selected ? COLOR_COMMAND : 0x25,GFX_OP_COPY) < 0 ||
+    if (gfx_fill_rect(m->x+2u,m->y+2u,MENU_WIDTH,32,0,GFX_OP_COPY) < 0 ||
+        gfx_fill_rect(m->x,m->y,MENU_WIDTH,32,2u,GFX_OP_COPY) < 0 ||
+        gfx_rect(m->x,m->y,MENU_WIDTH,32,COLOR_TEXT,GFX_OP_COPY) < 0) return -1;
+    for (i = 0; i < m->count; ++i, y += 9u) {
+        if (gfx_fill_rect(m->x+1u,y,MENU_WIDTH-2u,9,i == m->selected ? COLOR_COMMAND : 2u,GFX_OP_COPY) < 0 ||
             gfx_text(m->x+4u,y,m->labels[i],i == m->selected ? &menu_selected : &menu_normal) < 0) return -1;
     }
     if (gfx_line(m->x+8u,m->y+32u,m->x+8u,m->y+36u,COLOR_TEXT,GFX_OP_COPY) < 0 ||
@@ -169,7 +189,7 @@ int render_menu(const menu_t *m)
 int render_menu_close(const menu_t *m)
 {
     uint32_t before = start();
-    int result = gfx_copy_rect(m->x,m->y+256u,m->x,m->y,52,37);
+    int result = gfx_copy_rect(m->x,m->y+256u,m->x,m->y,MENU_RESTORE_WIDTH,37);
     (void)gfx_wait(); stop(PERF_MENU_CLOSE,before); return result;
 }
 int render_pointer(int x, int y, uint8_t visible)

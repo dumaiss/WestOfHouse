@@ -1,0 +1,612 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "ROUND-ROOM",
+  "title": "Round Room",
+  "runtime_room": 107,
+  "runtime_status": "incomplete",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is a circular stone room with passages in all directions. Several\nof them have unfortunately been blocked by cave-ins."
+        ],
+        "source_refs": [
+          "SRC-ROOM-ROUND-ROOM"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "THIEF",
+        "description": "thief",
+        "kind": "object",
+        "initial_location": "ROUND-ROOM",
+        "source_flags": [
+          "ACTORBIT",
+          "INVISIBLE",
+          "CONTBIT",
+          "OPENBIT",
+          "TRYTAKEBIT"
+        ],
+        "source_properties": {
+          "STRENGTH": 5,
+          "LDESC": "There is a suspicious-looking individual, holding a large bag, leaning\nagainst one wall. He is armed with a deadly stiletto."
+        },
+        "visibility": "hidden_initially",
+        "reason": "Initial source attribute marks this object invisible.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-THIEF"
+        ]
+      },
+      {
+        "id": "LARGE-BAG",
+        "description": "large bag",
+        "kind": "object",
+        "initial_location": "THIEF",
+        "source_flags": [
+          "TRYTAKEBIT",
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "contained_context",
+        "reason": "Contained object; not independently placed in the room illustration.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-LARGE-BAG"
+        ]
+      },
+      {
+        "id": "STILETTO",
+        "description": "stiletto",
+        "kind": "object",
+        "initial_location": "THIEF",
+        "source_flags": [
+          "WEAPONBIT",
+          "TRYTAKEBIT",
+          "TAKEBIT",
+          "NDESCBIT"
+        ],
+        "source_properties": {
+          "SIZE": 10
+        },
+        "visibility": "contained_context",
+        "reason": "Contained object; not independently placed in the room illustration.",
+        "pointer": "/scene/objects/2",
+        "source_refs": [
+          "SRC-OBJECT-STILETTO"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-ROUND-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "LOUD-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-ROUND-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "EW-PASSAGE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-ROUND-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "NS-PASSAGE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-ROUND-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-SOUTH",
+        "directions": [
+          "south"
+        ],
+        "destination": "NARROW-PASSAGE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-ROUND-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-SE",
+        "directions": [
+          "se"
+        ],
+        "destination": "ENGRAVINGS-CAVE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-ROUND-ROOM"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "CAVES"
+    ],
+    "camera": "View from the near edge across the circular stone chamber.",
+    "composition": "Show radial passage mouths and collapsed openings as the source permits; do not turn every direction into an unobstructed exit.",
+    "lighting_palette": "Neutral cool fill and broad rubble masses.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/round-room.scene.json",
+    "scene_sha256": "704c0284976e60fac9efc9ba00d6530e94aa0e3cdc3c0e16f8c3f7ca872b7d68",
+    "source_references": [
+      {
+        "id": "SRC-GLOBAL-P-CONT",
+        "file": "gparser.zil",
+        "line_start": 58,
+        "line_end": 58,
+        "subject": "P-CONT"
+      },
+      {
+        "id": "SRC-GLOBAL-THIEF-ENGROSSED",
+        "file": "1actions.zil",
+        "line_start": 1945,
+        "line_end": 1945,
+        "subject": "THIEF-ENGROSSED"
+      },
+      {
+        "id": "SRC-OBJECT-LARGE-BAG",
+        "file": "1dungeon.zil",
+        "line_start": 881,
+        "line_end": 887,
+        "subject": "LARGE-BAG"
+      },
+      {
+        "id": "SRC-OBJECT-STILETTO",
+        "file": "1dungeon.zil",
+        "line_start": 889,
+        "line_end": 896,
+        "subject": "STILETTO"
+      },
+      {
+        "id": "SRC-OBJECT-THIEF",
+        "file": "1dungeon.zil",
+        "line_start": 968,
+        "line_end": 978,
+        "subject": "THIEF"
+      },
+      {
+        "id": "SRC-ROOM-ROUND-ROOM",
+        "file": "1dungeon.zil",
+        "line_start": 1952,
+        "line_end": 1963,
+        "subject": "ROUND-ROOM"
+      },
+      {
+        "id": "SRC-ROUTINE-LARGE-BAG-F",
+        "file": "1actions.zil",
+        "line_start": 2094,
+        "line_end": 2112,
+        "subject": "LARGE-BAG-F"
+      },
+      {
+        "id": "SRC-ROUTINE-ROBBER-FUNCTION",
+        "file": "1actions.zil",
+        "line_start": 1947,
+        "line_end": 2084,
+        "subject": "ROBBER-FUNCTION"
+      },
+      {
+        "id": "SRC-ROUTINE-STILETTO-FUNCTION",
+        "file": "1actions.zil",
+        "line_start": 626,
+        "line_end": 627,
+        "subject": "STILETTO-FUNCTION"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [
+      {
+        "id": "LARGE-BAG.location",
+        "kind": "object_location",
+        "value_type": "object_id",
+        "initial_value": "THIEF",
+        "source_expression": "<MOVE ,LARGE-BAG ,THIEF>",
+        "source_refs": [
+          "SRC-OBJECT-LARGE-BAG"
+        ]
+      },
+      {
+        "id": "STILETTO.location",
+        "kind": "object_location",
+        "value_type": "object_id",
+        "initial_value": "THIEF",
+        "source_expression": "<MOVE ,STILETTO ,THIEF>",
+        "source_refs": [
+          "SRC-OBJECT-STILETTO"
+        ]
+      },
+      {
+        "id": "THIEF.INVISIBLE",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": true,
+        "source_expression": "<FSET ,THIEF ,INVISIBLE>",
+        "source_refs": []
+      },
+      {
+        "id": "THIEF.FIGHTBIT",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<FSET ,THIEF ,FIGHTBIT>",
+        "source_refs": []
+      },
+      {
+        "id": "P-CONT",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL P-CONT <>>",
+        "source_refs": [
+          "SRC-GLOBAL-P-CONT"
+        ]
+      },
+      {
+        "id": "THIEF-ENGROSSED",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL THIEF-ENGROSSED <>>",
+        "source_refs": [
+          "SRC-GLOBAL-THIEF-ENGROSSED"
+        ]
+      }
+    ],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "located_in",
+              "object": "LARGE-BAG",
+              "location": "THIEF"
+            },
+            {
+              "op": "located_in",
+              "object": "STILETTO",
+              "location": "THIEF"
+            },
+            {
+              "op": "flag_set",
+              "object": "THIEF",
+              "flag": "INVISIBLE"
+            },
+            {
+              "op": "flag_clear",
+              "object": "THIEF",
+              "flag": "FIGHTBIT"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "P-CONT"
+              },
+              "right": {
+                "value": false
+              }
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "THIEF-ENGROSSED"
+              },
+              "right": {
+                "value": false
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-ROUND-ROOM"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-2",
+        "condition": {
+          "op": "eq",
+          "left": {
+            "state_variable": "P-CONT"
+          },
+          "right": {
+            "value": false
+          }
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-ROBBER-FUNCTION"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-3",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "located_in",
+              "object": "PRSO",
+              "location": "HERE"
+            },
+            {
+              "op": "located_in",
+              "object": "LARGE-BAG",
+              "location": "THIEF"
+            },
+            {
+              "op": "located_in",
+              "object": "STILETTO",
+              "location": "THIEF"
+            },
+            {
+              "op": "flag_set",
+              "object": "THIEF",
+              "flag": "INVISIBLE"
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-ROBBER-FUNCTION"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-4",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "located_in",
+              "object": "PRSO",
+              "location": "HERE"
+            },
+            {
+              "op": "located_in",
+              "object": "LARGE-BAG",
+              "location": "THIEF"
+            },
+            {
+              "op": "flag_set",
+              "object": "THIEF",
+              "flag": "INVISIBLE"
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-ROBBER-FUNCTION"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-5",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "located_in",
+              "object": "PRSO",
+              "location": "HERE"
+            },
+            {
+              "op": "flag_set",
+              "object": "THIEF",
+              "flag": "FIGHTBIT"
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-ROBBER-FUNCTION"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-6",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "located_in",
+              "object": "PRSO",
+              "location": "THIEF"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "THIEF-ENGROSSED"
+              },
+              "right": {
+                "value": true
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-ROBBER-FUNCTION"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-7",
+        "condition": {
+          "op": "located_in",
+          "object": "PRSO",
+          "location": "THIEF"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-ROBBER-FUNCTION"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-ROBBER-FUNCTION-TELL-1",
+        "source_refs": [
+          "SRC-ROUTINE-ROBBER-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-2-ROBBER-FUNCTION-THROW-3",
+        "source_refs": [
+          "SRC-ROUTINE-ROBBER-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-3-ROBBER-FUNCTION-THROW-3",
+        "source_refs": [
+          "SRC-ROUTINE-ROBBER-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-4-ROBBER-FUNCTION-THROW-3",
+        "source_refs": [
+          "SRC-ROUTINE-ROBBER-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-5-ROBBER-FUNCTION-THROW-3",
+        "source_refs": [
+          "SRC-ROUTINE-ROBBER-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-6-ROBBER-FUNCTION-THROW-3",
+        "source_refs": [
+          "SRC-ROUTINE-ROBBER-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-7-ROBBER-FUNCTION-THROW-3",
+        "source_refs": [
+          "SRC-ROUTINE-ROBBER-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-8-ROBBER-FUNCTION-THROW-3",
+        "source_refs": [
+          "SRC-ROUTINE-ROBBER-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-9-ROBBER-FUNCTION-THROW-3",
+        "source_refs": [
+          "SRC-ROUTINE-ROBBER-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-10-ROBBER-FUNCTION-THROW-3",
+        "source_refs": [
+          "SRC-ROUTINE-ROBBER-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-11-ROBBER-FUNCTION-THROW-GIVE-4",
+        "source_refs": [
+          "SRC-ROUTINE-ROBBER-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-12-ROBBER-FUNCTION-THROW-GIVE-4",
+        "source_refs": [
+          "SRC-ROUTINE-ROBBER-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-13-ROBBER-FUNCTION-THROW-GIVE-4",
+        "source_refs": [
+          "SRC-ROUTINE-ROBBER-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-14-ROBBER-FUNCTION-THROW-GIVE-4",
+        "source_refs": [
+          "SRC-ROUTINE-ROBBER-FUNCTION"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": [
+    {
+      "kind": "runtime_unknown",
+      "detail": "The resolver returns state 0; no positive runtime state or image is assigned."
+    }
+  ]
+}

@@ -55,7 +55,7 @@ dkms.conf
 .venv/
 __pycache__/
 *.py[cod]
-generated-scenes/
+assets/source/scene-facts/
 .tmp-scenes/
 .tmp-all-scenes/
 

@@ -1,0 +1,113 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "DEAD-END-3",
+  "title": "Dead End",
+  "runtime_room": 61,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "You have come to a dead end in the maze."
+        ],
+        "source_refs": [
+          "SRC-ROOM-DEAD-END-3"
+        ]
+      }
+    ],
+    "objects": [],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-DEAD-END-3"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "MAZE-8",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-DEAD-END-3"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "MAZEBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "MAZE"
+    ],
+    "camera": "Stand just inside the approach facing the termination of the route.",
+    "composition": "Use the closed end and cramped approach as the defining shapes; preserve the known approach direction from the exit data, without adding a hidden door or marker.",
+    "lighting_palette": "Low brown-gray illustrative fill; darkness deepens toward edges.",
+    "assumptions": [
+      "Surface treatment and viewpoint are artistic; no additional destination is implied."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/dead-end-3.scene.json",
+    "scene_sha256": "9d7c7f7ef40e929cf8e01f7b0d39ac5f11a331bb1c25ab3f1868fd267dba09e6",
+    "source_references": [
+      {
+        "id": "SRC-ROOM-DEAD-END-3",
+        "file": "1dungeon.zil",
+        "line_start": 1629,
+        "line_end": 1634,
+        "subject": "DEAD-END-3"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-DEAD-END-3"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

@@ -12,6 +12,8 @@ typedef struct {
     uint16_t here, state;
 } game_t;
 int game_open(game_t *game, const char *path, panel_t *panel);
+/* Borrows the reader; its owner closes it after game_close. */
+int game_open_reader(game_t *game, const kos_reader_t *reader, panel_t *panel);
 const char *game_load_error(int result);
 void game_close(game_t *game);
 zvm_status_t game_step(game_t *game);

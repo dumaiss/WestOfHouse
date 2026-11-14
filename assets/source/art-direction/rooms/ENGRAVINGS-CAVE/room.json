@@ -1,0 +1,154 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "ENGRAVINGS-CAVE",
+  "title": "Engravings Cave",
+  "runtime_room": 96,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "You have entered a low cave with passages leading northwest and east."
+        ],
+        "source_refs": [
+          "SRC-ROOM-ENGRAVINGS-CAVE"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "ENGRAVINGS",
+        "description": "wall with engravings",
+        "kind": "object",
+        "initial_location": "ENGRAVINGS-CAVE",
+        "source_flags": [
+          "READBIT",
+          "SACREDBIT"
+        ],
+        "source_properties": {
+          "LDESC": "There are old engravings on the walls here."
+        },
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-ENGRAVINGS"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-ENGRAVINGS-CAVE"
+        ]
+      },
+      {
+        "id": "EXIT-NW",
+        "directions": [
+          "nw"
+        ],
+        "destination": "ROUND-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-ENGRAVINGS-CAVE"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "DOME-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-ENGRAVINGS-CAVE"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "CAVES"
+    ],
+    "camera": "Stand near the low center and angle toward the engraved wall.",
+    "composition": "Convey the low ceiling, northwest and east passages, and shallow carved surfaces without readable inscriptions.",
+    "lighting_palette": "Low warm-gray fill on broad relief planes.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/engravings-cave.scene.json",
+    "scene_sha256": "f0f06ccda5cb28b5d611e6dcc11c50698a8cc661c1f11464da320e11e2257116",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-ENGRAVINGS",
+        "file": "1dungeon.zil",
+        "line_start": 1085,
+        "line_end": 1098,
+        "subject": "ENGRAVINGS"
+      },
+      {
+        "id": "SRC-ROOM-ENGRAVINGS-CAVE",
+        "file": "1dungeon.zil",
+        "line_start": 2057,
+        "line_end": 2064,
+        "subject": "ENGRAVINGS-CAVE"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-ENGRAVINGS-CAVE"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

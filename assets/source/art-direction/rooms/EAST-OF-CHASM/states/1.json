@@ -1,0 +1,98 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "state",
+  "room": "EAST-OF-CHASM",
+  "title": "East of Chasm",
+  "runtime_room": 71,
+  "runtime_state": 1,
+  "symbolic_state": "INITIAL",
+  "condition": true,
+  "extracted_states": [
+    {
+      "id": "INITIAL",
+      "condition": {
+        "op": "true"
+      },
+      "source_refs": [
+        "SRC-ROOM-EAST-OF-CHASM"
+      ],
+      "method": "equivalent_static_predicate_and_matching_presentation_text"
+    }
+  ],
+  "description_ids": [
+    "LDESC"
+  ],
+  "canonical": [
+    {
+      "text": "You are on the east edge of a chasm, the bottom of which cannot be\nseen. A narrow passage goes north, and the path you are on continues\nto the east.",
+      "pointer": "/scene/descriptions/0/text/0",
+      "source_refs": [
+        "SRC-ROOM-EAST-OF-CHASM"
+      ]
+    }
+  ],
+  "required_environmental_features": [
+    "You are on the east edge of a chasm, the bottom of which cannot be\nseen. A narrow passage goes north, and the path you are on continues\nto the east."
+  ],
+  "required_visible_objects": [],
+  "artistic": {
+    "continuity": [
+      "CAVES"
+    ],
+    "camera": "Stand at the eastern rim and look obliquely across the unseen-depth cleft.",
+    "composition": "Show the north passage and the eastward continuation of the current path, with no bridge or visible bottom.",
+    "lighting_palette": "Deep cool cleft shadow against muted stone.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "state_artistic": {
+    "visual_treatment": "Depict the complete room presentation described above.",
+    "omit_source_dressing": []
+  },
+  "invariants": {
+    "canonical_text": [
+      "You are on the east edge of a chasm, the bottom of which cannot be\nseen. A narrow passage goes north, and the path you are on continues\nto the east."
+    ],
+    "artistic": {
+      "continuity": [
+        "CAVES"
+      ],
+      "camera": "Stand at the eastern rim and look obliquely across the unseen-depth cleft.",
+      "composition": "Show the north passage and the eastward continuation of the current path, with no bridge or visible bottom.",
+      "lighting_palette": "Deep cool cleft shadow against muted stone.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    }
+  },
+  "changes": [],
+  "reference": null,
+  "asset_key": "room-71-state-1",
+  "target": {
+    "width": 256,
+    "height": 159,
+    "hardware": "Yamaha V9958",
+    "eventual_encoding": "YJK",
+    "phase": 1,
+    "source_aspect": "4:3 landscape",
+    "crop": "Safe center crop from 4:3 to 256:159; protect subjects within the central 82.8% of source height and central 90% of width."
+  },
+  "prompt": "Create one complete static illustration of East of Chasm.\n\nViewpoint: Stand at the eastern rim and look obliquely across the unseen-depth cleft.\n\nThe scene establishes these features: You are on the east edge of a chasm, the bottom of which cannot be seen. A narrow passage goes north, and the path you are on continues to the east.\n\nComposition: Show the north passage and the eastward continuation of the current path, with no bridge or visible bottom.\n\nAppearance of this illustration: Depict the complete room presentation described above.\n\nLighting and color: Deep cool cleft shadow against muted stone.\n\nShared world design: Broad cool gray and brown stone planes and soft non-diegetic illustrative fill. Do not add common fixtures to unrelated rooms.\n\nStyle: Painterly adventure-game illustration recalling fine late-1980s and early-1990s computer artwork; natural proportions, restrained brushwork, readable silhouettes and broad tonal masses. Aim for roughly 256 visually significant colors, broad related color regions, controlled shading and clear dark/light separation. No exact RGB-count requirement, photographic color noise, excessive gradients or microtextures.\n\nKeep this room camera, underlying architecture, terrain layout, light direction and palette consistent across its variants. Depict the complete scene, including the appearance stated above.\n\nLandscape source composition near 4:3. Final scene is 256 by 159 pixels. Allow safe center cropping to 256:159, keeping essential subjects inside the central 82.8 percent of source height and away from the side boundaries. Use clear silhouettes and broad readable shapes at that final size.\n\nExclude game UI, borders, captions, labels, readable lettering, photographic detail, pixel grids and enlarged pixels. Do not add characters, significant props, openings or events beyond the established scene. Do not depict an action in progress or a before/after collage.\n",
+  "negative_prompt": "No UI, borders, readable text, photorealism, pixel grid, invented props, extra exits or transient action events.",
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/east-of-chasm.scene.json",
+    "scene_sha256": "10d71dedda8d12e934e1830f8879c2bb83570e3571909ebff840dd3745855b12",
+    "runtime_source": {
+      "file": "1dungeon.zil",
+      "line": 1494,
+      "expression": "<ROOM EAST-OF-CHASM (IN ROOMS) (LDESC \"You are on the east edge of a chasm, the bottom of which cannot be\\nseen. A narrow passage goes north, and the path you are on continues\\nto the east.\") (DESC \"East of Chasm\") (NORTH TO CELLAR) (EAST TO GALLERY) (DOWN \"The chasm probably leads straight to the infernal regions.\") (FLAGS RLANDBIT) (PSEUDO \"CHASM\" CHASM-PSEUDO)>"
+    },
+    "mapping_file": "generated-zil/woh-state-ids.json",
+    "mapping_sha256": "c48cbe6f1866460c9141af8f50be2b1120255b13ae8fa44a72cbb1714c3a2137",
+    "dictionary_file": "generated-room-states/room-states.yaml",
+    "dictionary_sha256": "87783e0895b9ebf9d5155dff22e440735c5ac68caca748c1d77840d6c1aacfa0",
+    "story_sha256": "cce1fdc54f18a6616e124db2de245aec1da943b458ebdee61bf1c6ff0a4038d4"
+  },
+  "unresolved": []
+}

@@ -1,0 +1,327 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "scene_hotspots_v1"
+    },
+    "room": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 65535
+    },
+    "state": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65534
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "room_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "binding": {
+      "enum": [
+        "mapped",
+        "unbound-concept"
+      ]
+    },
+    "asset_key": {
+      "type": "string",
+      "pattern": "^room-[0-9]+-state-([0-9]+|unbound)$"
+    },
+    "image_size": {
+      "const": [
+        256,
+        159
+      ]
+    },
+    "image": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "original_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "original_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "crop_box": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "coordinate_reference": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "original_path",
+        "original_sha256",
+        "crop_box",
+        "coordinate_reference"
+      ]
+    },
+    "hotspots": {
+      "type": "array",
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^h[1-9][0-9]*$"
+          },
+          "object_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 31,
+            "pattern": "^[ -~]+$"
+          },
+          "rect": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 256
+            }
+          },
+          "confidence": {
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "background": {
+            "type": "boolean"
+          },
+          "basis": {
+            "type": "string",
+            "minLength": 1
+          },
+          "actions": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 3,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 8,
+                  "pattern": "^[ -~]+$"
+                },
+                "command": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80,
+                  "pattern": "^[a-z]+(?: [a-z]+)*$"
+                },
+                "source_refs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "uniqueItems": true
+                },
+                "parser_source": {
+                  "type": "object"
+                },
+                "authority": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "label",
+                "command",
+                "source_refs",
+                "parser_source",
+                "authority"
+              ]
+            }
+          },
+          "provenance": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "pointer": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "pointer",
+              "source_refs"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "object_id",
+          "label",
+          "rect",
+          "confidence",
+          "background",
+          "basis",
+          "actions",
+          "provenance"
+        ]
+      }
+    },
+    "unresolved": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "object_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "status": {
+            "enum": [
+              "not_visible",
+              "concealed",
+              "unsupported_art_feature",
+              "uncertain"
+            ]
+          },
+          "detail": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "object_id",
+          "status",
+          "detail"
+        ]
+      }
+    },
+    "localization": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "observations": {
+          "type": "string",
+          "minLength": 1
+        },
+        "observations_sha256": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "method",
+        "observations",
+        "observations_sha256"
+      ]
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "scene_file": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scene_sha256": {
+          "type": "string",
+          "minLength": 1
+        },
+        "phase1_specification": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pilot_manifest": {
+          "type": "string",
+          "minLength": 1
+        },
+        "zil_source_sha256": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      },
+      "required": [
+        "scene_file",
+        "scene_sha256",
+        "phase1_specification",
+        "pilot_manifest",
+        "zil_source_sha256"
+      ]
+    },
+    "overlap_policy": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "schema",
+    "room",
+    "state",
+    "room_name",
+    "binding",
+    "asset_key",
+    "image_size",
+    "image",
+    "hotspots",
+    "unresolved",
+    "localization",
+    "provenance",
+    "overlap_policy"
+  ],
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "scene_hotspots_v1",
+  "title": "Source-backed, image-bound scene hotspot table"
+}

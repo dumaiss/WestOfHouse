@@ -1,6 +1,8 @@
 #include "panel.h"
 #include "menu.h"
 #include <assert.h>
+uint8_t fixture_hit(uint16_t x, uint16_t y);
+void fixture_menu(menu_t *menu);
 #include <stdio.h>
 #include <string.h>
 static panel_t p;
@@ -10,13 +12,13 @@ static void wrapping(void)
 {
     const panel_page_t *page;
     begin();
-    text("one\ntwo\nthree\nfour\nfive\nsix\n123456789012345678901234567890123456789012");
+    text("one\ntwo\nthree\nfour\n123456789012345678901234567890123456789012");
     panel_finish(&p);
     page = panel_visible(&p);
     assert(p.count == 1 && !page->continued);
     assert(strlen(page->text[PANEL_ROWS - 1u]) == 42);
     begin();
-    text("one\ntwo\nthree\nfour\nfive\nsix\n123456789012345678901234567890123456789012\nnext");
+    text("one\ntwo\nthree\nfour\n123456789012345678901234567890123456789012\nnext");
     panel_finish(&p);
     page = panel_visible(&p);
     assert(p.count == 2 && p.view == 0 && p.hint);
@@ -89,7 +91,7 @@ static void menus(void)
     menu_command(&m,1,command); assert(!strcmp(command,"OPEN MAILBOX"));
     menu_command(&m,255,command); assert(!command[0]);
     menu_open(&m,255,158,"X","A","B","C");
-    assert(m.x == 204 && m.y == 107);
+    assert(m.x == 200 && m.y == 122);
 }
 int main(void)
 {

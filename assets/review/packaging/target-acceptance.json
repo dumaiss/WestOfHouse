@@ -1,0 +1,148 @@
+{
+  "startup": {
+    "arguments": "",
+    "story_lookup": "CWD/WOH.KPR"
+  },
+  "interface": {
+    "boundaries": [
+      {
+        "command": null,
+        "here": 180,
+        "state": 1,
+        "output_bytes": 380,
+        "output_hash": 1984862764
+      },
+      {
+        "command": "look",
+        "here": 180,
+        "state": 1,
+        "output_bytes": 511,
+        "output_hash": 1391939494
+      },
+      {
+        "command": "open mailbox",
+        "here": 180,
+        "state": 1,
+        "output_bytes": 558,
+        "output_hash": 2096320972
+      },
+      {
+        "command": "inventory",
+        "here": 180,
+        "state": 1,
+        "output_bytes": 582,
+        "output_hash": 3901688225
+      },
+      {
+        "command": "north",
+        "here": 81,
+        "state": 1,
+        "output_bytes": 758,
+        "output_hash": 2820024303
+      },
+      {
+        "command": "east",
+        "here": 79,
+        "state": 1,
+        "output_bytes": 922,
+        "output_hash": 3869957533
+      },
+      {
+        "command": "open window",
+        "here": 79,
+        "state": 2,
+        "output_bytes": 990,
+        "output_hash": 2157503673
+      },
+      {
+        "command": "close window",
+        "here": 79,
+        "state": 1,
+        "output_bytes": 1040,
+        "output_hash": 3260179369
+      },
+      {
+        "command": "xyzzy",
+        "here": 79,
+        "state": 1,
+        "output_bytes": 1070,
+        "output_hash": 397319049
+      },
+      {
+        "command": "score",
+        "here": 79,
+        "state": 1,
+        "output_bytes": 1160,
+        "output_hash": 1103448539
+      },
+      {
+        "command": "quit",
+        "here": 79,
+        "state": 1,
+        "output_bytes": 1300,
+        "output_hash": 1340938054
+      },
+      {
+        "command": "y",
+        "here": 79,
+        "state": 1,
+        "output_bytes": 1300,
+        "output_hash": 1340938054
+      }
+    ],
+    "narrative_sha256": "fa2269c2b4c0bbfc2ceaf16a7da61bfefe7d9c3d0ccd4b30fe68c853337ab42d",
+    "cursor_bitmap_unchanged": true,
+    "menu_restoration_exact": true,
+    "archived_scene_payloads_exact": true,
+    "title_payload_exact": true,
+    "two_sprite_cursor_white_and_dark_blue": true,
+    "note": "Target observed through read-only telemetry; reference runs the same unchanged VM core."
+  },
+  "performance": {
+    "0": {
+      "calls": 1,
+      "total_us": 116864,
+      "max_us": 116864
+    },
+    "1": {
+      "calls": 6,
+      "total_us": 10891340,
+      "max_us": 2175616
+    },
+    "2": {
+      "calls": 24,
+      "total_us": 998016,
+      "max_us": 62054
+    },
+    "3": {
+      "calls": 8,
+      "total_us": 395264,
+      "max_us": 62873
+    },
+    "4": {
+      "calls": 170,
+      "total_us": 3067929,
+      "max_us": 24064
+    },
+    "5": {
+      "calls": 6,
+      "total_us": 135065,
+      "max_us": 24140
+    },
+    "6": {
+      "calls": 4,
+      "total_us": 52428,
+      "max_us": 13260
+    }
+  },
+  "errors": {
+    "missing-archive": {
+      "diagnostic": "cannot open resource archive",
+      "returned_to_shell": true
+    },
+    "corrupt-archive": {
+      "diagnostic": "cannot open resource archive",
+      "returned_to_shell": true
+    }
+  }
+}

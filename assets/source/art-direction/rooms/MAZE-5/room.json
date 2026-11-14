@@ -1,0 +1,318 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "MAZE-5",
+  "title": "Maze",
+  "runtime_room": 167,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is part of a maze of twisty little passages, all alike.\nA skeleton, probably the remains of a luckless adventurer, lies here."
+        ],
+        "source_refs": [
+          "SRC-ROOM-MAZE-5"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "BONES",
+        "description": "skeleton",
+        "kind": "object",
+        "initial_location": "MAZE-5",
+        "source_flags": [
+          "TRYTAKEBIT",
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-BONES"
+        ]
+      },
+      {
+        "id": "BURNED-OUT-LANTERN",
+        "description": "burned-out lantern",
+        "kind": "object",
+        "initial_location": "MAZE-5",
+        "source_flags": [
+          "TAKEBIT"
+        ],
+        "source_properties": {
+          "SIZE": 20,
+          "FDESC": "The deceased adventurer's useless lantern is here."
+        },
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-BURNED-OUT-LANTERN"
+        ]
+      },
+      {
+        "id": "BAG-OF-COINS",
+        "description": "leather bag of coins",
+        "kind": "object",
+        "initial_location": "MAZE-5",
+        "source_flags": [
+          "TAKEBIT"
+        ],
+        "source_properties": {
+          "TVALUE": 5,
+          "SIZE": 15,
+          "VALUE": 10,
+          "LDESC": "An old leather bag, bulging with coins, is here."
+        },
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/2",
+        "source_refs": [
+          "SRC-OBJECT-BAG-OF-COINS"
+        ]
+      },
+      {
+        "id": "RUSTY-KNIFE",
+        "description": "rusty knife",
+        "kind": "object",
+        "initial_location": "MAZE-5",
+        "source_flags": [
+          "TAKEBIT",
+          "TRYTAKEBIT",
+          "WEAPONBIT",
+          "TOOLBIT"
+        ],
+        "source_properties": {
+          "SIZE": 20,
+          "FDESC": "Beside the skeleton is a rusty knife."
+        },
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/3",
+        "source_refs": [
+          "SRC-OBJECT-RUSTY-KNIFE"
+        ]
+      },
+      {
+        "id": "KEYS",
+        "description": "skeleton key",
+        "kind": "object",
+        "initial_location": "MAZE-5",
+        "source_flags": [
+          "TAKEBIT",
+          "TOOLBIT"
+        ],
+        "source_properties": {
+          "SIZE": 10
+        },
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/4",
+        "source_refs": [
+          "SRC-OBJECT-KEYS"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MAZE-5"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "DEAD-END-2",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MAZE-5"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "MAZE-3",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MAZE-5"
+        ]
+      },
+      {
+        "id": "EXIT-SW",
+        "directions": [
+          "sw"
+        ],
+        "destination": "MAZE-6",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MAZE-5"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "MAZEBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "MAZE"
+    ],
+    "camera": "Low human eye level within a cramped twisting passage.",
+    "composition": "Repeat the shared maze proportions and material treatment without unique decorative navigation clues. Preserve only source-established exits and, where described, the skeleton.",
+    "lighting_palette": "Dim gray-brown stone; broad readable edges with deep corners.",
+    "assumptions": [
+      "Shared passage finish and camera are artistic; all-alike descriptions must stay visually confusable."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/maze-5.scene.json",
+    "scene_sha256": "84f63943926f7bbe6ccedaf1e5994546d096df844af1972ceb480feadcb76094",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-BAG-OF-COINS",
+        "file": "1dungeon.zil",
+        "line_start": 533,
+        "line_end": 543,
+        "subject": "BAG-OF-COINS"
+      },
+      {
+        "id": "SRC-OBJECT-BONES",
+        "file": "1dungeon.zil",
+        "line_start": 517,
+        "line_end": 522,
+        "subject": "BONES"
+      },
+      {
+        "id": "SRC-OBJECT-BURNED-OUT-LANTERN",
+        "file": "1dungeon.zil",
+        "line_start": 524,
+        "line_end": 531,
+        "subject": "BURNED-OUT-LANTERN"
+      },
+      {
+        "id": "SRC-OBJECT-KEYS",
+        "file": "1dungeon.zil",
+        "line_start": 841,
+        "line_end": 847,
+        "subject": "KEYS"
+      },
+      {
+        "id": "SRC-OBJECT-RUSTY-KNIFE",
+        "file": "1dungeon.zil",
+        "line_start": 807,
+        "line_end": 815,
+        "subject": "RUSTY-KNIFE"
+      },
+      {
+        "id": "SRC-ROOM-MAZE-5",
+        "file": "1dungeon.zil",
+        "line_start": 1582,
+        "line_end": 1590,
+        "subject": "MAZE-5"
+      },
+      {
+        "id": "SRC-ROUTINE-BAG-OF-COINS-F",
+        "file": "1actions.zil",
+        "line_start": 4137,
+        "line_end": 4138,
+        "subject": "BAG-OF-COINS-F"
+      },
+      {
+        "id": "SRC-ROUTINE-RUSTY-KNIFE-FCN",
+        "file": "1actions.zil",
+        "line_start": 907,
+        "line_end": 924,
+        "subject": "RUSTY-KNIFE-FCN"
+      },
+      {
+        "id": "SRC-ROUTINE-SKELETON",
+        "file": "1actions.zil",
+        "line_start": 931,
+        "line_end": 940,
+        "subject": "SKELETON"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [
+      {
+        "id": "RUSTY-KNIFE.location",
+        "kind": "object_location",
+        "value_type": "object_id",
+        "initial_value": "MAZE-5",
+        "source_expression": "<REMOVE-CAREFULLY ,RUSTY-KNIFE>",
+        "source_refs": [
+          "SRC-OBJECT-RUSTY-KNIFE"
+        ]
+      }
+    ],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "located_in",
+          "object": "RUSTY-KNIFE",
+          "location": "MAZE-5"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-MAZE-5"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-RUSTY-KNIFE-FCN-ATTACK-SWING-2",
+        "source_refs": [
+          "SRC-ROUTINE-RUSTY-KNIFE-FCN"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

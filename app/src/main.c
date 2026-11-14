@@ -1,9 +1,10 @@
 #include "kos.h"
 #include "kos/mouse.h"
-#include "tui.h"
+#include "kos/key.h"
 #include "game.h"
 #include "render.h"
 #include "probe.h"
+#include "resources.h"
 
 /* Separate the large VM/cache object from controller BSS so the SDK can
  * place it above C000h without moving the controller's other data. */
@@ -13,7 +14,7 @@ static menu_t menu;
 static struct mouse mouse;
 static char story_path[128];
 woh_probe_t woh_probe;
-static uint8_t waiting, finished, tui_opened, suppress_lf;
+static uint8_t waiting, finished, suppress_lf;
 
 static void probe(void)
 {
@@ -87,8 +88,7 @@ static int mouse_event(void)
         } else if (mouse.y >= 202 && panel_prompt_cells(&panel) != 40u) {
             if (mouse.x >= 232 && mouse.x <= 243) { if (page(0) < 0) return -1; }
             else if (mouse.x >= 244) { if (page(1) < 0) return -1; }
-        } else if (!finished && fixture_hit((uint16_t)mouse.x,(uint16_t)mouse.y)) {
-            fixture_menu(&menu);
+        } else if (!finished && resources_menu(&menu,(uint16_t)mouse.x,(uint16_t)mouse.y)) {
             (void)menu_hover(&menu,(uint16_t)mouse.x,(uint16_t)mouse.y);
             if (render_menu(&menu) < 0) return -1;
         }
@@ -97,26 +97,26 @@ static int mouse_event(void)
     return 0;
 }
 
-/* 1 exits, negative values report errors. TUI is used only for its existing
- * console key decoder; all visible application output goes through libgfx. */
-static int keyboard(tui_key_t key)
+/* 1 exits, negative values report errors. Keys come from the SDK's key
+ * decoder (kos/key.h); all visible application output goes through libgfx. */
+static int keyboard(key_code_t key)
 {
     uint8_t old_view;
     if (key == '\n' && suppress_lf) { suppress_lf = 0; return 0; }
     suppress_lf = key == '\r';
     if (key == 17u) return 1; /* Ctrl-Q: application exit, never a story turn. */
-    if (key == TUI_KEY_ESC) return close_menu();
-    if (key == TUI_KEY_PGUP) return page(0);
-    if (key == TUI_KEY_PGDN) return page(1);
+    if (key == KEY_ESC) return close_menu();
+    if (key == KEY_PGUP) return page(0);
+    if (key == KEY_PGDN) return page(1);
     if (finished) return (key == '\r' || key == '\n') ? 1 : 0;
     if (close_menu() < 0) return -1;
     if (key == '\r' || key == '\n') return submit(panel.command);
     if (key == 8u || key == 127u) (void)panel_backspace(&panel);
-    else if (key == TUI_KEY_DELETE) (void)panel_delete(&panel);
-    else if (key == TUI_KEY_LEFT) { if (panel.cursor) --panel.cursor; }
-    else if (key == TUI_KEY_RIGHT) { if (panel.cursor < panel.command_length) ++panel.cursor; }
-    else if (key == TUI_KEY_HOME) panel.cursor = 0;
-    else if (key == TUI_KEY_END) panel.cursor = panel.command_length;
+    else if (key == KEY_DELETE) (void)panel_delete(&panel);
+    else if (key == KEY_LEFT) { if (panel.cursor) --panel.cursor; }
+    else if (key == KEY_RIGHT) { if (panel.cursor < panel.command_length) ++panel.cursor; }
+    else if (key == KEY_HOME) panel.cursor = 0;
+    else if (key == KEY_END) panel.cursor = panel.command_length;
     else if (key >= 32u && key < 127u) {
         old_view = panel.view;
         panel_latest(&panel);
@@ -126,22 +126,20 @@ static int keyboard(tui_key_t key)
     return render_prompt(&panel,1);
 }
 
-/* Normal launch reads the story from the inherited CWD. An explicit directory
- * remains available for relocated stories and test fixtures. */
-static int story_location(int argc, char **argv)
+/* Normal launch opens WOH.KPR in the inherited CWD. An optional archive
+ * pathname follows the SDK convention: woh /games/kona/WOH.KPR. */
+static int archive_location(int argc, char **argv)
 {
     unsigned int length;
     const char *directory;
     if (!argc) {
-        memcpy(story_path,"zork1.z3",9u);
+        memcpy(story_path,"WOH.KPR",8u);
         return 0;
     }
     directory = argv[0];
     length = strlen(directory);
-    if (!length || length > sizeof(story_path) - 11u) return -1;
-    memcpy(story_path,directory,length);
-    if (story_path[length-1u] != '/') story_path[length++] = '/';
-    memcpy(story_path+length,"zork1.z3",9u);
+    if (!length || length >= sizeof(story_path)) return -1;
+    memcpy(story_path,directory,length+1u);
     return 0;
 }
 
@@ -150,22 +148,30 @@ int main(int argc, char **argv)
     int result = 0, handle;
     const char *error = 0;
     zvm_status_t status;
-    tui_key_t key;
+    key_code_t key;
     uint8_t vm_error;
     uint32_t pc;
-    if (story_location(argc,argv) < 0) {
-        printf("woh: invalid story directory\r\n");
+    kos_reader_t reader;
+    if (archive_location(argc,argv) < 0) {
+        printf("woh: invalid resource archive path\r\n");
         return 1;
     }
-    if (tui_init() < 0) { error = "keyboard initialization failed"; goto done; }
-    tui_opened = 1;
+    if (resources_open(story_path) < 0) { error = "cannot open resource archive"; goto done; }
+    if (resources_story(&reader) < 0) { error = "cannot open archived story"; goto done; }
     if (render_open() < 0) { error = "graphics initialization failed"; goto done; }
+    woh_probe.magic[0] = 'W'; woh_probe.magic[1] = 'O';
+    woh_probe.magic[2] = 'H'; woh_probe.magic[3] = '0';
+    if (render_title() < 0) { error = "title resource display failed"; goto done; }
+    woh_probe.title = 1;
+    key = key_get();
+    woh_probe.title = 0;
+    if (render_game_screen() < 0) { error = "game screen initialization failed"; goto done; }
     panel_init(&panel);
     panel_begin(&panel,0);
     if (render_scene(0,0) < 0 || render_panel(&panel,0) < 0 || render_prompt(&panel,0) < 0) {
         error = "initial screen failed"; goto done;
     }
-    result = game_open(&game,story_path,&panel);
+    result = game_open_reader(&game,&reader,&panel);
     if (result < 0) { error = game_load_error(result); goto done; }
     handle = mouse_open();
     if (handle > 0) mouse_init(&mouse,handle,256,212);
@@ -197,10 +203,10 @@ int main(int argc, char **argv)
         if (mouse_event() < 0) { error = "mouse rendering failed"; break; }
         probe();
         if (waiting) {
-            result = tui_key_pending();
+            result = key_pending();
             if (result < 0) { error = "keyboard read failed"; break; }
-            key = tui_pollkey();
-            if (key == TUI_KEY_NONE) idle_input();
+            key = key_poll();
+            if (key == KEY_NONE) idle_input();
             else {
                 idle_input_ready();
                 result = keyboard(key);
@@ -213,14 +219,14 @@ done:
     vm_error = (uint8_t)zvm_error(&game.vm);
     pc = zvm_program_counter(&game.vm);
     game_close(&game);
+    resources_close();
     if (mouse.handle > 0) close((unsigned int)mouse.handle);
     render_close();
-    if (tui_opened) tui_shutdown();
     render_performance();
     if (error) {
         printf("\rwoh: %s (code %d, VM %u, PC %lu)\r\n",error,result,
                (unsigned)vm_error,(unsigned long)pc);
-        printf("\rwoh: story path %s\r\n",story_path);
+        printf("\rwoh: resource archive %s\r\n",story_path);
         return 1;
     }
     printf("\rwoh: finished\r\n");

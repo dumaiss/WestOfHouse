@@ -1,0 +1,864 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "MAINTENANCE-ROOM",
+  "title": "Maintenance Room",
+  "runtime_room": 199,
+  "runtime_status": "incomplete",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is what appears to have been the maintenance room for Flood\nControl Dam #3. Apparently, this room has been ransacked recently, for\nmost of the valuable equipment is gone. On the wall in front of you is a\ngroup of buttons colored blue, yellow, brown, and red. There are doorways to\nthe west and south."
+        ],
+        "source_refs": [
+          "SRC-ROOM-MAINTENANCE-ROOM"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "TOOL-CHEST",
+        "description": "group of tool chests",
+        "kind": "object",
+        "initial_location": "MAINTENANCE-ROOM",
+        "source_flags": [
+          "CONTBIT",
+          "OPENBIT",
+          "TRYTAKEBIT",
+          "SACREDBIT"
+        ],
+        "source_properties": {},
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-TOOL-CHEST"
+        ]
+      },
+      {
+        "id": "YELLOW-BUTTON",
+        "description": "yellow button",
+        "kind": "object",
+        "initial_location": "MAINTENANCE-ROOM",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-YELLOW-BUTTON"
+        ]
+      },
+      {
+        "id": "BROWN-BUTTON",
+        "description": "brown button",
+        "kind": "object",
+        "initial_location": "MAINTENANCE-ROOM",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/2",
+        "source_refs": [
+          "SRC-OBJECT-BROWN-BUTTON"
+        ]
+      },
+      {
+        "id": "RED-BUTTON",
+        "description": "red button",
+        "kind": "object",
+        "initial_location": "MAINTENANCE-ROOM",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/3",
+        "source_refs": [
+          "SRC-OBJECT-RED-BUTTON"
+        ]
+      },
+      {
+        "id": "BLUE-BUTTON",
+        "description": "blue button",
+        "kind": "object",
+        "initial_location": "MAINTENANCE-ROOM",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/4",
+        "source_refs": [
+          "SRC-OBJECT-BLUE-BUTTON"
+        ]
+      },
+      {
+        "id": "LEAK",
+        "description": "leak",
+        "kind": "object",
+        "initial_location": "MAINTENANCE-ROOM",
+        "source_flags": [
+          "NDESCBIT",
+          "INVISIBLE"
+        ],
+        "source_properties": {},
+        "visibility": "hidden_initially",
+        "reason": "Initial source attribute marks this object invisible.",
+        "pointer": "/scene/objects/5",
+        "source_refs": [
+          "SRC-OBJECT-LEAK"
+        ]
+      },
+      {
+        "id": "SCREWDRIVER",
+        "description": "screwdriver",
+        "kind": "object",
+        "initial_location": "MAINTENANCE-ROOM",
+        "source_flags": [
+          "TAKEBIT",
+          "TOOLBIT"
+        ],
+        "source_properties": {},
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/6",
+        "source_refs": [
+          "SRC-OBJECT-SCREWDRIVER"
+        ]
+      },
+      {
+        "id": "TUBE",
+        "description": "tube",
+        "kind": "object",
+        "initial_location": "MAINTENANCE-ROOM",
+        "source_flags": [
+          "TAKEBIT",
+          "CONTBIT",
+          "READBIT"
+        ],
+        "source_properties": {
+          "CAPACITY": 7,
+          "SIZE": 5,
+          "LDESC": "There is an object which looks like a tube of toothpaste here."
+        },
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/7",
+        "source_refs": [
+          "SRC-OBJECT-TUBE"
+        ]
+      },
+      {
+        "id": "PUTTY",
+        "description": "viscous material",
+        "kind": "object",
+        "initial_location": "TUBE",
+        "source_flags": [
+          "TAKEBIT",
+          "TOOLBIT"
+        ],
+        "source_properties": {
+          "SIZE": 6
+        },
+        "visibility": "concealed_initially",
+        "reason": "Initial containment is inside a closed opaque container; do not expose its contents.",
+        "pointer": "/scene/objects/8",
+        "source_refs": [
+          "SRC-OBJECT-PUTTY"
+        ]
+      },
+      {
+        "id": "WRENCH",
+        "description": "wrench",
+        "kind": "object",
+        "initial_location": "MAINTENANCE-ROOM",
+        "source_flags": [
+          "TAKEBIT",
+          "TOOLBIT"
+        ],
+        "source_properties": {
+          "SIZE": 10
+        },
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/9",
+        "source_refs": [
+          "SRC-OBJECT-WRENCH"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MAINTENANCE-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-SOUTH",
+        "directions": [
+          "south"
+        ],
+        "destination": "DAM-LOBBY",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MAINTENANCE-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "DAM-LOBBY",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MAINTENANCE-ROOM"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "DAM-RESERVOIR"
+    ],
+    "camera": "View the front control wall from just inside the room.",
+    "composition": "Use the blue, yellow, brown and red button bank as readable color blocks; retain west/south doors and the disordered stripped-workroom character.",
+    "lighting_palette": "Dim utilitarian gray with sparse saturated control colors.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/maintenance-room.scene.json",
+    "scene_sha256": "c0e439f150475fafc253ff341aa4736b335b5fd638ca9eefa4ab7b1638b8344d",
+    "source_references": [
+      {
+        "id": "SRC-GLOBAL-GATE-FLAG",
+        "file": "1actions.zil",
+        "line_start": 1153,
+        "line_end": 1153,
+        "subject": "GATE-FLAG"
+      },
+      {
+        "id": "SRC-GLOBAL-WATER-LEVEL",
+        "file": "1actions.zil",
+        "line_start": 1295,
+        "line_end": 1295,
+        "subject": "WATER-LEVEL"
+      },
+      {
+        "id": "SRC-OBJECT-BLUE-BUTTON",
+        "file": "1dungeon.zil",
+        "line_start": 330,
+        "line_end": 336,
+        "subject": "BLUE-BUTTON"
+      },
+      {
+        "id": "SRC-OBJECT-BROWN-BUTTON",
+        "file": "1dungeon.zil",
+        "line_start": 314,
+        "line_end": 320,
+        "subject": "BROWN-BUTTON"
+      },
+      {
+        "id": "SRC-OBJECT-LEAK",
+        "file": "1dungeon.zil",
+        "line_start": 580,
+        "line_end": 585,
+        "subject": "LEAK"
+      },
+      {
+        "id": "SRC-OBJECT-PUTTY",
+        "file": "1dungeon.zil",
+        "line_start": 1076,
+        "line_end": 1083,
+        "subject": "PUTTY"
+      },
+      {
+        "id": "SRC-OBJECT-RED-BUTTON",
+        "file": "1dungeon.zil",
+        "line_start": 322,
+        "line_end": 328,
+        "subject": "RED-BUTTON"
+      },
+      {
+        "id": "SRC-OBJECT-SCREWDRIVER",
+        "file": "1dungeon.zil",
+        "line_start": 834,
+        "line_end": 839,
+        "subject": "SCREWDRIVER"
+      },
+      {
+        "id": "SRC-OBJECT-TOOL-CHEST",
+        "file": "1dungeon.zil",
+        "line_start": 298,
+        "line_end": 304,
+        "subject": "TOOL-CHEST"
+      },
+      {
+        "id": "SRC-OBJECT-TUBE",
+        "file": "1dungeon.zil",
+        "line_start": 1062,
+        "line_end": 1074,
+        "subject": "TUBE"
+      },
+      {
+        "id": "SRC-OBJECT-WRENCH",
+        "file": "1dungeon.zil",
+        "line_start": 1131,
+        "line_end": 1136,
+        "subject": "WRENCH"
+      },
+      {
+        "id": "SRC-OBJECT-YELLOW-BUTTON",
+        "file": "1dungeon.zil",
+        "line_start": 306,
+        "line_end": 312,
+        "subject": "YELLOW-BUTTON"
+      },
+      {
+        "id": "SRC-ROOM-MAINTENANCE-ROOM",
+        "file": "1dungeon.zil",
+        "line_start": 2159,
+        "line_end": 2170,
+        "subject": "MAINTENANCE-ROOM"
+      },
+      {
+        "id": "SRC-ROUTINE-BUTTON-F",
+        "file": "1actions.zil",
+        "line_start": 1298,
+        "line_end": 1330,
+        "subject": "BUTTON-F"
+      },
+      {
+        "id": "SRC-ROUTINE-I-MAINT-ROOM",
+        "file": "1actions.zil",
+        "line_start": 1343,
+        "line_end": 1360,
+        "subject": "I-MAINT-ROOM"
+      },
+      {
+        "id": "SRC-ROUTINE-LEAK-FUNCTION",
+        "file": "1actions.zil",
+        "line_start": 1362,
+        "line_end": 1370,
+        "subject": "LEAK-FUNCTION"
+      },
+      {
+        "id": "SRC-ROUTINE-PUTTY-FCN",
+        "file": "1actions.zil",
+        "line_start": 1379,
+        "line_end": 1384,
+        "subject": "PUTTY-FCN"
+      },
+      {
+        "id": "SRC-ROUTINE-TOOL-CHEST-FCN",
+        "file": "1actions.zil",
+        "line_start": 1332,
+        "line_end": 1341,
+        "subject": "TOOL-CHEST-FCN"
+      },
+      {
+        "id": "SRC-ROUTINE-TUBE-FUNCTION",
+        "file": "1actions.zil",
+        "line_start": 1386,
+        "line_end": 1398,
+        "subject": "TUBE-FUNCTION"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [
+      {
+        "id": "TOOL-CHEST.location",
+        "kind": "object_location",
+        "value_type": "object_id",
+        "initial_value": "MAINTENANCE-ROOM",
+        "source_expression": "<REMOVE-CAREFULLY ,TOOL-CHEST>",
+        "source_refs": [
+          "SRC-OBJECT-TOOL-CHEST"
+        ]
+      },
+      {
+        "id": "LEAK.INVISIBLE",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": true,
+        "source_expression": "<FCLEAR ,LEAK ,INVISIBLE>",
+        "source_refs": []
+      },
+      {
+        "id": "MAINTENANCE-ROOM.ONBIT",
+        "kind": "room_flag",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<FSET ,HERE ,ONBIT>",
+        "source_refs": []
+      },
+      {
+        "id": "DAM-ROOM.TOUCHBIT",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<FCLEAR ,DAM-ROOM ,TOUCHBIT>",
+        "source_refs": []
+      },
+      {
+        "id": "PUTTY.location",
+        "kind": "object_location",
+        "value_type": "object_id",
+        "initial_value": "TUBE",
+        "source_expression": "<MOVE ,PUTTY ,WINNER>",
+        "source_refs": [
+          "SRC-OBJECT-PUTTY"
+        ]
+      },
+      {
+        "id": "GATE-FLAG",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL GATE-FLAG <>>",
+        "source_refs": [
+          "SRC-GLOBAL-GATE-FLAG"
+        ]
+      },
+      {
+        "id": "WATER-LEVEL",
+        "kind": "global",
+        "value_type": "integer",
+        "initial_value": 0,
+        "source_expression": "<GLOBAL WATER-LEVEL 0>",
+        "source_refs": [
+          "SRC-GLOBAL-WATER-LEVEL"
+        ]
+      }
+    ],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "located_in",
+              "object": "TOOL-CHEST",
+              "location": "MAINTENANCE-ROOM"
+            },
+            {
+              "op": "flag_set",
+              "object": "LEAK",
+              "flag": "INVISIBLE"
+            },
+            {
+              "op": "flag_clear",
+              "object": "MAINTENANCE-ROOM",
+              "flag": "ONBIT"
+            },
+            {
+              "op": "flag_clear",
+              "object": "DAM-ROOM",
+              "flag": "TOUCHBIT"
+            },
+            {
+              "op": "located_in",
+              "object": "PUTTY",
+              "location": "TUBE"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "GATE-FLAG"
+              },
+              "right": {
+                "value": false
+              }
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "WATER-LEVEL"
+              },
+              "right": {
+                "value": 0
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-MAINTENANCE-ROOM"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-2",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <REMOVE-CAREFULLY ,TOOL-CHEST>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-TOOL-CHEST-FCN"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-3",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "flag_clear",
+              "object": "LEAK",
+              "flag": "INVISIBLE"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "WATER-LEVEL"
+              },
+              "right": {
+                "value": 1
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-4",
+        "condition": {
+          "op": "flag_clear",
+          "object": "MAINTENANCE-ROOM",
+          "flag": "ONBIT"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-5",
+        "condition": {
+          "op": "flag_set",
+          "object": "MAINTENANCE-ROOM",
+          "flag": "ONBIT"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-6",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "flag_clear",
+              "object": "DAM-ROOM",
+              "flag": "TOUCHBIT"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "GATE-FLAG"
+              },
+              "right": {
+                "value": false
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-7",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "flag_clear",
+              "object": "DAM-ROOM",
+              "flag": "TOUCHBIT"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "GATE-FLAG"
+              },
+              "right": {
+                "value": true
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-8",
+        "condition": {
+          "op": "located_in",
+          "object": "PUTTY",
+          "location": "WINNER"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-TUBE-FUNCTION"
+        ]
+      },
+      {
+        "id": "EVENT-STATE-9",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <SETG WATER-LEVEL <+ 1 ,WATER-LEVEL>>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-I-MAINT-ROOM"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-TOOL-CHEST-FCN-TAKE-OPEN-PUT-2",
+        "source_refs": [
+          "SRC-ROUTINE-TOOL-CHEST-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-2-BUTTON-F-PUSH-2",
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-3-BUTTON-F-PUSH-2",
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-4-BUTTON-F-PUSH-2",
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-5-BUTTON-F-PUSH-2",
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-6-BUTTON-F-PUSH-2",
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-7-BUTTON-F-PUSH-2",
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-8-BUTTON-F-PUSH-2",
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-9-BUTTON-F-PUSH-2",
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-10-BUTTON-F-PUSH-2",
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-11-BUTTON-F-PUSH-2",
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-12-BUTTON-F-PUSH-2",
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-13-BUTTON-F-PUSH-2",
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-14-BUTTON-F-PUSH-2",
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-15-BUTTON-F-PUSH-2",
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-16-BUTTON-F-PUSH-2",
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-17-BUTTON-F-PUSH-2",
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-18-BUTTON-F-PUSH-2",
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-19-BUTTON-F-PUSH-2",
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-20-BUTTON-F-PUSH-2",
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-21-BUTTON-F-PUSH-2",
+        "source_refs": [
+          "SRC-ROUTINE-BUTTON-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-22-TUBE-FUNCTION-SQUEEZE-2",
+        "source_refs": [
+          "SRC-ROUTINE-TUBE-FUNCTION"
+        ]
+      },
+      {
+        "id": "EVENT-23-I-MAINT-ROOM",
+        "source_refs": [
+          "SRC-ROUTINE-I-MAINT-ROOM"
+        ]
+      },
+      {
+        "id": "EVENT-24-I-MAINT-ROOM",
+        "source_refs": [
+          "SRC-ROUTINE-I-MAINT-ROOM"
+        ]
+      },
+      {
+        "id": "EVENT-25-I-MAINT-ROOM",
+        "source_refs": [
+          "SRC-ROUTINE-I-MAINT-ROOM"
+        ]
+      },
+      {
+        "id": "EVENT-26-I-MAINT-ROOM",
+        "source_refs": [
+          "SRC-ROUTINE-I-MAINT-ROOM"
+        ]
+      },
+      {
+        "id": "EVENT-27-I-MAINT-ROOM",
+        "source_refs": [
+          "SRC-ROUTINE-I-MAINT-ROOM"
+        ]
+      },
+      {
+        "id": "EVENT-28-I-MAINT-ROOM",
+        "source_refs": [
+          "SRC-ROUTINE-I-MAINT-ROOM"
+        ]
+      },
+      {
+        "id": "EVENT-29-I-MAINT-ROOM",
+        "source_refs": [
+          "SRC-ROUTINE-I-MAINT-ROOM"
+        ]
+      },
+      {
+        "id": "EVENT-30-I-MAINT-ROOM",
+        "source_refs": [
+          "SRC-ROUTINE-I-MAINT-ROOM"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values.",
+      "ACTION-STATE conditions describe source mutations and may overlap; arbitrary ZIL was not executed."
+    ]
+  },
+  "unresolved": [
+    {
+      "kind": "runtime_unknown",
+      "detail": "The resolver returns state 0; no positive runtime state or image is assigned."
+    }
+  ]
+}

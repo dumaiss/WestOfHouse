@@ -18,7 +18,7 @@ class NarrativeVM(VM):
         return 0
 
 def check(directory, sdk):
-    def pixels(name): return (directory/(name+'.g7')).read_bytes()
+    def pixels(name): return (directory/(name+'.vram')).read_bytes()
     assert pixels('before-cursor') == pixels('after-cursor'), 'Cursor changed bitmap'
     assert pixels('before-menu') == pixels('after-menu'), 'Menu restoration changed bitmap'
     assert pixels('before-menu') == pixels('after-outside-click'), 'Outside-click menu restoration changed bitmap'
@@ -27,13 +27,12 @@ def check(directory, sdk):
     assert pointer[0:2]==pointer[4:6] and pointer[2]==0 and pointer[6]==4 and pointer[8]==0xd8
     assert pointer[9:25]==bytes([15])*16 and pointer[25:41]==bytes([1])*16, 'Cursor layers have wrong colours'
     assert all((byte&15)==0 for byte in pointer[41+48:41+64]), 'Cursor exceeds 12 columns'
-    scene = (ROOT/'docs/west_of_house_256x144.g7').read_bytes()
-    for name in ('scene-initial','scene-window-open','scene-window-closed'):
-        image = pixels(name)
-        assert len(image) == len(scene)
-        for offset,(a,b) in enumerate(zip(image,scene)):
-            if not (2<=offset%256<140 and 2<=offset//256<20):
-                assert a==b, f'Scene changed outside overlay: {name}/{offset}'
+    for name,key in [('scene-initial','room-180-state-1'),
+                     ('scene-window-open','room-79-state-2'),
+                     ('scene-window-closed','room-79-state-1')]:
+        expected=(ROOT/'assets/runtime/scenes'/(key+'.img')).read_bytes()[16:]
+        assert pixels(name)==expected, 'Archived scene differs: '+key
+    assert pixels('title')==(ROOT/'assets/runtime/ui/WoHTitle.img').read_bytes()[16:], 'Title payload differs'
     host = ROOT/'app/build/host'
     host.mkdir(parents=True,exist_ok=True)
     library = host/'libzvm-reference.so'
@@ -41,7 +40,7 @@ def check(directory, sdk):
                '-I'+str(ROOT/'libzvm/tests/host/include'),'-I'+str(sdk/'include/abi'),
                '-I'+str(ROOT/'libzvm/include'),'-o',str(library)]
     subprocess.run(command+[str(p) for p in sorted((ROOT/'libzvm/src').glob('*.c'))],check=True)
-    vm = NarrativeVM(library,ROOT/'app/build/WestOfHouse/zork1.z3')
+    vm = NarrativeVM(library,ROOT/'assets/runtime/story/zork1.z3')
     sequence = [None,'look','open mailbox','inventory','north','east','open window',
                 'close window','xyzzy','score','quit','y']
     rows = [list(map(int,line.split('\t')[:11])) for line in (directory/'interface.tsv').read_text().splitlines()]
@@ -65,7 +64,7 @@ def check(directory, sdk):
     assert vm.last_status==5,'Story did not terminate'
     result = {'boundaries':results,'narrative_sha256':hashlib.sha256(transcript).hexdigest(),
               'cursor_bitmap_unchanged':True,'menu_restoration_exact':True,
-              'scene_unchanged_outside_overlay':True,
+              'archived_scene_payloads_exact':True,'title_payload_exact':True,
               'two_sprite_cursor_white_and_dark_blue':True,
               'note':'Target observed through read-only telemetry; reference runs the same unchanged VM core.'}
     (directory/'checks.json').write_text(json.dumps(result,indent=2)+'\n')

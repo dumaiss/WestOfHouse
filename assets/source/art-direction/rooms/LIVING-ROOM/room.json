@@ -1,0 +1,949 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "LIVING-ROOM",
+  "title": "Living Room",
+  "runtime_room": 193,
+  "runtime_status": "incomplete",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "M-LOOK-1",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND ,MAGIC-FLAG <AND .RUG? <FSET? ,TRAP-DOOR ,OPENBIT>>>"
+        },
+        "text": [
+          "You are in the living room. There is a doorway to the east",
+          ". To the\nwest is a cyclops-shaped opening in an old wooden door, above which is\nsome strange gothic lettering, ",
+          "a trophy case, ",
+          "and a rug lying beside an open trap door."
+        ],
+        "source_refs": [
+          "SRC-ROOM-LIVING-ROOM",
+          "SRC-ROUTINE-LIVING-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-2",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND ,MAGIC-FLAG .RUG?>"
+        },
+        "text": [
+          "You are in the living room. There is a doorway to the east",
+          ". To the\nwest is a cyclops-shaped opening in an old wooden door, above which is\nsome strange gothic lettering, ",
+          "a trophy case, ",
+          "and a closed trap door at your feet."
+        ],
+        "source_refs": [
+          "SRC-ROOM-LIVING-ROOM",
+          "SRC-ROUTINE-LIVING-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-3",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND ,MAGIC-FLAG <FSET? ,TRAP-DOOR ,OPENBIT>>"
+        },
+        "text": [
+          "You are in the living room. There is a doorway to the east",
+          ". To the\nwest is a cyclops-shaped opening in an old wooden door, above which is\nsome strange gothic lettering, ",
+          "a trophy case, ",
+          "and an open trap door at your feet."
+        ],
+        "source_refs": [
+          "SRC-ROOM-LIVING-ROOM",
+          "SRC-ROUTINE-LIVING-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-4",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND ,MAGIC-FLAG <NOT <OR <AND .RUG? <FSET? ,TRAP-DOOR ,OPENBIT>> .RUG? <FSET? ,TRAP-DOOR ,OPENBIT>>>>"
+        },
+        "text": [
+          "You are in the living room. There is a doorway to the east",
+          ". To the\nwest is a cyclops-shaped opening in an old wooden door, above which is\nsome strange gothic lettering, ",
+          "a trophy case, ",
+          "and a large oriental rug in the center of the room."
+        ],
+        "source_refs": [
+          "SRC-ROOM-LIVING-ROOM",
+          "SRC-ROUTINE-LIVING-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-5",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND <NOT <OR ,MAGIC-FLAG>> <AND .RUG? <FSET? ,TRAP-DOOR ,OPENBIT>>>"
+        },
+        "text": [
+          "You are in the living room. There is a doorway to the east",
+          ", a wooden\ndoor with strange gothic lettering to the west, which appears to be\nnailed shut, ",
+          "a trophy case, ",
+          "and a rug lying beside an open trap door."
+        ],
+        "source_refs": [
+          "SRC-ROOM-LIVING-ROOM",
+          "SRC-ROUTINE-LIVING-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-6",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND <NOT <OR ,MAGIC-FLAG>> .RUG?>"
+        },
+        "text": [
+          "You are in the living room. There is a doorway to the east",
+          ", a wooden\ndoor with strange gothic lettering to the west, which appears to be\nnailed shut, ",
+          "a trophy case, ",
+          "and a closed trap door at your feet."
+        ],
+        "source_refs": [
+          "SRC-ROOM-LIVING-ROOM",
+          "SRC-ROUTINE-LIVING-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-7",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND <NOT <OR ,MAGIC-FLAG>> <FSET? ,TRAP-DOOR ,OPENBIT>>"
+        },
+        "text": [
+          "You are in the living room. There is a doorway to the east",
+          ", a wooden\ndoor with strange gothic lettering to the west, which appears to be\nnailed shut, ",
+          "a trophy case, ",
+          "and an open trap door at your feet."
+        ],
+        "source_refs": [
+          "SRC-ROOM-LIVING-ROOM",
+          "SRC-ROUTINE-LIVING-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-8",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND <NOT <OR ,MAGIC-FLAG>> <NOT <OR <AND .RUG? <FSET? ,TRAP-DOOR ,OPENBIT>> .RUG? <FSET? ,TRAP-DOOR ,OPENBIT>>>>"
+        },
+        "text": [
+          "You are in the living room. There is a doorway to the east",
+          ", a wooden\ndoor with strange gothic lettering to the west, which appears to be\nnailed shut, ",
+          "a trophy case, ",
+          "and a large oriental rug in the center of the room."
+        ],
+        "source_refs": [
+          "SRC-ROOM-LIVING-ROOM",
+          "SRC-ROUTINE-LIVING-ROOM-FCN"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "TROPHY-CASE",
+        "description": "trophy case",
+        "kind": "object",
+        "initial_location": "LIVING-ROOM",
+        "source_flags": [
+          "TRANSBIT",
+          "CONTBIT",
+          "NDESCBIT",
+          "TRYTAKEBIT",
+          "SEARCHBIT"
+        ],
+        "source_properties": {
+          "CAPACITY": 10000
+        },
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-TROPHY-CASE"
+        ]
+      },
+      {
+        "id": "RUG",
+        "description": "carpet",
+        "kind": "object",
+        "initial_location": "LIVING-ROOM",
+        "source_flags": [
+          "NDESCBIT",
+          "TRYTAKEBIT"
+        ],
+        "source_properties": {},
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-RUG"
+        ]
+      },
+      {
+        "id": "TRAP-DOOR",
+        "description": "trap door",
+        "kind": "object",
+        "initial_location": "LIVING-ROOM",
+        "source_flags": [
+          "DOORBIT",
+          "NDESCBIT",
+          "INVISIBLE"
+        ],
+        "source_properties": {},
+        "visibility": "hidden_initially",
+        "reason": "Initial source attribute marks this object invisible.",
+        "pointer": "/scene/objects/2",
+        "source_refs": [
+          "SRC-OBJECT-TRAP-DOOR"
+        ]
+      },
+      {
+        "id": "LAMP",
+        "description": "brass lantern",
+        "kind": "object",
+        "initial_location": "LIVING-ROOM",
+        "source_flags": [
+          "TAKEBIT",
+          "LIGHTBIT"
+        ],
+        "source_properties": {
+          "SIZE": 15,
+          "FDESC": "A battery-powered brass lantern is on the trophy case.",
+          "LDESC": "There is a brass lantern (battery-powered) here."
+        },
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/3",
+        "source_refs": [
+          "SRC-OBJECT-LAMP"
+        ]
+      },
+      {
+        "id": "WOODEN-DOOR",
+        "description": "wooden door",
+        "kind": "object",
+        "initial_location": "LIVING-ROOM",
+        "source_flags": [
+          "READBIT",
+          "DOORBIT",
+          "NDESCBIT",
+          "TRANSBIT"
+        ],
+        "source_properties": {},
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/4",
+        "source_refs": [
+          "SRC-OBJECT-WOODEN-DOOR"
+        ]
+      },
+      {
+        "id": "SWORD",
+        "description": "sword",
+        "kind": "object",
+        "initial_location": "LIVING-ROOM",
+        "source_flags": [
+          "TAKEBIT",
+          "WEAPONBIT",
+          "TRYTAKEBIT"
+        ],
+        "source_properties": {
+          "TVALUE": 0,
+          "SIZE": 30,
+          "FDESC": "Above the trophy case hangs an elvish sword of great antiquity."
+        },
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/5",
+        "source_refs": [
+          "SRC-OBJECT-SWORD"
+        ]
+      },
+      {
+        "id": "MAP",
+        "description": "ancient map",
+        "kind": "object",
+        "initial_location": "TROPHY-CASE",
+        "source_flags": [
+          "INVISIBLE",
+          "READBIT",
+          "TAKEBIT"
+        ],
+        "source_properties": {
+          "SIZE": 2,
+          "FDESC": "In the trophy case is an ancient parchment which appears to be a map."
+        },
+        "visibility": "contained_context",
+        "reason": "Contained object; not independently placed in the room illustration.",
+        "pointer": "/scene/objects/6",
+        "source_refs": [
+          "SRC-OBJECT-MAP"
+        ]
+      },
+      {
+        "id": "STAIRS",
+        "description": "stairs",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT",
+          "CLIMBBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/7",
+        "source_refs": [
+          "SRC-OBJECT-STAIRS"
+        ]
+      },
+      {
+        "id": "PSEUDO-NAILS",
+        "description": "nails",
+        "kind": "pseudo_object",
+        "initial_location": "LIVING-ROOM",
+        "source_flags": [],
+        "source_properties": {
+          "ACTION": "NAILS-PSEUDO"
+        },
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/8",
+        "source_refs": [
+          "SRC-ROOM-LIVING-ROOM",
+          "SRC-ROUTINE-NAILS-PSEUDO"
+        ]
+      },
+      {
+        "id": "PSEUDO-NAIL",
+        "description": "nail",
+        "kind": "pseudo_object",
+        "initial_location": "LIVING-ROOM",
+        "source_flags": [],
+        "source_properties": {
+          "ACTION": "NAILS-PSEUDO"
+        },
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/9",
+        "source_refs": [
+          "SRC-ROOM-LIVING-ROOM",
+          "SRC-ROUTINE-NAILS-PSEUDO"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-LIVING-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "KITCHEN",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-LIVING-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "STRANGE-PASSAGE",
+        "condition": {
+          "op": "source_expression",
+          "expression": "MAGIC-FLAG"
+        },
+        "blocked_text": [
+          "The door is nailed shut."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-LIVING-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-DOWN",
+        "directions": [
+          "down"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(DOWN PER TRAP-DOOR-EXIT)"
+        },
+        "blocked_text": [],
+        "effects": [
+          {
+            "operation": "call_routine",
+            "routine": "TRAP-DOOR-EXIT",
+            "arguments": [],
+            "source_expression": "(DOWN PER TRAP-DOOR-EXIT)"
+          }
+        ],
+        "source_refs": [
+          "SRC-ROOM-LIVING-ROOM"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "ONBIT",
+      "SACREDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "WHITE-HOUSE"
+    ],
+    "camera": "Stand on the north side looking across the rug toward the west door, with the east doorway readable.",
+    "composition": "Lock trophy-case position, rug footprint, west door and floor trapdoor site; preserve the house's timber/plaster vocabulary.",
+    "lighting_palette": "Quiet diffuse room light, ivory walls and dark brown timber.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/living-room.scene.json",
+    "scene_sha256": "e518fcd24be921e88812a00fc8de160139d12cf957f2b5f3cd95714b38a76040",
+    "source_references": [
+      {
+        "id": "SRC-GLOBAL-MAGIC-FLAG",
+        "file": "1dungeon.zil",
+        "line_start": 1231,
+        "line_end": 1231,
+        "subject": "MAGIC-FLAG"
+      },
+      {
+        "id": "SRC-GLOBAL-RUG-MOVED",
+        "file": "1actions.zil",
+        "line_start": 447,
+        "line_end": 447,
+        "subject": "RUG-MOVED"
+      },
+      {
+        "id": "SRC-GLOBAL-SCORE",
+        "file": "gverbs.zil",
+        "line_start": 1845,
+        "line_end": 1845,
+        "subject": "SCORE"
+      },
+      {
+        "id": "SRC-OBJECT-LAMP",
+        "file": "1dungeon.zil",
+        "line_start": 545,
+        "line_end": 554,
+        "subject": "LAMP"
+      },
+      {
+        "id": "SRC-OBJECT-MAP",
+        "file": "1dungeon.zil",
+        "line_start": 927,
+        "line_end": 939,
+        "subject": "MAP"
+      },
+      {
+        "id": "SRC-OBJECT-RUG",
+        "file": "1dungeon.zil",
+        "line_start": 347,
+        "line_end": 353,
+        "subject": "RUG"
+      },
+      {
+        "id": "SRC-OBJECT-STAIRS",
+        "file": "gglobals.zil",
+        "line_start": 102,
+        "line_end": 108,
+        "subject": "STAIRS"
+      },
+      {
+        "id": "SRC-OBJECT-SWORD",
+        "file": "1dungeon.zil",
+        "line_start": 915,
+        "line_end": 925,
+        "subject": "SWORD"
+      },
+      {
+        "id": "SRC-OBJECT-TRAP-DOOR",
+        "file": "1dungeon.zil",
+        "line_start": 403,
+        "line_end": 409,
+        "subject": "TRAP-DOOR"
+      },
+      {
+        "id": "SRC-OBJECT-TROPHY-CASE",
+        "file": "1dungeon.zil",
+        "line_start": 338,
+        "line_end": 345,
+        "subject": "TROPHY-CASE"
+      },
+      {
+        "id": "SRC-OBJECT-WOODEN-DOOR",
+        "file": "1dungeon.zil",
+        "line_start": 905,
+        "line_end": 913,
+        "subject": "WOODEN-DOOR"
+      },
+      {
+        "id": "SRC-ROOM-LIVING-ROOM",
+        "file": "1dungeon.zil",
+        "line_start": 1451,
+        "line_end": 1460,
+        "subject": "LIVING-ROOM"
+      },
+      {
+        "id": "SRC-ROUTINE-FRONT-DOOR-FCN",
+        "file": "1actions.zil",
+        "line_start": 2163,
+        "line_end": 2172,
+        "subject": "FRONT-DOOR-FCN"
+      },
+      {
+        "id": "SRC-ROUTINE-I-SWORD",
+        "file": "1actions.zil",
+        "line_start": 3851,
+        "line_end": 3879,
+        "subject": "I-SWORD"
+      },
+      {
+        "id": "SRC-ROUTINE-LANTERN",
+        "file": "1actions.zil",
+        "line_start": 2230,
+        "line_end": 2257,
+        "subject": "LANTERN"
+      },
+      {
+        "id": "SRC-ROUTINE-LIVING-ROOM-FCN",
+        "file": "1actions.zil",
+        "line_start": 449,
+        "line_end": 485,
+        "subject": "LIVING-ROOM-FCN"
+      },
+      {
+        "id": "SRC-ROUTINE-NAILS-PSEUDO",
+        "file": "1actions.zil",
+        "line_start": 376,
+        "line_end": 379,
+        "subject": "NAILS-PSEUDO"
+      },
+      {
+        "id": "SRC-ROUTINE-RUG-FCN",
+        "file": "1actions.zil",
+        "line_start": 579,
+        "line_end": 616,
+        "subject": "RUG-FCN"
+      },
+      {
+        "id": "SRC-ROUTINE-STAIRS-F",
+        "file": "gglobals.zil",
+        "line_start": 110,
+        "line_end": 113,
+        "subject": "STAIRS-F"
+      },
+      {
+        "id": "SRC-ROUTINE-SWORD-FCN",
+        "file": "1actions.zil",
+        "line_start": 2432,
+        "line_end": 2442,
+        "subject": "SWORD-FCN"
+      },
+      {
+        "id": "SRC-ROUTINE-TRAP-DOOR-EXIT",
+        "file": "1actions.zil",
+        "line_start": 567,
+        "line_end": 577,
+        "subject": "TRAP-DOOR-EXIT"
+      },
+      {
+        "id": "SRC-ROUTINE-TRAP-DOOR-FCN",
+        "file": "1actions.zil",
+        "line_start": 504,
+        "line_end": 529,
+        "subject": "TRAP-DOOR-FCN"
+      },
+      {
+        "id": "SRC-ROUTINE-TROPHY-CASE-FCN",
+        "file": "1actions.zil",
+        "line_start": 442,
+        "line_end": 445,
+        "subject": "TROPHY-CASE-FCN"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [
+      {
+        "id": "TRAP-DOOR.INVISIBLE",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": true,
+        "source_expression": "<FCLEAR ,TRAP-DOOR ,INVISIBLE>",
+        "source_refs": []
+      },
+      {
+        "id": "TRAP-DOOR.TOUCHBIT",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<FCLEAR ,TRAP-DOOR ,TOUCHBIT>",
+        "source_refs": []
+      },
+      {
+        "id": "TRAP-DOOR.OPENBIT",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<FCLEAR ,TRAP-DOOR ,OPENBIT>",
+        "source_refs": []
+      },
+      {
+        "id": "LAMP.location",
+        "kind": "object_location",
+        "value_type": "object_id",
+        "initial_value": "LIVING-ROOM",
+        "source_expression": "<REMOVE-CAREFULLY ,LAMP>",
+        "source_refs": [
+          "SRC-OBJECT-LAMP"
+        ]
+      },
+      {
+        "id": "MAGIC-FLAG",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL MAGIC-FLAG <>>",
+        "source_refs": [
+          "SRC-GLOBAL-MAGIC-FLAG"
+        ]
+      },
+      {
+        "id": "RUG-MOVED",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL RUG-MOVED <>>",
+        "source_refs": [
+          "SRC-GLOBAL-RUG-MOVED"
+        ]
+      },
+      {
+        "id": "SCORE",
+        "kind": "global",
+        "value_type": "integer",
+        "initial_value": 0,
+        "source_expression": "<GLOBAL SCORE 0>",
+        "source_refs": [
+          "SRC-GLOBAL-SCORE"
+        ]
+      }
+    ],
+    "extracted_states": [
+      {
+        "id": "LOOK-STATE-1",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND ,MAGIC-FLAG <AND .RUG? <FSET? ,TRAP-DOOR ,OPENBIT>>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-LIVING-ROOM",
+          "SRC-ROUTINE-LIVING-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-2",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND ,MAGIC-FLAG .RUG?>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-LIVING-ROOM",
+          "SRC-ROUTINE-LIVING-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-3",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND ,MAGIC-FLAG <FSET? ,TRAP-DOOR ,OPENBIT>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-LIVING-ROOM",
+          "SRC-ROUTINE-LIVING-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-4",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND ,MAGIC-FLAG <NOT <OR <AND .RUG? <FSET? ,TRAP-DOOR ,OPENBIT>> .RUG? <FSET? ,TRAP-DOOR ,OPENBIT>>>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-LIVING-ROOM",
+          "SRC-ROUTINE-LIVING-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-5",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND <NOT <OR ,MAGIC-FLAG>> <AND .RUG? <FSET? ,TRAP-DOOR ,OPENBIT>>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-LIVING-ROOM",
+          "SRC-ROUTINE-LIVING-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-6",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND <NOT <OR ,MAGIC-FLAG>> .RUG?>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-LIVING-ROOM",
+          "SRC-ROUTINE-LIVING-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-7",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND <NOT <OR ,MAGIC-FLAG>> <FSET? ,TRAP-DOOR ,OPENBIT>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-LIVING-ROOM",
+          "SRC-ROUTINE-LIVING-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-8",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND <NOT <OR ,MAGIC-FLAG>> <NOT <OR <AND .RUG? <FSET? ,TRAP-DOOR ,OPENBIT>> .RUG? <FSET? ,TRAP-DOOR ,OPENBIT>>>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-LIVING-ROOM",
+          "SRC-ROUTINE-LIVING-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-9",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "flag_clear",
+              "object": "TRAP-DOOR",
+              "flag": "INVISIBLE"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "RUG-MOVED"
+              },
+              "right": {
+                "value": true
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-RUG-FCN"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-10",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "flag_clear",
+              "object": "TRAP-DOOR",
+              "flag": "TOUCHBIT"
+            },
+            {
+              "op": "flag_clear",
+              "object": "TRAP-DOOR",
+              "flag": "OPENBIT"
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-TRAP-DOOR-FCN"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-11",
+        "condition": {
+          "op": "located_in",
+          "object": "BROKEN-LAMP",
+          "location": "HERE"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-LANTERN"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-12",
+        "condition": {
+          "op": "eq",
+          "left": {
+            "state_variable": "SCORE"
+          },
+          "right": {
+            "value": "<+ ,BASE-SCORE <OTVAL-FROB>>"
+          }
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-LIVING-ROOM-FCN"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-RUG-FCN-MOVE-PUSH-2",
+        "source_refs": [
+          "SRC-ROUTINE-RUG-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-2-TRAP-DOOR-FCN-CLOSE-5",
+        "source_refs": [
+          "SRC-ROUTINE-TRAP-DOOR-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-3-LANTERN-THROW-1",
+        "source_refs": [
+          "SRC-ROUTINE-LANTERN"
+        ]
+      },
+      {
+        "id": "TRANSITION-4-LANTERN-LAMP-ON-2",
+        "source_refs": [
+          "SRC-ROUTINE-LANTERN"
+        ]
+      },
+      {
+        "id": "TRANSITION-5-LANTERN-LAMP-OFF-3",
+        "source_refs": [
+          "SRC-ROUTINE-LANTERN"
+        ]
+      },
+      {
+        "id": "TRANSITION-6-SWORD-FCN-TAKE-1",
+        "source_refs": [
+          "SRC-ROUTINE-SWORD-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-7-LIVING-ROOM-FCN-TAKE-PUT-1",
+        "source_refs": [
+          "SRC-ROUTINE-LIVING-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-8-LIVING-ROOM-FCN-TAKE-PUT-1",
+        "source_refs": [
+          "SRC-ROUTINE-LIVING-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "EVENT-10-I-SWORD",
+        "source_refs": [
+          "SRC-ROUTINE-I-SWORD"
+        ]
+      },
+      {
+        "id": "EVENT-11-I-SWORD",
+        "source_refs": [
+          "SRC-ROUTINE-I-SWORD"
+        ]
+      },
+      {
+        "id": "EVENT-12-I-SWORD",
+        "source_refs": [
+          "SRC-ROUTINE-I-SWORD"
+        ]
+      },
+      {
+        "id": "EVENT-15-I-SWORD",
+        "source_refs": [
+          "SRC-ROUTINE-I-SWORD"
+        ]
+      },
+      {
+        "id": "EVENT-16-I-SWORD",
+        "source_refs": [
+          "SRC-ROUTINE-I-SWORD"
+        ]
+      },
+      {
+        "id": "EVENT-17-I-SWORD",
+        "source_refs": [
+          "SRC-ROUTINE-I-SWORD"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": [
+    {
+      "kind": "runtime_unknown",
+      "detail": "The resolver returns state 0; no positive runtime state or image is assigned."
+    }
+  ]
+}

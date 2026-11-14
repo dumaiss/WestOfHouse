@@ -1,0 +1,577 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "UP-A-TREE",
+  "title": "Up a Tree",
+  "runtime_room": 88,
+  "runtime_status": "incomplete",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "M-LOOK-1",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND <SET F <FIRST? ,PATH>> <NEXT? .F>>"
+        },
+        "text": [
+          "You are about 10 feet above the ground nestled among some large\nbranches. The nearest branch above you is above your reach.",
+          "On the ground below you can see:  ",
+          "."
+        ],
+        "source_refs": [
+          "SRC-ROOM-UP-A-TREE",
+          "SRC-ROUTINE-TREE-ROOM"
+        ]
+      },
+      {
+        "id": "M-LOOK-2",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<NOT <OR <AND <SET F <FIRST? ,PATH>> <NEXT? .F>>>>"
+        },
+        "text": [
+          "You are about 10 feet above the ground nestled among some large\nbranches. The nearest branch above you is above your reach."
+        ],
+        "source_refs": [
+          "SRC-ROOM-UP-A-TREE",
+          "SRC-ROUTINE-TREE-ROOM"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "NEST",
+        "description": "bird's nest",
+        "kind": "object",
+        "initial_location": "UP-A-TREE",
+        "source_flags": [
+          "TAKEBIT",
+          "BURNBIT",
+          "CONTBIT",
+          "OPENBIT",
+          "SEARCHBIT"
+        ],
+        "source_properties": {
+          "CAPACITY": 20,
+          "FDESC": "Beside you on the branch is a small bird's nest."
+        },
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-NEST"
+        ]
+      },
+      {
+        "id": "EGG",
+        "description": "jewel-encrusted egg",
+        "kind": "object",
+        "initial_location": "NEST",
+        "source_flags": [
+          "TAKEBIT",
+          "CONTBIT",
+          "SEARCHBIT"
+        ],
+        "source_properties": {
+          "TVALUE": 5,
+          "CAPACITY": 6,
+          "VALUE": 5,
+          "FDESC": "In the bird's nest is a large egg encrusted with precious jewels,\napparently scavenged by a childless songbird. The egg is covered with\nfine gold inlay, and ornamented in lapis lazuli and mother-of-pearl.\nUnlike most eggs, this one is hinged and closed with a delicate looking\nclasp. The egg appears extremely fragile."
+        },
+        "visibility": "contained_context",
+        "reason": "Contained object; not independently placed in the room illustration.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-EGG"
+        ]
+      },
+      {
+        "id": "CANARY",
+        "description": "golden clockwork canary",
+        "kind": "object",
+        "initial_location": "EGG",
+        "source_flags": [
+          "TAKEBIT",
+          "SEARCHBIT"
+        ],
+        "source_properties": {
+          "TVALUE": 4,
+          "VALUE": 6,
+          "FDESC": "There is a golden clockwork canary nestled in the egg. It has ruby\neyes and a silver beak. Through a crystal window below its left\nwing you can see intricate machinery inside. It appears to have\nwound down."
+        },
+        "visibility": "concealed_initially",
+        "reason": "Initial containment is inside a closed opaque container; do not expose its contents.",
+        "pointer": "/scene/objects/2",
+        "source_refs": [
+          "SRC-OBJECT-CANARY"
+        ]
+      },
+      {
+        "id": "TREE",
+        "description": "tree",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT",
+          "CLIMBBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/3",
+        "source_refs": [
+          "SRC-OBJECT-TREE"
+        ]
+      },
+      {
+        "id": "FOREST",
+        "description": "forest",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/4",
+        "source_refs": [
+          "SRC-OBJECT-FOREST"
+        ]
+      },
+      {
+        "id": "SONGBIRD",
+        "description": "songbird",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/5",
+        "source_refs": [
+          "SRC-OBJECT-SONGBIRD"
+        ]
+      },
+      {
+        "id": "WHITE-HOUSE",
+        "description": "white house",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/6",
+        "source_refs": [
+          "SRC-OBJECT-WHITE-HOUSE"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-UP-A-TREE"
+        ]
+      },
+      {
+        "id": "EXIT-DOWN",
+        "directions": [
+          "down"
+        ],
+        "destination": "PATH",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-UP-A-TREE"
+        ]
+      },
+      {
+        "id": "EXIT-UP",
+        "directions": [
+          "up"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(UP \"You cannot climb any higher.\")"
+        },
+        "blocked_text": [
+          "You cannot climb any higher."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-UP-A-TREE"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "ONBIT",
+      "SACREDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "FOREST"
+    ],
+    "camera": "View from large branches about ten feet above the ground, angled slightly down.",
+    "composition": "Let the stable trunk and supporting boughs frame the ground below; higher branches remain out of reach. Do not invent climbing aids.",
+    "lighting_palette": "Filtered canopy daylight, warm bark and broad green masses.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/up-a-tree.scene.json",
+    "scene_sha256": "0df0c4a717ad5951273bdc86c8c6ec20e9a068c5329168c6ebf27e9c9e7a4d66",
+    "source_references": [
+      {
+        "id": "SRC-GLOBAL-SING-SONG",
+        "file": "1actions.zil",
+        "line_start": 2968,
+        "line_end": 2968,
+        "subject": "SING-SONG"
+      },
+      {
+        "id": "SRC-OBJECT-CANARY",
+        "file": "1dungeon.zil",
+        "line_start": 1188,
+        "line_end": 1201,
+        "subject": "CANARY"
+      },
+      {
+        "id": "SRC-OBJECT-EGG",
+        "file": "1dungeon.zil",
+        "line_start": 1154,
+        "line_end": 1169,
+        "subject": "EGG"
+      },
+      {
+        "id": "SRC-OBJECT-FOREST",
+        "file": "1dungeon.zil",
+        "line_start": 56,
+        "line_end": 61,
+        "subject": "FOREST"
+      },
+      {
+        "id": "SRC-OBJECT-NEST",
+        "file": "1dungeon.zil",
+        "line_start": 1145,
+        "line_end": 1152,
+        "subject": "NEST"
+      },
+      {
+        "id": "SRC-OBJECT-SONGBIRD",
+        "file": "1dungeon.zil",
+        "line_start": 40,
+        "line_end": 46,
+        "subject": "SONGBIRD"
+      },
+      {
+        "id": "SRC-OBJECT-TREE",
+        "file": "1dungeon.zil",
+        "line_start": 63,
+        "line_end": 68,
+        "subject": "TREE"
+      },
+      {
+        "id": "SRC-OBJECT-WHITE-HOUSE",
+        "file": "1dungeon.zil",
+        "line_start": 48,
+        "line_end": 54,
+        "subject": "WHITE-HOUSE"
+      },
+      {
+        "id": "SRC-ROOM-UP-A-TREE",
+        "file": "1dungeon.zil",
+        "line_start": 1379,
+        "line_end": 1386,
+        "subject": "UP-A-TREE"
+      },
+      {
+        "id": "SRC-ROUTINE-CANARY-OBJECT",
+        "file": "1actions.zil",
+        "line_start": 2970,
+        "line_end": 2990,
+        "subject": "CANARY-OBJECT"
+      },
+      {
+        "id": "SRC-ROUTINE-EGG-OBJECT",
+        "file": "1actions.zil",
+        "line_start": 2919,
+        "line_end": 2958,
+        "subject": "EGG-OBJECT"
+      },
+      {
+        "id": "SRC-ROUTINE-FOREST-F",
+        "file": "1actions.zil",
+        "line_start": 136,
+        "line_end": 150,
+        "subject": "FOREST-F"
+      },
+      {
+        "id": "SRC-ROUTINE-SONGBIRD-F",
+        "file": "1actions.zil",
+        "line_start": 82,
+        "line_end": 90,
+        "subject": "SONGBIRD-F"
+      },
+      {
+        "id": "SRC-ROUTINE-TREE-ROOM",
+        "file": "1actions.zil",
+        "line_start": 2880,
+        "line_end": 2917,
+        "subject": "TREE-ROOM"
+      },
+      {
+        "id": "SRC-ROUTINE-WHITE-HOUSE-F",
+        "file": "1actions.zil",
+        "line_start": 92,
+        "line_end": 127,
+        "subject": "WHITE-HOUSE-F"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [
+      {
+        "id": "PRSO.FIGHTBIT",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<FSET ,PRSO ,FIGHTBIT>",
+        "source_refs": []
+      },
+      {
+        "id": "EGG.location",
+        "kind": "object_location",
+        "value_type": "object_id",
+        "initial_value": "NEST",
+        "source_expression": "<MOVE ,EGG ,PATH>",
+        "source_refs": [
+          "SRC-OBJECT-EGG"
+        ]
+      },
+      {
+        "id": "SING-SONG",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL SING-SONG <>>",
+        "source_refs": [
+          "SRC-GLOBAL-SING-SONG"
+        ]
+      }
+    ],
+    "extracted_states": [
+      {
+        "id": "LOOK-STATE-1",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND <SET F <FIRST? ,PATH>> <NEXT? .F>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-UP-A-TREE",
+          "SRC-ROUTINE-TREE-ROOM"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-2",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<NOT <OR <AND <SET F <FIRST? ,PATH>> <NEXT? .F>>>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-UP-A-TREE",
+          "SRC-ROUTINE-TREE-ROOM"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-3",
+        "condition": {
+          "op": "flag_set",
+          "object": "PRSO",
+          "flag": "FIGHTBIT"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-EGG-OBJECT"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-4",
+        "condition": {
+          "op": "located_in",
+          "object": "PRSO",
+          "location": "HERE"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-EGG-OBJECT"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-5",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "SING-SONG"
+              },
+              "right": {
+                "value": true
+              }
+            },
+            {
+              "op": "located_in",
+              "object": "BAUBLE",
+              "location": "<COND (<EQUAL? ,HERE ,UP-A-TREE> ,PATH) (T ,HERE)>"
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-CANARY-OBJECT"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-6",
+        "condition": {
+          "op": "located_in",
+          "object": "BROKEN-EGG",
+          "location": "PATH"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-TREE-ROOM"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-7",
+        "condition": {
+          "op": "located_in",
+          "object": "EGG",
+          "location": "PATH"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-TREE-ROOM"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-8",
+        "condition": {
+          "op": "located_in",
+          "object": "PRSO",
+          "location": "PATH"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-TREE-ROOM"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-EGG-OBJECT-OPEN-MUNG-1",
+        "source_refs": [
+          "SRC-ROUTINE-EGG-OBJECT"
+        ]
+      },
+      {
+        "id": "TRANSITION-2-EGG-OBJECT-OPEN-MUNG-THROW-3",
+        "source_refs": [
+          "SRC-ROUTINE-EGG-OBJECT"
+        ]
+      },
+      {
+        "id": "TRANSITION-3-EGG-OBJECT-THROW-5",
+        "source_refs": [
+          "SRC-ROUTINE-EGG-OBJECT"
+        ]
+      },
+      {
+        "id": "TRANSITION-4-CANARY-OBJECT-WIND-1",
+        "source_refs": [
+          "SRC-ROUTINE-CANARY-OBJECT"
+        ]
+      },
+      {
+        "id": "TRANSITION-5-WHITE-HOUSE-F-THROUGH-OPEN-4",
+        "source_refs": [
+          "SRC-ROUTINE-WHITE-HOUSE-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-6-TREE-ROOM-DROP-3",
+        "source_refs": [
+          "SRC-ROUTINE-TREE-ROOM"
+        ]
+      },
+      {
+        "id": "TRANSITION-7-TREE-ROOM-DROP-3",
+        "source_refs": [
+          "SRC-ROUTINE-TREE-ROOM"
+        ]
+      },
+      {
+        "id": "TRANSITION-8-TREE-ROOM-DROP-3",
+        "source_refs": [
+          "SRC-ROUTINE-TREE-ROOM"
+        ]
+      },
+      {
+        "id": "TRANSITION-9-TREE-ROOM-DROP-3",
+        "source_refs": [
+          "SRC-ROUTINE-TREE-ROOM"
+        ]
+      },
+      {
+        "id": "TRANSITION-10-TREE-ROOM-LEAP-4",
+        "source_refs": [
+          "SRC-ROUTINE-TREE-ROOM"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": [
+    {
+      "kind": "runtime_unknown",
+      "detail": "The resolver returns state 0; no positive runtime state or image is assigned."
+    }
+  ]
+}

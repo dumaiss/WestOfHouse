@@ -1,0 +1,311 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "MACHINE-ROOM",
+  "title": "Machine Room",
+  "runtime_room": 157,
+  "runtime_status": "incomplete",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "M-LOOK-1",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<FSET? ,MACHINE ,OPENBIT>"
+        },
+        "text": [
+          "This is a large, cold room whose sole exit is to the north. In one\ncorner there is a machine which is reminiscent of a clothes\ndryer. On its face is a switch which is labelled \"START\".\nThe switch does not appear to be manipulable by any human hand (unless the\nfingers are about 1/16 by 1/4 inch). On the front of the machine is a large\nlid, which is ",
+          "open."
+        ],
+        "source_refs": [
+          "SRC-ROOM-MACHINE-ROOM",
+          "SRC-ROUTINE-MACHINE-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-2",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<NOT <OR <FSET? ,MACHINE ,OPENBIT>>>"
+        },
+        "text": [
+          "This is a large, cold room whose sole exit is to the north. In one\ncorner there is a machine which is reminiscent of a clothes\ndryer. On its face is a switch which is labelled \"START\".\nThe switch does not appear to be manipulable by any human hand (unless the\nfingers are about 1/16 by 1/4 inch). On the front of the machine is a large\nlid, which is ",
+          "closed."
+        ],
+        "source_refs": [
+          "SRC-ROOM-MACHINE-ROOM",
+          "SRC-ROUTINE-MACHINE-ROOM-FCN"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "MACHINE",
+        "description": "machine",
+        "kind": "object",
+        "initial_location": "MACHINE-ROOM",
+        "source_flags": [
+          "CONTBIT",
+          "NDESCBIT",
+          "TRYTAKEBIT"
+        ],
+        "source_properties": {
+          "CAPACITY": 50
+        },
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-MACHINE"
+        ]
+      },
+      {
+        "id": "MACHINE-SWITCH",
+        "description": "switch",
+        "kind": "object",
+        "initial_location": "MACHINE-ROOM",
+        "source_flags": [
+          "NDESCBIT",
+          "TURNBIT"
+        ],
+        "source_properties": {},
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-MACHINE-SWITCH"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MACHINE-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "LOWER-SHAFT",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MACHINE-ROOM"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "MINE"
+    ],
+    "camera": "Eye-level oblique view of the dryer-like machine in its corner.",
+    "composition": "Keep the large front lid and minute control separate; preserve the sole north exit. The switch label carrier may exist, but no text is rendered.",
+    "lighting_palette": "Cold gray surfaces, restrained metal highlights.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/machine-room.scene.json",
+    "scene_sha256": "b6ba126c886351f71e9c4ab05491c42601cc45fc0baba8a7cda698ca5650253d",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-MACHINE",
+        "file": "1dungeon.zil",
+        "line_start": 587,
+        "line_end": 593,
+        "subject": "MACHINE"
+      },
+      {
+        "id": "SRC-OBJECT-MACHINE-SWITCH",
+        "file": "1dungeon.zil",
+        "line_start": 898,
+        "line_end": 903,
+        "subject": "MACHINE-SWITCH"
+      },
+      {
+        "id": "SRC-ROOM-MACHINE-ROOM",
+        "file": "1dungeon.zil",
+        "line_start": 2554,
+        "line_end": 2559,
+        "subject": "MACHINE-ROOM"
+      },
+      {
+        "id": "SRC-ROUTINE-MACHINE-F",
+        "file": "1actions.zil",
+        "line_start": 2502,
+        "line_end": 2529,
+        "subject": "MACHINE-F"
+      },
+      {
+        "id": "SRC-ROUTINE-MACHINE-ROOM-FCN",
+        "file": "1actions.zil",
+        "line_start": 2488,
+        "line_end": 2500,
+        "subject": "MACHINE-ROOM-FCN"
+      },
+      {
+        "id": "SRC-ROUTINE-MSWITCH-FUNCTION",
+        "file": "1actions.zil",
+        "line_start": 2531,
+        "line_end": 2551,
+        "subject": "MSWITCH-FUNCTION"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [
+      {
+        "id": "MACHINE.OPENBIT",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<FCLEAR ,MACHINE ,OPENBIT>",
+        "source_refs": []
+      }
+    ],
+    "extracted_states": [
+      {
+        "id": "LOOK-STATE-1",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<FSET? ,MACHINE ,OPENBIT>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-MACHINE-ROOM",
+          "SRC-ROUTINE-MACHINE-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-2",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<NOT <OR <FSET? ,MACHINE ,OPENBIT>>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-MACHINE-ROOM",
+          "SRC-ROUTINE-MACHINE-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-3",
+        "condition": {
+          "op": "flag_set",
+          "object": "MACHINE",
+          "flag": "OPENBIT"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-MACHINE-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-4",
+        "condition": {
+          "op": "flag_clear",
+          "object": "MACHINE",
+          "flag": "OPENBIT"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-MACHINE-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-5",
+        "condition": {
+          "op": "located_in",
+          "object": "DIAMOND",
+          "location": "MACHINE"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-MSWITCH-FUNCTION"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-6",
+        "condition": {
+          "op": "located_in",
+          "object": "GUNK",
+          "location": "MACHINE"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-MSWITCH-FUNCTION"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-MACHINE-F-OPEN-2",
+        "source_refs": [
+          "SRC-ROUTINE-MACHINE-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-2-MACHINE-F-OPEN-2",
+        "source_refs": [
+          "SRC-ROUTINE-MACHINE-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-3-MACHINE-F-CLOSE-3",
+        "source_refs": [
+          "SRC-ROUTINE-MACHINE-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-4-MSWITCH-FUNCTION-TURN-1",
+        "source_refs": [
+          "SRC-ROUTINE-MSWITCH-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-5-MSWITCH-FUNCTION-TURN-1",
+        "source_refs": [
+          "SRC-ROUTINE-MSWITCH-FUNCTION"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": [
+    {
+      "kind": "runtime_unknown",
+      "detail": "The resolver returns state 0; no positive runtime state or image is assigned."
+    }
+  ]
+}

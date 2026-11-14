@@ -1,0 +1,158 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "MAZE-6",
+  "title": "Maze",
+  "runtime_room": 64,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is part of a maze of twisty little passages, all alike."
+        ],
+        "source_refs": [
+          "SRC-ROOM-MAZE-6"
+        ]
+      }
+    ],
+    "objects": [],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MAZE-6"
+        ]
+      },
+      {
+        "id": "EXIT-DOWN",
+        "directions": [
+          "down"
+        ],
+        "destination": "MAZE-5",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MAZE-6"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "MAZE-7",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MAZE-6"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "MAZE-6",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MAZE-6"
+        ]
+      },
+      {
+        "id": "EXIT-UP",
+        "directions": [
+          "up"
+        ],
+        "destination": "MAZE-9",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MAZE-6"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "MAZEBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "MAZE"
+    ],
+    "camera": "Low human eye level within a cramped twisting passage.",
+    "composition": "Repeat the shared maze proportions and material treatment without unique decorative navigation clues. Preserve only source-established exits and, where described, the skeleton.",
+    "lighting_palette": "Dim gray-brown stone; broad readable edges with deep corners.",
+    "assumptions": [
+      "Shared passage finish and camera are artistic; all-alike descriptions must stay visually confusable."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/maze-6.scene.json",
+    "scene_sha256": "36dfa92ba5b098d4e979487adb2d32988fd34572aaa46c714cd51645cf2b97d4",
+    "source_references": [
+      {
+        "id": "SRC-ROOM-MAZE-6",
+        "file": "1dungeon.zil",
+        "line_start": 1599,
+        "line_end": 1607,
+        "subject": "MAZE-6"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-MAZE-6"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

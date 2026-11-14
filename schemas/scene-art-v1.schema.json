@@ -1,0 +1,771 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://westofhouse.local/schemas/scene-art-v1.schema.json",
+  "title": "scene_art_v1",
+  "description": "Phase 1 world, continuity, room, runtime-state and manifest documents. Canonical text is traced separately from artistic and inferred decisions.",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": "scene_art_v1"
+        },
+        "kind": {
+          "const": "world_style"
+        },
+        "interpretation": {
+          "type": "string"
+        },
+        "target": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "width": {
+              "const": 256
+            },
+            "height": {
+              "const": 159
+            },
+            "hardware": {
+              "type": "string"
+            },
+            "eventual_encoding": {
+              "const": "YJK"
+            },
+            "phase": {
+              "const": 1
+            },
+            "source_aspect": {
+              "type": "string"
+            },
+            "crop": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "width",
+            "height",
+            "hardware",
+            "eventual_encoding",
+            "phase",
+            "source_aspect",
+            "crop"
+          ]
+        },
+        "style": {
+          "type": "string"
+        },
+        "architecture": {
+          "type": "string"
+        },
+        "landscape": {
+          "type": "string"
+        },
+        "geology": {
+          "type": "string"
+        },
+        "lighting": {
+          "type": "string"
+        },
+        "palette": {
+          "type": "string"
+        },
+        "perspective": {
+          "type": "string"
+        },
+        "atmosphere": {
+          "type": "string"
+        },
+        "exclusions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "assumptions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "schema",
+        "kind",
+        "interpretation",
+        "target",
+        "style",
+        "architecture",
+        "landscape",
+        "geology",
+        "lighting",
+        "palette",
+        "perspective",
+        "atmosphere",
+        "exclusions",
+        "assumptions"
+      ]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": "scene_art_v1"
+        },
+        "kind": {
+          "const": "continuity"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "rooms": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "canonical": {
+                "type": "string"
+              },
+              "artistic": {
+                "type": "string"
+              },
+              "inferred": {
+                "type": "string"
+              },
+              "provenance": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              }
+            },
+            "required": [
+              "id",
+              "rooms",
+              "canonical",
+              "artistic",
+              "inferred",
+              "provenance"
+            ]
+          }
+        }
+      },
+      "required": [
+        "schema",
+        "kind",
+        "groups"
+      ]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": "scene_art_v1"
+        },
+        "kind": {
+          "const": "room"
+        },
+        "room": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "runtime_room": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "runtime_status": {
+          "enum": [
+            "ready",
+            "incomplete"
+          ]
+        },
+        "canonical": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "descriptions": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "objects": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "exits": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "source_flags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "descriptions",
+            "objects",
+            "exits",
+            "source_flags"
+          ]
+        },
+        "inferred": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "artistic": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "continuity": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "camera": {
+              "type": "string"
+            },
+            "composition": {
+              "type": "string"
+            },
+            "lighting_palette": {
+              "type": "string"
+            },
+            "assumptions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "continuity",
+            "camera",
+            "composition",
+            "lighting_palette",
+            "assumptions"
+          ]
+        },
+        "provenance": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "scene_file": {
+              "type": "string"
+            },
+            "scene_sha256": {
+              "type": "string"
+            },
+            "source_references": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "required": [
+            "scene_file",
+            "scene_sha256",
+            "source_references"
+          ]
+        },
+        "supporting_context": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "state_variables": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "extracted_states": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "transitions": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "notes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "state_variables",
+            "extracted_states",
+            "transitions",
+            "notes"
+          ]
+        },
+        "unresolved": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "required": [
+        "schema",
+        "kind",
+        "room",
+        "title",
+        "runtime_room",
+        "runtime_status",
+        "canonical",
+        "inferred",
+        "artistic",
+        "provenance",
+        "supporting_context",
+        "unresolved"
+      ]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": "scene_art_v1"
+        },
+        "kind": {
+          "const": "state"
+        },
+        "room": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "runtime_room": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "runtime_state": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "symbolic_state": {
+          "type": "string"
+        },
+        "condition": {
+          "type": [
+            "boolean",
+            "object"
+          ]
+        },
+        "extracted_states": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "description_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "canonical": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "text": {
+                "type": "string"
+              },
+              "pointer": {
+                "type": "string"
+              },
+              "source_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "text",
+              "pointer",
+              "source_refs"
+            ]
+          }
+        },
+        "required_environmental_features": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "required_visible_objects": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "artistic": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "continuity": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "camera": {
+              "type": "string"
+            },
+            "composition": {
+              "type": "string"
+            },
+            "lighting_palette": {
+              "type": "string"
+            },
+            "assumptions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "continuity",
+            "camera",
+            "composition",
+            "lighting_palette",
+            "assumptions"
+          ]
+        },
+        "invariants": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "canonical_text": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "artistic": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "continuity": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "camera": {
+                  "type": "string"
+                },
+                "composition": {
+                  "type": "string"
+                },
+                "lighting_palette": {
+                  "type": "string"
+                },
+                "assumptions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "continuity",
+                "camera",
+                "composition",
+                "lighting_palette",
+                "assumptions"
+              ]
+            }
+          },
+          "required": [
+            "canonical_text",
+            "artistic"
+          ]
+        },
+        "changes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reference": {
+          "type": [
+            "null",
+            "object"
+          ]
+        },
+        "asset_key": {
+          "type": "string"
+        },
+        "target": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "width": {
+              "const": 256
+            },
+            "height": {
+              "const": 159
+            },
+            "hardware": {
+              "type": "string"
+            },
+            "eventual_encoding": {
+              "const": "YJK"
+            },
+            "phase": {
+              "const": 1
+            },
+            "source_aspect": {
+              "type": "string"
+            },
+            "crop": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "width",
+            "height",
+            "hardware",
+            "eventual_encoding",
+            "phase",
+            "source_aspect",
+            "crop"
+          ]
+        },
+        "prompt": {
+          "type": "string",
+          "minLength": 100
+        },
+        "negative_prompt": {
+          "type": "string"
+        },
+        "provenance": {
+          "type": "object"
+        },
+        "unresolved": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "state_artistic": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "visual_treatment",
+            "omit_source_dressing"
+          ],
+          "properties": {
+            "visual_treatment": {
+              "type": "string",
+              "minLength": 1
+            },
+            "omit_source_dressing": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      },
+      "required": [
+        "schema",
+        "kind",
+        "room",
+        "title",
+        "runtime_room",
+        "runtime_state",
+        "symbolic_state",
+        "condition",
+        "extracted_states",
+        "description_ids",
+        "canonical",
+        "required_environmental_features",
+        "required_visible_objects",
+        "artistic",
+        "invariants",
+        "changes",
+        "reference",
+        "asset_key",
+        "target",
+        "prompt",
+        "negative_prompt",
+        "provenance",
+        "unresolved",
+        "state_artistic"
+      ]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": "scene_art_v1"
+        },
+        "kind": {
+          "const": "manifest"
+        },
+        "target": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "width": {
+              "const": 256
+            },
+            "height": {
+              "const": 159
+            },
+            "hardware": {
+              "type": "string"
+            },
+            "eventual_encoding": {
+              "const": "YJK"
+            },
+            "phase": {
+              "const": 1
+            },
+            "source_aspect": {
+              "type": "string"
+            },
+            "crop": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "width",
+            "height",
+            "hardware",
+            "eventual_encoding",
+            "phase",
+            "source_aspect",
+            "crop"
+          ]
+        },
+        "story_sha256": {
+          "type": "string"
+        },
+        "rooms": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "room": {
+                "type": "string"
+              },
+              "runtime_room": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "runtime_status": {
+                "enum": [
+                  "ready",
+                  "incomplete"
+                ]
+              },
+              "specification": {
+                "type": "string"
+              },
+              "states": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "runtime_state": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "symbolic_state": {
+                      "type": "string"
+                    },
+                    "asset_key": {
+                      "type": "string"
+                    },
+                    "specification": {
+                      "type": "string"
+                    },
+                    "prompt": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "runtime_state",
+                    "symbolic_state",
+                    "asset_key",
+                    "specification",
+                    "prompt"
+                  ]
+                }
+              },
+              "diagnostics": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              },
+              "unmapped_extracted_states": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              }
+            },
+            "required": [
+              "room",
+              "runtime_room",
+              "runtime_status",
+              "specification",
+              "states",
+              "diagnostics",
+              "unmapped_extracted_states"
+            ]
+          }
+        }
+      },
+      "required": [
+        "schema",
+        "kind",
+        "target",
+        "story_sha256",
+        "rooms"
+      ]
+    }
+  ]
+}

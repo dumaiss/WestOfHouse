@@ -1,0 +1,117 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "state",
+  "room": "MIRROR-ROOM-2",
+  "title": "Mirror Room",
+  "runtime_room": 152,
+  "runtime_state": 1,
+  "symbolic_state": "LOOK-09722ADD1423",
+  "condition": {
+    "ref": "MIRROR-MUNG",
+    "ne": false
+  },
+  "extracted_states": [
+    {
+      "id": "LOOK-STATE-1",
+      "condition": {
+        "op": "source_expression",
+        "expression": ",MIRROR-MUNG"
+      },
+      "source_refs": [
+        "SRC-ROOM-MIRROR-ROOM-2",
+        "SRC-ROUTINE-MIRROR-ROOM"
+      ],
+      "method": "equivalent_static_predicate_and_matching_presentation_text"
+    }
+  ],
+  "description_ids": [
+    "M-LOOK-1"
+  ],
+  "canonical": [
+    {
+      "text": "You are in a large square room with tall ceilings. On the south wall\nis an enormous mirror which fills the entire wall. There are exits\non the other three sides of the room.",
+      "pointer": "/scene/descriptions/0/text/0",
+      "source_refs": [
+        "SRC-ROOM-MIRROR-ROOM-2",
+        "SRC-ROUTINE-MIRROR-ROOM"
+      ]
+    },
+    {
+      "text": "Unfortunately, the mirror has been destroyed by your recklessness.",
+      "pointer": "/scene/descriptions/0/text/1",
+      "source_refs": [
+        "SRC-ROOM-MIRROR-ROOM-2",
+        "SRC-ROUTINE-MIRROR-ROOM"
+      ]
+    }
+  ],
+  "required_environmental_features": [
+    "You are in a large square room with tall ceilings. On the south wall\nis an enormous mirror which fills the entire wall. There are exits\non the other three sides of the room.",
+    "Unfortunately, the mirror has been destroyed by your recklessness."
+  ],
+  "required_visible_objects": [
+    "MIRROR-2"
+  ],
+  "artistic": {
+    "continuity": [
+      "MIRRORS"
+    ],
+    "camera": "Stand near the north side facing the south-wall mirror at the paired room's scale.",
+    "composition": "Match the mirror border proportions and room height of its counterpart while retaining this room's own asset identity.",
+    "lighting_palette": "Cool neutral stone and restrained reflections.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "state_artistic": {
+    "visual_treatment": "The source-established mirror is broken; retain its position and the room geometry.",
+    "omit_source_dressing": []
+  },
+  "invariants": {
+    "canonical_text": [
+      "You are in a large square room with tall ceilings. On the south wall\nis an enormous mirror which fills the entire wall. There are exits\non the other three sides of the room."
+    ],
+    "artistic": {
+      "continuity": [
+        "MIRRORS"
+      ],
+      "camera": "Stand near the north side facing the south-wall mirror at the paired room's scale.",
+      "composition": "Match the mirror border proportions and room height of its counterpart while retaining this room's own asset identity.",
+      "lighting_palette": "Cool neutral stone and restrained reflections.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    }
+  },
+  "changes": [
+    "Unfortunately, the mirror has been destroyed by your recklessness."
+  ],
+  "reference": null,
+  "asset_key": "room-152-state-1",
+  "target": {
+    "width": 256,
+    "height": 159,
+    "hardware": "Yamaha V9958",
+    "eventual_encoding": "YJK",
+    "phase": 1,
+    "source_aspect": "4:3 landscape",
+    "crop": "Safe center crop from 4:3 to 256:159; protect subjects within the central 82.8% of source height and central 90% of width."
+  },
+  "prompt": "Create one complete static illustration of Mirror Room.\n\nViewpoint: Stand near the north side facing the south-wall mirror at the paired room's scale.\n\nThe scene establishes these features: You are in a large square room with tall ceilings. On the south wall is an enormous mirror which fills the entire wall. There are exits on the other three sides of the room. Unfortunately, the mirror has been destroyed by your recklessness.\n\nComposition: Match the mirror border proportions and room height of its counterpart while retaining this room's own asset identity.\n\nAppearance of this illustration: The source-established mirror is broken; retain its position and the room geometry.\n\nCanonical room dressing: mirror. Preserve this coarse room presentation unless the state description above specifies a different appearance.\n\nLighting and color: Cool neutral stone and restrained reflections.\n\nShared world design: Same mirror border proportions and cool neutral stone finish. Reflect only established geometry; no player portrait or extra passage.\n\nStyle: Painterly adventure-game illustration recalling fine late-1980s and early-1990s computer artwork; natural proportions, restrained brushwork, readable silhouettes and broad tonal masses. Aim for roughly 256 visually significant colors, broad related color regions, controlled shading and clear dark/light separation. No exact RGB-count requirement, photographic color noise, excessive gradients or microtextures.\n\nKeep this room camera, underlying architecture, terrain layout, light direction and palette consistent across its variants. Depict the complete scene, including the appearance stated above.\n\nLandscape source composition near 4:3. Final scene is 256 by 159 pixels. Allow safe center cropping to 256:159, keeping essential subjects inside the central 82.8 percent of source height and away from the side boundaries. Use clear silhouettes and broad readable shapes at that final size.\n\nExclude game UI, borders, captions, labels, readable lettering, photographic detail, pixel grids and enlarged pixels. Do not add characters, significant props, openings or events beyond the established scene. Do not depict an action in progress or a before/after collage.\n",
+  "negative_prompt": "No UI, borders, readable text, photorealism, pixel grid, invented props, extra exits or transient action events.",
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/mirror-room-2.scene.json",
+    "scene_sha256": "3b98f77a709830d5034905ca9b1db31b3644e7fc8f4005ab72e8d7fe1f3e69c2",
+    "runtime_source": {
+      "file": "1actions.zil",
+      "line": 959,
+      "expression": "(<EQUAL? .RARG ,M-LOOK> <TELL \"You are in a large square room with tall ceilings. On the south wall\\nis an enormous mirror which fills the entire wall. There are exits\\non the other three sides of the room.\" CR> <COND (,MIRROR-MUNG <TELL \"Unfortunately, the mirror has been destroyed by your recklessness.\" CR>)>)"
+    },
+    "mapping_file": "generated-zil/woh-state-ids.json",
+    "mapping_sha256": "c48cbe6f1866460c9141af8f50be2b1120255b13ae8fa44a72cbb1714c3a2137",
+    "dictionary_file": "generated-room-states/room-states.yaml",
+    "dictionary_sha256": "87783e0895b9ebf9d5155dff22e440735c5ac68caca748c1d77840d6c1aacfa0",
+    "story_sha256": "cce1fdc54f18a6616e124db2de245aec1da943b458ebdee61bf1c6ff0a4038d4"
+  },
+  "unresolved": []
+}

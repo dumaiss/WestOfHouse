@@ -1,0 +1,164 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "TIMBER-ROOM",
+  "title": "Timber Room",
+  "runtime_room": 206,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is a long and narrow passage, which is cluttered with broken\ntimbers. A wide passage comes from the east and turns at the\nwest end of the room into a very narrow passageway. From the west\ncomes a strong draft."
+        ],
+        "source_refs": [
+          "SRC-ROOM-TIMBER-ROOM"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "TIMBERS",
+        "description": "broken timber",
+        "kind": "object",
+        "initial_location": "TIMBER-ROOM",
+        "source_flags": [
+          "TAKEBIT"
+        ],
+        "source_properties": {
+          "SIZE": 50
+        },
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-TIMBERS"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-TIMBER-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "LADDER-BOTTOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-TIMBER-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "LOWER-SHAFT",
+        "condition": {
+          "op": "source_expression",
+          "expression": "EMPTY-HANDED"
+        },
+        "blocked_text": [
+          "You cannot fit through this passage with that load."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-TIMBER-ROOM"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "SACREDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "MINE"
+    ],
+    "camera": "Look west along the long obstructed passage.",
+    "composition": "Keep broken timbers as broad foreground diagonals, the wider east entry behind the view and the very narrow west continuation ahead.",
+    "lighting_palette": "Umber wood and dark coal rock; no visible wind effects required.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/timber-room.scene.json",
+    "scene_sha256": "44989d30da1f0ff2819715df888ee287490f2e9c2d9c08aa3d143702b473f081",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-TIMBERS",
+        "file": "1dungeon.zil",
+        "line_start": 255,
+        "line_end": 261,
+        "subject": "TIMBERS"
+      },
+      {
+        "id": "SRC-ROOM-TIMBER-ROOM",
+        "file": "1dungeon.zil",
+        "line_start": 2521,
+        "line_end": 2534,
+        "subject": "TIMBER-ROOM"
+      },
+      {
+        "id": "SRC-ROUTINE-NO-OBJS",
+        "file": "1actions.zil",
+        "line_start": 2558,
+        "line_end": 2571,
+        "subject": "NO-OBJS"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-TIMBER-ROOM"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

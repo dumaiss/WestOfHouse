@@ -1,0 +1,194 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "LAND-OF-LIVING-DEAD",
+  "title": "Land of the Dead",
+  "runtime_room": 230,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "You have entered the Land of the Living Dead. Thousands of lost souls\ncan be heard weeping and moaning. In the corner are stacked the remains\nof dozens of previous adventurers less fortunate than yourself.\nA passage exits to the north."
+        ],
+        "source_refs": [
+          "SRC-ROOM-LAND-OF-LIVING-DEAD"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "SKULL",
+        "description": "crystal skull",
+        "kind": "object",
+        "initial_location": "LAND-OF-LIVING-DEAD",
+        "source_flags": [
+          "TAKEBIT"
+        ],
+        "source_properties": {
+          "TVALUE": 10,
+          "VALUE": 10,
+          "FDESC": "Lying in one corner of the room is a beautifully carved crystal skull.\nIt appears to be grinning at you rather nastily."
+        },
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-SKULL"
+        ]
+      },
+      {
+        "id": "BODIES",
+        "description": "pile of bodies",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT",
+          "TRYTAKEBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-BODIES"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-LAND-OF-LIVING-DEAD"
+        ]
+      },
+      {
+        "id": "EXIT-OUT",
+        "directions": [
+          "out"
+        ],
+        "destination": "ENTRANCE-TO-HADES",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-LAND-OF-LIVING-DEAD"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "ENTRANCE-TO-HADES",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-LAND-OF-LIVING-DEAD"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "ONBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "DOME-TEMPLE"
+    ],
+    "camera": "View from inside the chamber toward the northern exit and the corner of remains.",
+    "composition": "Keep the stacked remains a broad sober silhouette; represent audible souls only if visible forms are explicitly established.",
+    "lighting_palette": "Ashen gray and deep neutral shadow.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/land-of-living-dead.scene.json",
+    "scene_sha256": "34a5a01aca0aaf1e27ed065983233ad47df39f9991491efa3712fca987e1c04c",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-BODIES",
+        "file": "1dungeon.zil",
+        "line_start": 688,
+        "line_end": 694,
+        "subject": "BODIES"
+      },
+      {
+        "id": "SRC-OBJECT-SKULL",
+        "file": "1dungeon.zil",
+        "line_start": 117,
+        "line_end": 127,
+        "subject": "SKULL"
+      },
+      {
+        "id": "SRC-ROOM-LAND-OF-LIVING-DEAD",
+        "file": "1dungeon.zil",
+        "line_start": 2040,
+        "line_end": 2051,
+        "subject": "LAND-OF-LIVING-DEAD"
+      },
+      {
+        "id": "SRC-ROUTINE-BODY-FUNCTION",
+        "file": "1actions.zil",
+        "line_start": 2178,
+        "line_end": 2185,
+        "subject": "BODY-FUNCTION"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-LAND-OF-LIVING-DEAD"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-BODY-FUNCTION-MUNG-BURN-2",
+        "source_refs": [
+          "SRC-ROUTINE-BODY-FUNCTION"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

@@ -1,0 +1,127 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "NARROW-PASSAGE",
+  "title": "Narrow Passage",
+  "runtime_room": 44,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is a long and narrow corridor where a long north-south passageway\nbriefly narrows even further."
+        ],
+        "source_refs": [
+          "SRC-ROOM-NARROW-PASSAGE"
+        ]
+      }
+    ],
+    "objects": [],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-NARROW-PASSAGE"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "ROUND-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-NARROW-PASSAGE"
+        ]
+      },
+      {
+        "id": "EXIT-SOUTH",
+        "directions": [
+          "south"
+        ],
+        "destination": "MIRROR-ROOM-2",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-NARROW-PASSAGE"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "CAVES"
+    ],
+    "camera": "Look along the long north-south corridor toward its pinched section.",
+    "composition": "Make the localized constriction distinct within an already narrow passage; add no door or obstruction prop.",
+    "lighting_palette": "Dark cool stone, minimal fill.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/narrow-passage.scene.json",
+    "scene_sha256": "d14c9e1e69d49cd7fb4cd2f10009be694f08760dc954a32b16b154effeba6df5",
+    "source_references": [
+      {
+        "id": "SRC-ROOM-NARROW-PASSAGE",
+        "file": "1dungeon.zil",
+        "line_start": 1893,
+        "line_end": 1901,
+        "subject": "NARROW-PASSAGE"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-NARROW-PASSAGE"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

@@ -1,0 +1,248 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "STUDIO",
+  "title": "Studio",
+  "runtime_room": 94,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This appears to have been an artist's studio. The walls and floors are\nsplattered with paints of 69 different colors. Strangely enough, nothing\nof value is hanging here. At the south end of the room is an open door\n(also covered with paint). A dark and narrow chimney leads up from a\nfireplace; although you might be able to get up it, it seems unlikely\nyou could get back down."
+        ],
+        "source_refs": [
+          "SRC-ROOM-STUDIO"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "OWNERS-MANUAL",
+        "description": "ZORK owner's manual",
+        "kind": "object",
+        "initial_location": "STUDIO",
+        "source_flags": [
+          "READBIT",
+          "TAKEBIT"
+        ],
+        "source_properties": {
+          "FDESC": "Loosely attached to a wall is a small piece of paper."
+        },
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-OWNERS-MANUAL"
+        ]
+      },
+      {
+        "id": "CHIMNEY",
+        "description": "chimney",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "CLIMBBIT",
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-CHIMNEY"
+        ]
+      },
+      {
+        "id": "PSEUDO-DOOR",
+        "description": "door",
+        "kind": "pseudo_object",
+        "initial_location": "STUDIO",
+        "source_flags": [],
+        "source_properties": {
+          "ACTION": "DOOR-PSEUDO"
+        },
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/2",
+        "source_refs": [
+          "SRC-ROOM-STUDIO",
+          "SRC-ROUTINE-DOOR-PSEUDO"
+        ]
+      },
+      {
+        "id": "PSEUDO-PAINT",
+        "description": "paint",
+        "kind": "pseudo_object",
+        "initial_location": "STUDIO",
+        "source_flags": [],
+        "source_properties": {
+          "ACTION": "PAINT-PSEUDO"
+        },
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/3",
+        "source_refs": [
+          "SRC-ROOM-STUDIO",
+          "SRC-ROUTINE-PAINT-PSEUDO"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-STUDIO"
+        ]
+      },
+      {
+        "id": "EXIT-SOUTH",
+        "directions": [
+          "south"
+        ],
+        "destination": "GALLERY",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-STUDIO"
+        ]
+      },
+      {
+        "id": "EXIT-UP",
+        "directions": [
+          "up"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(UP PER UP-CHIMNEY-FUNCTION)"
+        },
+        "blocked_text": [],
+        "effects": [
+          {
+            "operation": "call_routine",
+            "routine": "UP-CHIMNEY-FUNCTION",
+            "arguments": [],
+            "source_expression": "(UP PER UP-CHIMNEY-FUNCTION)"
+          }
+        ],
+        "source_refs": [
+          "SRC-ROOM-STUDIO"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "CAVES"
+    ],
+    "camera": "View across the studio toward the southern open door and fireplace.",
+    "composition": "Show broad paint-spattered surfaces, empty wall areas and the narrow upward chimney. Suggest many colors in grouped patches rather than enforcing an exact 69-color count.",
+    "lighting_palette": "Restrained warm/cool paint patches over neutral room values.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/studio.scene.json",
+    "scene_sha256": "6e8819afcc82b2a7bbc2d242eace727f277c4e73d3a4b16cab44a32ee35eb8b2",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-CHIMNEY",
+        "file": "1dungeon.zil",
+        "line_start": 101,
+        "line_end": 107,
+        "subject": "CHIMNEY"
+      },
+      {
+        "id": "SRC-OBJECT-OWNERS-MANUAL",
+        "file": "1dungeon.zil",
+        "line_start": 1100,
+        "line_end": 1113,
+        "subject": "OWNERS-MANUAL"
+      },
+      {
+        "id": "SRC-ROOM-STUDIO",
+        "file": "1dungeon.zil",
+        "line_start": 1518,
+        "line_end": 1532,
+        "subject": "STUDIO"
+      },
+      {
+        "id": "SRC-ROUTINE-CHIMNEY-F",
+        "file": "1actions.zil",
+        "line_start": 545,
+        "line_end": 551,
+        "subject": "CHIMNEY-F"
+      },
+      {
+        "id": "SRC-ROUTINE-DOOR-PSEUDO",
+        "file": "1actions.zil",
+        "line_start": 3216,
+        "line_end": 3220,
+        "subject": "DOOR-PSEUDO"
+      },
+      {
+        "id": "SRC-ROUTINE-PAINT-PSEUDO",
+        "file": "1actions.zil",
+        "line_start": 3222,
+        "line_end": 3224,
+        "subject": "PAINT-PSEUDO"
+      },
+      {
+        "id": "SRC-ROUTINE-UP-CHIMNEY-FUNCTION",
+        "file": "1actions.zil",
+        "line_start": 553,
+        "line_end": 565,
+        "subject": "UP-CHIMNEY-FUNCTION"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-STUDIO"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

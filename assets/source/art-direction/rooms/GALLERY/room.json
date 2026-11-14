@@ -1,0 +1,166 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "GALLERY",
+  "title": "Gallery",
+  "runtime_room": 148,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is an art gallery. Most of the paintings have been stolen by\nvandals with exceptional taste. The vandals left through either the\nnorth or west exits."
+        ],
+        "source_refs": [
+          "SRC-ROOM-GALLERY"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "PAINTING",
+        "description": "painting",
+        "kind": "object",
+        "initial_location": "GALLERY",
+        "source_flags": [
+          "TAKEBIT",
+          "BURNBIT"
+        ],
+        "source_properties": {
+          "TVALUE": 6,
+          "SIZE": 15,
+          "VALUE": 4,
+          "FDESC": "Fortunately, there is still one chance for you to be a vandal, for on\nthe far wall is a painting of unparalleled beauty.",
+          "LDESC": "A painting by a neglected genius is here."
+        },
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-PAINTING"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-GALLERY"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "EAST-OF-CHASM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-GALLERY"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "STUDIO",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-GALLERY"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "ONBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "CAVES"
+    ],
+    "camera": "View across the former gallery between the north and west exits.",
+    "composition": "Show broad gallery wall spaces; the source-listed remaining painting provides the main focal object. Do not invent a collection of replacement artworks.",
+    "lighting_palette": "Cool quiet wall tones and low neutral fill.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/gallery.scene.json",
+    "scene_sha256": "19e77d66209e88a92844bcc884044020bc509bbabb48971dfbd995b1dcf23e9d",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-PAINTING",
+        "file": "1dungeon.zil",
+        "line_start": 655,
+        "line_end": 668,
+        "subject": "PAINTING"
+      },
+      {
+        "id": "SRC-ROOM-GALLERY",
+        "file": "1dungeon.zil",
+        "line_start": 1507,
+        "line_end": 1516,
+        "subject": "GALLERY"
+      },
+      {
+        "id": "SRC-ROUTINE-PAINTING-FCN",
+        "file": "1actions.zil",
+        "line_start": 2207,
+        "line_end": 2214,
+        "subject": "PAINTING-FCN"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-GALLERY"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

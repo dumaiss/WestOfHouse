@@ -1,0 +1,158 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "MAZE-14",
+  "title": "Maze",
+  "runtime_room": 53,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is part of a maze of twisty little passages, all alike."
+        ],
+        "source_refs": [
+          "SRC-ROOM-MAZE-14"
+        ]
+      }
+    ],
+    "objects": [],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MAZE-14"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "MAZE-15",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MAZE-14"
+        ]
+      },
+      {
+        "id": "EXIT-NW",
+        "directions": [
+          "nw"
+        ],
+        "destination": "MAZE-14",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MAZE-14"
+        ]
+      },
+      {
+        "id": "EXIT-NE",
+        "directions": [
+          "ne"
+        ],
+        "destination": "MAZE-7",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MAZE-14"
+        ]
+      },
+      {
+        "id": "EXIT-SOUTH",
+        "directions": [
+          "south"
+        ],
+        "destination": "MAZE-7",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MAZE-14"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "MAZEBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "MAZE"
+    ],
+    "camera": "Low human eye level within a cramped twisting passage.",
+    "composition": "Repeat the shared maze proportions and material treatment without unique decorative navigation clues. Preserve only source-established exits and, where described, the skeleton.",
+    "lighting_palette": "Dim gray-brown stone; broad readable edges with deep corners.",
+    "assumptions": [
+      "Shared passage finish and camera are artistic; all-alike descriptions must stay visually confusable."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/maze-14.scene.json",
+    "scene_sha256": "995dfe4b2a16c67ee1028ce2fe9038edac4134ee972be244c51f5198a6da6a8d",
+    "source_references": [
+      {
+        "id": "SRC-ROOM-MAZE-14",
+        "file": "1dungeon.zil",
+        "line_start": 1705,
+        "line_end": 1713,
+        "subject": "MAZE-14"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-MAZE-14"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

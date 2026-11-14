@@ -1,0 +1,181 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "TINY-CAVE",
+  "title": "Cave",
+  "runtime_room": 46,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is a tiny cave with entrances west and north, and a dark,\nforbidding staircase leading down."
+        ],
+        "source_refs": [
+          "SRC-ROOM-TINY-CAVE"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "STAIRS",
+        "description": "stairs",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT",
+          "CLIMBBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-STAIRS"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-TINY-CAVE"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "MIRROR-ROOM-2",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-TINY-CAVE"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "WINDING-PASSAGE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-TINY-CAVE"
+        ]
+      },
+      {
+        "id": "EXIT-DOWN",
+        "directions": [
+          "down"
+        ],
+        "destination": "ENTRANCE-TO-HADES",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-TINY-CAVE"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "CAVES"
+    ],
+    "camera": "Eye-level corner view including the forbidding downward stair.",
+    "composition": "Keep west and north entrances separate from the stair's dark descent; preserve this stair's threatening appearance.",
+    "lighting_palette": "Cold low fill and deep stair shadow.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/tiny-cave.scene.json",
+    "scene_sha256": "74913181da84ead8f2fb02a41b76d181f2a951e1e509685d96738272b859359e",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-STAIRS",
+        "file": "gglobals.zil",
+        "line_start": 102,
+        "line_end": 108,
+        "subject": "STAIRS"
+      },
+      {
+        "id": "SRC-ROOM-TINY-CAVE",
+        "file": "1dungeon.zil",
+        "line_start": 1870,
+        "line_end": 1881,
+        "subject": "TINY-CAVE"
+      },
+      {
+        "id": "SRC-ROUTINE-CAVE2-ROOM",
+        "file": "1actions.zil",
+        "line_start": 2416,
+        "line_end": 2426,
+        "subject": "CAVE2-ROOM"
+      },
+      {
+        "id": "SRC-ROUTINE-STAIRS-F",
+        "file": "gglobals.zil",
+        "line_start": 110,
+        "line_end": 113,
+        "subject": "STAIRS-F"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-TINY-CAVE"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

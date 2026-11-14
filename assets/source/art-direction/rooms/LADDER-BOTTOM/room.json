@@ -1,0 +1,167 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "LADDER-BOTTOM",
+  "title": "Ladder Bottom",
+  "runtime_room": 20,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is a rather wide room. On one side is the bottom of a\nnarrow wooden ladder. To the west and the south are passages\nleaving the room."
+        ],
+        "source_refs": [
+          "SRC-ROOM-LADDER-BOTTOM"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "LADDER",
+        "description": "wooden ladder",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT",
+          "CLIMBBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-LADDER"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-LADDER-BOTTOM"
+        ]
+      },
+      {
+        "id": "EXIT-SOUTH",
+        "directions": [
+          "south"
+        ],
+        "destination": "DEAD-END-5",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-LADDER-BOTTOM"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "TIMBER-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-LADDER-BOTTOM"
+        ]
+      },
+      {
+        "id": "EXIT-UP",
+        "directions": [
+          "up"
+        ],
+        "destination": "LADDER-TOP",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-LADDER-BOTTOM"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "MINE"
+    ],
+    "camera": "Stand in the wider lower chamber and look up toward the narrow wood ladder.",
+    "composition": "Use the ladder foot as the vertical anchor and retain west and south passage geometry.",
+    "lighting_palette": "Dim brown-gray rock and worn wood.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/ladder-bottom.scene.json",
+    "scene_sha256": "0897df784eeee474ffa453c2750f8f70789a783cdcf720143af2d56efa3a7622",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-LADDER",
+        "file": "1dungeon.zil",
+        "line_start": 864,
+        "line_end": 869,
+        "subject": "LADDER"
+      },
+      {
+        "id": "SRC-ROOM-LADDER-BOTTOM",
+        "file": "1dungeon.zil",
+        "line_start": 2501,
+        "line_end": 2512,
+        "subject": "LADDER-BOTTOM"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-LADDER-BOTTOM"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

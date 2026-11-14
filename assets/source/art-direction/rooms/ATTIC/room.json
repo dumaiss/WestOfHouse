@@ -1,0 +1,455 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "ATTIC",
+  "title": "Attic",
+  "runtime_room": 201,
+  "runtime_status": "incomplete",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is the attic. The only exit is a stairway leading down."
+        ],
+        "source_refs": [
+          "SRC-ROOM-ATTIC"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "ATTIC-TABLE",
+        "description": "table",
+        "kind": "object",
+        "initial_location": "ATTIC",
+        "source_flags": [
+          "NDESCBIT",
+          "CONTBIT",
+          "OPENBIT",
+          "SURFACEBIT"
+        ],
+        "source_properties": {
+          "CAPACITY": 40
+        },
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-ATTIC-TABLE"
+        ]
+      },
+      {
+        "id": "KNIFE",
+        "description": "nasty knife",
+        "kind": "object",
+        "initial_location": "ATTIC-TABLE",
+        "source_flags": [
+          "TAKEBIT",
+          "WEAPONBIT",
+          "TRYTAKEBIT"
+        ],
+        "source_properties": {
+          "FDESC": "On a table is a nasty-looking knife."
+        },
+        "visibility": "contained_context",
+        "reason": "Contained object; not independently placed in the room illustration.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-KNIFE"
+        ]
+      },
+      {
+        "id": "ROPE",
+        "description": "rope",
+        "kind": "object",
+        "initial_location": "ATTIC",
+        "source_flags": [
+          "TAKEBIT",
+          "SACREDBIT",
+          "TRYTAKEBIT"
+        ],
+        "source_properties": {
+          "SIZE": 10,
+          "FDESC": "A large coil of rope is lying in the corner."
+        },
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/2",
+        "source_refs": [
+          "SRC-OBJECT-ROPE"
+        ]
+      },
+      {
+        "id": "STAIRS",
+        "description": "stairs",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT",
+          "CLIMBBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/3",
+        "source_refs": [
+          "SRC-OBJECT-STAIRS"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-ATTIC"
+        ]
+      },
+      {
+        "id": "EXIT-DOWN",
+        "directions": [
+          "down"
+        ],
+        "destination": "KITCHEN",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-ATTIC"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "SACREDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "WHITE-HOUSE"
+    ],
+    "camera": "Stand clear of the downward stair and view the roof space obliquely.",
+    "composition": "Use the roof volume and sole stair opening to organize the view; arrange the source-listed attic belongings as coarse room dressing.",
+    "lighting_palette": "Dim warm-brown timber against cool shadow.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/attic.scene.json",
+    "scene_sha256": "283854d3af70c890542361897e8bd7f2fb54878cc67e5d5f91a0a5deef52c5f0",
+    "source_references": [
+      {
+        "id": "SRC-GLOBAL-DOME-FLAG",
+        "file": "1dungeon.zil",
+        "line_start": 1227,
+        "line_end": 1227,
+        "subject": "DOME-FLAG"
+      },
+      {
+        "id": "SRC-OBJECT-ATTIC-TABLE",
+        "file": "1dungeon.zil",
+        "line_start": 279,
+        "line_end": 284,
+        "subject": "ATTIC-TABLE"
+      },
+      {
+        "id": "SRC-OBJECT-KNIFE",
+        "file": "1dungeon.zil",
+        "line_start": 508,
+        "line_end": 515,
+        "subject": "KNIFE"
+      },
+      {
+        "id": "SRC-OBJECT-ROPE",
+        "file": "1dungeon.zil",
+        "line_start": 797,
+        "line_end": 805,
+        "subject": "ROPE"
+      },
+      {
+        "id": "SRC-OBJECT-STAIRS",
+        "file": "gglobals.zil",
+        "line_start": 102,
+        "line_end": 108,
+        "subject": "STAIRS"
+      },
+      {
+        "id": "SRC-ROOM-ATTIC",
+        "file": "1dungeon.zil",
+        "line_start": 1443,
+        "line_end": 1449,
+        "subject": "ATTIC"
+      },
+      {
+        "id": "SRC-ROUTINE-KNIFE-F",
+        "file": "1actions.zil",
+        "line_start": 926,
+        "line_end": 929,
+        "subject": "KNIFE-F"
+      },
+      {
+        "id": "SRC-ROUTINE-ROPE-FUNCTION",
+        "file": "1actions.zil",
+        "line_start": 3030,
+        "line_end": 3078,
+        "subject": "ROPE-FUNCTION"
+      },
+      {
+        "id": "SRC-ROUTINE-STAIRS-F",
+        "file": "gglobals.zil",
+        "line_start": 110,
+        "line_end": 113,
+        "subject": "STAIRS-F"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [
+      {
+        "id": "ATTIC-TABLE.NDESCBIT",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": true,
+        "source_expression": "<FCLEAR ,ATTIC-TABLE ,NDESCBIT>",
+        "source_refs": []
+      },
+      {
+        "id": "ROPE.NDESCBIT",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<FCLEAR ,ROPE ,NDESCBIT>",
+        "source_refs": []
+      },
+      {
+        "id": "ROPE.location",
+        "kind": "object_location",
+        "value_type": "object_id",
+        "initial_value": "ATTIC",
+        "source_expression": "<MOVE ,ROPE ,TORCH-ROOM>",
+        "source_refs": [
+          "SRC-OBJECT-ROPE"
+        ]
+      },
+      {
+        "id": "DOME-FLAG",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL DOME-FLAG <>>",
+        "source_refs": [
+          "SRC-GLOBAL-DOME-FLAG"
+        ]
+      }
+    ],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "flag_set",
+              "object": "ATTIC-TABLE",
+              "flag": "NDESCBIT"
+            },
+            {
+              "op": "flag_clear",
+              "object": "ROPE",
+              "flag": "NDESCBIT"
+            },
+            {
+              "op": "located_in",
+              "object": "ROPE",
+              "location": "ATTIC"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "DOME-FLAG"
+              },
+              "right": {
+                "value": false
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-ATTIC"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-2",
+        "condition": {
+          "op": "flag_clear",
+          "object": "ATTIC-TABLE",
+          "flag": "NDESCBIT"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-KNIFE-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-3",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "DOME-FLAG"
+              },
+              "right": {
+                "value": true
+              }
+            },
+            {
+              "op": "flag_set",
+              "object": "ROPE",
+              "flag": "NDESCBIT"
+            },
+            {
+              "op": "located_in",
+              "object": "ROPE",
+              "location": "HERE"
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-ROPE-FUNCTION"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-4",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "DOME-FLAG"
+              },
+              "right": {
+                "value": true
+              }
+            },
+            {
+              "op": "flag_set",
+              "object": "ROPE",
+              "flag": "NDESCBIT"
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-ROPE-FUNCTION"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-5",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "DOME-FLAG"
+              },
+              "right": {
+                "value": false
+              }
+            },
+            {
+              "op": "flag_clear",
+              "object": "ROPE",
+              "flag": "NDESCBIT"
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-ROPE-FUNCTION"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-6",
+        "condition": {
+          "op": "located_in",
+          "object": "ROPE",
+          "location": "TORCH-ROOM"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-ROPE-FUNCTION"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-KNIFE-F-TAKE-1",
+        "source_refs": [
+          "SRC-ROUTINE-KNIFE-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-2-ROPE-FUNCTION-TIE-1",
+        "source_refs": [
+          "SRC-ROUTINE-ROPE-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-3-ROPE-FUNCTION-TIE-1",
+        "source_refs": [
+          "SRC-ROUTINE-ROPE-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-4-ROPE-FUNCTION-UNTIE-4",
+        "source_refs": [
+          "SRC-ROUTINE-ROPE-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-5-ROPE-FUNCTION-DROP-5",
+        "source_refs": [
+          "SRC-ROUTINE-ROPE-FUNCTION"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": [
+    {
+      "kind": "runtime_unknown",
+      "detail": "The resolver returns state 0; no positive runtime state or image is assigned."
+    }
+  ]
+}

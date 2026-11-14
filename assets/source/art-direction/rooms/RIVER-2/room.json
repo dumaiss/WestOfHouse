@@ -1,0 +1,532 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "RIVER-2",
+  "title": "Frigid River",
+  "runtime_room": 35,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "The river turns a corner here making it impossible to see the\nDam. The White Cliffs loom on the east bank and large rocks prevent\nlanding on the west."
+        ],
+        "source_refs": [
+          "SRC-ROOM-RIVER-2"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "GLOBAL-WATER",
+        "description": "water",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "DRINKBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-GLOBAL-WATER"
+        ]
+      },
+      {
+        "id": "RIVER",
+        "description": "river",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-RIVER"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-RIVER-2"
+        ]
+      },
+      {
+        "id": "EXIT-UP",
+        "directions": [
+          "up"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(UP \"You cannot go upstream due to strong currents.\")"
+        },
+        "blocked_text": [
+          "You cannot go upstream due to strong currents."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-RIVER-2"
+        ]
+      },
+      {
+        "id": "EXIT-DOWN",
+        "directions": [
+          "down"
+        ],
+        "destination": "RIVER-3",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-RIVER-2"
+        ]
+      },
+      {
+        "id": "EXIT-LAND",
+        "directions": [
+          "land"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(LAND \"There is no safe landing spot here.\")"
+        },
+        "blocked_text": [
+          "There is no safe landing spot here."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-RIVER-2"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(EAST \"The White Cliffs prevent your landing here.\")"
+        },
+        "blocked_text": [
+          "The White Cliffs prevent your landing here."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-RIVER-2"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(WEST \"Just in time you steer away from the rocks.\")"
+        },
+        "blocked_text": [
+          "Just in time you steer away from the rocks."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-RIVER-2"
+        ]
+      }
+    ],
+    "source_flags": [
+      "NONLANDBIT",
+      "SACREDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "FRIGID-RIVER"
+    ],
+    "camera": "Low water-level view around the river bend.",
+    "composition": "Keep the dam out of sight, white cliffs on the east bank and obstructing large rocks on the west.",
+    "lighting_palette": "Shared daylight with pale cliff highlights.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/river-2.scene.json",
+    "scene_sha256": "eeedc0c907a88fe86846016c0bec925ba0dc54398cf794ecf6ec9355648aedf3",
+    "source_references": [
+      {
+        "id": "SRC-GLOBAL-PRSA",
+        "file": "gparser.zil",
+        "line_start": 14,
+        "line_end": 14,
+        "subject": "PRSA"
+      },
+      {
+        "id": "SRC-GLOBAL-PRSI",
+        "file": "gparser.zil",
+        "line_start": 15,
+        "line_end": 15,
+        "subject": "PRSI"
+      },
+      {
+        "id": "SRC-GLOBAL-PRSO",
+        "file": "gparser.zil",
+        "line_start": 16,
+        "line_end": 16,
+        "subject": "PRSO"
+      },
+      {
+        "id": "SRC-OBJECT-GLOBAL-WATER",
+        "file": "1dungeon.zil",
+        "line_start": 78,
+        "line_end": 83,
+        "subject": "GLOBAL-WATER"
+      },
+      {
+        "id": "SRC-OBJECT-RIVER",
+        "file": "1dungeon.zil",
+        "line_start": 774,
+        "line_end": 780,
+        "subject": "RIVER"
+      },
+      {
+        "id": "SRC-ROOM-RIVER-2",
+        "file": "1dungeon.zil",
+        "line_start": 2204,
+        "line_end": 2217,
+        "subject": "RIVER-2"
+      },
+      {
+        "id": "SRC-ROUTINE-RIVER-FUNCTION",
+        "file": "1actions.zil",
+        "line_start": 2669,
+        "line_end": 2690,
+        "subject": "RIVER-FUNCTION"
+      },
+      {
+        "id": "SRC-ROUTINE-WATER-F",
+        "file": "1actions.zil",
+        "line_start": 157,
+        "line_end": 237,
+        "subject": "WATER-F"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [
+      {
+        "id": "PRSA",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL PRSA <>>",
+        "source_refs": [
+          "SRC-GLOBAL-PRSA"
+        ]
+      },
+      {
+        "id": "PRSI",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL PRSI <>>",
+        "source_refs": [
+          "SRC-GLOBAL-PRSI"
+        ]
+      },
+      {
+        "id": "PRSO",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL PRSO <>>",
+        "source_refs": [
+          "SRC-GLOBAL-PRSO"
+        ]
+      }
+    ],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "PRSA"
+              },
+              "right": {
+                "value": false
+              }
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "PRSI"
+              },
+              "right": {
+                "value": false
+              }
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "PRSO"
+              },
+              "right": {
+                "value": false
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-RIVER-2"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-2",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "PRSA"
+              },
+              "right": {
+                "value": "V?PUT"
+              }
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "PRSI"
+              },
+              "right": {
+                "value": "PRSO"
+              }
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "PRSO"
+              },
+              "right": {
+                "value": ".W"
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-3",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <REMOVE-CAREFULLY .W>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-4",
+        "condition": {
+          "op": "located_in",
+          "object": "PRSO",
+          "location": "AV"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-5",
+        "condition": {
+          "op": "located_in",
+          "object": "WATER",
+          "location": "BOTTLE"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-6",
+        "condition": {
+          "op": "located_in",
+          "object": "WATER",
+          "location": "AV"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-7",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <REMOVE-CAREFULLY ,WATER> <REMOVE-CAREFULLY ,WATER>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-8",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <REMOVE-CAREFULLY ,WATER>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-9",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <REMOVE-CAREFULLY ,PRSO>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-RIVER-FUNCTION"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-WATER-F-FILL-3",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-2-WATER-F-TAKE-PUT-4",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-3-WATER-F-TAKE-PUT-5",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-4-WATER-F-TAKE-PUT-5",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-5-WATER-F-TAKE-PUT-5",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-6-WATER-F-TAKE-PUT-5",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-7-WATER-F-DROP-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-8-WATER-F-DROP-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-9-WATER-F-DROP-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-10-WATER-F-DROP-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-11-WATER-F-THROW-7",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-12-RIVER-FUNCTION-PUT-1",
+        "source_refs": [
+          "SRC-ROUTINE-RIVER-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-13-RIVER-FUNCTION-PUT-1",
+        "source_refs": [
+          "SRC-ROUTINE-RIVER-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-14-RIVER-FUNCTION-PUT-1",
+        "source_refs": [
+          "SRC-ROUTINE-RIVER-FUNCTION"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values.",
+      "ACTION-STATE conditions describe source mutations and may overlap; arbitrary ZIL was not executed."
+    ]
+  },
+  "unresolved": []
+}

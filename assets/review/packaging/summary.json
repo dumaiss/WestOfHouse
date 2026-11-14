@@ -1,0 +1,68 @@
+{
+  "schema": "woh_resource_organization_acceptance_v1",
+  "status": "PASS",
+  "moved_files": 593,
+  "preserved_binary_artifacts": 61,
+  "runtime_resources": 18,
+  "mapped_scene_pairs": 8,
+  "unbound_packaged": 0,
+  "archive_bytes": 474624,
+  "archive_sha256": "aac7ab2f86dfe407baaa9bd18122126f22e35e42f006159f13efbab3b89e956f",
+  "executable_bytes": 73196,
+  "executable_sha256": "0793494234b068a259ea12c28bd3717c032b2972d303dda4f7d06ada8394fc5c",
+  "title": "Native archived YJK, waits for an ordinary key; no story command submitted",
+  "runtime_scenes": "G7 256x159; exact room/state lookup and existing WHT1 consumer/action representation",
+  "target_test_card": [
+    "WOH.EXE",
+    "WOH.KPR"
+  ],
+  "target_checks": "Title/three exterior locations/window variants/menu restoration/parser transcript/exits/errors PASS",
+  "stack_reservation": 768,
+  "stack_high_water": "not measured",
+  "primary_bss": 7424,
+  "primary_image": 48896,
+  "resident_code": 26633,
+  "resident_data": 11336,
+  "far_segments": 2,
+  "veneers": 19,
+  "far_slots": 4,
+  "dynamic_story_bytes": 11044,
+  "dynamic_story_slots": 2,
+  "owned_xmem_objects": 3,
+  "kres_xmem_objects": 0,
+  "physical_resource_files": 1,
+  "global_free_bank_resources": "Not exposed by SDK; no invented free-bank/object counts",
+  "tests": {
+    "app_python": 3,
+    "app_host_executables": 4,
+    "resource_python": 6,
+    "hotspot_python": 11,
+    "art_python": 6,
+    "extractor_python": 5,
+    "state_python": 26,
+    "sdk_kres_python": 20,
+    "sdk_tui_python": 30,
+    "sdk_placement_python": 16,
+    "sdk_keyboard_python": 1,
+    "sdk_layout_python": 52
+  },
+  "sdk_changes": [
+    "KRES stream/state object boundaries",
+    "KRES reader function-pointer residency declaration",
+    "data-only object placement fix",
+    "decoder-only TUI lifecycle/storage split"
+  ],
+  "unchanged": [
+    "OS kernel/drivers",
+    "KRES format",
+    "KIMG encoder",
+    "VM/gameplay/story bytes",
+    "approved artwork",
+    "WHT1 payload bytes"
+  ],
+  "known_limits": [
+    "Pilot continuity/art warnings retained",
+    "Attic remains an unbound concept",
+    "Real hardware not exercised for this build"
+  ]
+}

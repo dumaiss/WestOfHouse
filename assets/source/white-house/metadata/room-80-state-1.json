@@ -1,0 +1,25 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "recorded_at_utc": "2026-11-14T03:22:55.872714+00:00",
+  "original_tool_path": "/home/kitamura/.codex/generated_images/01a1b30b-14e6-77a1-92d7-426c931a35aa/exec-9588b281-55be-4613-a64b-65278dd269d2.png",
+  "tool_result": {
+    "output_hint": "Generated images are saved to /home/kitamura/.codex/generated_images/01a1b30b-14e6-77a1-92d7-426c931a35aa as /home/kitamura/.codex/generated_images/01a1b30b-14e6-77a1-92d7-426c931a35aa/exec-9588b281-55be-4613-a64b-65278dd269d2.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  "request": "prompts/requests/room-80-state-1.md",
+  "request_sha256": "6b7f26def878d782d47447ca1bf2ea26dd0cbc338394f62c8d8ef76b1a69c3c3",
+  "references": [
+    {
+      "asset_key": "room-180-state-1",
+      "path": null,
+      "sha256": "82a5a950d4e3fc3c7632aef122b000978bba087fdb84067ac40a5bf4bcdc8978",
+      "retained": false,
+      "note": "Superseded reference image removed at user request; original generation hash retained for provenance."
+    }
+  ],
+  "source_size": [
+    1448,
+    1086
+  ],
+  "source_sha256": "9f8f08ec4fa3629e3158576d131964691bccb9d38cbf2dc43217ec1228896226",
+  "model_and_seed": "Not exposed by the built-in tool."
+}

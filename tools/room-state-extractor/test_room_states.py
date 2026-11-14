@@ -264,7 +264,7 @@ class CorpusTests(unittest.TestCase):
         cls.source = Source(ROOT / 'vendor/infocom-zork1')
 
     def test_sandy_cave_acceptance_and_asset_mapping(self):
-        dictionary, report, mapping = build(self.source, ['SANDY-CAVE'], ROOT / 'generated-scenes')
+        dictionary, report, mapping = build(self.source, ['SANDY-CAVE'], ROOT / 'assets/source/scene-facts')
         import yaml
         expected = yaml.safe_load((Path(__file__).parent / 'fixtures/sandy-cave.yaml').read_text())
         self.assertEqual(expected, dictionary)
@@ -283,7 +283,7 @@ class CorpusTests(unittest.TestCase):
         self.assertIsNotNone(report['rooms'][0]['validation']['coverage_gap'])
 
     def test_real_single_state_and_conditional_description(self):
-        dictionary, report, _ = build(self.source, ['DEAD-END-1', 'DAM-ROOM'], ROOT / 'generated-scenes')
+        dictionary, report, _ = build(self.source, ['DEAD-END-1', 'DAM-ROOM'], ROOT / 'assets/source/scene-facts')
         single = next(r for r in dictionary['rooms'] if r['id'] == 'DEAD-END-1')
         self.assertEqual([], single['observe'])
         self.assertEqual('ready', single['status'])
@@ -316,7 +316,7 @@ class CorpusTests(unittest.TestCase):
 
     def test_optional_legacy_comparison_cannot_affect_recognition(self):
         plain = build(self.source, ['SANDY-CAVE', 'ATLANTIS-ROOM'])
-        legacy = build(self.source, ['SANDY-CAVE', 'ATLANTIS-ROOM'], ROOT / 'generated-scenes')
+        legacy = build(self.source, ['SANDY-CAVE', 'ATLANTIS-ROOM'], ROOT / 'assets/source/scene-facts')
         self.assertEqual(plain[:2], legacy[:2])
         self.assertIsNone(plain[2])
         self.assertTrue(any(r['issues'] for r in legacy[2]['rooms']))
@@ -342,8 +342,8 @@ class CorpusTests(unittest.TestCase):
     def test_full_corpus_is_deterministic(self):
         rooms = sorted(self.source.index['ROOM'])
         self.assertEqual(110, len(rooms))
-        a = build(self.source, rooms, ROOT / 'generated-scenes')
-        b = build(self.source, list(reversed(rooms)), ROOT / 'generated-scenes')
+        a = build(self.source, rooms, ROOT / 'assets/source/scene-facts')
+        b = build(self.source, list(reversed(rooms)), ROOT / 'assets/source/scene-facts')
         self.assertEqual(a, b)
         self.assertEqual(110, a[1]['summary']['rooms_processed'])
         self.assertGreater(a[1]['summary']['rooms_not_ready'], 0)

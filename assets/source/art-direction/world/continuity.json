@@ -1,0 +1,641 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "continuity",
+  "groups": [
+    {
+      "id": "WHITE-HOUSE",
+      "rooms": [
+        "WEST-OF-HOUSE",
+        "NORTH-OF-HOUSE",
+        "SOUTH-OF-HOUSE",
+        "EAST-OF-HOUSE",
+        "KITCHEN",
+        "LIVING-ROOM",
+        "ATTIC",
+        "CELLAR"
+      ],
+      "canonical": "One white house, boarded front door, boarded north/south windows, a small rear kitchen window; interiors connected by the extracted exits.",
+      "artistic": "Modest colonial timber dwelling, simple pitched roof, weathered white painted boards; do not introduce extra doors or windows. Pale plaster and dark brown timber inside. Keep roof pitch, wall finish, trim proportions and window construction across views.",
+      "inferred": "The kitchen east window is the rear window viewed from behind the house; maintain the same frame and sill in both views.",
+      "provenance": [
+        {
+          "scene_file": "assets/source/scene-facts/west-of-house.scene.json",
+          "scene_sha256": "b87f1143c3c138b49b0f2658f66d499513ddbf79631ac9bd44eb84c5c8d24817"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/north-of-house.scene.json",
+          "scene_sha256": "788b2b1f3cd2d84aab3fbb11bb857a4f9277d3402eb6988f6b76116d96e1434a"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/south-of-house.scene.json",
+          "scene_sha256": "42e354d126ef40f78ed5e753c52e989808f1c690eaacbed0d8bb74add0ee2c04"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/east-of-house.scene.json",
+          "scene_sha256": "16ec535afe98b1ef2029ce2651bb0b8c2a3e079c6bf27b608054cac2a574090d"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/kitchen.scene.json",
+          "scene_sha256": "0ac17aef4984969560c5b5624a3303416660938e9e4f0ed66483082ac18f9b38"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/living-room.scene.json",
+          "scene_sha256": "e518fcd24be921e88812a00fc8de160139d12cf957f2b5f3cd95714b38a76040"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/attic.scene.json",
+          "scene_sha256": "283854d3af70c890542361897e8bd7f2fb54878cc67e5d5f91a0a5deef52c5f0"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/cellar.scene.json",
+          "scene_sha256": "ae53619713a5ce4d83944e13a9fe02ec85c9a6a1d01633b450d09fc5fbe6877a"
+        }
+      ]
+    },
+    {
+      "id": "FOREST",
+      "rooms": [
+        "FOREST-1",
+        "FOREST-2",
+        "FOREST-3",
+        "PATH",
+        "UP-A-TREE",
+        "CLEARING",
+        "GRATING-CLEARING",
+        "MOUNTAINS"
+      ],
+      "canonical": "Temperate forest, the path tree with low branches, and source-marked clearings and mountain barriers.",
+      "artistic": "Deep green pine/hemlock masses and warm muted soil. Preserve the path tree trunk and lowest bough shapes between ground and branch views.",
+      "inferred": "Connected forest locations belong to the same landscape; do not imply unrecorded direct sightlines.",
+      "provenance": [
+        {
+          "scene_file": "assets/source/scene-facts/forest-1.scene.json",
+          "scene_sha256": "909fc457c2715342915dcedb5ae9b55ea99f8c5186fc5901cfa569d8fb61a1cf"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/forest-2.scene.json",
+          "scene_sha256": "f84542843f60a6b9ca6f4e0ea73ca9f00dc50a24b3fe95a86ad9318900c0f736"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/forest-3.scene.json",
+          "scene_sha256": "77dc721767e72d4dc0a4e201d4539bec6398655bd0f3dfdefca71bb606912e30"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/path.scene.json",
+          "scene_sha256": "716f5cdf3171a24be8320f25efe9019036d0378a875273dddf838a4617e3efa4"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/up-a-tree.scene.json",
+          "scene_sha256": "0df0c4a717ad5951273bdc86c8c6ec20e9a068c5329168c6ebf27e9c9e7a4d66"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/clearing.scene.json",
+          "scene_sha256": "e4a72780bd3713ab6d8e07710e7c3c96b959a0fb09d1469ad9f3e228315a1882"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/grating-clearing.scene.json",
+          "scene_sha256": "456a795ae593d57e968907b18f88df65b067e50b815095850da95963bfffc686"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/mountains.scene.json",
+          "scene_sha256": "c427124905521aa541dbd7add540e2f65bd465eddd5f5d2f4d9e678513905e1a"
+        }
+      ]
+    },
+    {
+      "id": "FRIGID-RIVER",
+      "rooms": [
+        "DAM-ROOM",
+        "DAM-BASE",
+        "RIVER-1",
+        "RIVER-2",
+        "RIVER-3",
+        "RIVER-4",
+        "RIVER-5",
+        "SHORE",
+        "SANDY-BEACH",
+        "SANDY-CAVE",
+        "WHITE-CLIFFS-NORTH",
+        "WHITE-CLIFFS-SOUTH",
+        "ARAGAIN-FALLS",
+        "ON-RAINBOW",
+        "END-OF-RAINBOW",
+        "CANYON-VIEW",
+        "CLIFF-MIDDLE",
+        "CANYON-BOTTOM"
+      ],
+      "canonical": "Frigid River, pale White Cliffs, dam, the 450-foot Aragain Falls and the source-directed rainbow span.",
+      "artistic": "Pale warm cliffs in large horizontal rock masses, dark teal water, chalk-white foam and restrained blue-gray mist; one consistent gorge and falls silhouette.",
+      "inferred": "Use river adjacency for geological continuity, not permission to show the dam from every river view.",
+      "provenance": [
+        {
+          "scene_file": "assets/source/scene-facts/dam-room.scene.json",
+          "scene_sha256": "3bdfe1842e5510df7dc179f63cccba55ef1586c2b6611e2a53887be702a9551c"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/dam-base.scene.json",
+          "scene_sha256": "f07b73ba770950572d6e55ac7d2a42c81707ba468c1e82e84cf14218c99bf340"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/river-1.scene.json",
+          "scene_sha256": "e854058ea871ae73410952aa077d82f5071a0c63f0c1de047f4807801f507d39"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/river-2.scene.json",
+          "scene_sha256": "eeedc0c907a88fe86846016c0bec925ba0dc54398cf794ecf6ec9355648aedf3"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/river-3.scene.json",
+          "scene_sha256": "8f848c41ce080d008761e74dae9ae0c45cfb920d1aedfa50cbcbd690a65834f8"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/river-4.scene.json",
+          "scene_sha256": "33dcc10baf6b12cf2264b45482d71a94b9079dd03e5d8ccaa0cdcbf839617838"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/river-5.scene.json",
+          "scene_sha256": "33131c3060450dd99414ec8e7c2faf2629c23b2c89122f6c6c6c4fa9b6a71113"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/shore.scene.json",
+          "scene_sha256": "4b51a20ffc06d3ab131f3cae7d97a99a915f518c4c87a2fb24afbe5c1040e1e1"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/sandy-beach.scene.json",
+          "scene_sha256": "499c0fffa296f0f0b88473e063ebbfc5ceb8b11164c281e57af106add714fd15"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/sandy-cave.scene.json",
+          "scene_sha256": "d47de6e39d02c469c38bf83891b119de9c3f614bf6d4064c7eaeacae291eb5ed"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/white-cliffs-north.scene.json",
+          "scene_sha256": "2645d3dcb0994d4061062639cab21837a71eb5884007a99610169f7b77808e98"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/white-cliffs-south.scene.json",
+          "scene_sha256": "8ef939cd8ac2191bc45e8b0ccb8e1e724c2badc47fe9adbd388c70cf85910f65"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/aragain-falls.scene.json",
+          "scene_sha256": "9016ef28f06a3e42d35f817d9dbc87ab14ae4bc931d985dda4ba5ff647af4055"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/on-rainbow.scene.json",
+          "scene_sha256": "69e9f31045bad4404fb7a0eec2f34fef5b0ad8c6c4a78055a5999bda240ffa47"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/end-of-rainbow.scene.json",
+          "scene_sha256": "f4cacd3d67b76637711f9976f476ce07f13d0055c8f1826fdfe484ace67cd240"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/canyon-view.scene.json",
+          "scene_sha256": "171a58609f851d68858b1440a1f161b5d0a7afd95d6b5e7d5dd190bb3c891579"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/cliff-middle.scene.json",
+          "scene_sha256": "4f14df10465978486c3e4913514644ee5d9d088ae41acbb10a2068ebbe9a1199"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/canyon-bottom.scene.json",
+          "scene_sha256": "56353fb591aef407d415b2a65a6752160bda3a2ccf9f184a241ff6e0cf5d0eb8"
+        }
+      ]
+    },
+    {
+      "id": "DAM-RESERVOIR",
+      "rooms": [
+        "DAM-ROOM",
+        "DAM-BASE",
+        "DAM-LOBBY",
+        "MAINTENANCE-ROOM",
+        "RESERVOIR",
+        "RESERVOIR-NORTH",
+        "RESERVOIR-SOUTH",
+        "STREAM-VIEW",
+        "IN-STREAM",
+        "DEEP-CANYON",
+        "LOUD-ROOM"
+      ],
+      "canonical": "Flood-control dam, water-level variants, control panel and maintenance facilities.",
+      "artistic": "Massive plain concrete engineering, dark iron fittings, restrained green/red/blue/yellow controls; lock bank contours and dam silhouette across water states.",
+      "inferred": "Use connected waterways to unify wet rock color; sound alone does not authorize visible turbulence in a different room.",
+      "provenance": [
+        {
+          "scene_file": "assets/source/scene-facts/dam-room.scene.json",
+          "scene_sha256": "3bdfe1842e5510df7dc179f63cccba55ef1586c2b6611e2a53887be702a9551c"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/dam-base.scene.json",
+          "scene_sha256": "f07b73ba770950572d6e55ac7d2a42c81707ba468c1e82e84cf14218c99bf340"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/dam-lobby.scene.json",
+          "scene_sha256": "66550d9b5514d9256a336d9f8968ed918cbffef57b6092c89cfb3d1cb9a0b996"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/maintenance-room.scene.json",
+          "scene_sha256": "c0e439f150475fafc253ff341aa4736b335b5fd638ca9eefa4ab7b1638b8344d"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/reservoir.scene.json",
+          "scene_sha256": "9e6ed14c2122d116d67f7c5a7281bc94e2f7cbf24d258679193d28dbc4c08ab6"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/reservoir-north.scene.json",
+          "scene_sha256": "d90b836551af1e42c479eb7300cd34c7d8dc6f0266682a31975431de82760a4f"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/reservoir-south.scene.json",
+          "scene_sha256": "4b1f22f6b205582217cf50a66d2fe275adcf4d8f052b40657587ad3e05ca59da"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/stream-view.scene.json",
+          "scene_sha256": "8095cfa93883cdfb33efce6d272232ad86540854df1c095bb7e9b9967d751e1e"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/in-stream.scene.json",
+          "scene_sha256": "12f787b5b429e2b71e5ddde656d1c38eea148925a4cb19bbedbc5653028e350f"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/deep-canyon.scene.json",
+          "scene_sha256": "e6b04428263f1fd1785f4f69f3ef660443c47ae1093fd3385e316941a37b1cf0"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/loud-room.scene.json",
+          "scene_sha256": "536c43e1e657914023cd9af36ce8400ead4e47087d414df3c155908b7e57a4fb"
+        }
+      ]
+    },
+    {
+      "id": "DOME-TEMPLE",
+      "rooms": [
+        "DOME-ROOM",
+        "TORCH-ROOM",
+        "NORTH-TEMPLE",
+        "SOUTH-TEMPLE",
+        "EGYPT-ROOM",
+        "ENTRANCE-TO-HADES",
+        "LAND-OF-LIVING-DEAD"
+      ],
+      "canonical": "Dome, wood railing, marble pedestal, temple and source-established tomb/gateway features.",
+      "artistic": "Broad worn stone planes, ivory marble where explicit, dark brown timber; restrained ceremonial scale without adding religious symbols.",
+      "inferred": "Dome upper railing and lower pedestal must share vertical geometry across the two room views.",
+      "provenance": [
+        {
+          "scene_file": "assets/source/scene-facts/dome-room.scene.json",
+          "scene_sha256": "538599aac14ecc29c83f427fe8b9111ee603af358b9bb9390103ea4192ac7ca7"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/torch-room.scene.json",
+          "scene_sha256": "65ea1e51b79270b4317187ce7834d30b3421bde5426f16e136f63a8972171b75"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/north-temple.scene.json",
+          "scene_sha256": "bf2da30bf101e90ced959e1cbbb52503c81b6b9f926265f1a3808a6bb9131e20"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/south-temple.scene.json",
+          "scene_sha256": "15e25aa5413de419441bf6df7610dddbd8b1f5054c7a590d889475065127ed6c"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/egypt-room.scene.json",
+          "scene_sha256": "ed719a15445bcac0767a4b042af5a273e43733a082762307c562e428d8d71d4a"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/entrance-to-hades.scene.json",
+          "scene_sha256": "c7b340492ad2bce03d46b742824be6e3f775d33e4aeadb37840aedb7d9693b46"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/land-of-living-dead.scene.json",
+          "scene_sha256": "34a5a01aca0aaf1e27ed065983233ad47df39f9991491efa3712fca987e1c04c"
+        }
+      ]
+    },
+    {
+      "id": "MINE",
+      "rooms": [
+        "MINE-ENTRANCE",
+        "SQUEEKY-ROOM",
+        "BAT-ROOM",
+        "SHAFT-ROOM",
+        "LOWER-SHAFT",
+        "SMELLY-ROOM",
+        "GAS-ROOM",
+        "LADDER-TOP",
+        "LADDER-BOTTOM",
+        "TIMBER-ROOM",
+        "MACHINE-ROOM",
+        "SLIDE-ROOM",
+        "DEAD-END-5",
+        "MINE-1",
+        "MINE-2",
+        "MINE-3",
+        "MINE-4"
+      ],
+      "canonical": "Coal workings, shaft chain/basket, wood ladder, loose timber and machine where described.",
+      "artistic": "Charcoal and umber with broad worn wood planes; reserve shiny metal for explicit fittings.",
+      "inferred": "Shaft and ladder views show opposite ends of the same structures, preserving chain thickness and rung spacing.",
+      "provenance": [
+        {
+          "scene_file": "assets/source/scene-facts/mine-entrance.scene.json",
+          "scene_sha256": "595c7d1e1190e5335914b95e2c06357bc6c26af17559a2d1497ec51565b2bdf5"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/squeeky-room.scene.json",
+          "scene_sha256": "6ab1270f27f5dea5a38be755f931ad3bb288242a5eaa006d253bb9dddc42af53"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/bat-room.scene.json",
+          "scene_sha256": "1fc2d56192dbc44be649130a83965bf3b30124fdc13274ed7eea5856688dafae"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/shaft-room.scene.json",
+          "scene_sha256": "a47ae416d17900918391a2738be6018c37796d428a4a44d4258813ba8f6d8f87"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/lower-shaft.scene.json",
+          "scene_sha256": "e3a4cba00c5017e40cffebe3f20ae48f8a1222cc16dc9d12c6a2ad3637ddec30"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/smelly-room.scene.json",
+          "scene_sha256": "28f594f78909322dc548b677c4c1974d7ac922213228d30d78349691ffa4f1cb"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/gas-room.scene.json",
+          "scene_sha256": "9c07643daf90e1b99140c7872461fec7670b3db2ecc67db130a31aa9f4f3004b"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/ladder-top.scene.json",
+          "scene_sha256": "eec9d515f1f7135b3b1fd71d0a6a449097641d7dc801c6fbde97b6cc218ff6ec"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/ladder-bottom.scene.json",
+          "scene_sha256": "0897df784eeee474ffa453c2750f8f70789a783cdcf720143af2d56efa3a7622"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/timber-room.scene.json",
+          "scene_sha256": "44989d30da1f0ff2819715df888ee287490f2e9c2d9c08aa3d143702b473f081"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/machine-room.scene.json",
+          "scene_sha256": "b6ba126c886351f71e9c4ab05491c42601cc45fc0baba8a7cda698ca5650253d"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/slide-room.scene.json",
+          "scene_sha256": "d19be6906807a9c0986521c0108983ea7d5dfdd35b03653123aa2b6142919ae6"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/dead-end-5.scene.json",
+          "scene_sha256": "e11e3f7eeed371d57f76a8ce8ca7f0980fe9f63b21085dacf3a4168a9007505c"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/mine-1.scene.json",
+          "scene_sha256": "50554e6950346f878be589903f3fd8788c0c4887c10abbe945ea0dfa3b8fb4b9"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/mine-2.scene.json",
+          "scene_sha256": "6b424f431a21ad0c51b8532f586f174dccbbc66dcca0f99b650e921c355dd404"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/mine-3.scene.json",
+          "scene_sha256": "ef023c50b577de99cf64a467f74dca8db57518469cf5950728e4d3d7f143009a"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/mine-4.scene.json",
+          "scene_sha256": "1e21bd3735b5fbd9772941ec2ae317457dadfcd1073e416523a0c5cb31eaf1a3"
+        }
+      ]
+    },
+    {
+      "id": "MAZE",
+      "rooms": [
+        "MAZE-1",
+        "MAZE-2",
+        "MAZE-3",
+        "MAZE-4",
+        "MAZE-5",
+        "MAZE-6",
+        "MAZE-7",
+        "MAZE-8",
+        "MAZE-9",
+        "MAZE-10",
+        "MAZE-11",
+        "MAZE-12",
+        "MAZE-13",
+        "MAZE-14",
+        "MAZE-15",
+        "DEAD-END-1",
+        "DEAD-END-2",
+        "DEAD-END-3",
+        "DEAD-END-4"
+      ],
+      "canonical": "Small twisty passages described as all alike; skeleton only where established.",
+      "artistic": "Consistent tight gray-brown passage treatment. Do not add marks, numbers, different colored doors or other navigation clues. Each room retains its own asset even if prompts are similar.",
+      "inferred": "Shared treatment follows the repeated source description; no new map topology is implied.",
+      "provenance": [
+        {
+          "scene_file": "assets/source/scene-facts/maze-1.scene.json",
+          "scene_sha256": "5deb34cb62abd402dec29e8364de301db56ceb484dbb0580863c0d5879fb0376"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/maze-2.scene.json",
+          "scene_sha256": "5093f5774ba9e4ffb14773b31211ff104da0f3973fdf361e6b4eb228875581f4"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/maze-3.scene.json",
+          "scene_sha256": "0d42b96e32daf6b629dff4bb080395b1be7d394b39d0124e380bddbabd91163f"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/maze-4.scene.json",
+          "scene_sha256": "e0ffe399fe07c59dac9c0c3298ad9174e17e6ebf5459f906bf60cc6e6805f504"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/maze-5.scene.json",
+          "scene_sha256": "84f63943926f7bbe6ccedaf1e5994546d096df844af1972ceb480feadcb76094"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/maze-6.scene.json",
+          "scene_sha256": "36dfa92ba5b098d4e979487adb2d32988fd34572aaa46c714cd51645cf2b97d4"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/maze-7.scene.json",
+          "scene_sha256": "116507322028bc93dc03cb0722a1e0d8898fc9632fcf953c39031284837ab220"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/maze-8.scene.json",
+          "scene_sha256": "0c56382f734c6b55ef4271d61690d4f7a3709b8e55b86fd39f37ce46d7cda539"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/maze-9.scene.json",
+          "scene_sha256": "fca2c56f0bdc2105b3bf2c5c13b26bf473c00535f3166de1990a4639a0411bc5"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/maze-10.scene.json",
+          "scene_sha256": "da835cd407200e364a163c81b521558c335bc613b101bb1fd008020ef0dbc0fb"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/maze-11.scene.json",
+          "scene_sha256": "041c98dc6ce5fe178df1efac5251850e5b2ce8b0783287ae3dddafa708b18c48"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/maze-12.scene.json",
+          "scene_sha256": "101facbab48d31f9967685d7b5ce623fb6b3f0aec6ea1b295e40e4abf50db80c"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/maze-13.scene.json",
+          "scene_sha256": "05ad7431dcde6fc3cd9c7601b76ec1eb9e21b5e7ff9f9efd27b92798b44a3776"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/maze-14.scene.json",
+          "scene_sha256": "995dfe4b2a16c67ee1028ce2fe9038edac4134ee972be244c51f5198a6da6a8d"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/maze-15.scene.json",
+          "scene_sha256": "bb834295e203340a91684a35ccab6b069ac3d237afb149ff521014c7c053e339"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/dead-end-1.scene.json",
+          "scene_sha256": "910199813158e32dfd71a3d2e016d28980ec28b33676c1108a3924a36e40581a"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/dead-end-2.scene.json",
+          "scene_sha256": "1c7685d4103b9af4cf8c6a5b3daefd4b4e910df5ea4a827c0953a3a2888d5a21"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/dead-end-3.scene.json",
+          "scene_sha256": "9d7c7f7ef40e929cf8e01f7b0d39ac5f11a331bb1c25ab3f1868fd267dba09e6"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/dead-end-4.scene.json",
+          "scene_sha256": "66cb5280b5715d419e3d25801a6503b201b248be3a9cb0854f26718aeb215d42"
+        }
+      ]
+    },
+    {
+      "id": "MIRRORS",
+      "rooms": [
+        "MIRROR-ROOM-1",
+        "MIRROR-ROOM-2"
+      ],
+      "canonical": "Two large square tall rooms, each with a south-wall mirror and exits on the other three sides.",
+      "artistic": "Same mirror border proportions and cool neutral stone finish. Reflect only established geometry; no player portrait or extra passage.",
+      "inferred": "Treat them as a visual pair while preserving distinct room and state identities.",
+      "provenance": [
+        {
+          "scene_file": "assets/source/scene-facts/mirror-room-1.scene.json",
+          "scene_sha256": "195e311b5f87c9282811b65e1478dcf5b62e641c9db47d4432078b1554b009f4"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/mirror-room-2.scene.json",
+          "scene_sha256": "3b98f77a709830d5034905ca9b1db31b3644e7fc8f4005ab72e8d7fe1f3e69c2"
+        }
+      ]
+    },
+    {
+      "id": "CAVES",
+      "rooms": [
+        "COLD-PASSAGE",
+        "CYCLOPS-ROOM",
+        "DAMP-CAVE",
+        "EAST-OF-CHASM",
+        "ENGRAVINGS-CAVE",
+        "EW-PASSAGE",
+        "GALLERY",
+        "GRATING-ROOM",
+        "NARROW-PASSAGE",
+        "NS-PASSAGE",
+        "ROUND-ROOM",
+        "SMALL-CAVE",
+        "STRANGE-PASSAGE",
+        "STUDIO",
+        "TINY-CAVE",
+        "TREASURE-ROOM",
+        "TROLL-ROOM",
+        "TWISTING-PASSAGE",
+        "WINDING-PASSAGE"
+      ],
+      "canonical": "Use the explicit room geometry, granite, dampness and construction facts from each room.",
+      "artistic": "Broad cool gray and brown stone planes and soft non-diegetic illustrative fill. Do not add common fixtures to unrelated rooms.",
+      "inferred": "Shared palette suggests an underground world; it asserts no extra passage connections.",
+      "provenance": [
+        {
+          "scene_file": "assets/source/scene-facts/cold-passage.scene.json",
+          "scene_sha256": "87d19c4b13e6d6393c4b7beab5ddb63e7e8311c5083823bb362335044152855d"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/cyclops-room.scene.json",
+          "scene_sha256": "295033fc4dbce4f8119a9c942b367f011a10725d23ec4354777522cd583184ff"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/damp-cave.scene.json",
+          "scene_sha256": "02ff4ea9abb4ea4104f65c48992938ab3c4a3bb1ceef8271049dbe391e724455"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/east-of-chasm.scene.json",
+          "scene_sha256": "10d71dedda8d12e934e1830f8879c2bb83570e3571909ebff840dd3745855b12"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/engravings-cave.scene.json",
+          "scene_sha256": "f0f06ccda5cb28b5d611e6dcc11c50698a8cc661c1f11464da320e11e2257116"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/ew-passage.scene.json",
+          "scene_sha256": "46d5e8fef540032bc0e20dc96ff6c2b685258d899c4e374a4d7b0dca7ab88d40"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/gallery.scene.json",
+          "scene_sha256": "19e77d66209e88a92844bcc884044020bc509bbabb48971dfbd995b1dcf23e9d"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/grating-room.scene.json",
+          "scene_sha256": "626c5553b68ac9b0acec1ab3b0b8a4aef4c5999593ccf34799d16cfa762e3ea0"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/narrow-passage.scene.json",
+          "scene_sha256": "d14c9e1e69d49cd7fb4cd2f10009be694f08760dc954a32b16b154effeba6df5"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/ns-passage.scene.json",
+          "scene_sha256": "827da48d88da6faec2656084636034882c328f39e9667a9d869cf6a0e2b2af6a"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/round-room.scene.json",
+          "scene_sha256": "704c0284976e60fac9efc9ba00d6530e94aa0e3cdc3c0e16f8c3f7ca872b7d68"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/small-cave.scene.json",
+          "scene_sha256": "d5bd47418959809ec258d9a85ab41b328105a2e4c7e78c1d7d10c9bbf755fead"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/strange-passage.scene.json",
+          "scene_sha256": "dc854099ce3fa4fd4a6d2393282593f52de71462e43d3e7dec896bcf0f471a4a"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/studio.scene.json",
+          "scene_sha256": "6e8819afcc82b2a7bbc2d242eace727f277c4e73d3a4b16cab44a32ee35eb8b2"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/tiny-cave.scene.json",
+          "scene_sha256": "74913181da84ead8f2fb02a41b76d181f2a951e1e509685d96738272b859359e"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/treasure-room.scene.json",
+          "scene_sha256": "8c502991451c152ce2abbd0f3947eb017dafe76e4324f16878e2944e3a06e735"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/troll-room.scene.json",
+          "scene_sha256": "dbbfd91385a7b7e3e1f201c6276d2bfef8969befb043c5de35c2ac7aa63bbf78"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/twisting-passage.scene.json",
+          "scene_sha256": "7af9649d7fc00bca2cfc76acfe4ca5a5d6464b8cca50f9ff66e07cb63791a09d"
+        },
+        {
+          "scene_file": "assets/source/scene-facts/winding-passage.scene.json",
+          "scene_sha256": "0d08ae534327d82fbc3a1b5ac52d9a017af4224203ef50d950346d6678cc87a8"
+        }
+      ]
+    }
+  ]
+}

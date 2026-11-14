@@ -1,0 +1,184 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "STONE-BARROW",
+  "title": "Stone Barrow",
+  "runtime_room": 178,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "You are standing in front of a massive barrow of stone. In the east face\nis a huge stone door which is open. You cannot see into the dark of the tomb."
+        ],
+        "source_refs": [
+          "SRC-ROOM-STONE-BARROW"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "BARROW-DOOR",
+        "description": "stone door",
+        "kind": "object",
+        "initial_location": "STONE-BARROW",
+        "source_flags": [
+          "DOORBIT",
+          "NDESCBIT",
+          "OPENBIT"
+        ],
+        "source_properties": {},
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-BARROW-DOOR"
+        ]
+      },
+      {
+        "id": "BARROW",
+        "description": "stone barrow",
+        "kind": "object",
+        "initial_location": "STONE-BARROW",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-BARROW"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-STONE-BARROW"
+        ]
+      },
+      {
+        "id": "EXIT-NE",
+        "directions": [
+          "ne"
+        ],
+        "destination": "WEST-OF-HOUSE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-STONE-BARROW"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "ONBIT",
+      "SACREDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "FOREST"
+    ],
+    "camera": "Stand before the eastern face of the massive stone mound.",
+    "composition": "Make the open huge stone door a clear dark shape within the heavy mound; the tomb interior stays unreadable.",
+    "lighting_palette": "Quiet daylight on weathered stone and deep entrance shadow.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/stone-barrow.scene.json",
+    "scene_sha256": "e0ebc96775d8f61a63a12f1d450f04968858de2244e7ef69c267a9c5cc2a61e7",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-BARROW",
+        "file": "1dungeon.zil",
+        "line_start": 435,
+        "line_end": 441,
+        "subject": "BARROW"
+      },
+      {
+        "id": "SRC-OBJECT-BARROW-DOOR",
+        "file": "1dungeon.zil",
+        "line_start": 427,
+        "line_end": 433,
+        "subject": "BARROW-DOOR"
+      },
+      {
+        "id": "SRC-ROOM-STONE-BARROW",
+        "file": "1dungeon.zil",
+        "line_start": 1254,
+        "line_end": 1262,
+        "subject": "STONE-BARROW"
+      },
+      {
+        "id": "SRC-ROUTINE-BARROW-DOOR-FCN",
+        "file": "1actions.zil",
+        "line_start": 432,
+        "line_end": 434,
+        "subject": "BARROW-DOOR-FCN"
+      },
+      {
+        "id": "SRC-ROUTINE-BARROW-FCN",
+        "file": "1actions.zil",
+        "line_start": 436,
+        "line_end": 438,
+        "subject": "BARROW-FCN"
+      },
+      {
+        "id": "SRC-ROUTINE-STONE-BARROW-FCN",
+        "file": "1actions.zil",
+        "line_start": 403,
+        "line_end": 430,
+        "subject": "STONE-BARROW-FCN"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-STONE-BARROW"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

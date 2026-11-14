@@ -1,0 +1,137 @@
+resident: code 26633, data 11336
+  5681   data build/target/user/woh/game.rel     data
+  3550   code libzvm.lib(objects.rel)            reached
+  2483   code build/target/user/woh/story_cache.rel root
+  2377   data build/target/user/woh/main.rel     data
+  1609   code libkos.lib(fs.rel)                 runtime
+  1487   code libkres.lib(kres_adapter.rel)      function pointer
+  1424   code build/target/user/woh/panel.rel    reached
+  1406   code libkos.lib(printf.rel)             runtime
+  1367   code libkres.lib(kres_stream.rel)       reached
+  1308   code libgfx.lib(gfx_cmd.rel)            reached
+  1301   code libzvm.lib(text.rel)               function pointer
+  1039   code libkos.lib(mouse.rel)              runtime
+  947    code libkos.lib(timer.rel)              runtime
+  720    code libkos.lib(sdcc_arith_signed.rel)  runtime
+  671    code libkos.lib(args.rel)               runtime
+  579    code libzvm.lib(memory.rel)             function pointer
+  567    code libkos.lib(ipc.rel)                runtime
+  554    data libgfx.lib(gfx_cmd.rel)            data
+  545    data build/target/user/woh/resources.rel data
+  523    const build/target/user/woh/main.rel     const
+  522    data libkres.lib(kres_state.rel)        data
+  516    data libkres.lib(kres_util.rel)         data
+  512    code libkos.lib(console_proto.rel)      runtime
+  500    code libkos.lib(seg.rel)                runtime
+  430    code libkos.lib(ltoa.rel)               runtime
+  424    const build/target/user/woh/resources.rel const
+  409    code libkos.lib(sdcc_arith.rel)         runtime
+  405    code libgfx.lib(gfx_mode.rel)           root
+  386    code libgfx.lib(v9958_gfx.rel)          reached
+  372    const build/target/user/woh/game.rel     const
+  369    code libkos.lib(itoa.rel)               runtime
+  348    code libkos.lib(reader_full.rel)        runtime
+  334    data build/target/user/woh/render.rel   data
+  297    code libzvm.lib(services.rel)           function pointer
+  256    data libkos.lib(fs.rel)                 data
+  238    code build/target/user/woh/game_output.rel root
+  235    code libkos.lib(xmem.rel)               runtime
+  230    code libgfx.lib(v9958_io.rel)           reached
+  220    code libkos.lib(ultoa.rel)              runtime
+  218    code libkos.lib(utoa.rel)               runtime
+  200    code libkos.lib(reader_handle.rel)      runtime
+  161    code build/target/user/woh/story_cache_z80.rel root
+  161    data ../../ZephyrOS/build/kos-sdk-0.2.0/lib/crt0.rel data
+  156    code libkos.lib(vcall.rel)              runtime
+  152    code libkres.lib(kres_reader.rel)       function pointer
+  132    data libkos.lib(console_proto.rel)      data
+  120    const build/target/user/woh/render.rel   const
+  82     code ../../ZephyrOS/build/kos-sdk-0.2.0/lib/crt0.rel runtime
+  82     code libkos.lib(idle.rel)               runtime
+  68     code libkos.lib(memcpy.rel)             runtime
+  68     code libkos.lib(bcall.rel)              runtime
+  66     code libkos.lib(mul.rel)                runtime
+  59     data libkos.lib(vcall.rel)              data
+  55     code libkos.lib(sdcc_arith16.rel)       runtime
+  54     code libkos.lib(gate.rel)               runtime
+  42     data libtui.lib(tui_core.rel)           data
+  36     code libkos.lib(memcmp.rel)             runtime
+  36     code libkos.lib(divmod.rel)             runtime
+  34     data libgfx.lib(gfx_pointer_1.rel)      data
+  32     data libgfx.lib(gfx.rel)                data
+  29     code libkos.lib(idle_input.rel)         runtime
+  29     code libkos.lib(memset.rel)             runtime
+  27     data libtui.lib(tui_key.rel)            data
+  25     data libgfx.lib(gfx_upload.rel)         data
+  23     code libkos.lib(ipcgate.rel)            runtime
+  15     code libkos.lib(idle_halt.rel)          runtime
+  13     code libkos.lib(sdcc_calls.rel)         runtime
+  12     code libkos.lib(strlen.rel)             runtime
+  12     code libkos.lib(sdcc_arith_signed_entries.rel) runtime
+  12     code libkos.lib(xmemgate.rel)           runtime
+  11     code libkos.lib(runtime.rel)            runtime
+  10     data libkres.lib(kres_adapter.rel)      data
+  9      data libgfx.lib(v9958_io.rel)           data
+  8      data libkos.lib(seg.rel)                data
+  6      code libkos.lib(sdcc_arith_entries.rel) runtime
+  4      data build/target/user/woh/game_output.rel data
+  4      data libkos.lib(bcall.rel)              data
+  2      data libkos.lib(args.rel)               data
+  1      data libkos.lib(idle.rel)               data
+  1      data libkos.lib(idle_input.rel)         data
+home: code 16284, data 0
+  5569   code libzvm.lib(opcodes.rel)            group 16284, affinity 0
+  3433   code libzvm.lib(dictionary.rel)         group 16284, affinity 0
+  1853   code libzvm.lib(zvm.rel)                group 16284, affinity 0
+  1653   code libzvm.lib(decode.rel)             group 16284, affinity 0
+  982    code build/target/user/woh/game.rel     group 16284, affinity 0
+  829    code libzvm.lib(execute.rel)            group 16284, affinity 0
+  761    code libzvm.lib(variables.rel)          group 16284, affinity 0
+  732    code libzvm.lib(frames.rel)             group 16284, affinity 0
+  472    code libzvm.lib(input.rel)              group 16284, affinity 0
+far1: code 15205, data 0
+  3378   code build/target/user/woh/consumer.rel group 15205, affinity 0
+  2822   code libkres.lib(kres_util.rel)         group 15205, affinity 0
+  2700   code build/target/user/woh/render.rel   group 15205, affinity 0
+  1937   code build/target/user/woh/main.rel     group 15205, affinity 0
+  1635   code libkres.lib(kres_read.rel)         group 15205, affinity 0
+  1151   code libtui.lib(tui_key.rel)            group 15205, affinity 0
+  1064   code build/target/user/woh/resources.rel group 15205, affinity 0
+  504    code build/target/user/woh/menu.rel     group 15205, affinity 0
+  14     code libkres.lib(kres_state.rel)        group 15205, affinity 0
+far2: code 9024, data 5290
+  4354   data libgfx.lib(gfx_font.rel)           data of its group
+  2576   code libgfx.lib(gfx_font4.rel)          group 14314, affinity 0
+  2285   code libgfx.lib(gfx_font.rel)           group 14314, affinity 0
+  982    code libgfx.lib(gfx_atlas_draw.rel)     group 14314, affinity 0
+  881    code libgfx.lib(gfx_text.rel)           group 14314, affinity 0
+  812    data libgfx.lib(gfx_atlas.rel)          data of its group
+  749    code libgfx.lib(gfx_atlas.rel)          group 14314, affinity 0
+  463    code libgfx.lib(gfx_upload.rel)         group 14314, affinity 0
+  390    code libgfx.lib(gfx.rel)                group 14314, affinity 0
+  260    code libgfx.lib(gfx_border.rel)         group 14314, affinity 0
+  255    code libgfx.lib(gfx_pointer_1.rel)      group 14314, affinity 0
+  183    code libgfx.lib(gfx_pointer_2.rel)      group 14314, affinity 0
+  65     data libgfx.lib(gfx_font4.rel)          data of its group
+  32     data libgfx.lib(gfx_text.rel)           data of its group
+  27     data libgfx.lib(gfx_atlas_draw.rel)     data of its group
+veneers: 19
+  _main -> far1
+  _zvm_submit_input -> home
+  _game_open_reader -> home
+  _game_load_error -> home
+  _game_step -> home
+  _game_observe -> home
+  _game_close -> home
+  _zvm_error -> home
+  _zvm_program_counter -> home
+  _gfx_open -> far2
+  _gfx_close -> far2
+  _gfx_font_set_glyph -> far2
+  _gfx_upload_begin -> far2
+  _gfx_upload_write -> far2
+  _gfx_upload_end -> far2
+  _gfx_text -> far2
+  _gfx_text_n -> far2
+  _gfx_pointer_bordered -> far2
+  _gfx_pointer_hide -> far2

@@ -1,0 +1,331 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "TORCH-ROOM",
+  "title": "Torch Room",
+  "runtime_room": 105,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "M-LOOK-1",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": ",DOME-FLAG"
+        },
+        "text": [
+          "This is a large room with a prominent doorway leading to a down\nstaircase. Above you is a large dome. Up around the edge of the\ndome (20 feet up) is a wooden railing. In the center of the room\nsits a white marble pedestal.",
+          "A piece of rope descends from the railing above, ending some\nfive feet above your head."
+        ],
+        "source_refs": [
+          "SRC-ROOM-TORCH-ROOM",
+          "SRC-ROUTINE-TORCH-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-2",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<NOT <OR ,DOME-FLAG>>"
+        },
+        "text": [
+          "This is a large room with a prominent doorway leading to a down\nstaircase. Above you is a large dome. Up around the edge of the\ndome (20 feet up) is a wooden railing. In the center of the room\nsits a white marble pedestal."
+        ],
+        "source_refs": [
+          "SRC-ROOM-TORCH-ROOM",
+          "SRC-ROUTINE-TORCH-ROOM-FCN"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "PEDESTAL",
+        "description": "pedestal",
+        "kind": "object",
+        "initial_location": "TORCH-ROOM",
+        "source_flags": [
+          "NDESCBIT",
+          "CONTBIT",
+          "OPENBIT",
+          "SURFACEBIT"
+        ],
+        "source_properties": {
+          "CAPACITY": 30
+        },
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-PEDESTAL"
+        ]
+      },
+      {
+        "id": "TORCH",
+        "description": "torch",
+        "kind": "object",
+        "initial_location": "PEDESTAL",
+        "source_flags": [
+          "TAKEBIT",
+          "FLAMEBIT",
+          "ONBIT",
+          "LIGHTBIT"
+        ],
+        "source_properties": {
+          "TVALUE": 6,
+          "SIZE": 20,
+          "VALUE": 14,
+          "FDESC": "Sitting on the pedestal is a flaming torch, made of ivory."
+        },
+        "visibility": "contained_context",
+        "reason": "Contained object; not independently placed in the room illustration.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-TORCH"
+        ]
+      },
+      {
+        "id": "STAIRS",
+        "description": "stairs",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT",
+          "CLIMBBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/2",
+        "source_refs": [
+          "SRC-OBJECT-STAIRS"
+        ]
+      },
+      {
+        "id": "PSEUDO-DOME",
+        "description": "dome",
+        "kind": "pseudo_object",
+        "initial_location": "TORCH-ROOM",
+        "source_flags": [],
+        "source_properties": {
+          "ACTION": "DOME-PSEUDO"
+        },
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/3",
+        "source_refs": [
+          "SRC-ROOM-TORCH-ROOM",
+          "SRC-ROUTINE-DOME-PSEUDO"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-TORCH-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-UP",
+        "directions": [
+          "up"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(UP \"You cannot reach the rope.\")"
+        },
+        "blocked_text": [
+          "You cannot reach the rope."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-TORCH-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-SOUTH",
+        "directions": [
+          "south"
+        ],
+        "destination": "NORTH-TEMPLE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-TORCH-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-DOWN",
+        "directions": [
+          "down"
+        ],
+        "destination": "NORTH-TEMPLE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-TORCH-ROOM"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "DOME-TEMPLE"
+    ],
+    "camera": "Stand near the lower doorway looking up enough to include the dome railing.",
+    "composition": "Center the white marble pedestal within the large room and align upper wood railing with the dome view, 20 feet overhead; handle rope variants explicitly.",
+    "lighting_palette": "Low cool stone fill, ivory pedestal and source-supported torch glow only.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/torch-room.scene.json",
+    "scene_sha256": "65ea1e51b79270b4317187ce7834d30b3421bde5426f16e136f63a8972171b75",
+    "source_references": [
+      {
+        "id": "SRC-GLOBAL-DOME-FLAG",
+        "file": "1dungeon.zil",
+        "line_start": 1227,
+        "line_end": 1227,
+        "subject": "DOME-FLAG"
+      },
+      {
+        "id": "SRC-OBJECT-PEDESTAL",
+        "file": "1dungeon.zil",
+        "line_start": 980,
+        "line_end": 987,
+        "subject": "PEDESTAL"
+      },
+      {
+        "id": "SRC-OBJECT-STAIRS",
+        "file": "gglobals.zil",
+        "line_start": 102,
+        "line_end": 108,
+        "subject": "STAIRS"
+      },
+      {
+        "id": "SRC-OBJECT-TORCH",
+        "file": "1dungeon.zil",
+        "line_start": 989,
+        "line_end": 999,
+        "subject": "TORCH"
+      },
+      {
+        "id": "SRC-ROOM-TORCH-ROOM",
+        "file": "1dungeon.zil",
+        "line_start": 2087,
+        "line_end": 2096,
+        "subject": "TORCH-ROOM"
+      },
+      {
+        "id": "SRC-ROUTINE-DOME-PSEUDO",
+        "file": "1actions.zil",
+        "line_start": 3203,
+        "line_end": 3205,
+        "subject": "DOME-PSEUDO"
+      },
+      {
+        "id": "SRC-ROUTINE-DUMB-CONTAINER",
+        "file": "1actions.zil",
+        "line_start": 4154,
+        "line_end": 4158,
+        "subject": "DUMB-CONTAINER"
+      },
+      {
+        "id": "SRC-ROUTINE-STAIRS-F",
+        "file": "gglobals.zil",
+        "line_start": 110,
+        "line_end": 113,
+        "subject": "STAIRS-F"
+      },
+      {
+        "id": "SRC-ROUTINE-TORCH-OBJECT",
+        "file": "1actions.zil",
+        "line_start": 944,
+        "line_end": 952,
+        "subject": "TORCH-OBJECT"
+      },
+      {
+        "id": "SRC-ROUTINE-TORCH-ROOM-FCN",
+        "file": "1actions.zil",
+        "line_start": 1018,
+        "line_end": 1028,
+        "subject": "TORCH-ROOM-FCN"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [
+      {
+        "id": "DOME-FLAG",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL DOME-FLAG <>>",
+        "source_refs": [
+          "SRC-GLOBAL-DOME-FLAG"
+        ]
+      }
+    ],
+    "extracted_states": [
+      {
+        "id": "LOOK-STATE-1",
+        "condition": {
+          "op": "source_expression",
+          "expression": ",DOME-FLAG"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-TORCH-ROOM",
+          "SRC-ROUTINE-TORCH-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-2",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<NOT <OR ,DOME-FLAG>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-TORCH-ROOM",
+          "SRC-ROUTINE-TORCH-ROOM-FCN"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

@@ -9,7 +9,7 @@ _G.woh_g0_errors=emu.add_machine_frame_notifier(function()
  local text=api.console.text(rows)
  local last=""
  for _,row in ipairs(rows) do if row:match("%S") then last=row:match("^%s*(.-)%s*$") end end
- if text:find("woh: story path",1,true) and last=="/>" then
+ if text:find("woh: resource archive",1,true) and last=="/>" then
   local f=assert(io.open(conf.result,"w")); f:write("ran\nG0 error restored console and returned to shell\n"); f:close()
   if api.console.capture_file then api.console.capture_file:write(text.."\n"); api.console.capture_file:flush() end
   manager.machine:exit()

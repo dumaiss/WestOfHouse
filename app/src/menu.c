@@ -7,9 +7,11 @@
 void menu_open(menu_t *m, uint16_t x, uint16_t y, const char *noun,
                const char *a, const char *b, const char *c)
 {
-    m->x = x > 204u ? 204u : x;
-    m->y = y > 107u ? 107u : y;
+    /* Save-under copies must carry complete four-pixel J/K groups. */
+    m->x = (x > 200u ? 200u : x) & ~3u;
+    m->y = y > 122u ? 122u : y;
     m->noun = noun;
+    m->count = MENU_ITEMS;
     m->labels[0] = a; m->labels[1] = b; m->labels[2] = c;
     m->selected = 255u;
     m->open = 1;
@@ -17,9 +19,9 @@ void menu_open(menu_t *m, uint16_t x, uint16_t y, const char *noun,
 int menu_hit(const menu_t *m, uint16_t x, uint16_t y)
 {
     uint8_t item;
-    if (!m->open || x <= m->x || x >= m->x + 49u || y < m->y + 2u || y >= m->y + 29u) return -1;
+    if (!m->open || x <= m->x || x >= m->x + MENU_WIDTH - 1u || y < m->y + 2u || y >= m->y + 29u) return -1;
     item = (uint8_t)((y - m->y - 2u) / 9u);
-    return item < MENU_ITEMS ? item : -1;
+    return item < m->count ? item : -1;
 }
 uint8_t menu_hover(menu_t *m, uint16_t x, uint16_t y)
 {
@@ -30,7 +32,11 @@ uint8_t menu_hover(menu_t *m, uint16_t x, uint16_t y)
 void menu_command(const menu_t *m, uint8_t item, char *out)
 {
     const char *s;
-    if (item >= MENU_ITEMS) { *out = 0; return; }
+    if (item >= m->count) { *out = 0; return; }
+    if (!m->noun) {
+        s = m->commands[item]; while (*s) *out++ = *s++;
+        *out = 0; return;
+    }
     s = m->labels[item]; while (*s) *out++ = *s++;
     *out++ = ' ';
     s = m->noun; while (*s) *out++ = *s++;

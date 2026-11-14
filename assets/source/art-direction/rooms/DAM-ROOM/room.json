@@ -1,0 +1,1111 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "DAM-ROOM",
+  "title": "Dam",
+  "runtime_room": 215,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "M-LOOK-1",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND <AND ,LOW-TIDE ,GATES-OPEN> ,GATE-FLAG>"
+        },
+        "text": [
+          "You are standing on the top of the Flood Control Dam #3, which was\nquite a tourist attraction in times far distant. There are paths to\nthe north, south, and west, and a scramble down.",
+          "The water level behind the dam is low: The sluice gates have been\nopened. Water rushes through the dam and downstream.",
+          "There is a control panel here, on which a large metal bolt is mounted.\nDirectly above the bolt is a small green plastic bubble",
+          " which is\nglowing serenely",
+          "."
+        ],
+        "source_refs": [
+          "SRC-ROOM-DAM-ROOM",
+          "SRC-ROUTINE-DAM-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-2",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND <AND ,LOW-TIDE ,GATES-OPEN> <NOT <OR ,GATE-FLAG>>>"
+        },
+        "text": [
+          "You are standing on the top of the Flood Control Dam #3, which was\nquite a tourist attraction in times far distant. There are paths to\nthe north, south, and west, and a scramble down.",
+          "The water level behind the dam is low: The sluice gates have been\nopened. Water rushes through the dam and downstream.",
+          "There is a control panel here, on which a large metal bolt is mounted.\nDirectly above the bolt is a small green plastic bubble",
+          "."
+        ],
+        "source_refs": [
+          "SRC-ROOM-DAM-ROOM",
+          "SRC-ROUTINE-DAM-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-3",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND ,GATES-OPEN ,GATE-FLAG>"
+        },
+        "text": [
+          "You are standing on the top of the Flood Control Dam #3, which was\nquite a tourist attraction in times far distant. There are paths to\nthe north, south, and west, and a scramble down.",
+          "The sluice gates are open, and water rushes through the dam. The\nwater level behind the dam is still high.",
+          "There is a control panel here, on which a large metal bolt is mounted.\nDirectly above the bolt is a small green plastic bubble",
+          " which is\nglowing serenely",
+          "."
+        ],
+        "source_refs": [
+          "SRC-ROOM-DAM-ROOM",
+          "SRC-ROUTINE-DAM-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-4",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND ,GATES-OPEN <NOT <OR ,GATE-FLAG>>>"
+        },
+        "text": [
+          "You are standing on the top of the Flood Control Dam #3, which was\nquite a tourist attraction in times far distant. There are paths to\nthe north, south, and west, and a scramble down.",
+          "The sluice gates are open, and water rushes through the dam. The\nwater level behind the dam is still high.",
+          "There is a control panel here, on which a large metal bolt is mounted.\nDirectly above the bolt is a small green plastic bubble",
+          "."
+        ],
+        "source_refs": [
+          "SRC-ROOM-DAM-ROOM",
+          "SRC-ROUTINE-DAM-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-5",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND ,LOW-TIDE ,GATE-FLAG>"
+        },
+        "text": [
+          "You are standing on the top of the Flood Control Dam #3, which was\nquite a tourist attraction in times far distant. There are paths to\nthe north, south, and west, and a scramble down.",
+          "The sluice gates are closed. The water level in the reservoir is\nquite low, but the level is rising quickly.",
+          "There is a control panel here, on which a large metal bolt is mounted.\nDirectly above the bolt is a small green plastic bubble",
+          " which is\nglowing serenely",
+          "."
+        ],
+        "source_refs": [
+          "SRC-ROOM-DAM-ROOM",
+          "SRC-ROUTINE-DAM-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-6",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND ,LOW-TIDE <NOT <OR ,GATE-FLAG>>>"
+        },
+        "text": [
+          "You are standing on the top of the Flood Control Dam #3, which was\nquite a tourist attraction in times far distant. There are paths to\nthe north, south, and west, and a scramble down.",
+          "The sluice gates are closed. The water level in the reservoir is\nquite low, but the level is rising quickly.",
+          "There is a control panel here, on which a large metal bolt is mounted.\nDirectly above the bolt is a small green plastic bubble",
+          "."
+        ],
+        "source_refs": [
+          "SRC-ROOM-DAM-ROOM",
+          "SRC-ROUTINE-DAM-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-7",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND <NOT <OR <AND ,LOW-TIDE ,GATES-OPEN> ,GATES-OPEN ,LOW-TIDE>> ,GATE-FLAG>"
+        },
+        "text": [
+          "You are standing on the top of the Flood Control Dam #3, which was\nquite a tourist attraction in times far distant. There are paths to\nthe north, south, and west, and a scramble down.",
+          "The sluice gates on the dam are closed. Behind the dam, there can be\nseen a wide reservoir. Water is pouring over the top of the now\nabandoned dam.",
+          "There is a control panel here, on which a large metal bolt is mounted.\nDirectly above the bolt is a small green plastic bubble",
+          " which is\nglowing serenely",
+          "."
+        ],
+        "source_refs": [
+          "SRC-ROOM-DAM-ROOM",
+          "SRC-ROUTINE-DAM-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-8",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND <NOT <OR <AND ,LOW-TIDE ,GATES-OPEN> ,GATES-OPEN ,LOW-TIDE>> <NOT <OR ,GATE-FLAG>>>"
+        },
+        "text": [
+          "You are standing on the top of the Flood Control Dam #3, which was\nquite a tourist attraction in times far distant. There are paths to\nthe north, south, and west, and a scramble down.",
+          "The sluice gates on the dam are closed. Behind the dam, there can be\nseen a wide reservoir. Water is pouring over the top of the now\nabandoned dam.",
+          "There is a control panel here, on which a large metal bolt is mounted.\nDirectly above the bolt is a small green plastic bubble",
+          "."
+        ],
+        "source_refs": [
+          "SRC-ROOM-DAM-ROOM",
+          "SRC-ROUTINE-DAM-ROOM-FCN"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "BOLT",
+        "description": "bolt",
+        "kind": "object",
+        "initial_location": "DAM-ROOM",
+        "source_flags": [
+          "NDESCBIT",
+          "TURNBIT",
+          "TRYTAKEBIT"
+        ],
+        "source_properties": {},
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-BOLT"
+        ]
+      },
+      {
+        "id": "BUBBLE",
+        "description": "green bubble",
+        "kind": "object",
+        "initial_location": "DAM-ROOM",
+        "source_flags": [
+          "NDESCBIT",
+          "TRYTAKEBIT"
+        ],
+        "source_properties": {},
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-BUBBLE"
+        ]
+      },
+      {
+        "id": "DAM",
+        "description": "dam",
+        "kind": "object",
+        "initial_location": "DAM-ROOM",
+        "source_flags": [
+          "NDESCBIT",
+          "TRYTAKEBIT"
+        ],
+        "source_properties": {},
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/2",
+        "source_refs": [
+          "SRC-OBJECT-DAM"
+        ]
+      },
+      {
+        "id": "CONTROL-PANEL",
+        "description": "control panel",
+        "kind": "object",
+        "initial_location": "DAM-ROOM",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/3",
+        "source_refs": [
+          "SRC-OBJECT-CONTROL-PANEL"
+        ]
+      },
+      {
+        "id": "GLOBAL-WATER",
+        "description": "water",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "DRINKBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/4",
+        "source_refs": [
+          "SRC-OBJECT-GLOBAL-WATER"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-DAM-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-SOUTH",
+        "directions": [
+          "south"
+        ],
+        "destination": "DEEP-CANYON",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-DAM-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-DOWN",
+        "directions": [
+          "down"
+        ],
+        "destination": "DAM-BASE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-DAM-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "DAM-BASE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-DAM-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "DAM-LOBBY",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-DAM-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "RESERVOIR-SOUTH",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-DAM-ROOM"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "ONBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "DAM-RESERVOIR"
+    ],
+    "camera": "Stand safely on the dam top with reservoir and sluice structure visible obliquely.",
+    "composition": "Keep the massive crest, control panel, bolt and small green indicator in stable positions; show water level and gate changes at large enough scale to read.",
+    "lighting_palette": "Overcast-leaning daylight as an artistic choice, concrete gray, teal water and restrained control colors.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/dam-room.scene.json",
+    "scene_sha256": "3bdfe1842e5510df7dc179f63cccba55ef1586c2b6611e2a53887be702a9551c",
+    "source_references": [
+      {
+        "id": "SRC-GLOBAL-GATE-FLAG",
+        "file": "1actions.zil",
+        "line_start": 1153,
+        "line_end": 1153,
+        "subject": "GATE-FLAG"
+      },
+      {
+        "id": "SRC-GLOBAL-GATES-OPEN",
+        "file": "1actions.zil",
+        "line_start": 1154,
+        "line_end": 1154,
+        "subject": "GATES-OPEN"
+      },
+      {
+        "id": "SRC-GLOBAL-LOW-TIDE",
+        "file": "1dungeon.zil",
+        "line_start": 1230,
+        "line_end": 1230,
+        "subject": "LOW-TIDE"
+      },
+      {
+        "id": "SRC-GLOBAL-PRSA",
+        "file": "gparser.zil",
+        "line_start": 14,
+        "line_end": 14,
+        "subject": "PRSA"
+      },
+      {
+        "id": "SRC-GLOBAL-PRSI",
+        "file": "gparser.zil",
+        "line_start": 15,
+        "line_end": 15,
+        "subject": "PRSI"
+      },
+      {
+        "id": "SRC-GLOBAL-PRSO",
+        "file": "gparser.zil",
+        "line_start": 16,
+        "line_end": 16,
+        "subject": "PRSO"
+      },
+      {
+        "id": "SRC-OBJECT-BOLT",
+        "file": "1dungeon.zil",
+        "line_start": 189,
+        "line_end": 195,
+        "subject": "BOLT"
+      },
+      {
+        "id": "SRC-OBJECT-BUBBLE",
+        "file": "1dungeon.zil",
+        "line_start": 197,
+        "line_end": 203,
+        "subject": "BUBBLE"
+      },
+      {
+        "id": "SRC-OBJECT-CONTROL-PANEL",
+        "file": "1dungeon.zil",
+        "line_start": 1138,
+        "line_end": 1143,
+        "subject": "CONTROL-PANEL"
+      },
+      {
+        "id": "SRC-OBJECT-DAM",
+        "file": "1dungeon.zil",
+        "line_start": 396,
+        "line_end": 401,
+        "subject": "DAM"
+      },
+      {
+        "id": "SRC-OBJECT-GLOBAL-WATER",
+        "file": "1dungeon.zil",
+        "line_start": 78,
+        "line_end": 83,
+        "subject": "GLOBAL-WATER"
+      },
+      {
+        "id": "SRC-ROOM-DAM-ROOM",
+        "file": "1dungeon.zil",
+        "line_start": 2135,
+        "line_end": 2145,
+        "subject": "DAM-ROOM"
+      },
+      {
+        "id": "SRC-ROUTINE-BOLT-F",
+        "file": "1actions.zil",
+        "line_start": 1187,
+        "line_end": 1217,
+        "subject": "BOLT-F"
+      },
+      {
+        "id": "SRC-ROUTINE-BUBBLE-F",
+        "file": "1actions.zil",
+        "line_start": 1219,
+        "line_end": 1221,
+        "subject": "BUBBLE-F"
+      },
+      {
+        "id": "SRC-ROUTINE-DAM-FUNCTION",
+        "file": "1actions.zil",
+        "line_start": 1400,
+        "line_end": 1410,
+        "subject": "DAM-FUNCTION"
+      },
+      {
+        "id": "SRC-ROUTINE-DAM-ROOM-FCN",
+        "file": "1actions.zil",
+        "line_start": 1156,
+        "line_end": 1185,
+        "subject": "DAM-ROOM-FCN"
+      },
+      {
+        "id": "SRC-ROUTINE-I-REMPTY",
+        "file": "1actions.zil",
+        "line_start": 1263,
+        "line_end": 1282,
+        "subject": "I-REMPTY"
+      },
+      {
+        "id": "SRC-ROUTINE-I-RFILL",
+        "file": "1actions.zil",
+        "line_start": 1226,
+        "line_end": 1259,
+        "subject": "I-RFILL"
+      },
+      {
+        "id": "SRC-ROUTINE-WATER-F",
+        "file": "1actions.zil",
+        "line_start": 157,
+        "line_end": 237,
+        "subject": "WATER-F"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [
+      {
+        "id": "RESERVOIR-SOUTH.TOUCHBIT",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<FCLEAR ,RESERVOIR-SOUTH ,TOUCHBIT>",
+        "source_refs": []
+      },
+      {
+        "id": "LOUD-ROOM.TOUCHBIT",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<FCLEAR ,LOUD-ROOM ,TOUCHBIT>",
+        "source_refs": []
+      },
+      {
+        "id": "RESERVOIR.RLANDBIT",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<FCLEAR ,RESERVOIR ,RLANDBIT>",
+        "source_refs": []
+      },
+      {
+        "id": "RESERVOIR.NONLANDBIT",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": true,
+        "source_expression": "<FSET ,RESERVOIR ,NONLANDBIT>",
+        "source_refs": []
+      },
+      {
+        "id": "DEEP-CANYON.TOUCHBIT",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<FCLEAR ,DEEP-CANYON ,TOUCHBIT>",
+        "source_refs": []
+      },
+      {
+        "id": "TRUNK.INVISIBLE",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": true,
+        "source_expression": "<FSET ,TRUNK ,INVISIBLE>",
+        "source_refs": []
+      },
+      {
+        "id": "GATE-FLAG",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL GATE-FLAG <>>",
+        "source_refs": [
+          "SRC-GLOBAL-GATE-FLAG"
+        ]
+      },
+      {
+        "id": "GATES-OPEN",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL GATES-OPEN <>>",
+        "source_refs": [
+          "SRC-GLOBAL-GATES-OPEN"
+        ]
+      },
+      {
+        "id": "LOW-TIDE",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL LOW-TIDE <>>",
+        "source_refs": [
+          "SRC-GLOBAL-LOW-TIDE"
+        ]
+      },
+      {
+        "id": "PRSA",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL PRSA <>>",
+        "source_refs": [
+          "SRC-GLOBAL-PRSA"
+        ]
+      },
+      {
+        "id": "PRSI",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL PRSI <>>",
+        "source_refs": [
+          "SRC-GLOBAL-PRSI"
+        ]
+      },
+      {
+        "id": "PRSO",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL PRSO <>>",
+        "source_refs": [
+          "SRC-GLOBAL-PRSO"
+        ]
+      }
+    ],
+    "extracted_states": [
+      {
+        "id": "LOOK-STATE-1",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND <AND ,LOW-TIDE ,GATES-OPEN> ,GATE-FLAG>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-DAM-ROOM",
+          "SRC-ROUTINE-DAM-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-2",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND <AND ,LOW-TIDE ,GATES-OPEN> <NOT <OR ,GATE-FLAG>>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-DAM-ROOM",
+          "SRC-ROUTINE-DAM-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-3",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND ,GATES-OPEN ,GATE-FLAG>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-DAM-ROOM",
+          "SRC-ROUTINE-DAM-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-4",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND ,GATES-OPEN <NOT <OR ,GATE-FLAG>>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-DAM-ROOM",
+          "SRC-ROUTINE-DAM-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-5",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND ,LOW-TIDE ,GATE-FLAG>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-DAM-ROOM",
+          "SRC-ROUTINE-DAM-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-6",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND ,LOW-TIDE <NOT <OR ,GATE-FLAG>>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-DAM-ROOM",
+          "SRC-ROUTINE-DAM-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-7",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND <NOT <OR <AND ,LOW-TIDE ,GATES-OPEN> ,GATES-OPEN ,LOW-TIDE>> ,GATE-FLAG>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-DAM-ROOM",
+          "SRC-ROUTINE-DAM-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-8",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND <NOT <OR <AND ,LOW-TIDE ,GATES-OPEN> ,GATES-OPEN ,LOW-TIDE>> <NOT <OR ,GATE-FLAG>>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-DAM-ROOM",
+          "SRC-ROUTINE-DAM-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-9",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "flag_clear",
+              "object": "RESERVOIR-SOUTH",
+              "flag": "TOUCHBIT"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "GATES-OPEN"
+              },
+              "right": {
+                "value": false
+              }
+            },
+            {
+              "op": "flag_clear",
+              "object": "LOUD-ROOM",
+              "flag": "TOUCHBIT"
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-BOLT-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-10",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "flag_clear",
+              "object": "RESERVOIR-SOUTH",
+              "flag": "TOUCHBIT"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "GATES-OPEN"
+              },
+              "right": {
+                "value": true
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-BOLT-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-11",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "PRSA"
+              },
+              "right": {
+                "value": "V?PUT"
+              }
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "PRSI"
+              },
+              "right": {
+                "value": "PRSO"
+              }
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "PRSO"
+              },
+              "right": {
+                "value": ".W"
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-12",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <REMOVE-CAREFULLY .W>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-13",
+        "condition": {
+          "op": "located_in",
+          "object": "PRSO",
+          "location": "AV"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-14",
+        "condition": {
+          "op": "located_in",
+          "object": "WATER",
+          "location": "BOTTLE"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-15",
+        "condition": {
+          "op": "located_in",
+          "object": "WATER",
+          "location": "AV"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-16",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <REMOVE-CAREFULLY ,WATER> <REMOVE-CAREFULLY ,WATER>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-17",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <REMOVE-CAREFULLY ,WATER>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "EVENT-STATE-18",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "flag_set",
+              "object": "RESERVOIR",
+              "flag": "RLANDBIT"
+            },
+            {
+              "op": "flag_clear",
+              "object": "RESERVOIR",
+              "flag": "NONLANDBIT"
+            },
+            {
+              "op": "flag_clear",
+              "object": "DEEP-CANYON",
+              "flag": "TOUCHBIT"
+            },
+            {
+              "op": "flag_clear",
+              "object": "LOUD-ROOM",
+              "flag": "TOUCHBIT"
+            },
+            {
+              "op": "flag_clear",
+              "object": "TRUNK",
+              "flag": "INVISIBLE"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "LOW-TIDE"
+              },
+              "right": {
+                "value": true
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-I-REMPTY"
+        ]
+      },
+      {
+        "id": "EVENT-STATE-19",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "flag_set",
+              "object": "RESERVOIR",
+              "flag": "NONLANDBIT"
+            },
+            {
+              "op": "flag_clear",
+              "object": "RESERVOIR",
+              "flag": "RLANDBIT"
+            },
+            {
+              "op": "flag_clear",
+              "object": "DEEP-CANYON",
+              "flag": "TOUCHBIT"
+            },
+            {
+              "op": "flag_clear",
+              "object": "LOUD-ROOM",
+              "flag": "TOUCHBIT"
+            },
+            {
+              "op": "flag_set",
+              "object": "TRUNK",
+              "flag": "INVISIBLE"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "LOW-TIDE"
+              },
+              "right": {
+                "value": false
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-I-RFILL"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-BOLT-F-TURN-1",
+        "source_refs": [
+          "SRC-ROUTINE-BOLT-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-2-BOLT-F-TURN-1",
+        "source_refs": [
+          "SRC-ROUTINE-BOLT-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-3-WATER-F-FILL-3",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-4-WATER-F-TAKE-PUT-4",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-5-WATER-F-TAKE-PUT-5",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-6-WATER-F-TAKE-PUT-5",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-7-WATER-F-TAKE-PUT-5",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-8-WATER-F-TAKE-PUT-5",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-9-WATER-F-DROP-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-10-WATER-F-DROP-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-11-WATER-F-DROP-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-12-WATER-F-DROP-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-13-WATER-F-THROW-7",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "EVENT-14-I-REMPTY",
+        "source_refs": [
+          "SRC-ROUTINE-I-REMPTY"
+        ]
+      },
+      {
+        "id": "EVENT-15-I-REMPTY",
+        "source_refs": [
+          "SRC-ROUTINE-I-REMPTY"
+        ]
+      },
+      {
+        "id": "EVENT-16-I-REMPTY",
+        "source_refs": [
+          "SRC-ROUTINE-I-REMPTY"
+        ]
+      },
+      {
+        "id": "EVENT-17-I-REMPTY",
+        "source_refs": [
+          "SRC-ROUTINE-I-REMPTY"
+        ]
+      },
+      {
+        "id": "EVENT-18-I-RFILL",
+        "source_refs": [
+          "SRC-ROUTINE-I-RFILL"
+        ]
+      },
+      {
+        "id": "EVENT-19-I-RFILL",
+        "source_refs": [
+          "SRC-ROUTINE-I-RFILL"
+        ]
+      },
+      {
+        "id": "EVENT-20-I-RFILL",
+        "source_refs": [
+          "SRC-ROUTINE-I-RFILL"
+        ]
+      },
+      {
+        "id": "EVENT-21-I-RFILL",
+        "source_refs": [
+          "SRC-ROUTINE-I-RFILL"
+        ]
+      },
+      {
+        "id": "EVENT-22-I-RFILL",
+        "source_refs": [
+          "SRC-ROUTINE-I-RFILL"
+        ]
+      },
+      {
+        "id": "EVENT-23-I-RFILL",
+        "source_refs": [
+          "SRC-ROUTINE-I-RFILL"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values.",
+      "ACTION-STATE conditions describe source mutations and may overlap; arbitrary ZIL was not executed."
+    ]
+  },
+  "unresolved": []
+}

@@ -15,9 +15,11 @@ ROOT = Path(__file__).resolve().parents[1]
 def run(name, arguments, story, script, args):
     output = ROOT/'build'/name
     output.mkdir(parents=True,exist_ok=True)
+    # No loose story may mask an archive integration regression.
+    (output/'card/ZORK1.Z3').unlink(missing_ok=True)
     if story is None:
         # The SDK preserves cards between runs; this case needs an absent file.
-        (output/'card/ZORK1.Z3').unlink(missing_ok=True)
+        (output/'card/WOH.KPR').unlink(missing_ok=True)
     command = [sys.executable,str(args.sdk/'tools/exerun.py'),
         '--exe',str(ROOT/'build/WestOfHouse/woh.exe'),
         '--map',str(ROOT/'build/target/user/woh/woh.map'),
@@ -25,7 +27,7 @@ def run(name, arguments, story, script, args):
         '--mame',str(args.mame),'--flash',str(args.flash),'--plugins',str(args.plugins),
         '--args',arguments,'--exit','--timeout','300',
         '--mame-args=-window -sound none -nothrottle -autoboot_script '+str(ROOT/'tests'/script)+' -autoboot_delay 0']
-    if story: command += ['--asset',str(story)+'=ZORK1.Z3']
+    if story: command += ['--asset',str(story)+'=WOH.KPR']
     print('Running '+name,flush=True)
     with (output/'runner.log').open('w') as log:
         process = subprocess.Popen(command,cwd=ROOT,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
@@ -48,10 +50,10 @@ def main():
     parser.add_argument('--wall-timeout',type=int,default=240)
     parser.add_argument('--no-build',action='store_true')
     args=parser.parse_args()
-    if not args.no_build: subprocess.run(['make'],cwd=ROOT,check=True)
-    result={'startup':{'arguments':'','story_lookup':'CWD/zork1.z3'}}
+    if not args.no_build: subprocess.run(['make','-C','app'],cwd=ROOT.parent,check=True)
+    result={'startup':{'arguments':'','story_lookup':'CWD/WOH.KPR'}}
     if args.mode in {'all','interface'}:
-        directory=run('interface','',ROOT/'build/WestOfHouse/zork1.z3','interface.lua',args)
+        directory=run('interface','',ROOT/'build/WestOfHouse/WOH.KPR','interface.lua',args)
         session=(directory/'session').read_text().splitlines()
         if 'command\t/fs/WOH.EXE' not in session:
             raise RuntimeError('Acceptance must launch without a story-directory argument')
@@ -62,16 +64,19 @@ def main():
         result['performance']={int(op):{'calls':int(n),'total_us':int(total),'max_us':int(maximum)} for op,n,total,maximum in samples}
         if len(result['performance'])!=7: raise RuntimeError('Incomplete performance capture')
     if args.mode in {'all','errors'}:
-        cases=[('missing-story','',None,'cannot open story file','code -1'),
-               ('mismatched-story','',ROOT.parent/'vendor/infocom-zork1/COMPILED/zork1.z3',
-                'story does not match the compiled global bindings','code -3')]
+        corrupt=ROOT/'build/corrupt.KPR'; corrupt.write_bytes(bytes(512))
+        cases=[('missing-archive','',None,'cannot open resource archive','code 0'),
+               ('corrupt-archive','',corrupt,'cannot open resource archive','code 0')]
         result['errors']={}
         for name,path,story,message,code in cases:
             directory=run(name,path,story,'errors.lua',args)
             text=(directory/'console.txt').read_text()
             if message not in text or code not in text: raise RuntimeError(name+' missing expected diagnostic')
             result['errors'][name]={'diagnostic':message,'returned_to_shell':True}
-    (ROOT/'build/target-acceptance.json').write_text(json.dumps(result,indent=2)+'\n')
+    report=ROOT/'build/target-acceptance.json'
+    if report.exists():
+        previous=json.loads(report.read_text());previous.update(result);result=previous
+    report.write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps(result,indent=2))
 
 if __name__=='__main__': main()

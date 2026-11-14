@@ -8,7 +8,7 @@ retained as ``source_expression`` conditions or effects.
 
 Typical use::
 
-    python tools/scene-extractor/extract_scenes.py --output-dir generated-scenes
+    python tools/scene-extractor/extract_scenes.py --output-dir assets/source/scene-facts
     python tools/scene-extractor/extract_scenes.py --room SANDY-CAVE
 
 The generated files conform to ``schemas/scene-facts-v1.schema.json``.  If the
@@ -30,7 +30,7 @@ from typing import Any, Iterable, Iterator, Sequence
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_SOURCE_ROOT = PROJECT_ROOT / "vendor" / "infocom-zork1"
 DEFAULT_SCHEMA = PROJECT_ROOT / "schemas" / "scene-facts-v1.schema.json"
-DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "generated-scenes"
+DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "assets/source/scene-facts"
 
 
 DIRECTIONS = {
@@ -1929,7 +1929,7 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
         "--output-dir",
         type=Path,
         default=DEFAULT_OUTPUT_DIR,
-        help="Directory for generated scene JSON files (default: generated-scenes)",
+        help="Directory for generated scene JSON files (default: assets/source/scene-facts)",
     )
     parser.add_argument(
         "--room",

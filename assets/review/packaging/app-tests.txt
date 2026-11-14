@@ -1,0 +1,57 @@
+make: Entering directory '/home/kitamura/Documents/WestOfHouse/app'
+python3 ../tools/resources/build.py --sdk /home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0
+/home/kitamura/Documents/WestOfHouse/app/build/assets/tmpsgspn8q1/WOH.KPR: ok
+resources 18 (catalog capacity 24)
+records   927: 1 header, 3 catalog, 923 live, 0 abandoned
+{
+  "schema": "woh_resource_build_v1",
+  "resources": 18,
+  "mapped_scenes": 8,
+  "unbound_packaged": 0,
+  "archive_sha256": "aac7ab2f86dfe407baaa9bd18122126f22e35e42f006159f13efbab3b89e956f",
+  "archive_bytes": 474624,
+  "rebuilt": [],
+  "verified_payloads": [
+    "zork1.z3",
+    "room-180-state-1.img",
+    "room-180-state-1.wht",
+    "room-180-state-2.img",
+    "room-180-state-2.wht",
+    "room-81-state-1.img",
+    "room-81-state-1.wht",
+    "room-80-state-1.img",
+    "room-80-state-1.wht",
+    "room-79-state-1.img",
+    "room-79-state-1.wht",
+    "room-79-state-2.img",
+    "room-79-state-2.wht",
+    "room-203-state-1.img",
+    "room-203-state-1.wht",
+    "room-203-state-2.img",
+    "room-203-state-2.wht",
+    "WoHTitle.img"
+  ]
+}
+mkdir -p build/host
+cc -std=c99 -Wall -Wextra -Werror -I../../ZephyrOS/build/kos-sdk-0.2.0/include/abi -Isrc tests/test_panel.c src/panel.c src/menu.c tests/fixture.c -o build/host/test_panel
+build/host/test_panel
+panel/menu tests passed; history model 1913 bytes
+cc -std=c99 -Wall -Wextra -Werror -Itests/host -I../libzvm/tests/host/include -I../../ZephyrOS/build/kos-sdk-0.2.0/include/abi -I../../ZephyrOS/build/kos-sdk-0.2.0/include -Isrc -Igfx tests/test_render.c src/render.c src/panel.c src/menu.c tests/fixture.c -o build/host/test_render
+build/host/test_render ../assets/runtime/scenes/room-180-state-1.img
+render contract tests passed: KRES scene stream, missing scene, geometry, history, prompt, menu restoration
+cc -std=c99 -Wall -Wextra -Werror -Itests/host -I../libzvm/tests/host/include -I../../ZephyrOS/build/kos-sdk-0.2.0/include/abi -I../../ZephyrOS/build/kos-sdk-0.2.0/include -Isrc -Ibuild/assets -I../libzvm/include -I../libzvm/tests tests/test_game.c src/game.c src/game_output.c src/panel.c ../libzvm/tests/story_cache.c ../../ZephyrOS/user/sdk/src/reader_full.c ../libzvm/src/decode.c ../libzvm/src/dictionary.c ../libzvm/src/execute.c ../libzvm/src/frames.c ../libzvm/src/input.c ../libzvm/src/memory.c ../libzvm/src/objects.c ../libzvm/src/opcodes.c ../libzvm/src/services.c ../libzvm/src/text.c ../libzvm/src/variables.c ../libzvm/src/zvm.c -o build/host/test_game
+build/host/test_game "../libzvm/build/ZORK1.Z3"
+game integration tests passed: actual story, movement, file/read/binding/allocation/staging/VM faults and cleanup
+cc -std=c99 -Wall -Wextra -Werror -Itests/host -I../libzvm/tests/host/include -I../../ZephyrOS/build/kos-sdk-0.2.0/include/abi -I../../ZephyrOS/build/kos-sdk-0.2.0/include -Isrc -Ibuild/assets -I../tools/scene-hotspots tests/test_resources.c src/resources.c src/menu.c ../tools/scene-hotspots/consumer.c ../../ZephyrOS/user/sdk/kres/src/kres_read.c ../../ZephyrOS/user/sdk/kres/src/kres_stream.c ../../ZephyrOS/user/sdk/kres/src/kres_state.c ../../ZephyrOS/user/sdk/kres/src/kres_util.c ../../ZephyrOS/user/sdk/kres/src/kres_reader.c ../../ZephyrOS/user/sdk/src/reader_full.c -o build/host/test_resources
+build/host/test_resources build/WestOfHouse/WOH.KPR ../assets/runtime/scenes/room-180-state-1.img ../assets/runtime/ui/WoHTitle.img
+resources passed: real SDK KRES, title/scene bytes, pair lookup, nested hotspot/actions, unbound exclusion, shared story cursor, single file, cleanup
+WOH_SDK_ROOT=/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0 python3 -m unittest discover -s tests -p 'test_*.py' -v
+test_sdk_member_payloads_are_preserved (test_archive.ArchiveTests.test_sdk_member_payloads_are_preserved) ... ok
+test_existing_inputs (test_prepare.PrepareTests.test_existing_inputs) ... ok
+test_mismatch_and_image_dimensions (test_prepare.PrepareTests.test_mismatch_and_image_dimensions) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.017s
+
+OK
+make: Leaving directory '/home/kitamura/Documents/WestOfHouse/app'

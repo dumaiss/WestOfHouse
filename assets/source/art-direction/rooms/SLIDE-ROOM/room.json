@@ -1,0 +1,173 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "SLIDE-ROOM",
+  "title": "Slide Room",
+  "runtime_room": 15,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is a small chamber, which appears to have been part of a\ncoal mine. On the south wall of the chamber the letters \"Granite\nWall\" are etched in the rock. To the east is a long passage, and\nthere is a steep metal slide twisting downward. To the north is\na small opening."
+        ],
+        "source_refs": [
+          "SRC-ROOM-SLIDE-ROOM"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "SLIDE",
+        "description": "chute",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "CLIMBBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-SLIDE"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-SLIDE-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "COLD-PASSAGE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-SLIDE-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "MINE-ENTRANCE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-SLIDE-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-DOWN",
+        "directions": [
+          "down"
+        ],
+        "destination": "CELLAR",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-SLIDE-ROOM"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "MINE"
+    ],
+    "camera": "View the southern wall and descending metal slide obliquely.",
+    "composition": "Preserve the small north opening, long east passage and twisting downward slide; show the inscription's surface without readable lettering.",
+    "lighting_palette": "Cool gray rock and subdued metal reflections.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/slide-room.scene.json",
+    "scene_sha256": "d19be6906807a9c0986521c0108983ea7d5dfdd35b03653123aa2b6142919ae6",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-SLIDE",
+        "file": "1dungeon.zil",
+        "line_start": 263,
+        "line_end": 269,
+        "subject": "SLIDE"
+      },
+      {
+        "id": "SRC-ROOM-SLIDE-ROOM",
+        "file": "1dungeon.zil",
+        "line_start": 2601,
+        "line_end": 2614,
+        "subject": "SLIDE-ROOM"
+      },
+      {
+        "id": "SRC-ROUTINE-SLIDE-FUNCTION",
+        "file": "1actions.zil",
+        "line_start": 3086,
+        "line_end": 3096,
+        "subject": "SLIDE-FUNCTION"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-SLIDE-ROOM"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

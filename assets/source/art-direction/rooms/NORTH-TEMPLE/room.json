@@ -1,0 +1,276 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "NORTH-TEMPLE",
+  "title": "Temple",
+  "runtime_room": 220,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is the north end of a large temple. On the east wall is an\nancient inscription, probably a prayer in a long-forgotten language.\nBelow the prayer is a staircase leading down. The west wall is solid\ngranite. The exit to the north end of the room is through huge\nmarble pillars."
+        ],
+        "source_refs": [
+          "SRC-ROOM-NORTH-TEMPLE"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "BELL",
+        "description": "brass bell",
+        "kind": "object",
+        "initial_location": "NORTH-TEMPLE",
+        "source_flags": [
+          "TAKEBIT"
+        ],
+        "source_properties": {},
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-BELL"
+        ]
+      },
+      {
+        "id": "PRAYER",
+        "description": "prayer",
+        "kind": "object",
+        "initial_location": "NORTH-TEMPLE",
+        "source_flags": [
+          "READBIT",
+          "SACREDBIT",
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-PRAYER"
+        ]
+      },
+      {
+        "id": "STAIRS",
+        "description": "stairs",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT",
+          "CLIMBBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/2",
+        "source_refs": [
+          "SRC-OBJECT-STAIRS"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-NORTH-TEMPLE"
+        ]
+      },
+      {
+        "id": "EXIT-DOWN",
+        "directions": [
+          "down"
+        ],
+        "destination": "EGYPT-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-NORTH-TEMPLE"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "EGYPT-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-NORTH-TEMPLE"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "TORCH-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-NORTH-TEMPLE"
+        ]
+      },
+      {
+        "id": "EXIT-OUT",
+        "directions": [
+          "out"
+        ],
+        "destination": "TORCH-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-NORTH-TEMPLE"
+        ]
+      },
+      {
+        "id": "EXIT-UP",
+        "directions": [
+          "up"
+        ],
+        "destination": "TORCH-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-NORTH-TEMPLE"
+        ]
+      },
+      {
+        "id": "EXIT-SOUTH",
+        "directions": [
+          "south"
+        ],
+        "destination": "SOUTH-TEMPLE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-NORTH-TEMPLE"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "ONBIT",
+      "SACREDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "DOME-TEMPLE"
+    ],
+    "camera": "View diagonally across the northern temple toward the eastern inscription wall.",
+    "composition": "Retain the stair below the inscription surface, solid west granite and huge marble pillars at the north exit; omit readable text.",
+    "lighting_palette": "Muted stone with soft ivory marble highlights.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/north-temple.scene.json",
+    "scene_sha256": "bf2da30bf101e90ced959e1cbbb52503c81b6b9f926265f1a3808a6bb9131e20",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-BELL",
+        "file": "1dungeon.zil",
+        "line_start": 164,
+        "line_end": 170,
+        "subject": "BELL"
+      },
+      {
+        "id": "SRC-OBJECT-PRAYER",
+        "file": "1dungeon.zil",
+        "line_start": 747,
+        "line_end": 758,
+        "subject": "PRAYER"
+      },
+      {
+        "id": "SRC-OBJECT-STAIRS",
+        "file": "gglobals.zil",
+        "line_start": 102,
+        "line_end": 108,
+        "subject": "STAIRS"
+      },
+      {
+        "id": "SRC-ROOM-NORTH-TEMPLE",
+        "file": "1dungeon.zil",
+        "line_start": 2098,
+        "line_end": 2114,
+        "subject": "NORTH-TEMPLE"
+      },
+      {
+        "id": "SRC-ROUTINE-BELL-F",
+        "file": "1actions.zil",
+        "line_start": 343,
+        "line_end": 349,
+        "subject": "BELL-F"
+      },
+      {
+        "id": "SRC-ROUTINE-STAIRS-F",
+        "file": "gglobals.zil",
+        "line_start": 110,
+        "line_end": 113,
+        "subject": "STAIRS-F"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-NORTH-TEMPLE"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

@@ -1,0 +1,564 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "ENTRANCE-TO-HADES",
+  "title": "Entrance to Hades",
+  "runtime_room": 232,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "M-LOOK-1",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND <NOT ,LLD-FLAG> <NOT ,DEAD>>"
+        },
+        "text": [
+          "You are outside a large gateway, on which is inscribed||\n  Abandon every hope\nall ye who enter here!||\nThe gate is open; through it you can see a desolation, with a pile of\nmangled bodies in one corner. Thousands of voices, lamenting some\nhideous fate, can be heard.",
+          "The way through the gate is barred by evil spirits, who jeer at your\nattempts to pass."
+        ],
+        "source_refs": [
+          "SRC-ROOM-ENTRANCE-TO-HADES",
+          "SRC-ROUTINE-LLD-ROOM"
+        ]
+      },
+      {
+        "id": "M-LOOK-2",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<NOT <OR <AND <NOT ,LLD-FLAG> <NOT ,DEAD>>>>"
+        },
+        "text": [
+          "You are outside a large gateway, on which is inscribed||\n  Abandon every hope\nall ye who enter here!||\nThe gate is open; through it you can see a desolation, with a pile of\nmangled bodies in one corner. Thousands of voices, lamenting some\nhideous fate, can be heard."
+        ],
+        "source_refs": [
+          "SRC-ROOM-ENTRANCE-TO-HADES",
+          "SRC-ROUTINE-LLD-ROOM"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "GHOSTS",
+        "description": "number of ghosts",
+        "kind": "object",
+        "initial_location": "ENTRANCE-TO-HADES",
+        "source_flags": [
+          "ACTORBIT",
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-GHOSTS"
+        ]
+      },
+      {
+        "id": "BODIES",
+        "description": "pile of bodies",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT",
+          "TRYTAKEBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-BODIES"
+        ]
+      },
+      {
+        "id": "PSEUDO-GATE",
+        "description": "gate",
+        "kind": "pseudo_object",
+        "initial_location": "ENTRANCE-TO-HADES",
+        "source_flags": [],
+        "source_properties": {
+          "ACTION": "GATE-PSEUDO"
+        },
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/2",
+        "source_refs": [
+          "SRC-ROOM-ENTRANCE-TO-HADES",
+          "SRC-ROUTINE-GATE-PSEUDO"
+        ]
+      },
+      {
+        "id": "PSEUDO-GATES",
+        "description": "gates",
+        "kind": "pseudo_object",
+        "initial_location": "ENTRANCE-TO-HADES",
+        "source_flags": [],
+        "source_properties": {
+          "ACTION": "GATE-PSEUDO"
+        },
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/3",
+        "source_refs": [
+          "SRC-ROOM-ENTRANCE-TO-HADES",
+          "SRC-ROUTINE-GATE-PSEUDO"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-ENTRANCE-TO-HADES"
+        ]
+      },
+      {
+        "id": "EXIT-UP",
+        "directions": [
+          "up"
+        ],
+        "destination": "TINY-CAVE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-ENTRANCE-TO-HADES"
+        ]
+      },
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": "LAND-OF-LIVING-DEAD",
+        "condition": {
+          "op": "source_expression",
+          "expression": "LLD-FLAG"
+        },
+        "blocked_text": [
+          "Some invisible force prevents you from passing through the gate."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-ENTRANCE-TO-HADES"
+        ]
+      },
+      {
+        "id": "EXIT-SOUTH",
+        "directions": [
+          "south"
+        ],
+        "destination": "LAND-OF-LIVING-DEAD",
+        "condition": {
+          "op": "source_expression",
+          "expression": "LLD-FLAG"
+        },
+        "blocked_text": [
+          "Some invisible force prevents you from passing through the gate."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-ENTRANCE-TO-HADES"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "ONBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "DOME-TEMPLE"
+    ],
+    "camera": "Eye-level view from outside the great open gateway.",
+    "composition": "Frame the threshold, desolation beyond and source-established remains in one corner; preserve the physical inscription carrier but show no legible text.",
+    "lighting_palette": "Somber gray-brown stone with restrained pale spectral tones only when the state calls for spirits.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/entrance-to-hades.scene.json",
+    "scene_sha256": "c7b340492ad2bce03d46b742824be6e3f775d33e4aeadb37840aedb7d9693b46",
+    "source_references": [
+      {
+        "id": "SRC-GLOBAL-DEAD",
+        "file": "gverbs.zil",
+        "line_start": 1882,
+        "line_end": 1882,
+        "subject": "DEAD"
+      },
+      {
+        "id": "SRC-GLOBAL-LLD-FLAG",
+        "file": "1dungeon.zil",
+        "line_start": 1229,
+        "line_end": 1229,
+        "subject": "LLD-FLAG"
+      },
+      {
+        "id": "SRC-GLOBAL-P-CONT",
+        "file": "gparser.zil",
+        "line_start": 58,
+        "line_end": 58,
+        "subject": "P-CONT"
+      },
+      {
+        "id": "SRC-GLOBAL-XB",
+        "file": "1actions.zil",
+        "line_start": 1127,
+        "line_end": 1127,
+        "subject": "XB"
+      },
+      {
+        "id": "SRC-OBJECT-BODIES",
+        "file": "1dungeon.zil",
+        "line_start": 688,
+        "line_end": 694,
+        "subject": "BODIES"
+      },
+      {
+        "id": "SRC-OBJECT-GHOSTS",
+        "file": "1dungeon.zil",
+        "line_start": 109,
+        "line_end": 115,
+        "subject": "GHOSTS"
+      },
+      {
+        "id": "SRC-ROOM-ENTRANCE-TO-HADES",
+        "file": "1dungeon.zil",
+        "line_start": 2027,
+        "line_end": 2038,
+        "subject": "ENTRANCE-TO-HADES"
+      },
+      {
+        "id": "SRC-ROUTINE-BODY-FUNCTION",
+        "file": "1actions.zil",
+        "line_start": 2178,
+        "line_end": 2185,
+        "subject": "BODY-FUNCTION"
+      },
+      {
+        "id": "SRC-ROUTINE-GATE-PSEUDO",
+        "file": "1actions.zil",
+        "line_start": 3207,
+        "line_end": 3214,
+        "subject": "GATE-PSEUDO"
+      },
+      {
+        "id": "SRC-ROUTINE-GHOSTS-F",
+        "file": "1actions.zil",
+        "line_start": 264,
+        "line_end": 273,
+        "subject": "GHOSTS-F"
+      },
+      {
+        "id": "SRC-ROUTINE-I-XB",
+        "file": "1actions.zil",
+        "line_start": 1131,
+        "line_end": 1137,
+        "subject": "I-XB"
+      },
+      {
+        "id": "SRC-ROUTINE-I-XBH",
+        "file": "1actions.zil",
+        "line_start": 1143,
+        "line_end": 1147,
+        "subject": "I-XBH"
+      },
+      {
+        "id": "SRC-ROUTINE-LLD-ROOM",
+        "file": "1actions.zil",
+        "line_start": 1058,
+        "line_end": 1125,
+        "subject": "LLD-ROOM"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [
+      {
+        "id": "CANDLES.ONBIT",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": true,
+        "source_expression": "<FCLEAR ,CANDLES ,ONBIT>",
+        "source_refs": []
+      },
+      {
+        "id": "GHOSTS.location",
+        "kind": "object_location",
+        "value_type": "object_id",
+        "initial_value": "ENTRANCE-TO-HADES",
+        "source_expression": "<REMOVE-CAREFULLY ,GHOSTS>",
+        "source_refs": [
+          "SRC-OBJECT-GHOSTS"
+        ]
+      },
+      {
+        "id": "DEAD",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL DEAD <>>",
+        "source_refs": [
+          "SRC-GLOBAL-DEAD"
+        ]
+      },
+      {
+        "id": "LLD-FLAG",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL LLD-FLAG <>>",
+        "source_refs": [
+          "SRC-GLOBAL-LLD-FLAG"
+        ]
+      },
+      {
+        "id": "P-CONT",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL P-CONT <>>",
+        "source_refs": [
+          "SRC-GLOBAL-P-CONT"
+        ]
+      },
+      {
+        "id": "XB",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL XB <>>",
+        "source_refs": [
+          "SRC-GLOBAL-XB"
+        ]
+      }
+    ],
+    "extracted_states": [
+      {
+        "id": "LOOK-STATE-1",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND <NOT ,LLD-FLAG> <NOT ,DEAD>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-ENTRANCE-TO-HADES",
+          "SRC-ROUTINE-LLD-ROOM"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-2",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<NOT <OR <AND <NOT ,LLD-FLAG> <NOT ,DEAD>>>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-ENTRANCE-TO-HADES",
+          "SRC-ROUTINE-LLD-ROOM"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-3",
+        "condition": {
+          "op": "eq",
+          "left": {
+            "state_variable": "P-CONT"
+          },
+          "right": {
+            "value": false
+          }
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-GHOSTS-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-4",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "XB"
+              },
+              "right": {
+                "value": true
+              }
+            },
+            {
+              "op": "located_in",
+              "object": "HOT-BELL",
+              "location": "HERE"
+            },
+            {
+              "op": "located_in",
+              "object": "CANDLES",
+              "location": "HERE"
+            },
+            {
+              "op": "flag_clear",
+              "object": "CANDLES",
+              "flag": "ONBIT"
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-LLD-ROOM"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-5",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "XB"
+              },
+              "right": {
+                "value": true
+              }
+            },
+            {
+              "op": "located_in",
+              "object": "HOT-BELL",
+              "location": "HERE"
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-LLD-ROOM"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-6",
+        "condition": {
+          "op": "eq",
+          "left": {
+            "state_variable": "LLD-FLAG"
+          },
+          "right": {
+            "value": true
+          }
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-LLD-ROOM"
+        ]
+      },
+      {
+        "id": "EVENT-STATE-7",
+        "condition": {
+          "op": "eq",
+          "left": {
+            "state_variable": "XB"
+          },
+          "right": {
+            "value": false
+          }
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-I-XB"
+        ]
+      },
+      {
+        "id": "EVENT-STATE-8",
+        "condition": {
+          "op": "located_in",
+          "object": "BELL",
+          "location": "ENTRANCE-TO-HADES"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-I-XBH"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-GHOSTS-F-TELL-1",
+        "source_refs": [
+          "SRC-ROUTINE-GHOSTS-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-2-BODY-FUNCTION-MUNG-BURN-2",
+        "source_refs": [
+          "SRC-ROUTINE-BODY-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-3-LLD-ROOM-RING-2",
+        "source_refs": [
+          "SRC-ROUTINE-LLD-ROOM"
+        ]
+      },
+      {
+        "id": "TRANSITION-4-LLD-ROOM-RING-2",
+        "source_refs": [
+          "SRC-ROUTINE-LLD-ROOM"
+        ]
+      },
+      {
+        "id": "TRANSITION-5-LLD-ROOM-READ-3",
+        "source_refs": [
+          "SRC-ROUTINE-LLD-ROOM"
+        ]
+      },
+      {
+        "id": "EVENT-6-I-XB",
+        "source_refs": [
+          "SRC-ROUTINE-I-XB"
+        ]
+      },
+      {
+        "id": "EVENT-7-I-XBH",
+        "source_refs": [
+          "SRC-ROUTINE-I-XBH"
+        ]
+      },
+      {
+        "id": "EVENT-8-I-XBH",
+        "source_refs": [
+          "SRC-ROUTINE-I-XBH"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

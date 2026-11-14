@@ -1,0 +1,11 @@
+../tmp/tmpocplo8x9/tmpwld6rjva/WOH.KPR: ok
+resources 18 (catalog capacity 24)
+records   927: 1 header, 3 catalog, 923 live, 0 abandoned
+/tmp/tmpocplo8x9/tmpyrxrczqt/WOH.KPR: ok
+resources 18 (catalog capacity 24)
+records   927: 1 header, 3 catalog, 923 live, 0 abandoned
+....
+----------------------------------------------------------------------
+Ran 6 tests in 0.904s
+
+OK

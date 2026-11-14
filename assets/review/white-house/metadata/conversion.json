@@ -1,0 +1,133 @@
+{
+  "schema": "woh_phase2_conversion_v1",
+  "target": [
+    256,
+    159
+  ],
+  "resampling": "Pillow BOX, crop without distortion, no sharpening or forced palette",
+  "encoder": "/home/kitamura/Documents/ZephyrOS/tools/kimg.py",
+  "encoder_sha256": "236997465ef94fc57b07f1c6770ec253d748f38a3d79ea2d5f1e08fc415a7e12",
+  "quality": "optimized",
+  "pillow_version": "12.1.1",
+  "decode": "Existing kimg_compare.decode_payload; RGB555 expanded to RGB888",
+  "preview_scope": "Host decode, not an emulator or real-hardware display test",
+  "records": [
+    {
+      "asset_key": "room-180-state-1",
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "rgb555_mse_per_component": 0.45969274109014674,
+      "conversion_seconds": 2.093845559982583,
+      "kimg_bytes": 40720,
+      "kimg_sha256": "14ffda6a3aa3aa95bdd5409937919d3aac39f8502f3fcfac06d4d1f9964625c0"
+    },
+    {
+      "asset_key": "room-180-state-2",
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "rgb555_mse_per_component": 0.4687418107966457,
+      "conversion_seconds": 2.161483225878328,
+      "kimg_bytes": 40720,
+      "kimg_sha256": "5ff013e1d52a87c4a8c616f3df36c98391ef5f41637c3e74cc459378a62c7acc"
+    },
+    {
+      "asset_key": "room-81-state-1",
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "rgb555_mse_per_component": 0.5973368710691824,
+      "conversion_seconds": 2.281788957072422,
+      "kimg_bytes": 40720,
+      "kimg_sha256": "3c1552f31bb10734976978ac70f7be5f4c8cdb4bc4ec549ebcc1cd4580945a32"
+    },
+    {
+      "asset_key": "room-80-state-1",
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "rgb555_mse_per_component": 0.534632140985325,
+      "conversion_seconds": 2.071350183105096,
+      "kimg_bytes": 40720,
+      "kimg_sha256": "81391a26d326f25cb2c282b7a034c17ce1862648b4fc03af6ea67fa0a25feed5"
+    },
+    {
+      "asset_key": "room-79-state-1",
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "rgb555_mse_per_component": 0.4701503537735849,
+      "conversion_seconds": 2.141663381829858,
+      "kimg_bytes": 40720,
+      "kimg_sha256": "3c1bfad063cdf357fedbd44fbf2a1639f19239a049a8344f30cdc85f364dd791"
+    },
+    {
+      "asset_key": "room-79-state-2",
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "rgb555_mse_per_component": 0.5248050969601677,
+      "conversion_seconds": 2.212801435030997,
+      "kimg_bytes": 40720,
+      "kimg_sha256": "78efee57a43251abf0cb4a648f1ac42e1871422acbae071a516e78ce9207ba29"
+    },
+    {
+      "asset_key": "room-203-state-1",
+      "crop_box": [
+        0,
+        3,
+        1586,
+        988
+      ],
+      "rgb555_mse_per_component": 0.35098106656184486,
+      "conversion_seconds": 1.8423238201066852,
+      "kimg_bytes": 40720,
+      "kimg_sha256": "9289f6e2a619e4901328b99075138f5fa62a617afb5827d55822fd66137f5499"
+    },
+    {
+      "asset_key": "room-203-state-2",
+      "crop_box": [
+        0,
+        4,
+        1585,
+        988
+      ],
+      "rgb555_mse_per_component": 0.3554196147798742,
+      "conversion_seconds": 1.7747788289561868,
+      "kimg_bytes": 40720,
+      "kimg_sha256": "a0fefa32865bcd2c59394b71547fc694255fdee8079f0e7b4fa2aed6004b50fb"
+    },
+    {
+      "asset_key": "room-201-state-unbound",
+      "crop_box": [
+        0,
+        93,
+        1448,
+        992
+      ],
+      "rgb555_mse_per_component": 0.40861667976939203,
+      "conversion_seconds": 1.701583047863096,
+      "kimg_bytes": 40720,
+      "kimg_sha256": "e18d32679b43bf7c5706bf369ce2ffa5914377a762c1d1069e1419d65d337830"
+    }
+  ]
+}

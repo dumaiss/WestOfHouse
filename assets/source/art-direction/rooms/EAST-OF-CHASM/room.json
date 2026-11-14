@@ -1,0 +1,196 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "EAST-OF-CHASM",
+  "title": "East of Chasm",
+  "runtime_room": 71,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "You are on the east edge of a chasm, the bottom of which cannot be\nseen. A narrow passage goes north, and the path you are on continues\nto the east."
+        ],
+        "source_refs": [
+          "SRC-ROOM-EAST-OF-CHASM"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "PSEUDO-CHASM",
+        "description": "chasm",
+        "kind": "pseudo_object",
+        "initial_location": "EAST-OF-CHASM",
+        "source_flags": [],
+        "source_properties": {
+          "ACTION": "CHASM-PSEUDO"
+        },
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-ROOM-EAST-OF-CHASM",
+          "SRC-ROUTINE-CHASM-PSEUDO"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-EAST-OF-CHASM"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "CELLAR",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-EAST-OF-CHASM"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "GALLERY",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-EAST-OF-CHASM"
+        ]
+      },
+      {
+        "id": "EXIT-DOWN",
+        "directions": [
+          "down"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(DOWN \"The chasm probably leads straight to the infernal regions.\")"
+        },
+        "blocked_text": [
+          "The chasm probably leads straight to the infernal regions."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-EAST-OF-CHASM"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "CAVES"
+    ],
+    "camera": "Stand at the eastern rim and look obliquely across the unseen-depth cleft.",
+    "composition": "Show the north passage and the eastward continuation of the current path, with no bridge or visible bottom.",
+    "lighting_palette": "Deep cool cleft shadow against muted stone.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/east-of-chasm.scene.json",
+    "scene_sha256": "10d71dedda8d12e934e1830f8879c2bb83570e3571909ebff840dd3745855b12",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-PSEUDO-OBJECT",
+        "file": "gglobals.zil",
+        "line_start": 37,
+        "line_end": 40,
+        "subject": "PSEUDO-OBJECT"
+      },
+      {
+        "id": "SRC-ROOM-EAST-OF-CHASM",
+        "file": "1dungeon.zil",
+        "line_start": 1494,
+        "line_end": 1505,
+        "subject": "EAST-OF-CHASM"
+      },
+      {
+        "id": "SRC-ROUTINE-CHASM-PSEUDO",
+        "file": "1actions.zil",
+        "line_start": 3191,
+        "line_end": 3201,
+        "subject": "CHASM-PSEUDO"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-EAST-OF-CHASM"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-2",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <REMOVE-CAREFULLY ,PRSO>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-CHASM-PSEUDO"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-CHASM-PSEUDO-PUT-THROW-OFF-3",
+        "source_refs": [
+          "SRC-ROUTINE-CHASM-PSEUDO"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values.",
+      "ACTION-STATE conditions describe source mutations and may overlap; arbitrary ZIL was not executed."
+    ]
+  },
+  "unresolved": []
+}

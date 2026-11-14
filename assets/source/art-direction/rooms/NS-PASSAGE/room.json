@@ -1,0 +1,142 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "NS-PASSAGE",
+  "title": "North-South Passage",
+  "runtime_room": 38,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is a high north-south passage, which forks to the northeast."
+        ],
+        "source_refs": [
+          "SRC-ROOM-NS-PASSAGE"
+        ]
+      }
+    ],
+    "objects": [],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-NS-PASSAGE"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "CHASM-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-NS-PASSAGE"
+        ]
+      },
+      {
+        "id": "EXIT-NE",
+        "directions": [
+          "ne"
+        ],
+        "destination": "DEEP-CANYON",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-NS-PASSAGE"
+        ]
+      },
+      {
+        "id": "EXIT-SOUTH",
+        "directions": [
+          "south"
+        ],
+        "destination": "ROUND-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-NS-PASSAGE"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "CAVES"
+    ],
+    "camera": "View along the high north-south passage from its southern approach.",
+    "composition": "Keep the northeast branch spatially separate from the main axis, emphasizing tall headroom.",
+    "lighting_palette": "Cool rock and deep branch shadows.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/ns-passage.scene.json",
+    "scene_sha256": "827da48d88da6faec2656084636034882c328f39e9667a9d869cf6a0e2b2af6a",
+    "source_references": [
+      {
+        "id": "SRC-ROOM-NS-PASSAGE",
+        "file": "1dungeon.zil",
+        "line_start": 1998,
+        "line_end": 2006,
+        "subject": "NS-PASSAGE"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-NS-PASSAGE"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

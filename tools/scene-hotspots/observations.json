@@ -1,0 +1,746 @@
+{
+  "schema": "woh_hotspot_visual_observations_v1",
+  "method": "Vision inspection by the coding assistant of the final RGB previews and original illustrations; rectangles estimated directly in final 256x159 pixels. No keyword/image-template localization.",
+  "scenes": {
+    "room-180-state-1": {
+      "image_sha256": "44a59b02072c23f28ef42e5ba277fd8e1f4137e5f33ad03744abaf5e09866bc7",
+      "hotspots": [
+        {
+          "object_id": "WHITE-HOUSE",
+          "label": "House",
+          "rect": [
+            52,
+            4,
+            190,
+            146
+          ],
+          "confidence": "high",
+          "background": true,
+          "id": "h1",
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "FRONT-DOOR",
+          "label": "Door",
+          "rect": [
+            153,
+            89,
+            39,
+            57
+          ],
+          "confidence": "high",
+          "id": "h2",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "MAILBOX",
+          "label": "Mailbox",
+          "rect": [
+            193,
+            120,
+            20,
+            34
+          ],
+          "confidence": "high",
+          "id": "h3",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "FOREST",
+          "label": "Forest",
+          "rect": [
+            0,
+            67,
+            50,
+            49
+          ],
+          "confidence": "high",
+          "background": true,
+          "id": "h4",
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        }
+      ],
+      "unresolved": [
+        {
+          "object_id": "ADVERTISEMENT",
+          "status": "concealed",
+          "detail": "Leaflet is inside the closed mailbox; no visible leaflet is localized."
+        }
+      ]
+    },
+    "room-180-state-2": {
+      "image_sha256": "eedfe54674cab7d57fa453d6ef98b84e55e17c766ed2ae1b92cb2726153b42d7",
+      "hotspots": [
+        {
+          "object_id": "WHITE-HOUSE",
+          "label": "House",
+          "rect": [
+            52,
+            4,
+            190,
+            146
+          ],
+          "confidence": "high",
+          "background": true,
+          "id": "h1",
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "FRONT-DOOR",
+          "label": "Door",
+          "rect": [
+            153,
+            89,
+            39,
+            57
+          ],
+          "confidence": "high",
+          "id": "h2",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "MAILBOX",
+          "label": "Mailbox",
+          "rect": [
+            193,
+            120,
+            20,
+            34
+          ],
+          "confidence": "high",
+          "id": "h3",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "FOREST",
+          "label": "Forest",
+          "rect": [
+            0,
+            67,
+            50,
+            49
+          ],
+          "confidence": "high",
+          "background": true,
+          "id": "h4",
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "EXIT-SW",
+          "label": "Secret path",
+          "rect": [
+            7,
+            111,
+            47,
+            32
+          ],
+          "confidence": "high",
+          "basis": "Canonical state reveals the southwest path; visible in this image.",
+          "id": "h5",
+          "background": false
+        }
+      ],
+      "unresolved": [
+        {
+          "object_id": "ADVERTISEMENT",
+          "status": "concealed",
+          "detail": "Leaflet is inside the closed mailbox; no visible leaflet is localized."
+        }
+      ]
+    },
+    "room-81-state-1": {
+      "image_sha256": "a9463f48ebe0bf463904fc7c1cb67f1a9a53a4095a1a45f9da428e64a567f3b3",
+      "hotspots": [
+        {
+          "object_id": "WHITE-HOUSE",
+          "label": "House",
+          "rect": [
+            7,
+            18,
+            181,
+            135
+          ],
+          "confidence": "high",
+          "background": true,
+          "id": "h1",
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "BOARDED-WINDOW",
+          "label": "Window A",
+          "rect": [
+            49,
+            51,
+            36,
+            36
+          ],
+          "confidence": "high",
+          "id": "h2",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "BOARDED-WINDOW",
+          "label": "Window B",
+          "rect": [
+            115,
+            51,
+            37,
+            36
+          ],
+          "confidence": "high",
+          "id": "h3",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "BOARDED-WINDOW",
+          "label": "Window C",
+          "rect": [
+            49,
+            95,
+            36,
+            39
+          ],
+          "confidence": "high",
+          "id": "h4",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "BOARDED-WINDOW",
+          "label": "Window D",
+          "rect": [
+            115,
+            95,
+            37,
+            39
+          ],
+          "confidence": "high",
+          "id": "h5",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "EXIT-NORTH",
+          "label": "North path",
+          "rect": [
+            188,
+            92,
+            68,
+            67
+          ],
+          "confidence": "high",
+          "basis": "Visible winding path and explicit north exit.",
+          "id": "h6",
+          "background": false
+        },
+        {
+          "object_id": "FOREST",
+          "label": "Forest",
+          "rect": [
+            191,
+            22,
+            65,
+            66
+          ],
+          "confidence": "high",
+          "background": true,
+          "id": "h7",
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        }
+      ],
+      "unresolved": []
+    },
+    "room-80-state-1": {
+      "image_sha256": "2963988b05ccadc5e45f311c9e01b50b555d74a1ca1693a8204d8619c9f76d24",
+      "hotspots": [
+        {
+          "object_id": "WHITE-HOUSE",
+          "label": "House",
+          "rect": [
+            35,
+            16,
+            190,
+            138
+          ],
+          "confidence": "high",
+          "background": true,
+          "id": "h1",
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "FOREST",
+          "label": "Forest",
+          "rect": [
+            0,
+            79,
+            33,
+            49
+          ],
+          "confidence": "high",
+          "background": true,
+          "id": "h2",
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "BOARDED-WINDOW",
+          "label": "Window 1",
+          "rect": [
+            65,
+            51,
+            32,
+            37
+          ],
+          "confidence": "high",
+          "id": "h3",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "BOARDED-WINDOW",
+          "label": "Window 2",
+          "rect": [
+            116,
+            51,
+            32,
+            37
+          ],
+          "confidence": "high",
+          "id": "h4",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "BOARDED-WINDOW",
+          "label": "Window 3",
+          "rect": [
+            166,
+            51,
+            32,
+            37
+          ],
+          "confidence": "high",
+          "id": "h5",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "BOARDED-WINDOW",
+          "label": "Window 4",
+          "rect": [
+            65,
+            94,
+            32,
+            37
+          ],
+          "confidence": "high",
+          "id": "h6",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "BOARDED-WINDOW",
+          "label": "Window 5",
+          "rect": [
+            116,
+            94,
+            32,
+            37
+          ],
+          "confidence": "high",
+          "id": "h7",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "BOARDED-WINDOW",
+          "label": "Window 6",
+          "rect": [
+            166,
+            94,
+            32,
+            37
+          ],
+          "confidence": "high",
+          "id": "h8",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        }
+      ],
+      "unresolved": []
+    },
+    "room-79-state-1": {
+      "image_sha256": "359c8b24628a73dfb690ac23c197268b166ae9846e28d4261e3d033711e4eaf5",
+      "hotspots": [
+        {
+          "object_id": "WHITE-HOUSE",
+          "label": "House",
+          "rect": [
+            0,
+            3,
+            183,
+            154
+          ],
+          "confidence": "high",
+          "background": true,
+          "id": "h1",
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "KITCHEN-WINDOW",
+          "label": "Window",
+          "rect": [
+            114,
+            69,
+            30,
+            58
+          ],
+          "confidence": "high",
+          "id": "h2",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "FOREST",
+          "label": "Forest",
+          "rect": [
+            185,
+            0,
+            71,
+            103
+          ],
+          "confidence": "high",
+          "background": true,
+          "id": "h3",
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "EXIT-EAST",
+          "label": "Forest path",
+          "rect": [
+            192,
+            108,
+            64,
+            49
+          ],
+          "confidence": "high",
+          "basis": "Visible forest path matches explicit east exit.",
+          "id": "h4",
+          "background": false
+        }
+      ],
+      "unresolved": []
+    },
+    "room-79-state-2": {
+      "image_sha256": "3ba10b42003529a57c4b85c1563d445054e01ecc35a652e56160ef6ff274ab3a",
+      "hotspots": [
+        {
+          "object_id": "WHITE-HOUSE",
+          "label": "House",
+          "rect": [
+            0,
+            3,
+            183,
+            154
+          ],
+          "confidence": "high",
+          "background": true,
+          "id": "h1",
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "KITCHEN-WINDOW",
+          "label": "Window",
+          "rect": [
+            114,
+            69,
+            30,
+            58
+          ],
+          "confidence": "high",
+          "id": "h2",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "FOREST",
+          "label": "Forest",
+          "rect": [
+            185,
+            0,
+            71,
+            103
+          ],
+          "confidence": "high",
+          "background": true,
+          "id": "h3",
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "EXIT-EAST",
+          "label": "Forest path",
+          "rect": [
+            192,
+            108,
+            64,
+            49
+          ],
+          "confidence": "high",
+          "basis": "Visible forest path matches explicit east exit.",
+          "id": "h4",
+          "background": false
+        }
+      ],
+      "unresolved": []
+    },
+    "room-203-state-1": {
+      "image_sha256": "1734009981ab52ca02f474b220e0873ca30cd7a3926aed76c8ee45d3642b37e6",
+      "hotspots": [
+        {
+          "object_id": "KITCHEN-TABLE",
+          "label": "Table",
+          "rect": [
+            88,
+            89,
+            130,
+            70
+          ],
+          "confidence": "high",
+          "id": "h1",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "KITCHEN-WINDOW",
+          "label": "Window",
+          "rect": [
+            208,
+            30,
+            39,
+            66
+          ],
+          "confidence": "high",
+          "id": "h2",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "STAIRS",
+          "label": "Stairs",
+          "rect": [
+            5,
+            17,
+            48,
+            141
+          ],
+          "confidence": "high",
+          "id": "h3",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "CHIMNEY",
+          "label": "Chimney",
+          "rect": [
+            81,
+            57,
+            77,
+            42
+          ],
+          "confidence": "medium",
+          "basis": "Visible hearth aperture is an imperfect depiction of the source chimney. Avoid the table foreground where possible.",
+          "id": "h4",
+          "background": false
+        }
+      ],
+      "unresolved": [
+        {
+          "object_id": "SANDWICH-BAG",
+          "status": "not_visible",
+          "detail": "Source sack on table is not identifiable in the illustration."
+        },
+        {
+          "object_id": "BOTTLE",
+          "status": "not_visible",
+          "detail": "Source glass bottle is not identifiable; the painted brown jug is not a reliable match."
+        },
+        {
+          "object_id": "EXIT-WEST",
+          "status": "not_visible",
+          "detail": "No independently identifiable west passage is shown."
+        },
+        {
+          "object_id": "GARLIC",
+          "status": "concealed",
+          "detail": "Garlic is in the source sack; painted onions are not identified as it."
+        },
+        {
+          "object_id": "LUNCH",
+          "status": "concealed",
+          "detail": "Source sack contents are not shown."
+        }
+      ]
+    },
+    "room-203-state-2": {
+      "image_sha256": "6e494ff2cef5bbb4b645197b051e6520ee1b31ceeaaa98970c61683c05afcb37",
+      "hotspots": [
+        {
+          "object_id": "KITCHEN-TABLE",
+          "label": "Table",
+          "rect": [
+            88,
+            89,
+            130,
+            70
+          ],
+          "confidence": "high",
+          "id": "h1",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "KITCHEN-WINDOW",
+          "label": "Window",
+          "rect": [
+            208,
+            30,
+            39,
+            66
+          ],
+          "confidence": "high",
+          "id": "h2",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "STAIRS",
+          "label": "Stairs",
+          "rect": [
+            5,
+            17,
+            48,
+            141
+          ],
+          "confidence": "high",
+          "id": "h3",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "CHIMNEY",
+          "label": "Chimney",
+          "rect": [
+            81,
+            57,
+            77,
+            42
+          ],
+          "confidence": "medium",
+          "basis": "Visible hearth aperture is an imperfect depiction of the source chimney. Avoid the table foreground where possible.",
+          "id": "h4",
+          "background": false
+        }
+      ],
+      "unresolved": [
+        {
+          "object_id": "SANDWICH-BAG",
+          "status": "not_visible",
+          "detail": "Source sack on table is not identifiable in the illustration."
+        },
+        {
+          "object_id": "BOTTLE",
+          "status": "not_visible",
+          "detail": "Source glass bottle is not identifiable; the painted brown jug is not a reliable match."
+        },
+        {
+          "object_id": "EXIT-WEST",
+          "status": "not_visible",
+          "detail": "No independently identifiable west passage is shown."
+        },
+        {
+          "object_id": "GARLIC",
+          "status": "concealed",
+          "detail": "Garlic is in the source sack; painted onions are not identified as it."
+        },
+        {
+          "object_id": "LUNCH",
+          "status": "concealed",
+          "detail": "Source sack contents are not shown."
+        }
+      ]
+    },
+    "room-201-state-unbound": {
+      "image_sha256": "484300fb163315b59b02949ae5e1d2c4ef50378f3b9682e4e1c2924e22b6b5a0",
+      "hotspots": [
+        {
+          "object_id": "STAIRS",
+          "label": "Stairs",
+          "rect": [
+            0,
+            75,
+            94,
+            84
+          ],
+          "confidence": "high",
+          "id": "h1",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "ATTIC-TABLE",
+          "label": "Table",
+          "rect": [
+            154,
+            98,
+            102,
+            61
+          ],
+          "confidence": "high",
+          "id": "h2",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "KNIFE",
+          "label": "Knife",
+          "rect": [
+            189,
+            107,
+            49,
+            19
+          ],
+          "confidence": "high",
+          "id": "h3",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        },
+        {
+          "object_id": "ROPE",
+          "label": "Rope",
+          "rect": [
+            205,
+            70,
+            51,
+            35
+          ],
+          "confidence": "high",
+          "id": "h4",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful."
+        }
+      ],
+      "unresolved": [
+        {
+          "object_id": null,
+          "status": "unsupported_art_feature",
+          "detail": "Painted attic window has no supporting object/exit in this room; no hotspot assigned."
+        }
+      ]
+    }
+  }
+}

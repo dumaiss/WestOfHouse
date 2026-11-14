@@ -1,0 +1,242 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "DOME-ROOM",
+  "title": "Dome Room",
+  "runtime_room": 133,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "M-LOOK-1",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": ",DOME-FLAG"
+        },
+        "text": [
+          "You are at the periphery of a large dome, which forms the ceiling\nof another room below. Protecting you from a precipitous drop is a\nwooden railing which circles the dome.",
+          "Hanging down from the railing is a rope which ends about ten feet\nfrom the floor below."
+        ],
+        "source_refs": [
+          "SRC-ROOM-DOME-ROOM",
+          "SRC-ROUTINE-DOME-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-2",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<NOT <OR ,DOME-FLAG>>"
+        },
+        "text": [
+          "You are at the periphery of a large dome, which forms the ceiling\nof another room below. Protecting you from a precipitous drop is a\nwooden railing which circles the dome."
+        ],
+        "source_refs": [
+          "SRC-ROOM-DOME-ROOM",
+          "SRC-ROUTINE-DOME-ROOM-FCN"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "RAILING",
+        "description": "wooden railing",
+        "kind": "object",
+        "initial_location": "DOME-ROOM",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-RAILING"
+        ]
+      },
+      {
+        "id": "PSEUDO-DOME",
+        "description": "dome",
+        "kind": "pseudo_object",
+        "initial_location": "DOME-ROOM",
+        "source_flags": [],
+        "source_properties": {
+          "ACTION": "DOME-PSEUDO"
+        },
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-ROOM-DOME-ROOM",
+          "SRC-ROUTINE-DOME-PSEUDO"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-DOME-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "ENGRAVINGS-CAVE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-DOME-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-DOWN",
+        "directions": [
+          "down"
+        ],
+        "destination": "TORCH-ROOM",
+        "condition": {
+          "op": "source_expression",
+          "expression": "DOME-FLAG"
+        },
+        "blocked_text": [
+          "You cannot go down without fracturing many bones."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-DOME-ROOM"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "DOME-TEMPLE"
+    ],
+    "camera": "Stand at the dome periphery behind the wooden railing and look down into the lower room.",
+    "composition": "Use railing foreground and curved dome edge to convey a precipitous drop; rope presence changes only where canonical.",
+    "lighting_palette": "Dim stone with warm worn wood and soft depth falloff.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/dome-room.scene.json",
+    "scene_sha256": "538599aac14ecc29c83f427fe8b9111ee603af358b9bb9390103ea4192ac7ca7",
+    "source_references": [
+      {
+        "id": "SRC-GLOBAL-DOME-FLAG",
+        "file": "1dungeon.zil",
+        "line_start": 1227,
+        "line_end": 1227,
+        "subject": "DOME-FLAG"
+      },
+      {
+        "id": "SRC-OBJECT-RAILING",
+        "file": "1dungeon.zil",
+        "line_start": 760,
+        "line_end": 765,
+        "subject": "RAILING"
+      },
+      {
+        "id": "SRC-ROOM-DOME-ROOM",
+        "file": "1dungeon.zil",
+        "line_start": 2077,
+        "line_end": 2085,
+        "subject": "DOME-ROOM"
+      },
+      {
+        "id": "SRC-ROUTINE-DOME-PSEUDO",
+        "file": "1actions.zil",
+        "line_start": 3203,
+        "line_end": 3205,
+        "subject": "DOME-PSEUDO"
+      },
+      {
+        "id": "SRC-ROUTINE-DOME-ROOM-FCN",
+        "file": "1actions.zil",
+        "line_start": 1030,
+        "line_end": 1050,
+        "subject": "DOME-ROOM-FCN"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [
+      {
+        "id": "DOME-FLAG",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL DOME-FLAG <>>",
+        "source_refs": [
+          "SRC-GLOBAL-DOME-FLAG"
+        ]
+      }
+    ],
+    "extracted_states": [
+      {
+        "id": "LOOK-STATE-1",
+        "condition": {
+          "op": "source_expression",
+          "expression": ",DOME-FLAG"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-DOME-ROOM",
+          "SRC-ROUTINE-DOME-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-2",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<NOT <OR ,DOME-FLAG>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-DOME-ROOM",
+          "SRC-ROUTINE-DOME-ROOM-FCN"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-DOME-ROOM-FCN-LEAP-1",
+        "source_refs": [
+          "SRC-ROUTINE-DOME-ROOM-FCN"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

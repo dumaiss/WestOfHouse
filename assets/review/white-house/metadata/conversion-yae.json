@@ -1,0 +1,168 @@
+{
+  "schema": "woh_yae_comparison_v1",
+  "mode": "YJK+YAE",
+  "target": [
+    256,
+    159
+  ],
+  "quality": "optimized",
+  "encoder": "/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/tools/kimg.py",
+  "encoder_sha256": "1b00dd1dd4e5053fb565337687dd109bd4cf25b76c352c74e7ead77abaf56189",
+  "pillow_version": "12.1.1",
+  "palette": "No override; picture pixels have A clear, palette slots remain available for UI.",
+  "records": [
+    {
+      "asset_key": "room-180-state-1",
+      "room": 180,
+      "state": 1,
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "source_rgb": "assets/review/white-house/previews/rgb/room-180-state-1.png",
+      "source_rgb_sha256": "44a59b02072c23f28ef42e5ba277fd8e1f4137e5f33ad03744abaf5e09866bc7",
+      "kimg": "assets/review/white-house/kimg-yae/room-180-state-1.img",
+      "kimg_sha256": "f5944d43ade4fa1dd8277f57fd50aaae360f2bd44a04405e7c43c54a961e6814",
+      "bytes": 40720,
+      "preview": "assets/review/white-house/previews/yae/room-180-state-1.png"
+    },
+    {
+      "asset_key": "room-180-state-2",
+      "room": 180,
+      "state": 2,
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "source_rgb": "assets/review/white-house/previews/rgb/room-180-state-2.png",
+      "source_rgb_sha256": "eedfe54674cab7d57fa453d6ef98b84e55e17c766ed2ae1b92cb2726153b42d7",
+      "kimg": "assets/review/white-house/kimg-yae/room-180-state-2.img",
+      "kimg_sha256": "48a4538e6da59739af4a7a3f384c010c6247a26bdd368f97ea5b2f82d8a9a102",
+      "bytes": 40720,
+      "preview": "assets/review/white-house/previews/yae/room-180-state-2.png"
+    },
+    {
+      "asset_key": "room-81-state-1",
+      "room": 81,
+      "state": 1,
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "source_rgb": "assets/review/white-house/previews/rgb/room-81-state-1.png",
+      "source_rgb_sha256": "a9463f48ebe0bf463904fc7c1cb67f1a9a53a4095a1a45f9da428e64a567f3b3",
+      "kimg": "assets/review/white-house/kimg-yae/room-81-state-1.img",
+      "kimg_sha256": "723703a8ce699e610455c8fb201c297397e318b62110d102530b05a71ed6698f",
+      "bytes": 40720,
+      "preview": "assets/review/white-house/previews/yae/room-81-state-1.png"
+    },
+    {
+      "asset_key": "room-80-state-1",
+      "room": 80,
+      "state": 1,
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "source_rgb": "assets/review/white-house/previews/rgb/room-80-state-1.png",
+      "source_rgb_sha256": "2963988b05ccadc5e45f311c9e01b50b555d74a1ca1693a8204d8619c9f76d24",
+      "kimg": "assets/review/white-house/kimg-yae/room-80-state-1.img",
+      "kimg_sha256": "8a0d866fec5e14e9680bbf7005eb0bdafd64ca2918292fae9be7c71e24b21ea2",
+      "bytes": 40720,
+      "preview": "assets/review/white-house/previews/yae/room-80-state-1.png"
+    },
+    {
+      "asset_key": "room-79-state-1",
+      "room": 79,
+      "state": 1,
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "source_rgb": "assets/review/white-house/previews/rgb/room-79-state-1.png",
+      "source_rgb_sha256": "359c8b24628a73dfb690ac23c197268b166ae9846e28d4261e3d033711e4eaf5",
+      "kimg": "assets/review/white-house/kimg-yae/room-79-state-1.img",
+      "kimg_sha256": "95c99bb2437299a67be8423810d5fc2d3d05f7bae31021933ca88a9325441ee6",
+      "bytes": 40720,
+      "preview": "assets/review/white-house/previews/yae/room-79-state-1.png"
+    },
+    {
+      "asset_key": "room-79-state-2",
+      "room": 79,
+      "state": 2,
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "source_rgb": "assets/review/white-house/previews/rgb/room-79-state-2.png",
+      "source_rgb_sha256": "3ba10b42003529a57c4b85c1563d445054e01ecc35a652e56160ef6ff274ab3a",
+      "kimg": "assets/review/white-house/kimg-yae/room-79-state-2.img",
+      "kimg_sha256": "6d530e363d68ef14c0102b70f5fd7ef5713c2acd7a5849ae81909e901c164a75",
+      "bytes": 40720,
+      "preview": "assets/review/white-house/previews/yae/room-79-state-2.png"
+    },
+    {
+      "asset_key": "room-203-state-1",
+      "room": 203,
+      "state": 1,
+      "crop_box": [
+        0,
+        3,
+        1586,
+        988
+      ],
+      "source_rgb": "assets/review/white-house/previews/rgb/room-203-state-1.png",
+      "source_rgb_sha256": "1734009981ab52ca02f474b220e0873ca30cd7a3926aed76c8ee45d3642b37e6",
+      "kimg": "assets/review/white-house/kimg-yae/room-203-state-1.img",
+      "kimg_sha256": "df6db68514e78e1969ba00d838a78d4f997eb1c5f2fa8e184d36d4896efa449e",
+      "bytes": 40720,
+      "preview": "assets/review/white-house/previews/yae/room-203-state-1.png"
+    },
+    {
+      "asset_key": "room-203-state-2",
+      "room": 203,
+      "state": 2,
+      "crop_box": [
+        0,
+        4,
+        1585,
+        988
+      ],
+      "source_rgb": "assets/review/white-house/previews/rgb/room-203-state-2.png",
+      "source_rgb_sha256": "6e494ff2cef5bbb4b645197b051e6520ee1b31ceeaaa98970c61683c05afcb37",
+      "kimg": "assets/review/white-house/kimg-yae/room-203-state-2.img",
+      "kimg_sha256": "8e2a886d74e6fa2c1fb416ce25c651bbda5089f94ad7bfd91001e1c6726b23ba",
+      "bytes": 40720,
+      "preview": "assets/review/white-house/previews/yae/room-203-state-2.png"
+    },
+    {
+      "asset_key": "room-201-state-unbound",
+      "room": 201,
+      "state": null,
+      "crop_box": [
+        0,
+        93,
+        1448,
+        992
+      ],
+      "source_rgb": "assets/review/white-house/previews/rgb/room-201-state-unbound.png",
+      "source_rgb_sha256": "484300fb163315b59b02949ae5e1d2c4ef50378f3b9682e4e1c2924e22b6b5a0",
+      "kimg": "assets/review/white-house/kimg-yae/room-201-state-unbound.img",
+      "kimg_sha256": "e7781470deb9dd55aa75d40f908ad08d87799029ce7a45e8a596ebd68a34d0bf",
+      "bytes": 40720,
+      "preview": "assets/review/white-house/previews/yae/room-201-state-unbound.png"
+    }
+  ]
+}

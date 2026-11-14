@@ -1,0 +1,273 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "MOUNTAINS",
+  "title": "Forest",
+  "runtime_room": 239,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "The forest thins out, revealing impassable mountains."
+        ],
+        "source_refs": [
+          "SRC-ROOM-MOUNTAINS"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "MOUNTAIN-RANGE",
+        "description": "mountain range",
+        "kind": "object",
+        "initial_location": "MOUNTAINS",
+        "source_flags": [
+          "NDESCBIT",
+          "CLIMBBIT"
+        ],
+        "source_properties": {},
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-MOUNTAIN-RANGE"
+        ]
+      },
+      {
+        "id": "TREE",
+        "description": "tree",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT",
+          "CLIMBBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-TREE"
+        ]
+      },
+      {
+        "id": "WHITE-HOUSE",
+        "description": "white house",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/2",
+        "source_refs": [
+          "SRC-OBJECT-WHITE-HOUSE"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MOUNTAINS"
+        ]
+      },
+      {
+        "id": "EXIT-UP",
+        "directions": [
+          "up"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(UP \"The mountains are impassable.\")"
+        },
+        "blocked_text": [
+          "The mountains are impassable."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MOUNTAINS"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "FOREST-2",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MOUNTAINS"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(EAST \"The mountains are impassable.\")"
+        },
+        "blocked_text": [
+          "The mountains are impassable."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MOUNTAINS"
+        ]
+      },
+      {
+        "id": "EXIT-SOUTH",
+        "directions": [
+          "south"
+        ],
+        "destination": "FOREST-2",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MOUNTAINS"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "FOREST-2",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MOUNTAINS"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "ONBIT",
+      "SACREDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "FOREST"
+    ],
+    "camera": "View from the thinning forest toward the mountain barrier.",
+    "composition": "Use foreground tree masses opening onto severe impassable mountains; preserve their scale without depicting a pass.",
+    "lighting_palette": "Clear distant daylight, muted greens and blue-gray stone.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/mountains.scene.json",
+    "scene_sha256": "c427124905521aa541dbd7add540e2f65bd465eddd5f5d2f4d9e678513905e1a",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-MOUNTAIN-RANGE",
+        "file": "1dungeon.zil",
+        "line_start": 70,
+        "line_end": 76,
+        "subject": "MOUNTAIN-RANGE"
+      },
+      {
+        "id": "SRC-OBJECT-TREE",
+        "file": "1dungeon.zil",
+        "line_start": 63,
+        "line_end": 68,
+        "subject": "TREE"
+      },
+      {
+        "id": "SRC-OBJECT-WHITE-HOUSE",
+        "file": "1dungeon.zil",
+        "line_start": 48,
+        "line_end": 54,
+        "subject": "WHITE-HOUSE"
+      },
+      {
+        "id": "SRC-ROOM-MOUNTAINS",
+        "file": "1dungeon.zil",
+        "line_start": 1337,
+        "line_end": 1347,
+        "subject": "MOUNTAINS"
+      },
+      {
+        "id": "SRC-ROUTINE-MOUNTAIN-RANGE-F",
+        "file": "1actions.zil",
+        "line_start": 152,
+        "line_end": 155,
+        "subject": "MOUNTAIN-RANGE-F"
+      },
+      {
+        "id": "SRC-ROUTINE-WHITE-HOUSE-F",
+        "file": "1actions.zil",
+        "line_start": 92,
+        "line_end": 127,
+        "subject": "WHITE-HOUSE-F"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-MOUNTAINS"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-WHITE-HOUSE-F-THROUGH-OPEN-4",
+        "source_refs": [
+          "SRC-ROUTINE-WHITE-HOUSE-F"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

@@ -1,0 +1,127 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "SQUEEKY-ROOM",
+  "title": "Squeaky Room",
+  "runtime_room": 23,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "You are in a small room. Strange squeaky sounds may be heard coming\nfrom the passage at the north end. You may also escape to the east."
+        ],
+        "source_refs": [
+          "SRC-ROOM-SQUEEKY-ROOM"
+        ]
+      }
+    ],
+    "objects": [],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-SQUEEKY-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "BAT-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-SQUEEKY-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "MINE-ENTRANCE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-SQUEEKY-ROOM"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "MINE"
+    ],
+    "camera": "Stand in the small room facing north at a slight angle.",
+    "composition": "Keep north passage and east escape distinct. A squeak alone does not authorize a visible animal or device.",
+    "lighting_palette": "Dark umber and cool low fill.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/squeeky-room.scene.json",
+    "scene_sha256": "6ab1270f27f5dea5a38be755f931ad3bb288242a5eaa006d253bb9dddc42af53",
+    "source_references": [
+      {
+        "id": "SRC-ROOM-SQUEEKY-ROOM",
+        "file": "1dungeon.zil",
+        "line_start": 2431,
+        "line_end": 2439,
+        "subject": "SQUEEKY-ROOM"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-SQUEEKY-ROOM"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

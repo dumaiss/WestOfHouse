@@ -1,0 +1,397 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "SHAFT-ROOM",
+  "title": "Shaft Room",
+  "runtime_room": 226,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is a large room, in the middle of which is a small shaft\ndescending through the floor into darkness below. To the west and\nthe north are exits from this room. Constructed over the top of the\nshaft is a metal framework to which a heavy iron chain is attached."
+        ],
+        "source_refs": [
+          "SRC-ROOM-SHAFT-ROOM"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "RAISED-BASKET",
+        "description": "basket",
+        "kind": "object",
+        "initial_location": "SHAFT-ROOM",
+        "source_flags": [
+          "TRANSBIT",
+          "TRYTAKEBIT",
+          "CONTBIT",
+          "OPENBIT"
+        ],
+        "source_properties": {
+          "CAPACITY": 50,
+          "LDESC": "At the end of the chain is a basket."
+        },
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-RAISED-BASKET"
+        ]
+      },
+      {
+        "id": "PSEUDO-CHAIN",
+        "description": "chain",
+        "kind": "pseudo_object",
+        "initial_location": "SHAFT-ROOM",
+        "source_flags": [],
+        "source_properties": {
+          "ACTION": "CHAIN-PSEUDO"
+        },
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-ROOM-SHAFT-ROOM",
+          "SRC-ROUTINE-CHAIN-PSEUDO"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-SHAFT-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-DOWN",
+        "directions": [
+          "down"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(DOWN \"You wouldn't fit and would die if you could.\")"
+        },
+        "blocked_text": [
+          "You wouldn't fit and would die if you could."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-SHAFT-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "BAT-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-SHAFT-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "SMELLY-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-SHAFT-ROOM"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "MINE"
+    ],
+    "camera": "Stand back from the central shaft looking across the metal frame.",
+    "composition": "Keep the heavy chain vertically aligned with the lower-shaft view, plus west/north exits; basket placement follows the canonical room presentation.",
+    "lighting_palette": "Dark iron, umber rock and low cool fill.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/shaft-room.scene.json",
+    "scene_sha256": "a47ae416d17900918391a2738be6018c37796d428a4a44d4258813ba8f6d8f87",
+    "source_references": [
+      {
+        "id": "SRC-GLOBAL-CAGE-TOP",
+        "file": "1actions.zil",
+        "line_start": 275,
+        "line_end": 275,
+        "subject": "CAGE-TOP"
+      },
+      {
+        "id": "SRC-GLOBAL-LIT",
+        "file": "gverbs.zil",
+        "line_start": 1626,
+        "line_end": 1626,
+        "subject": "LIT"
+      },
+      {
+        "id": "SRC-OBJECT-RAISED-BASKET",
+        "file": "1dungeon.zil",
+        "line_start": 138,
+        "line_end": 145,
+        "subject": "RAISED-BASKET"
+      },
+      {
+        "id": "SRC-ROOM-SHAFT-ROOM",
+        "file": "1dungeon.zil",
+        "line_start": 2449,
+        "line_end": 2461,
+        "subject": "SHAFT-ROOM"
+      },
+      {
+        "id": "SRC-ROUTINE-BASKET-F",
+        "file": "1actions.zil",
+        "line_start": 277,
+        "line_end": 306,
+        "subject": "BASKET-F"
+      },
+      {
+        "id": "SRC-ROUTINE-CHAIN-PSEUDO",
+        "file": "1actions.zil",
+        "line_start": 4167,
+        "line_end": 4173,
+        "subject": "CHAIN-PSEUDO"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [
+      {
+        "id": "RAISED-BASKET.location",
+        "kind": "object_location",
+        "value_type": "object_id",
+        "initial_value": "SHAFT-ROOM",
+        "source_expression": "<MOVE ,RAISED-BASKET ,LOWER-SHAFT>",
+        "source_refs": [
+          "SRC-OBJECT-RAISED-BASKET"
+        ]
+      },
+      {
+        "id": "CAGE-TOP",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": true,
+        "source_expression": "<GLOBAL CAGE-TOP T>",
+        "source_refs": [
+          "SRC-GLOBAL-CAGE-TOP"
+        ]
+      },
+      {
+        "id": "LIT",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL LIT <>>",
+        "source_refs": [
+          "SRC-GLOBAL-LIT"
+        ]
+      }
+    ],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "located_in",
+              "object": "RAISED-BASKET",
+              "location": "SHAFT-ROOM"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "CAGE-TOP"
+              },
+              "right": {
+                "value": true
+              }
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "LIT"
+              },
+              "right": {
+                "value": false
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-SHAFT-ROOM"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-2",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "located_in",
+              "object": "RAISED-BASKET",
+              "location": "SHAFT-ROOM"
+            },
+            {
+              "op": "located_in",
+              "object": "LOWERED-BASKET",
+              "location": "LOWER-SHAFT"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "CAGE-TOP"
+              },
+              "right": {
+                "value": true
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-BASKET-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-3",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "located_in",
+              "object": "RAISED-BASKET",
+              "location": "LOWER-SHAFT"
+            },
+            {
+              "op": "located_in",
+              "object": "LOWERED-BASKET",
+              "location": "SHAFT-ROOM"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "CAGE-TOP"
+              },
+              "right": {
+                "value": false
+              }
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "LIT"
+              },
+              "right": {
+                "value": "<LIT? ,HERE>"
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-BASKET-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-4",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "located_in",
+              "object": "RAISED-BASKET",
+              "location": "LOWER-SHAFT"
+            },
+            {
+              "op": "located_in",
+              "object": "LOWERED-BASKET",
+              "location": "SHAFT-ROOM"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "CAGE-TOP"
+              },
+              "right": {
+                "value": false
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-BASKET-F"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-BASKET-F-RAISE-1",
+        "source_refs": [
+          "SRC-ROUTINE-BASKET-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-2-BASKET-F-LOWER-2",
+        "source_refs": [
+          "SRC-ROUTINE-BASKET-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-3-BASKET-F-LOWER-2",
+        "source_refs": [
+          "SRC-ROUTINE-BASKET-F"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

@@ -1,0 +1,121 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "state",
+  "room": "ARAGAIN-FALLS",
+  "title": "Aragain Falls",
+  "runtime_room": 29,
+  "runtime_state": 2,
+  "symbolic_state": "LOOK-DD7E93BD2458",
+  "condition": {
+    "ref": "RAINBOW-FLAG",
+    "ne": false
+  },
+  "extracted_states": [
+    {
+      "id": "LOOK-STATE-1",
+      "condition": {
+        "op": "source_expression",
+        "expression": ",RAINBOW-FLAG"
+      },
+      "source_refs": [
+        "SRC-ROOM-ARAGAIN-FALLS",
+        "SRC-ROUTINE-FALLS-ROOM"
+      ],
+      "method": "equivalent_static_predicate_and_matching_presentation_text"
+    }
+  ],
+  "description_ids": [
+    "M-LOOK-1"
+  ],
+  "canonical": [
+    {
+      "text": "You are at the top of Aragain Falls, an enormous waterfall with a\ndrop of about 450 feet. The only path here is on the north end.",
+      "pointer": "/scene/descriptions/0/text/0",
+      "source_refs": [
+        "SRC-ROOM-ARAGAIN-FALLS",
+        "SRC-ROUTINE-FALLS-ROOM"
+      ]
+    },
+    {
+      "text": "A solid rainbow spans the falls.",
+      "pointer": "/scene/descriptions/0/text/1",
+      "source_refs": [
+        "SRC-ROOM-ARAGAIN-FALLS",
+        "SRC-ROUTINE-FALLS-ROOM"
+      ]
+    }
+  ],
+  "required_environmental_features": [
+    "You are at the top of Aragain Falls, an enormous waterfall with a\ndrop of about 450 feet. The only path here is on the north end.",
+    "A solid rainbow spans the falls."
+  ],
+  "required_visible_objects": [],
+  "artistic": {
+    "continuity": [
+      "FRIGID-RIVER"
+    ],
+    "camera": "From a secure viewpoint at the waterfall brink, look obliquely down across the westward span.",
+    "composition": "Show the upper lip in the lower foreground and a deep 450-foot fall dropping through the middle distance; keep the northern path visible at the north end without adding a second path. The two rainbow variants occupy the same span above the falls.",
+    "lighting_palette": "Cool clear daylight through spray; pale cliff planes against deep teal water.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "state_artistic": {
+    "visual_treatment": "The rainbow has become a solid, continuous span across the falls; keep the same gorge, waterfall and northern path.",
+    "omit_source_dressing": []
+  },
+  "invariants": {
+    "canonical_text": [
+      "You are at the top of Aragain Falls, an enormous waterfall with a\ndrop of about 450 feet. The only path here is on the north end."
+    ],
+    "artistic": {
+      "continuity": [
+        "FRIGID-RIVER"
+      ],
+      "camera": "From a secure viewpoint at the waterfall brink, look obliquely down across the westward span.",
+      "composition": "Show the upper lip in the lower foreground and a deep 450-foot fall dropping through the middle distance; keep the northern path visible at the north end without adding a second path. The two rainbow variants occupy the same span above the falls.",
+      "lighting_palette": "Cool clear daylight through spray; pale cliff planes against deep teal water.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    }
+  },
+  "changes": [
+    "A solid rainbow spans the falls."
+  ],
+  "reference": {
+    "room": "ARAGAIN-FALLS",
+    "runtime_room": 29,
+    "runtime_state": 1,
+    "asset_key": "room-29-state-1",
+    "status": "preferred future Phase 2 reference; no illustration exists yet"
+  },
+  "asset_key": "room-29-state-2",
+  "target": {
+    "width": 256,
+    "height": 159,
+    "hardware": "Yamaha V9958",
+    "eventual_encoding": "YJK",
+    "phase": 1,
+    "source_aspect": "4:3 landscape",
+    "crop": "Safe center crop from 4:3 to 256:159; protect subjects within the central 82.8% of source height and central 90% of width."
+  },
+  "prompt": "Create one complete static illustration of Aragain Falls.\n\nViewpoint: From a secure viewpoint at the waterfall brink, look obliquely down across the westward span.\n\nThe scene establishes these features: You are at the top of Aragain Falls, an enormous waterfall with a drop of about 450 feet. The only path here is on the north end. A solid rainbow spans the falls.\n\nComposition: Show the upper lip in the lower foreground and a deep 450-foot fall dropping through the middle distance; keep the northern path visible at the north end without adding a second path. The two rainbow variants occupy the same span above the falls.\n\nAppearance of this illustration: The rainbow has become a solid, continuous span across the falls; keep the same gorge, waterfall and northern path.\n\nLighting and color: Cool clear daylight through spray; pale cliff planes against deep teal water.\n\nShared world design: Pale warm cliffs in large horizontal rock masses, dark teal water, chalk-white foam and restrained blue-gray mist; one consistent gorge and falls silhouette.\n\nStyle: Painterly adventure-game illustration recalling fine late-1980s and early-1990s computer artwork; natural proportions, restrained brushwork, readable silhouettes and broad tonal masses. Aim for roughly 256 visually significant colors, broad related color regions, controlled shading and clear dark/light separation. No exact RGB-count requirement, photographic color noise, excessive gradients or microtextures.\n\nKeep this room camera, underlying architecture, terrain layout, light direction and palette consistent across its variants. Depict the complete scene, including the appearance stated above.\n\nLandscape source composition near 4:3. Final scene is 256 by 159 pixels. Allow safe center cropping to 256:159, keeping essential subjects inside the central 82.8 percent of source height and away from the side boundaries. Use clear silhouettes and broad readable shapes at that final size.\n\nExclude game UI, borders, captions, labels, readable lettering, photographic detail, pixel grids and enlarged pixels. Do not add characters, significant props, openings or events beyond the established scene. Do not depict an action in progress or a before/after collage.\n",
+  "negative_prompt": "No UI, borders, readable text, photorealism, pixel grid, invented props, extra exits or transient action events.",
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/aragain-falls.scene.json",
+    "scene_sha256": "9016ef28f06a3e42d35f817d9dbc87ab14ae4bc931d985dda4ba5ff647af4055",
+    "runtime_source": {
+      "file": "1actions.zil",
+      "line": 2622,
+      "expression": "(<EQUAL? .RARG ,M-LOOK> <TELL \"You are at the top of Aragain Falls, an enormous waterfall with a\\ndrop of about 450 feet. The only path here is on the north end.\" CR> <COND (,RAINBOW-FLAG <TELL \"A solid rainbow spans the falls.\">) (T <TELL \"A beautiful rainbow can be seen over the falls and to the west.\">)> <CRLF>)"
+    },
+    "mapping_file": "generated-zil/woh-state-ids.json",
+    "mapping_sha256": "c48cbe6f1866460c9141af8f50be2b1120255b13ae8fa44a72cbb1714c3a2137",
+    "dictionary_file": "generated-room-states/room-states.yaml",
+    "dictionary_sha256": "87783e0895b9ebf9d5155dff22e440735c5ac68caca748c1d77840d6c1aacfa0",
+    "story_sha256": "cce1fdc54f18a6616e124db2de245aec1da943b458ebdee61bf1c6ff0a4038d4"
+  },
+  "unresolved": []
+}

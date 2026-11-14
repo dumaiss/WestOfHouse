@@ -1,0 +1,11 @@
+{
+  "/home/kitamura/Documents/WestOfHouse/tools/scene-art/generate.py": "65e371e0c44c1f5e3f7d7d3aa94e5537e0f6594400b1b5c703cbfd3cc3b9b426",
+  "/home/kitamura/Documents/WestOfHouse/tools/scene-art/test_scene_art.py": "414ce5ffc6015007db95f55ec570980802d55f322207f4765499a19f1fad08c9",
+  "/home/kitamura/Documents/WestOfHouse/tools/scene-art/mapping.py": "603347d77485adb90edc9715d3e776256b24adbd02b639075b7edb8a6dd3f975",
+  "/home/kitamura/Documents/WestOfHouse/tools/scene-art/validate_art.py": "f9ddab193737f0fec9af2af1740bacb0873384473a40f4ffff737edb8c9c6d22",
+  "/home/kitamura/Documents/WestOfHouse/tools/scene-art/runtime-room-ids.json": "3ac420de2e48630b5d0de525cc2d7face4cff50b3ce17bd65d3934a5cc5901e7",
+  "/home/kitamura/Documents/WestOfHouse/tools/scene-art/direction.json": "d3124bc763e4e4cf1ec4dfcb6294711d3e947c151a33c552670aa58e9bc159db",
+  "/home/kitamura/Documents/WestOfHouse/schemas/scene-art-v1.schema.json": "83320d6590ac9bde45f2b25983082d0916e84018c83372036b8b9473af4e6236",
+  "/home/kitamura/Documents/WestOfHouse/assets/source/art-direction/manifest.json": "84e8ce09eb27e6dd5b8575c73231118dea14d6f1f5af85e1b9289dbcde70cf07",
+  "/home/kitamura/Documents/ZephyrOS/tools/kimg.py": "236997465ef94fc57b07f1c6770ec253d748f38a3d79ea2d5f1e08fc415a7e12"
+}

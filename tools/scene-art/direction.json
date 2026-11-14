@@ -1,0 +1,1648 @@
+{
+  "schema": "scene_art_direction_input_v1",
+  "style": {
+    "schema": "scene_art_v1",
+    "kind": "world_style",
+    "interpretation": "Model-authored art direction from the complete 110-room source inventory; creative choices are artistic, not canonical.",
+    "target": {
+      "width": 256,
+      "height": 159,
+      "hardware": "Yamaha V9958",
+      "eventual_encoding": "YJK",
+      "phase": 1,
+      "source_aspect": "4:3 landscape",
+      "crop": "Safe center crop from 4:3 to 256:159; protect subjects within the central 82.8% of source height and central 90% of width."
+    },
+    "style": "Painterly adventure-game illustration recalling fine late-1980s and early-1990s computer artwork; natural proportions, restrained brushwork, readable silhouettes and broad tonal masses.",
+    "architecture": "Domestic white-painted colonial timberwork; underground construction uses broad fitted stone and worn timber where source establishes buildings. Industrial dam and mine structures use sober utilitarian forms. Egyptian tomb vocabulary only in the named tomb. Do not add columns, arches or machinery merely to decorate a cave.",
+    "landscape": "A coherent temperate forest of pines and hemlocks, open fields, pale river cliffs and distant severe mountains. Use the plant types only where compatible with extracted descriptions; do not add a mountain or forest to enclosed rooms.",
+    "geology": "Rock masses are simplified into legible planes; retain explicit granite, sand, white cliffs and mud separately. Generic cave rock receives subdued earth and slate tones as an artistic material choice.",
+    "lighting": "Exterior default is quiet midmorning daylight, upper-left in each local frame, with soft haze only in distant open views. Forest interiors receive filtered light. Enclosed underground views use dim, non-diegetic illustrative fill with deep edge shadows; never invent a visible lamp, sunbeam, window or magical glow as its source. Explicit story light or darkness takes precedence.",
+    "palette": "Aim for roughly 256 visually significant colors, broad related color regions, controlled shading and clear dark/light separation. No exact RGB-count requirement, photographic color noise, excessive gradients or microtextures.",
+    "perspective": "Human-scale viewpoints with believable perspective. Choose framing per room; keep each room camera, static geometry, palette and lighting fixed across states.",
+    "atmosphere": "Evocative, quiet and slightly uncanny; readable foreground and midground, restrained atmospheric perspective only when spatial depth supports it.",
+    "exclusions": [
+      "No photorealism",
+      "No artificial pixel grid or enlarged pixel effects",
+      "No UI, border, caption, lettering or readable text",
+      "No invented characters, significant objects, exits or events",
+      "No color quantization, image generation or YJK conversion in this phase"
+    ],
+    "assumptions": [
+      "Daylight timing, illumination direction, unspecified material finish and camera design are artistic choices.",
+      "Illustrative fill is a visibility convention, not an in-world light fixture.",
+      "A blank inscription surface preserves its physical carrier while honoring the no-text brief; wording remains in canonical provenance."
+    ]
+  },
+  "continuity": {
+    "schema": "scene_art_v1",
+    "kind": "continuity",
+    "groups": [
+      {
+        "id": "WHITE-HOUSE",
+        "rooms": [
+          "WEST-OF-HOUSE",
+          "NORTH-OF-HOUSE",
+          "SOUTH-OF-HOUSE",
+          "EAST-OF-HOUSE",
+          "KITCHEN",
+          "LIVING-ROOM",
+          "ATTIC",
+          "CELLAR"
+        ],
+        "canonical": "One white house, boarded front door, boarded north/south windows, a small rear kitchen window; interiors connected by the extracted exits.",
+        "artistic": "Modest colonial timber dwelling, simple pitched roof, weathered white painted boards; do not introduce extra doors or windows. Pale plaster and dark brown timber inside. Keep roof pitch, wall finish, trim proportions and window construction across views.",
+        "inferred": "The kitchen east window is the rear window viewed from behind the house; maintain the same frame and sill in both views."
+      },
+      {
+        "id": "FOREST",
+        "rooms": [
+          "FOREST-1",
+          "FOREST-2",
+          "FOREST-3",
+          "PATH",
+          "UP-A-TREE",
+          "CLEARING",
+          "GRATING-CLEARING",
+          "MOUNTAINS"
+        ],
+        "canonical": "Temperate forest, the path tree with low branches, and source-marked clearings and mountain barriers.",
+        "artistic": "Deep green pine/hemlock masses and warm muted soil. Preserve the path tree trunk and lowest bough shapes between ground and branch views.",
+        "inferred": "Connected forest locations belong to the same landscape; do not imply unrecorded direct sightlines."
+      },
+      {
+        "id": "FRIGID-RIVER",
+        "rooms": [
+          "DAM-ROOM",
+          "DAM-BASE",
+          "RIVER-1",
+          "RIVER-2",
+          "RIVER-3",
+          "RIVER-4",
+          "RIVER-5",
+          "SHORE",
+          "SANDY-BEACH",
+          "SANDY-CAVE",
+          "WHITE-CLIFFS-NORTH",
+          "WHITE-CLIFFS-SOUTH",
+          "ARAGAIN-FALLS",
+          "ON-RAINBOW",
+          "END-OF-RAINBOW",
+          "CANYON-VIEW",
+          "CLIFF-MIDDLE",
+          "CANYON-BOTTOM"
+        ],
+        "canonical": "Frigid River, pale White Cliffs, dam, the 450-foot Aragain Falls and the source-directed rainbow span.",
+        "artistic": "Pale warm cliffs in large horizontal rock masses, dark teal water, chalk-white foam and restrained blue-gray mist; one consistent gorge and falls silhouette.",
+        "inferred": "Use river adjacency for geological continuity, not permission to show the dam from every river view."
+      },
+      {
+        "id": "DAM-RESERVOIR",
+        "rooms": [
+          "DAM-ROOM",
+          "DAM-BASE",
+          "DAM-LOBBY",
+          "MAINTENANCE-ROOM",
+          "RESERVOIR",
+          "RESERVOIR-NORTH",
+          "RESERVOIR-SOUTH",
+          "STREAM-VIEW",
+          "IN-STREAM",
+          "DEEP-CANYON",
+          "LOUD-ROOM"
+        ],
+        "canonical": "Flood-control dam, water-level variants, control panel and maintenance facilities.",
+        "artistic": "Massive plain concrete engineering, dark iron fittings, restrained green/red/blue/yellow controls; lock bank contours and dam silhouette across water states.",
+        "inferred": "Use connected waterways to unify wet rock color; sound alone does not authorize visible turbulence in a different room."
+      },
+      {
+        "id": "DOME-TEMPLE",
+        "rooms": [
+          "DOME-ROOM",
+          "TORCH-ROOM",
+          "NORTH-TEMPLE",
+          "SOUTH-TEMPLE",
+          "EGYPT-ROOM",
+          "ENTRANCE-TO-HADES",
+          "LAND-OF-LIVING-DEAD"
+        ],
+        "canonical": "Dome, wood railing, marble pedestal, temple and source-established tomb/gateway features.",
+        "artistic": "Broad worn stone planes, ivory marble where explicit, dark brown timber; restrained ceremonial scale without adding religious symbols.",
+        "inferred": "Dome upper railing and lower pedestal must share vertical geometry across the two room views."
+      },
+      {
+        "id": "MINE",
+        "rooms": [
+          "MINE-ENTRANCE",
+          "SQUEEKY-ROOM",
+          "BAT-ROOM",
+          "SHAFT-ROOM",
+          "LOWER-SHAFT",
+          "SMELLY-ROOM",
+          "GAS-ROOM",
+          "LADDER-TOP",
+          "LADDER-BOTTOM",
+          "TIMBER-ROOM",
+          "MACHINE-ROOM",
+          "SLIDE-ROOM",
+          "DEAD-END-5",
+          "MINE-1",
+          "MINE-2",
+          "MINE-3",
+          "MINE-4"
+        ],
+        "canonical": "Coal workings, shaft chain/basket, wood ladder, loose timber and machine where described.",
+        "artistic": "Charcoal and umber with broad worn wood planes; reserve shiny metal for explicit fittings.",
+        "inferred": "Shaft and ladder views show opposite ends of the same structures, preserving chain thickness and rung spacing."
+      },
+      {
+        "id": "MAZE",
+        "rooms": [
+          "MAZE-1",
+          "MAZE-2",
+          "MAZE-3",
+          "MAZE-4",
+          "MAZE-5",
+          "MAZE-6",
+          "MAZE-7",
+          "MAZE-8",
+          "MAZE-9",
+          "MAZE-10",
+          "MAZE-11",
+          "MAZE-12",
+          "MAZE-13",
+          "MAZE-14",
+          "MAZE-15",
+          "DEAD-END-1",
+          "DEAD-END-2",
+          "DEAD-END-3",
+          "DEAD-END-4"
+        ],
+        "canonical": "Small twisty passages described as all alike; skeleton only where established.",
+        "artistic": "Consistent tight gray-brown passage treatment. Do not add marks, numbers, different colored doors or other navigation clues. Each room retains its own asset even if prompts are similar.",
+        "inferred": "Shared treatment follows the repeated source description; no new map topology is implied."
+      },
+      {
+        "id": "MIRRORS",
+        "rooms": [
+          "MIRROR-ROOM-1",
+          "MIRROR-ROOM-2"
+        ],
+        "canonical": "Two large square tall rooms, each with a south-wall mirror and exits on the other three sides.",
+        "artistic": "Same mirror border proportions and cool neutral stone finish. Reflect only established geometry; no player portrait or extra passage.",
+        "inferred": "Treat them as a visual pair while preserving distinct room and state identities."
+      },
+      {
+        "id": "CAVES",
+        "rooms": [
+          "COLD-PASSAGE",
+          "CYCLOPS-ROOM",
+          "DAMP-CAVE",
+          "EAST-OF-CHASM",
+          "ENGRAVINGS-CAVE",
+          "EW-PASSAGE",
+          "GALLERY",
+          "GRATING-ROOM",
+          "NARROW-PASSAGE",
+          "NS-PASSAGE",
+          "ROUND-ROOM",
+          "SMALL-CAVE",
+          "STRANGE-PASSAGE",
+          "STUDIO",
+          "TINY-CAVE",
+          "TREASURE-ROOM",
+          "TROLL-ROOM",
+          "TWISTING-PASSAGE",
+          "WINDING-PASSAGE"
+        ],
+        "canonical": "Use the explicit room geometry, granite, dampness and construction facts from each room.",
+        "artistic": "Broad cool gray and brown stone planes and soft non-diegetic illustrative fill. Do not add common fixtures to unrelated rooms.",
+        "inferred": "Shared palette suggests an underground world; it asserts no extra passage connections."
+      }
+    ]
+  },
+  "rooms": {
+    "ARAGAIN-FALLS": {
+      "continuity": [
+        "FRIGID-RIVER"
+      ],
+      "camera": "From a secure viewpoint at the waterfall brink, look obliquely down across the westward span.",
+      "composition": "Show the upper lip in the lower foreground and a deep 450-foot fall dropping through the middle distance; keep the northern path visible at the north end without adding a second path. The two rainbow variants occupy the same span above the falls.",
+      "lighting_palette": "Cool clear daylight through spray; pale cliff planes against deep teal water.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "ATLANTIS-ROOM": {
+      "continuity": [
+        "DOME-TEMPLE"
+      ],
+      "camera": "Stand near the southern threshold and look toward the ascending staircase.",
+      "composition": "Use the ancient chamber's low water-worn stone surfaces and staircase as the main silhouettes; show its history of submersion through broad staining rather than inventing a current lake.",
+      "lighting_palette": "Low cool illustrative fill with muted green-gray stone.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "ATTIC": {
+      "continuity": [
+        "WHITE-HOUSE"
+      ],
+      "camera": "Stand clear of the downward stair and view the roof space obliquely.",
+      "composition": "Use the roof volume and sole stair opening to organize the view; arrange the source-listed attic belongings as coarse room dressing.",
+      "lighting_palette": "Dim warm-brown timber against cool shadow.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "BAT-ROOM": {
+      "continuity": [
+        "MINE"
+      ],
+      "camera": "View the small room from one corner at head height.",
+      "composition": "Frame the east and south doorways within a cramped chamber; place the source-listed bat near the ceiling, with a clear silhouette.",
+      "lighting_palette": "Dark umber with subdued cool illustrative fill.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "CANYON-BOTTOM": {
+      "continuity": [
+        "FRIGID-RIVER"
+      ],
+      "camera": "Low human viewpoint beside the lesser stream, looking up along the walls.",
+      "composition": "Use near-vertical rock walls to enclose the frame; preserve the small runoff channel below and the north path.",
+      "lighting_palette": "Daylight reflected from high pale rock, muted blue water.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "CANYON-VIEW": {
+      "continuity": [
+        "FRIGID-RIVER"
+      ],
+      "camera": "Stand on the western rim and look across and upstream toward the northern falls.",
+      "composition": "Build depth with rim foreground, opposing White Cliffs, eastern mountains and the northern waterfall/rainbow; forest belongs west and south. Keep the northwest path legible.",
+      "lighting_palette": "Open daylight and restrained distant blue haze.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "CELLAR": {
+      "continuity": [
+        "WHITE-HOUSE"
+      ],
+      "camera": "View from beside the cellar entrance toward the west ramp foot.",
+      "composition": "Contrast the steep metal ramp with the low south crawlway and narrow north passage; keep the chamber damp and enclosed.",
+      "lighting_palette": "Cool gray-brown illustrative fill, deep recesses.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "CHASM-ROOM": {
+      "continuity": [
+        "FRIGID-RIVER"
+      ],
+      "camera": "Stand on the south side, looking diagonally along the southwest-to-northeast cleft.",
+      "composition": "Let the chasm create the dominant diagonal, with its following path and the crack into a passage remaining distinct.",
+      "lighting_palette": "Muted slate rock with shadow inside the cleft.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "CLEARING": {
+      "continuity": [
+        "FOREST"
+      ],
+      "camera": "Eye-level view along the east-west forest track.",
+      "composition": "Keep this modest clearing enclosed by tree masses; distinguish the continuing marked path without adding a grating from another clearing.",
+      "lighting_palette": "Filtered daylight, warm earth and deep green.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "CLIFF-MIDDLE": {
+      "continuity": [
+        "FRIGID-RIVER"
+      ],
+      "camera": "Stand on the mid-height ledge and angle the view between the valley below and cliff above.",
+      "composition": "Frame the inaccessible main-water channel and the drop below with the ledge as a readable foreground; preserve climbable wall above.",
+      "lighting_palette": "Pale daylight on large cliff planes with dark channel recesses.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "COLD-PASSAGE": {
+      "continuity": [
+        "CAVES"
+      ],
+      "camera": "Look down the east-west corridor toward its southward bend.",
+      "composition": "Use cold damp wall planes and the single bend as the defining geometry; do not reveal unseen destinations.",
+      "lighting_palette": "Cold desaturated stone with minimal illustrative fill.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "CYCLOPS-ROOM": {
+      "continuity": [
+        "CAVES"
+      ],
+      "camera": "Stand well short of the staircase and view its foot and the east wall together.",
+      "composition": "Keep the northwest exit, staircase and east wall in fixed positions across possible cyclops presentations; use only the creature appearance associated with an established runtime presentation.",
+      "lighting_palette": "Low neutral fill with warm brown-gray stone.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "DAM-BASE": {
+      "continuity": [
+        "FRIGID-RIVER"
+      ],
+      "camera": "Low viewpoint near the river, looking north and up toward the dam.",
+      "composition": "Make the enormous dam loom beyond the foreground river; carry the white river cliffs along its banks.",
+      "lighting_palette": "Open daylight, pale concrete, chalk cliffs and dark teal water.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "DAM-LOBBY": {
+      "continuity": [
+        "DAM-RESERVOIR"
+      ],
+      "camera": "Eye-level corner view covering the north and east thresholds and south return route.",
+      "composition": "Arrange the waiting-room volume around its doorways and reception area only where objects establish it; omit readable signs.",
+      "lighting_palette": "Quiet cool interior light, weathered concrete and dark fittings.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "DAM-ROOM": {
+      "continuity": [
+        "DAM-RESERVOIR"
+      ],
+      "camera": "Stand safely on the dam top with reservoir and sluice structure visible obliquely.",
+      "composition": "Keep the massive crest, control panel, bolt and small green indicator in stable positions; show water level and gate changes at large enough scale to read.",
+      "lighting_palette": "Overcast-leaning daylight as an artistic choice, concrete gray, teal water and restrained control colors.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "DAMP-CAVE": {
+      "continuity": [
+        "CAVES"
+      ],
+      "camera": "Eye-level oblique view across the wet cave floor toward the southern crack.",
+      "composition": "Keep east/west openings distinct from the extremely narrow south fissure; emphasize wet earth in broad planes.",
+      "lighting_palette": "Cool damp grays and subdued brown with low fill.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "DEEP-CANYON": {
+      "continuity": [
+        "DAM-RESERVOIR"
+      ],
+      "camera": "Stand at the southern edge, looking across the depth and down past the stair.",
+      "composition": "Preserve east, northwest and southwest route geometry; sound variants retain the same visible canyon unless source text establishes a visible change.",
+      "lighting_palette": "Muted cool stone, dark depth and restrained fill.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "DOME-ROOM": {
+      "continuity": [
+        "DOME-TEMPLE"
+      ],
+      "camera": "Stand at the dome periphery behind the wooden railing and look down into the lower room.",
+      "composition": "Use railing foreground and curved dome edge to convey a precipitous drop; rope presence changes only where canonical.",
+      "lighting_palette": "Dim stone with warm worn wood and soft depth falloff.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "EAST-OF-CHASM": {
+      "continuity": [
+        "CAVES"
+      ],
+      "camera": "Stand at the eastern rim and look obliquely across the unseen-depth cleft.",
+      "composition": "Show the north passage and the eastward continuation of the current path, with no bridge or visible bottom.",
+      "lighting_palette": "Deep cool cleft shadow against muted stone.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "EAST-OF-HOUSE": {
+      "continuity": [
+        "WHITE-HOUSE"
+      ],
+      "camera": "Stand behind the house and look toward its corner kitchen window.",
+      "composition": "Use the rear wall and small window as the focal structure; include the eastern forest path in the same frame without adding rear doors.",
+      "lighting_palette": "Quiet daylight on white boards and dark green forest.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "EGYPT-ROOM": {
+      "continuity": [
+        "DOME-TEMPLE"
+      ],
+      "camera": "View the tomb chamber from its eastern side toward the western stair.",
+      "composition": "Let the ancient tomb volume and ascending stair dominate; the source-listed gold coffin provides the principal prop.",
+      "lighting_palette": "Muted warm stone and low illustrative fill; avoid invented hieroglyph text.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "END-OF-RAINBOW": {
+      "continuity": [
+        "FRIGID-RIVER"
+      ],
+      "camera": "Stand on the small rocky beach looking east toward the falls and rainbow.",
+      "composition": "Keep the narrow beach beneath white cliffs, the opening sunlit canyon, eastward rainbow and southwest path in one landscape.",
+      "lighting_palette": "Clear overhead daylight, pale cliffs and restrained mist colors.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "ENGRAVINGS-CAVE": {
+      "continuity": [
+        "CAVES"
+      ],
+      "camera": "Stand near the low center and angle toward the engraved wall.",
+      "composition": "Convey the low ceiling, northwest and east passages, and shallow carved surfaces without readable inscriptions.",
+      "lighting_palette": "Low warm-gray fill on broad relief planes.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "ENTRANCE-TO-HADES": {
+      "continuity": [
+        "DOME-TEMPLE"
+      ],
+      "camera": "Eye-level view from outside the great open gateway.",
+      "composition": "Frame the threshold, desolation beyond and source-established remains in one corner; preserve the physical inscription carrier but show no legible text.",
+      "lighting_palette": "Somber gray-brown stone with restrained pale spectral tones only when the state calls for spirits.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "EW-PASSAGE": {
+      "continuity": [
+        "CAVES"
+      ],
+      "camera": "Look along the east-west axis from a slightly offset position.",
+      "composition": "Give the northern descending stair a clear mouth distinct from the continuing corridor; keep the space narrow.",
+      "lighting_palette": "Cool low fill on compressed stone planes.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "FOREST-1": {
+      "continuity": [
+        "FOREST"
+      ],
+      "camera": "Stand among the trees looking toward the source's eastern brightness.",
+      "composition": "Let trunks create depth while the eastward sunlight remains the guiding visual opening, without inventing a new path.",
+      "lighting_palette": "Filtered green daylight with a restrained brighter east.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "FOREST-2": {
+      "continuity": [
+        "FOREST"
+      ],
+      "camera": "Eye-level view beneath a close canopy.",
+      "composition": "Use large trunks and dim interlocking foliage; preserve source barriers and exits without adding landmark trees.",
+      "lighting_palette": "Dim green and umber, soft canopy light.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "FOREST-3": {
+      "continuity": [
+        "FOREST"
+      ],
+      "camera": "View the dense woodland from a slightly offset eye-level position.",
+      "composition": "Keep large nearby trees and the established impassable boundaries clear; use the shared forest vocabulary without new navigation markers.",
+      "lighting_palette": "Dim green-gray canopy light.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "GALLERY": {
+      "continuity": [
+        "CAVES"
+      ],
+      "camera": "View across the former gallery between the north and west exits.",
+      "composition": "Show broad gallery wall spaces; the source-listed remaining painting provides the main focal object. Do not invent a collection of replacement artworks.",
+      "lighting_palette": "Cool quiet wall tones and low neutral fill.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "GAS-ROOM": {
+      "continuity": [
+        "MINE"
+      ],
+      "camera": "View the small room obliquely toward its short up-stair and east tunnel.",
+      "composition": "Treat the coal-gas smell as invisible; do not add colored vapor, flame or an explosion.",
+      "lighting_palette": "Dim charcoal and umber with no visible light fixture.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "GRATING-CLEARING": {
+      "continuity": [
+        "FOREST"
+      ],
+      "camera": "Stand just within the clearing and look toward its floor and southward trail.",
+      "composition": "Keep the forest ring and grating site fixed; use canonical leaf-cover and grating conditions to determine the visible ground.",
+      "lighting_palette": "Soft canopy daylight and broad leaf tones.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "GRATING-ROOM": {
+      "continuity": [
+        "CAVES"
+      ],
+      "camera": "Low eye-level view tilted enough to include the overhead grating.",
+      "composition": "Use tight maze-side passages below and the grating above as separate silhouettes; sunlight enters only when canonical.",
+      "lighting_palette": "Gray-brown stone, with source-controlled daylight from above.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "IN-STREAM": {
+      "continuity": [
+        "DAM-RESERVOIR"
+      ],
+      "camera": "View close to water level along the gently flowing channel.",
+      "composition": "Compress the upstream gap and let downstream walls hide its continuation; retain the narrow landing beach.",
+      "lighting_palette": "Cool water reflection and dim enclosure.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "KITCHEN": {
+      "continuity": [
+        "WHITE-HOUSE"
+      ],
+      "camera": "Stand near the western passage looking diagonally toward the east window.",
+      "composition": "Place the kitchen table, dark upward stair and downward chimney as distinct masses; keep the east window construction identical to the rear exterior.",
+      "lighting_palette": "Cool window daylight where admitted, warm neutral domestic surfaces.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "LADDER-BOTTOM": {
+      "continuity": [
+        "MINE"
+      ],
+      "camera": "Stand in the wider lower chamber and look up toward the narrow wood ladder.",
+      "composition": "Use the ladder foot as the vertical anchor and retain west and south passage geometry.",
+      "lighting_palette": "Dim brown-gray rock and worn wood.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "LADDER-TOP": {
+      "continuity": [
+        "MINE"
+      ],
+      "camera": "Stand beside the downward ladder mouth and look diagonally across the tiny room.",
+      "composition": "Show the rickety ladder dropping out of view and a separate ascending stair; match the lower view's rung spacing.",
+      "lighting_palette": "Restrained cool fill, dark shaft and brown wood.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "LAND-OF-LIVING-DEAD": {
+      "continuity": [
+        "DOME-TEMPLE"
+      ],
+      "camera": "View from inside the chamber toward the northern exit and the corner of remains.",
+      "composition": "Keep the stacked remains a broad sober silhouette; represent audible souls only if visible forms are explicitly established.",
+      "lighting_palette": "Ashen gray and deep neutral shadow.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "LIVING-ROOM": {
+      "continuity": [
+        "WHITE-HOUSE"
+      ],
+      "camera": "Stand on the north side looking across the rug toward the west door, with the east doorway readable.",
+      "composition": "Lock trophy-case position, rug footprint, west door and floor trapdoor site; preserve the house's timber/plaster vocabulary.",
+      "lighting_palette": "Quiet diffuse room light, ivory walls and dark brown timber.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "LOUD-ROOM": {
+      "continuity": [
+        "DAM-RESERVOIR"
+      ],
+      "camera": "Low human viewpoint with a slight upward angle into the unseen ceiling.",
+      "composition": "Emphasize vast vertical darkness, the east-west passage and stone up-stair. Do not draw visible sound waves for noise variants.",
+      "lighting_palette": "Sparse cool fill and a high ceiling lost in dark value.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "LOWER-SHAFT": {
+      "continuity": [
+        "MINE"
+      ],
+      "camera": "Stand at the shaft bottom and look upward past its heavy chain.",
+      "composition": "Keep the chain on the same vertical axis as the upper frame; include the south passage and very narrow east gap.",
+      "lighting_palette": "Charcoal rock, dark iron and cold shaft shadow.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "MACHINE-ROOM": {
+      "continuity": [
+        "MINE"
+      ],
+      "camera": "Eye-level oblique view of the dryer-like machine in its corner.",
+      "composition": "Keep the large front lid and minute control separate; preserve the sole north exit. The switch label carrier may exist, but no text is rendered.",
+      "lighting_palette": "Cold gray surfaces, restrained metal highlights.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "MAINTENANCE-ROOM": {
+      "continuity": [
+        "DAM-RESERVOIR"
+      ],
+      "camera": "View the front control wall from just inside the room.",
+      "composition": "Use the blue, yellow, brown and red button bank as readable color blocks; retain west/south doors and the disordered stripped-workroom character.",
+      "lighting_palette": "Dim utilitarian gray with sparse saturated control colors.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "MINE-ENTRANCE": {
+      "continuity": [
+        "MINE"
+      ],
+      "camera": "Stand opposite the western shaft mouth.",
+      "composition": "Frame the western mine entry and southern exit as distinct dark openings; use only restrained coal-working material cues.",
+      "lighting_palette": "Umber and charcoal with faint cool illustrative fill.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "MIRROR-ROOM-1": {
+      "continuity": [
+        "MIRRORS"
+      ],
+      "camera": "Stand near the north side facing the south-wall mirror at a slight angle.",
+      "composition": "Keep the whole-wall mirror, square room and tall ceiling legible, with side exits spatially distinct; reflections add no extra architecture.",
+      "lighting_palette": "Cool neutral stone with restrained mirror highlights.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "MIRROR-ROOM-2": {
+      "continuity": [
+        "MIRRORS"
+      ],
+      "camera": "Stand near the north side facing the south-wall mirror at the paired room's scale.",
+      "composition": "Match the mirror border proportions and room height of its counterpart while retaining this room's own asset identity.",
+      "lighting_palette": "Cool neutral stone and restrained reflections.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "MOUNTAINS": {
+      "continuity": [
+        "FOREST"
+      ],
+      "camera": "View from the thinning forest toward the mountain barrier.",
+      "composition": "Use foreground tree masses opening onto severe impassable mountains; preserve their scale without depicting a pass.",
+      "lighting_palette": "Clear distant daylight, muted greens and blue-gray stone.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "NARROW-PASSAGE": {
+      "continuity": [
+        "CAVES"
+      ],
+      "camera": "Look along the long north-south corridor toward its pinched section.",
+      "composition": "Make the localized constriction distinct within an already narrow passage; add no door or obstruction prop.",
+      "lighting_palette": "Dark cool stone, minimal fill.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "NORTH-OF-HOUSE": {
+      "continuity": [
+        "WHITE-HOUSE"
+      ],
+      "camera": "Stand north of the white house facing its north wall.",
+      "composition": "Show boarded windows and no door; keep the northward winding forest path in the near-side space and match the roof and wall trim of the other views.",
+      "lighting_palette": "Shared midmorning daylight, white boards and forest green.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "NORTH-TEMPLE": {
+      "continuity": [
+        "DOME-TEMPLE"
+      ],
+      "camera": "View diagonally across the northern temple toward the eastern inscription wall.",
+      "composition": "Retain the stair below the inscription surface, solid west granite and huge marble pillars at the north exit; omit readable text.",
+      "lighting_palette": "Muted stone with soft ivory marble highlights.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "NS-PASSAGE": {
+      "continuity": [
+        "CAVES"
+      ],
+      "camera": "View along the high north-south passage from its southern approach.",
+      "composition": "Keep the northeast branch spatially separate from the main axis, emphasizing tall headroom.",
+      "lighting_palette": "Cool rock and deep branch shadows.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "ON-RAINBOW": {
+      "continuity": [
+        "FRIGID-RIVER"
+      ],
+      "camera": "From the rainbow surface, look along its east-west span toward the waterfall.",
+      "composition": "Use the solid rainbow as a broad near-plane leading over a deep gorge, with the matching falls silhouette beyond; add no railings.",
+      "lighting_palette": "Shared daylight and mist, controlled chromatic bands.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "PATH": {
+      "continuity": [
+        "FOREST"
+      ],
+      "camera": "Eye-level view along the north-south forest path.",
+      "composition": "Make the source's particularly large tree with low branches the main landmark, preserving its design in the branch-level room.",
+      "lighting_palette": "Dim filtered canopy light with warm bark.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "RESERVOIR-NORTH": {
+      "continuity": [
+        "DAM-RESERVOIR"
+      ],
+      "camera": "Stand at the northern shore looking south across the cavernous basin.",
+      "composition": "Keep the fixed shoreline and northern slimy stair while water level determines exposed mud or lake extent.",
+      "lighting_palette": "Cool reflected fill, teal water and brown-gray mud.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "RESERVOIR-SOUTH": {
+      "continuity": [
+        "DAM-RESERVOIR"
+      ],
+      "camera": "Stand at the southern shore looking north across the long basin.",
+      "composition": "Keep east/west streamside paths, southwest steep chasm route and southeast canyon route distinct; hold basin contours fixed across water levels.",
+      "lighting_palette": "Cool water reflection, gray-brown shoreline and low fill.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "RESERVOIR": {
+      "continuity": [
+        "DAM-RESERVOIR"
+      ],
+      "camera": "View from near water or mud level along the basin's north-south extent.",
+      "composition": "Show north and south banks and source-stated upstream rock cleft/downstream dam only in descriptions that establish them; keep the same basin shape for lake and mud variants.",
+      "lighting_palette": "Muted teal water or broad brown mud under consistent cool light.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "RIVER-1": {
+      "continuity": [
+        "FRIGID-RIVER"
+      ],
+      "camera": "Low water-level view near the dam facing downstream obliquely.",
+      "composition": "Use quiet river water, the dam vicinity and western landing as the composition anchors.",
+      "lighting_palette": "Clear daylight, teal water and pale bank rock.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "RIVER-2": {
+      "continuity": [
+        "FRIGID-RIVER"
+      ],
+      "camera": "Low water-level view around the river bend.",
+      "composition": "Keep the dam out of sight, white cliffs on the east bank and obstructing large rocks on the west.",
+      "lighting_palette": "Shared daylight with pale cliff highlights.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "RIVER-3": {
+      "continuity": [
+        "FRIGID-RIVER"
+      ],
+      "camera": "Low water-level view as the channel descends into the valley.",
+      "composition": "Show the narrow west-shore beach beneath cliffs and the descending river; do not depict the distant audible source as a new waterfall.",
+      "lighting_palette": "Cooler reflected valley light and pale rock.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "RIVER-4": {
+      "continuity": [
+        "FRIGID-RIVER"
+      ],
+      "camera": "Low water-level view along the faster reach.",
+      "composition": "Keep east sandy beach and small west cliff-foot beach distinct; emphasize current in broad water shapes, with the source-listed red buoy as a coarse room prop.",
+      "lighting_palette": "Shared daylight with stronger whitewater highlights.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "RIVER-5": {
+      "continuity": [
+        "FRIGID-RIVER"
+      ],
+      "camera": "Low water-level view near the lower river's large eastern landing.",
+      "composition": "Let the east landing remain readable beside the powerful flow; the roar does not justify adding an unseen drop.",
+      "lighting_palette": "Cool daylight, dark teal flow and restrained foam.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "ROUND-ROOM": {
+      "continuity": [
+        "CAVES"
+      ],
+      "camera": "View from the near edge across the circular stone chamber.",
+      "composition": "Show radial passage mouths and collapsed openings as the source permits; do not turn every direction into an unobstructed exit.",
+      "lighting_palette": "Neutral cool fill and broad rubble masses.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "SANDY-BEACH": {
+      "continuity": [
+        "FRIGID-RIVER"
+      ],
+      "camera": "Stand on the eastern sandy shore looking diagonally along the river.",
+      "composition": "Retain the south river-side path and partly sand-buried northeast passage; use broad sand planes, not microtexture.",
+      "lighting_palette": "Pale warm sand and cool river daylight.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "SANDY-CAVE": {
+      "continuity": [
+        "FRIGID-RIVER"
+      ],
+      "camera": "Stand low within the sand-filled cave looking toward the southwest mouth.",
+      "composition": "Use sand accumulation to compress the cave volume; no digging variants are created unless assigned by the runtime mapping.",
+      "lighting_palette": "Muted sand ochre and cool recess shadow.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "SHAFT-ROOM": {
+      "continuity": [
+        "MINE"
+      ],
+      "camera": "Stand back from the central shaft looking across the metal frame.",
+      "composition": "Keep the heavy chain vertically aligned with the lower-shaft view, plus west/north exits; basket placement follows the canonical room presentation.",
+      "lighting_palette": "Dark iron, umber rock and low cool fill.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "SHORE": {
+      "continuity": [
+        "FRIGID-RIVER"
+      ],
+      "camera": "Stand on the eastern riverbank looking toward the sharp southern bend.",
+      "composition": "Keep the north-south path separate from the treacherous water, with the southern route quickly hidden around its turn.",
+      "lighting_palette": "Shared daylight, dark teal water and gray bank stone.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "SLIDE-ROOM": {
+      "continuity": [
+        "MINE"
+      ],
+      "camera": "View the southern wall and descending metal slide obliquely.",
+      "composition": "Preserve the small north opening, long east passage and twisting downward slide; show the inscription's surface without readable lettering.",
+      "lighting_palette": "Cool gray rock and subdued metal reflections.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "SMALL-CAVE": {
+      "continuity": [
+        "CAVES"
+      ],
+      "camera": "Eye-level view across the tiny chamber from a corner.",
+      "composition": "Keep west and north entrances distinct from the down-stair mouth; maintain a small enclosed scale.",
+      "lighting_palette": "Low cool illustrative fill.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "SMELLY-ROOM": {
+      "continuity": [
+        "MINE"
+      ],
+      "camera": "Stand beside the south tunnel looking toward the descending stair.",
+      "composition": "Show the nondescript room and short stair; the foul odor has no visible cloud or creature.",
+      "lighting_palette": "Muted umber and charcoal with low fill.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "SOUTH-OF-HOUSE": {
+      "continuity": [
+        "WHITE-HOUSE"
+      ],
+      "camera": "Stand south of the house facing its southern wall.",
+      "composition": "Keep all windows boarded and show no door; preserve the same roof silhouette and white siding as the other exteriors.",
+      "lighting_palette": "Shared midmorning daylight with consistent white-wall values.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "SOUTH-TEMPLE": {
+      "continuity": [
+        "DOME-TEMPLE"
+      ],
+      "camera": "Stand at the southern temple approach looking across the altar.",
+      "composition": "Use the altar and small floor hole as separate shapes; preserve canonical book and candle carriers as room dressing, with no legible text.",
+      "lighting_palette": "Somber stone, ivory highlights and explicit candlelight only when supported.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "SQUEEKY-ROOM": {
+      "continuity": [
+        "MINE"
+      ],
+      "camera": "Stand in the small room facing north at a slight angle.",
+      "composition": "Keep north passage and east escape distinct. A squeak alone does not authorize a visible animal or device.",
+      "lighting_palette": "Dark umber and cool low fill.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "STONE-BARROW": {
+      "continuity": [
+        "FOREST"
+      ],
+      "camera": "Stand before the eastern face of the massive stone mound.",
+      "composition": "Make the open huge stone door a clear dark shape within the heavy mound; the tomb interior stays unreadable.",
+      "lighting_palette": "Quiet daylight on weathered stone and deep entrance shadow.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "STRANGE-PASSAGE": {
+      "continuity": [
+        "CAVES"
+      ],
+      "camera": "Look east along the long passage from near its western entry.",
+      "composition": "Make the old wooden door and its cyclops-sized opening the strong terminal shape; match the opposite cyclops-room opening.",
+      "lighting_palette": "Low warm-neutral fill and aged brown wood.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "STREAM-VIEW": {
+      "continuity": [
+        "DAM-RESERVOIR"
+      ],
+      "camera": "Stand on the streamside path looking diagonally along the west-to-east flow.",
+      "composition": "Keep the path parallel to the gentle water and the narrow source aperture subordinate; avoid a large river scale.",
+      "lighting_palette": "Cool muted reflected light and restrained wet-rock sheen.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "STUDIO": {
+      "continuity": [
+        "CAVES"
+      ],
+      "camera": "View across the studio toward the southern open door and fireplace.",
+      "composition": "Show broad paint-spattered surfaces, empty wall areas and the narrow upward chimney. Suggest many colors in grouped patches rather than enforcing an exact 69-color count.",
+      "lighting_palette": "Restrained warm/cool paint patches over neutral room values.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "TIMBER-ROOM": {
+      "continuity": [
+        "MINE"
+      ],
+      "camera": "Look west along the long obstructed passage.",
+      "composition": "Keep broken timbers as broad foreground diagonals, the wider east entry behind the view and the very narrow west continuation ahead.",
+      "lighting_palette": "Umber wood and dark coal rock; no visible wind effects required.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "TINY-CAVE": {
+      "continuity": [
+        "CAVES"
+      ],
+      "camera": "Eye-level corner view including the forbidding downward stair.",
+      "composition": "Keep west and north entrances separate from the stair's dark descent; preserve this stair's threatening appearance.",
+      "lighting_palette": "Cold low fill and deep stair shadow.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "TORCH-ROOM": {
+      "continuity": [
+        "DOME-TEMPLE"
+      ],
+      "camera": "Stand near the lower doorway looking up enough to include the dome railing.",
+      "composition": "Center the white marble pedestal within the large room and align upper wood railing with the dome view, 20 feet overhead; handle rope variants explicitly.",
+      "lighting_palette": "Low cool stone fill, ivory pedestal and source-supported torch glow only.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "TREASURE-ROOM": {
+      "continuity": [
+        "CAVES"
+      ],
+      "camera": "Stand near the downward stair looking across the large chamber toward east granite.",
+      "composition": "Use the solid east wall and scattered discarded bags as broad shapes; use the source-listed silver chalice as the principal coarse room prop.",
+      "lighting_palette": "Cool granite and subdued worn fabric values.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "TROLL-ROOM": {
+      "continuity": [
+        "CAVES"
+      ],
+      "camera": "Stand clear of the central space looking toward the western hole.",
+      "composition": "Retain east/south passages and the forbidding western opening, with bloodstains and deep wall scratches. Use the source-listed troll and bloody axe as the coarse room presentation.",
+      "lighting_palette": "Low neutral fill, restrained dark red stains and rough gray-brown rock.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "TWISTING-PASSAGE": {
+      "continuity": [
+        "CAVES"
+      ],
+      "camera": "Look diagonally toward the bend between east and north openings.",
+      "composition": "Use the winding wall geometry as the main silhouette and preserve the small number of established openings.",
+      "lighting_palette": "Cool rock, low fill and deep turns.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "UP-A-TREE": {
+      "continuity": [
+        "FOREST"
+      ],
+      "camera": "View from large branches about ten feet above the ground, angled slightly down.",
+      "composition": "Let the stable trunk and supporting boughs frame the ground below; higher branches remain out of reach. Do not invent climbing aids.",
+      "lighting_palette": "Filtered canopy daylight, warm bark and broad green masses.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "WEST-OF-HOUSE": {
+      "continuity": [
+        "WHITE-HOUSE"
+      ],
+      "camera": "Stand in the open field west of the house facing the boarded front entry obliquely.",
+      "composition": "Keep the white facade, boarded front door and small mailbox readable; the southwest secret path appears only in its canonical state. Do not reveal a hidden entrance by lighting alone.",
+      "lighting_palette": "Shared quiet daylight, ivory siding, green field and restrained brown boards.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "WHITE-CLIFFS-NORTH": {
+      "continuity": [
+        "FRIGID-RIVER"
+      ],
+      "camera": "Stand on the narrow beach with the cliff wall rising beside the view.",
+      "composition": "Keep the southward cliff-side path and tight westward passage into the cliff distinct.",
+      "lighting_palette": "Pale rock, dark teal reflected water and cool cliff shade.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "WHITE-CLIFFS-SOUTH": {
+      "continuity": [
+        "FRIGID-RIVER"
+      ],
+      "camera": "Stand on the rocky beach looking north along its narrow continuation.",
+      "composition": "Use rock-strewn shore and close cliff masses; preserve only the northward route described here.",
+      "lighting_palette": "Cool cliff shade and pale stone with restrained water reflection.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "WINDING-PASSAGE": {
+      "continuity": [
+        "CAVES"
+      ],
+      "camera": "Eye-level diagonal view across the winding passage.",
+      "composition": "Keep east and north exits as the only established openings, with the bend hiding their destinations.",
+      "lighting_palette": "Muted gray-brown rock and low cool fill.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    },
+    "MAZE-1": {
+      "continuity": [
+        "MAZE"
+      ],
+      "camera": "Low human eye level within a cramped twisting passage.",
+      "composition": "Repeat the shared maze proportions and material treatment without unique decorative navigation clues. Preserve only source-established exits and, where described, the skeleton.",
+      "lighting_palette": "Dim gray-brown stone; broad readable edges with deep corners.",
+      "assumptions": [
+        "Shared passage finish and camera are artistic; all-alike descriptions must stay visually confusable."
+      ]
+    },
+    "MAZE-2": {
+      "continuity": [
+        "MAZE"
+      ],
+      "camera": "Low human eye level within a cramped twisting passage.",
+      "composition": "Repeat the shared maze proportions and material treatment without unique decorative navigation clues. Preserve only source-established exits and, where described, the skeleton.",
+      "lighting_palette": "Dim gray-brown stone; broad readable edges with deep corners.",
+      "assumptions": [
+        "Shared passage finish and camera are artistic; all-alike descriptions must stay visually confusable."
+      ]
+    },
+    "MAZE-3": {
+      "continuity": [
+        "MAZE"
+      ],
+      "camera": "Low human eye level within a cramped twisting passage.",
+      "composition": "Repeat the shared maze proportions and material treatment without unique decorative navigation clues. Preserve only source-established exits and, where described, the skeleton.",
+      "lighting_palette": "Dim gray-brown stone; broad readable edges with deep corners.",
+      "assumptions": [
+        "Shared passage finish and camera are artistic; all-alike descriptions must stay visually confusable."
+      ]
+    },
+    "MAZE-4": {
+      "continuity": [
+        "MAZE"
+      ],
+      "camera": "Low human eye level within a cramped twisting passage.",
+      "composition": "Repeat the shared maze proportions and material treatment without unique decorative navigation clues. Preserve only source-established exits and, where described, the skeleton.",
+      "lighting_palette": "Dim gray-brown stone; broad readable edges with deep corners.",
+      "assumptions": [
+        "Shared passage finish and camera are artistic; all-alike descriptions must stay visually confusable."
+      ]
+    },
+    "MAZE-5": {
+      "continuity": [
+        "MAZE"
+      ],
+      "camera": "Low human eye level within a cramped twisting passage.",
+      "composition": "Repeat the shared maze proportions and material treatment without unique decorative navigation clues. Preserve only source-established exits and, where described, the skeleton.",
+      "lighting_palette": "Dim gray-brown stone; broad readable edges with deep corners.",
+      "assumptions": [
+        "Shared passage finish and camera are artistic; all-alike descriptions must stay visually confusable."
+      ]
+    },
+    "MAZE-6": {
+      "continuity": [
+        "MAZE"
+      ],
+      "camera": "Low human eye level within a cramped twisting passage.",
+      "composition": "Repeat the shared maze proportions and material treatment without unique decorative navigation clues. Preserve only source-established exits and, where described, the skeleton.",
+      "lighting_palette": "Dim gray-brown stone; broad readable edges with deep corners.",
+      "assumptions": [
+        "Shared passage finish and camera are artistic; all-alike descriptions must stay visually confusable."
+      ]
+    },
+    "MAZE-7": {
+      "continuity": [
+        "MAZE"
+      ],
+      "camera": "Low human eye level within a cramped twisting passage.",
+      "composition": "Repeat the shared maze proportions and material treatment without unique decorative navigation clues. Preserve only source-established exits and, where described, the skeleton.",
+      "lighting_palette": "Dim gray-brown stone; broad readable edges with deep corners.",
+      "assumptions": [
+        "Shared passage finish and camera are artistic; all-alike descriptions must stay visually confusable."
+      ]
+    },
+    "MAZE-8": {
+      "continuity": [
+        "MAZE"
+      ],
+      "camera": "Low human eye level within a cramped twisting passage.",
+      "composition": "Repeat the shared maze proportions and material treatment without unique decorative navigation clues. Preserve only source-established exits and, where described, the skeleton.",
+      "lighting_palette": "Dim gray-brown stone; broad readable edges with deep corners.",
+      "assumptions": [
+        "Shared passage finish and camera are artistic; all-alike descriptions must stay visually confusable."
+      ]
+    },
+    "MAZE-9": {
+      "continuity": [
+        "MAZE"
+      ],
+      "camera": "Low human eye level within a cramped twisting passage.",
+      "composition": "Repeat the shared maze proportions and material treatment without unique decorative navigation clues. Preserve only source-established exits and, where described, the skeleton.",
+      "lighting_palette": "Dim gray-brown stone; broad readable edges with deep corners.",
+      "assumptions": [
+        "Shared passage finish and camera are artistic; all-alike descriptions must stay visually confusable."
+      ]
+    },
+    "MAZE-10": {
+      "continuity": [
+        "MAZE"
+      ],
+      "camera": "Low human eye level within a cramped twisting passage.",
+      "composition": "Repeat the shared maze proportions and material treatment without unique decorative navigation clues. Preserve only source-established exits and, where described, the skeleton.",
+      "lighting_palette": "Dim gray-brown stone; broad readable edges with deep corners.",
+      "assumptions": [
+        "Shared passage finish and camera are artistic; all-alike descriptions must stay visually confusable."
+      ]
+    },
+    "MAZE-11": {
+      "continuity": [
+        "MAZE"
+      ],
+      "camera": "Low human eye level within a cramped twisting passage.",
+      "composition": "Repeat the shared maze proportions and material treatment without unique decorative navigation clues. Preserve only source-established exits and, where described, the skeleton.",
+      "lighting_palette": "Dim gray-brown stone; broad readable edges with deep corners.",
+      "assumptions": [
+        "Shared passage finish and camera are artistic; all-alike descriptions must stay visually confusable."
+      ]
+    },
+    "MAZE-12": {
+      "continuity": [
+        "MAZE"
+      ],
+      "camera": "Low human eye level within a cramped twisting passage.",
+      "composition": "Repeat the shared maze proportions and material treatment without unique decorative navigation clues. Preserve only source-established exits and, where described, the skeleton.",
+      "lighting_palette": "Dim gray-brown stone; broad readable edges with deep corners.",
+      "assumptions": [
+        "Shared passage finish and camera are artistic; all-alike descriptions must stay visually confusable."
+      ]
+    },
+    "MAZE-13": {
+      "continuity": [
+        "MAZE"
+      ],
+      "camera": "Low human eye level within a cramped twisting passage.",
+      "composition": "Repeat the shared maze proportions and material treatment without unique decorative navigation clues. Preserve only source-established exits and, where described, the skeleton.",
+      "lighting_palette": "Dim gray-brown stone; broad readable edges with deep corners.",
+      "assumptions": [
+        "Shared passage finish and camera are artistic; all-alike descriptions must stay visually confusable."
+      ]
+    },
+    "MAZE-14": {
+      "continuity": [
+        "MAZE"
+      ],
+      "camera": "Low human eye level within a cramped twisting passage.",
+      "composition": "Repeat the shared maze proportions and material treatment without unique decorative navigation clues. Preserve only source-established exits and, where described, the skeleton.",
+      "lighting_palette": "Dim gray-brown stone; broad readable edges with deep corners.",
+      "assumptions": [
+        "Shared passage finish and camera are artistic; all-alike descriptions must stay visually confusable."
+      ]
+    },
+    "MAZE-15": {
+      "continuity": [
+        "MAZE"
+      ],
+      "camera": "Low human eye level within a cramped twisting passage.",
+      "composition": "Repeat the shared maze proportions and material treatment without unique decorative navigation clues. Preserve only source-established exits and, where described, the skeleton.",
+      "lighting_palette": "Dim gray-brown stone; broad readable edges with deep corners.",
+      "assumptions": [
+        "Shared passage finish and camera are artistic; all-alike descriptions must stay visually confusable."
+      ]
+    },
+    "DEAD-END-1": {
+      "continuity": [
+        "MAZE"
+      ],
+      "camera": "Stand just inside the approach facing the termination of the route.",
+      "composition": "Use the closed end and cramped approach as the defining shapes; preserve the known approach direction from the exit data, without adding a hidden door or marker.",
+      "lighting_palette": "Low brown-gray illustrative fill; darkness deepens toward edges.",
+      "assumptions": [
+        "Surface treatment and viewpoint are artistic; no additional destination is implied."
+      ]
+    },
+    "DEAD-END-2": {
+      "continuity": [
+        "MAZE"
+      ],
+      "camera": "Stand just inside the approach facing the termination of the route.",
+      "composition": "Use the closed end and cramped approach as the defining shapes; preserve the known approach direction from the exit data, without adding a hidden door or marker.",
+      "lighting_palette": "Low brown-gray illustrative fill; darkness deepens toward edges.",
+      "assumptions": [
+        "Surface treatment and viewpoint are artistic; no additional destination is implied."
+      ]
+    },
+    "DEAD-END-3": {
+      "continuity": [
+        "MAZE"
+      ],
+      "camera": "Stand just inside the approach facing the termination of the route.",
+      "composition": "Use the closed end and cramped approach as the defining shapes; preserve the known approach direction from the exit data, without adding a hidden door or marker.",
+      "lighting_palette": "Low brown-gray illustrative fill; darkness deepens toward edges.",
+      "assumptions": [
+        "Surface treatment and viewpoint are artistic; no additional destination is implied."
+      ]
+    },
+    "DEAD-END-4": {
+      "continuity": [
+        "MAZE"
+      ],
+      "camera": "Stand just inside the approach facing the termination of the route.",
+      "composition": "Use the closed end and cramped approach as the defining shapes; preserve the known approach direction from the exit data, without adding a hidden door or marker.",
+      "lighting_palette": "Low brown-gray illustrative fill; darkness deepens toward edges.",
+      "assumptions": [
+        "Surface treatment and viewpoint are artistic; no additional destination is implied."
+      ]
+    },
+    "DEAD-END-5": {
+      "continuity": [
+        "MINE"
+      ],
+      "camera": "Stand just inside the approach facing the termination of the route.",
+      "composition": "Use the closed end and cramped approach as the defining shapes; preserve the known approach direction from the exit data, without adding a hidden door or marker.",
+      "lighting_palette": "Low brown-gray illustrative fill; darkness deepens toward edges.",
+      "assumptions": [
+        "Surface treatment and viewpoint are artistic; no additional destination is implied."
+      ]
+    },
+    "MINE-1": {
+      "continuity": [
+        "MINE"
+      ],
+      "camera": "Human eye level looking obliquely down the coal working.",
+      "composition": "A nondescript part of the mine, with modest scale and source-established routes. Do not add machinery, tools or conspicuous individual landmarks.",
+      "lighting_palette": "Charcoal and umber, minimal cool illustrative fill.",
+      "assumptions": [
+        "A repeated mine treatment is artistic; the sparse source does not support unique landmarks."
+      ]
+    },
+    "MINE-2": {
+      "continuity": [
+        "MINE"
+      ],
+      "camera": "Human eye level looking obliquely down the coal working.",
+      "composition": "A nondescript part of the mine, with modest scale and source-established routes. Do not add machinery, tools or conspicuous individual landmarks.",
+      "lighting_palette": "Charcoal and umber, minimal cool illustrative fill.",
+      "assumptions": [
+        "A repeated mine treatment is artistic; the sparse source does not support unique landmarks."
+      ]
+    },
+    "MINE-3": {
+      "continuity": [
+        "MINE"
+      ],
+      "camera": "Human eye level looking obliquely down the coal working.",
+      "composition": "A nondescript part of the mine, with modest scale and source-established routes. Do not add machinery, tools or conspicuous individual landmarks.",
+      "lighting_palette": "Charcoal and umber, minimal cool illustrative fill.",
+      "assumptions": [
+        "A repeated mine treatment is artistic; the sparse source does not support unique landmarks."
+      ]
+    },
+    "MINE-4": {
+      "continuity": [
+        "MINE"
+      ],
+      "camera": "Human eye level looking obliquely down the coal working.",
+      "composition": "A nondescript part of the mine, with modest scale and source-established routes. Do not add machinery, tools or conspicuous individual landmarks.",
+      "lighting_palette": "Charcoal and umber, minimal cool illustrative fill.",
+      "assumptions": [
+        "A repeated mine treatment is artistic; the sparse source does not support unique landmarks."
+      ]
+    }
+  },
+  "presentations": {
+    "ARAGAIN-FALLS": {
+      "LOOK-A38F64AE6DA2": {
+        "visual_treatment": "An ordinary translucent rainbow is visible over the falls toward the west; retain the full waterfall and northern path.",
+        "omit_source_dressing": []
+      },
+      "LOOK-DD7E93BD2458": {
+        "visual_treatment": "The rainbow has become a solid, continuous span across the falls; keep the same gorge, waterfall and northern path.",
+        "omit_source_dressing": []
+      }
+    },
+    "DAM-ROOM": {
+      "LOOK-183AEB3E60D3": {
+        "visual_treatment": "Open sluice gates, rushing discharge and a high reservoir; the small green bubble is unlit.",
+        "omit_source_dressing": []
+      },
+      "LOOK-25CF5EFFF46F": {
+        "visual_treatment": "Closed sluice gates and a high reservoir spilling over the dam crest; the small green bubble is unlit.",
+        "omit_source_dressing": []
+      },
+      "LOOK-2FAC36355994": {
+        "visual_treatment": "Open sluice gates, rushing discharge and low reservoir; the small green bubble is unlit.",
+        "omit_source_dressing": []
+      },
+      "LOOK-5E1652E22E13": {
+        "visual_treatment": "Closed sluice gates and a low, rising reservoir; the small green bubble is unlit.",
+        "omit_source_dressing": []
+      },
+      "LOOK-AAFC5BC75952": {
+        "visual_treatment": "Open sluice gates, rushing discharge and low reservoir; the small green bubble glows softly.",
+        "omit_source_dressing": []
+      },
+      "LOOK-D408181E3B17": {
+        "visual_treatment": "Open sluice gates, rushing discharge and high reservoir; the small green bubble glows softly.",
+        "omit_source_dressing": []
+      },
+      "LOOK-EF803B95AAE8": {
+        "visual_treatment": "Closed sluice gates and a low, rising reservoir; the small green bubble glows softly.",
+        "omit_source_dressing": []
+      },
+      "LOOK-F5EB88ED9C82": {
+        "visual_treatment": "Closed sluice gates and a high reservoir spilling over the crest; the small green bubble glows softly.",
+        "omit_source_dressing": []
+      }
+    },
+    "DEEP-CANYON": {
+      "LOOK-A083A39E7651": {
+        "visual_treatment": "The roar is audible only. Retain the canyon scene without inventing a visible sound source.",
+        "omit_source_dressing": []
+      },
+      "LOOK-D6A8BC3AD7BE": {
+        "visual_treatment": "Retain the same canyon geometry; do not add a visible event to distinguish this separate image.",
+        "omit_source_dressing": []
+      },
+      "LOOK-F8FCD16BBA92": {
+        "visual_treatment": "Flowing water is heard below. Do not invent a visible stream where the room description establishes only sound.",
+        "omit_source_dressing": []
+      }
+    },
+    "DOME-ROOM": {
+      "LOOK-0D8CE95169D7": {
+        "visual_treatment": "A rope hangs from the railing and ends about ten feet above the lower floor.",
+        "omit_source_dressing": []
+      },
+      "LOOK-CDF246C6FE2A": {
+        "visual_treatment": "Show the railing without a hanging rope.",
+        "omit_source_dressing": []
+      }
+    },
+    "EAST-OF-HOUSE": {
+      "LOOK-4ACD09F6346B": {
+        "visual_treatment": "The rear kitchen window is slightly ajar.",
+        "omit_source_dressing": []
+      },
+      "LOOK-B3743B9659AF": {
+        "visual_treatment": "The same rear kitchen window is open.",
+        "omit_source_dressing": []
+      }
+    },
+    "ENTRANCE-TO-HADES": {
+      "LOOK-12DF34E64BFB": {
+        "visual_treatment": "Show the open gateway and desolation beyond, with no spirits blocking the threshold.",
+        "omit_source_dressing": [
+          "GHOSTS"
+        ]
+      },
+      "LOOK-C4CBA21BEBA2": {
+        "visual_treatment": "Show evil spirits barring the open gateway; the stone gate itself remains open.",
+        "omit_source_dressing": []
+      }
+    },
+    "GRATING-CLEARING": {
+      "LOOK-2DA88419F9BF": {
+        "visual_treatment": "Expose the securely closed ground grating; keep leaves beside it rather than covering the metal.",
+        "omit_source_dressing": []
+      },
+      "LOOK-7292436AE4FD": {
+        "visual_treatment": "Show the leaf-covered ground with no visible grating or descent.",
+        "omit_source_dressing": []
+      },
+      "LOOK-AF0D9108EB57": {
+        "visual_treatment": "Show the open ground grating and dark descent; keep leaves beside the opening.",
+        "omit_source_dressing": []
+      }
+    },
+    "KITCHEN": {
+      "LOOK-6DBE643B0841": {
+        "visual_treatment": "The kitchen window is slightly ajar.",
+        "omit_source_dressing": []
+      },
+      "LOOK-DE296868739F": {
+        "visual_treatment": "The same kitchen window is open.",
+        "omit_source_dressing": []
+      }
+    },
+    "LOUD-ROOM": {
+      "LOOK-1003B53A382F": {
+        "visual_treatment": "Quietness is not a new physical feature. Retain the room layout and complete scene.",
+        "omit_source_dressing": []
+      },
+      "LOOK-DB173A7B909D": {
+        "visual_treatment": "The deafening sound does not imply a visible source, motion effect or altered architecture. Retain the same complete scene.",
+        "omit_source_dressing": []
+      }
+    },
+    "MIRROR-ROOM-1": {
+      "LOOK-09722ADD1423": {
+        "visual_treatment": "The source-established mirror is broken; retain its position and the room geometry.",
+        "omit_source_dressing": []
+      },
+      "LOOK-0FB4A68B2D6C": {
+        "visual_treatment": "Show the large mirror intact in its established position.",
+        "omit_source_dressing": []
+      }
+    },
+    "MIRROR-ROOM-2": {
+      "LOOK-09722ADD1423": {
+        "visual_treatment": "The source-established mirror is broken; retain its position and the room geometry.",
+        "omit_source_dressing": []
+      },
+      "LOOK-0FB4A68B2D6C": {
+        "visual_treatment": "Show the large mirror intact in its established position.",
+        "omit_source_dressing": []
+      }
+    },
+    "RESERVOIR": {
+      "LOOK-8CBFAA778666": {
+        "visual_treatment": "Show exposed mud occupying the former lake bed with shores north and south.",
+        "omit_source_dressing": []
+      },
+      "LOOK-EB9A6FD9C313": {
+        "visual_treatment": "Show the lake, beaches north and south, upstream rock cleft and downstream dam.",
+        "omit_source_dressing": []
+      }
+    },
+    "RESERVOIR-NORTH": {
+      "LOOK-3F8156A3B59F": {
+        "visual_treatment": "The lake south of this shore is high and falling; use a modest wet shoreline band.",
+        "omit_source_dressing": []
+      },
+      "LOOK-8E0C0E5B26A2": {
+        "visual_treatment": "The lowered lake is a wide stream through the exposed basin.",
+        "omit_source_dressing": []
+      },
+      "LOOK-AF3761505961": {
+        "visual_treatment": "The wide stream is rising; use water spreading along the low basin margin.",
+        "omit_source_dressing": []
+      },
+      "LOOK-DE5C3C4A172E": {
+        "visual_treatment": "A broad lake lies south of this shore.",
+        "omit_source_dressing": []
+      }
+    },
+    "RESERVOIR-SOUTH": {
+      "LOOK-59F1E792382B": {
+        "visual_treatment": "The lake north of this shore remains deep but is falling; use a modest wet shoreline band.",
+        "omit_source_dressing": []
+      },
+      "LOOK-7102492C0E61": {
+        "visual_treatment": "A deep, wide lake lies north of this shore.",
+        "omit_source_dressing": []
+      },
+      "LOOK-AB0139B0FEE6": {
+        "visual_treatment": "The former reservoir is a stream rising across the low basin margin.",
+        "omit_source_dressing": []
+      },
+      "LOOK-EC761344CEB6": {
+        "visual_treatment": "The lowered reservoir is a wide stream through the exposed basin.",
+        "omit_source_dressing": []
+      }
+    },
+    "TORCH-ROOM": {
+      "LOOK-42D6C3BB6AB5": {
+        "visual_treatment": "A rope from the upper railing ends about five feet above the viewer; preserve the torch-room architecture.",
+        "omit_source_dressing": []
+      },
+      "LOOK-4703A4F94993": {
+        "visual_treatment": "Show the same torch room without a hanging rope.",
+        "omit_source_dressing": []
+      }
+    },
+    "WEST-OF-HOUSE": {
+      "LOOK-68B304A687F9": {
+        "visual_treatment": "Show the standard house approach without a revealed southwest secret path.",
+        "omit_source_dressing": []
+      },
+      "LOOK-9A941A2A2FC0": {
+        "visual_treatment": "Include the revealed secret path leading southwest into the forest; retain the house and mailbox.",
+        "omit_source_dressing": []
+      }
+    }
+  }
+}

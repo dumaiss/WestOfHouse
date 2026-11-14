@@ -1,0 +1,100 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "state",
+  "room": "ENGRAVINGS-CAVE",
+  "title": "Engravings Cave",
+  "runtime_room": 96,
+  "runtime_state": 1,
+  "symbolic_state": "INITIAL",
+  "condition": true,
+  "extracted_states": [
+    {
+      "id": "INITIAL",
+      "condition": {
+        "op": "true"
+      },
+      "source_refs": [
+        "SRC-ROOM-ENGRAVINGS-CAVE"
+      ],
+      "method": "equivalent_static_predicate_and_matching_presentation_text"
+    }
+  ],
+  "description_ids": [
+    "LDESC"
+  ],
+  "canonical": [
+    {
+      "text": "You have entered a low cave with passages leading northwest and east.",
+      "pointer": "/scene/descriptions/0/text/0",
+      "source_refs": [
+        "SRC-ROOM-ENGRAVINGS-CAVE"
+      ]
+    }
+  ],
+  "required_environmental_features": [
+    "You have entered a low cave with passages leading northwest and east."
+  ],
+  "required_visible_objects": [
+    "ENGRAVINGS"
+  ],
+  "artistic": {
+    "continuity": [
+      "CAVES"
+    ],
+    "camera": "Stand near the low center and angle toward the engraved wall.",
+    "composition": "Convey the low ceiling, northwest and east passages, and shallow carved surfaces without readable inscriptions.",
+    "lighting_palette": "Low warm-gray fill on broad relief planes.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "state_artistic": {
+    "visual_treatment": "Depict the complete room presentation described above.",
+    "omit_source_dressing": []
+  },
+  "invariants": {
+    "canonical_text": [
+      "You have entered a low cave with passages leading northwest and east."
+    ],
+    "artistic": {
+      "continuity": [
+        "CAVES"
+      ],
+      "camera": "Stand near the low center and angle toward the engraved wall.",
+      "composition": "Convey the low ceiling, northwest and east passages, and shallow carved surfaces without readable inscriptions.",
+      "lighting_palette": "Low warm-gray fill on broad relief planes.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    }
+  },
+  "changes": [],
+  "reference": null,
+  "asset_key": "room-96-state-1",
+  "target": {
+    "width": 256,
+    "height": 159,
+    "hardware": "Yamaha V9958",
+    "eventual_encoding": "YJK",
+    "phase": 1,
+    "source_aspect": "4:3 landscape",
+    "crop": "Safe center crop from 4:3 to 256:159; protect subjects within the central 82.8% of source height and central 90% of width."
+  },
+  "prompt": "Create one complete static illustration of Engravings Cave.\n\nViewpoint: Stand near the low center and angle toward the engraved wall.\n\nThe scene establishes these features: You have entered a low cave with passages leading northwest and east.\n\nComposition: Convey the low ceiling, northwest and east passages, and shallow carved surfaces without readable inscriptions.\n\nAppearance of this illustration: Depict the complete room presentation described above.\n\nCanonical room dressing: There are old engravings on the walls here. Preserve this coarse room presentation unless the state description above specifies a different appearance.\n\nLighting and color: Low warm-gray fill on broad relief planes.\n\nShared world design: Broad cool gray and brown stone planes and soft non-diegetic illustrative fill. Do not add common fixtures to unrelated rooms.\n\nStyle: Painterly adventure-game illustration recalling fine late-1980s and early-1990s computer artwork; natural proportions, restrained brushwork, readable silhouettes and broad tonal masses. Aim for roughly 256 visually significant colors, broad related color regions, controlled shading and clear dark/light separation. No exact RGB-count requirement, photographic color noise, excessive gradients or microtextures.\n\nKeep this room camera, underlying architecture, terrain layout, light direction and palette consistent across its variants. Depict the complete scene, including the appearance stated above.\n\nLandscape source composition near 4:3. Final scene is 256 by 159 pixels. Allow safe center cropping to 256:159, keeping essential subjects inside the central 82.8 percent of source height and away from the side boundaries. Use clear silhouettes and broad readable shapes at that final size.\n\nExclude game UI, borders, captions, labels, readable lettering, photographic detail, pixel grids and enlarged pixels. Do not add characters, significant props, openings or events beyond the established scene. Do not depict an action in progress or a before/after collage.\n",
+  "negative_prompt": "No UI, borders, readable text, photorealism, pixel grid, invented props, extra exits or transient action events.",
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/engravings-cave.scene.json",
+    "scene_sha256": "f0f06ccda5cb28b5d611e6dcc11c50698a8cc661c1f11464da320e11e2257116",
+    "runtime_source": {
+      "file": "1dungeon.zil",
+      "line": 2057,
+      "expression": "<ROOM ENGRAVINGS-CAVE (IN ROOMS) (LDESC \"You have entered a low cave with passages leading northwest and east.\") (DESC \"Engravings Cave\") (NW TO ROUND-ROOM) (EAST TO DOME-ROOM) (FLAGS RLANDBIT)>"
+    },
+    "mapping_file": "generated-zil/woh-state-ids.json",
+    "mapping_sha256": "c48cbe6f1866460c9141af8f50be2b1120255b13ae8fa44a72cbb1714c3a2137",
+    "dictionary_file": "generated-room-states/room-states.yaml",
+    "dictionary_sha256": "87783e0895b9ebf9d5155dff22e440735c5ac68caca748c1d77840d6c1aacfa0",
+    "story_sha256": "cce1fdc54f18a6616e124db2de245aec1da943b458ebdee61bf1c6ff0a4038d4"
+  },
+  "unresolved": []
+}

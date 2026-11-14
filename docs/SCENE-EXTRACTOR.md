@@ -26,7 +26,7 @@ images, prompts, audio, or hotspots.
   including the Zephyr-80 UI specifications.
 - `schemas/v9958-g7-palette.json`: exact 256-entry V9958 G7 `GGGRRRBB` palette,
   including byte codes and canonical RGB previews for offline image tools.
-- `generated-scenes/`: default output directory; ignored by Git.
+- `assets/source/scene-facts/`: default output directory; ignored by Git.
 
 ## Python setup
 
@@ -57,7 +57,7 @@ Extract and validate every room:
 
 ```powershell
 .\.venv\Scripts\python.exe tools\scene-extractor\extract_scenes.py `
-  --output-dir generated-scenes `
+  --output-dir assets/source/scene-facts `
   --validate
 ```
 
@@ -66,7 +66,7 @@ Extract one room:
 ```powershell
 .\.venv\Scripts\python.exe tools\scene-extractor\extract_scenes.py `
   --room SANDY-CAVE `
-  --output-dir generated-scenes `
+  --output-dir assets/source/scene-facts `
   --validate
 ```
 
@@ -77,7 +77,7 @@ Extract several selected rooms by repeating `--room`:
   --room SANDY-CAVE `
   --room MAINTENANCE-ROOM `
   --room DAM-ROOM `
-  --output-dir generated-scenes `
+  --output-dir assets/source/scene-facts `
   --validate
 ```
 
@@ -87,7 +87,7 @@ Override source and schema paths:
 .\.venv\Scripts\python.exe tools\scene-extractor\extract_scenes.py `
   --source-root vendor\infocom-zork1 `
   --schema schemas\scene-facts-v1.schema.json `
-  --output-dir generated-scenes `
+  --output-dir assets/source/scene-facts `
   --validate
 ```
 
@@ -95,7 +95,7 @@ Room IDs are exact ZIL identifiers such as `WEST-OF-HOUSE` and
 `MAINTENANCE-ROOM`. Output filenames are lowercase:
 
 ```text
-generated-scenes/maintenance-room.scene.json
+assets/source/scene-facts/maintenance-room.scene.json
 ```
 
 The command overwrites selected output files. It does not delete unrelated

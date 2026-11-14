@@ -1,0 +1,269 @@
+{
+  "schema": "scene_hotspots_v1",
+  "room": 203,
+  "state": 2,
+  "room_name": "KITCHEN",
+  "binding": "mapped",
+  "asset_key": "room-203-state-2",
+  "image_size": [
+    256,
+    159
+  ],
+  "image": {
+    "path": "assets/review/white-house/previews/rgb/room-203-state-2.png",
+    "sha256": "6e494ff2cef5bbb4b645197b051e6520ee1b31ceeaaa98970c61683c05afcb37",
+    "original_path": "assets/source/white-house/originals/room-203-state-2.png",
+    "original_sha256": "661b6744058cff67f37613f3da436cbef1544674fcb31e8c67d013bd069ca2c0",
+    "crop_box": [
+      0,
+      4,
+      1585,
+      988
+    ],
+    "coordinate_reference": "final RGB preview; no additional scaling transform"
+  },
+  "hotspots": [
+    {
+      "object_id": "KITCHEN-TABLE",
+      "label": "Table",
+      "rect": [
+        88,
+        89,
+        130,
+        70
+      ],
+      "confidence": "high",
+      "id": "h1",
+      "background": false,
+      "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+      "actions": [
+        {
+          "label": "Examine",
+          "command": "examine table",
+          "source_refs": [
+            "SRC-OBJECT-KITCHEN-TABLE"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 199,
+            "expression": "<SYNTAX EXAMINE OBJECT (MANY) = V-EXAMINE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        }
+      ],
+      "provenance": {
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-KITCHEN-TABLE"
+        ]
+      }
+    },
+    {
+      "object_id": "KITCHEN-WINDOW",
+      "label": "Window",
+      "rect": [
+        208,
+        30,
+        39,
+        66
+      ],
+      "confidence": "high",
+      "id": "h2",
+      "background": false,
+      "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+      "actions": [
+        {
+          "label": "Examine",
+          "command": "examine window",
+          "source_refs": [
+            "SRC-OBJECT-KITCHEN-WINDOW"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 199,
+            "expression": "<SYNTAX EXAMINE OBJECT (MANY) = V-EXAMINE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        },
+        {
+          "label": "Close",
+          "command": "close window",
+          "source_refs": [
+            "SRC-OBJECT-KITCHEN-WINDOW"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 140,
+            "expression": "<SYNTAX CLOSE OBJECT (FIND DOORBIT) (HELD CARRIED ON-GROUND IN-ROOM) = V-CLOSE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        },
+        {
+          "label": "Go out",
+          "command": "enter window",
+          "source_refs": [
+            "SRC-OBJECT-KITCHEN-WINDOW"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 194,
+            "expression": "<SYNTAX ENTER = V-ENTER>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        }
+      ],
+      "provenance": {
+        "pointer": "/scene/objects/6",
+        "source_refs": [
+          "SRC-OBJECT-KITCHEN-WINDOW"
+        ]
+      }
+    },
+    {
+      "object_id": "STAIRS",
+      "label": "Stairs",
+      "rect": [
+        5,
+        17,
+        48,
+        141
+      ],
+      "confidence": "high",
+      "id": "h3",
+      "background": false,
+      "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+      "actions": [
+        {
+          "label": "Examine",
+          "command": "examine stairs",
+          "source_refs": [
+            "SRC-OBJECT-STAIRS"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 199,
+            "expression": "<SYNTAX EXAMINE OBJECT (MANY) = V-EXAMINE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        },
+        {
+          "label": "Go up",
+          "command": "up",
+          "source_refs": [
+            "SRC-OBJECT-STAIRS"
+          ],
+          "parser_source": {
+            "kind": "room_exit_direction",
+            "note": "Direction is established by the source room exit, not a new game action."
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        }
+      ],
+      "provenance": {
+        "pointer": "/scene/objects/8",
+        "source_refs": [
+          "SRC-OBJECT-STAIRS"
+        ]
+      }
+    },
+    {
+      "object_id": "CHIMNEY",
+      "label": "Chimney",
+      "rect": [
+        81,
+        57,
+        77,
+        42
+      ],
+      "confidence": "medium",
+      "basis": "Visible hearth aperture is an imperfect depiction of the source chimney. Avoid the table foreground where possible.",
+      "id": "h4",
+      "background": false,
+      "actions": [
+        {
+          "label": "Examine",
+          "command": "examine chimney",
+          "source_refs": [
+            "SRC-OBJECT-CHIMNEY"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 199,
+            "expression": "<SYNTAX EXAMINE OBJECT (MANY) = V-EXAMINE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        },
+        {
+          "label": "Climb",
+          "command": "climb down chimney",
+          "source_refs": [
+            "SRC-OBJECT-CHIMNEY"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 130,
+            "expression": "<SYNTAX CLIMB UP OBJECT (FIND RMUNGBIT) = V-CLIMB-UP>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        }
+      ],
+      "provenance": {
+        "pointer": "/scene/objects/7",
+        "source_refs": [
+          "SRC-OBJECT-CHIMNEY"
+        ]
+      }
+    }
+  ],
+  "unresolved": [
+    {
+      "object_id": "SANDWICH-BAG",
+      "status": "not_visible",
+      "detail": "Source sack on table is not identifiable in the illustration."
+    },
+    {
+      "object_id": "BOTTLE",
+      "status": "not_visible",
+      "detail": "Source glass bottle is not identifiable; the painted brown jug is not a reliable match."
+    },
+    {
+      "object_id": "EXIT-WEST",
+      "status": "not_visible",
+      "detail": "No independently identifiable west passage is shown."
+    },
+    {
+      "object_id": "GARLIC",
+      "status": "concealed",
+      "detail": "Garlic is in the source sack; painted onions are not identified as it."
+    },
+    {
+      "object_id": "LUNCH",
+      "status": "concealed",
+      "detail": "Source sack contents are not shown."
+    }
+  ],
+  "localization": {
+    "method": "Vision inspection by the coding assistant of the final RGB previews and original illustrations; rectangles estimated directly in final 256x159 pixels. No keyword/image-template localization.",
+    "observations": "tools/scene-hotspots/observations.json",
+    "observations_sha256": "270c6e38858865cf79ddbcf3f1eec5adf798c2a26ca3d31718336e68d49a216e"
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/kitchen.scene.json",
+    "scene_sha256": "0ac17aef4984969560c5b5624a3303416660938e9e4f0ed66483082ac18f9b38",
+    "zil_source_sha256": {
+      "1actions.zil": "443b9e0082f51b04ae053418039005945efa29945d945102cf7d494fef02fdf7",
+      "1dungeon.zil": "8e223dc75ce64cff8542266101742ea73774533787c5257e8df4a262e4f02766",
+      "gclock.zil": "92c4d66f18eeba8de1497215a0e17ade6c2cf1e5e050f016cf99160e41b154c6",
+      "gglobals.zil": "5945abfeeff71cd2b2088653c7572d3c72bf14d5af65c41b4425d945a6bb6e0a",
+      "gmacros.zil": "d665c73e9231429a772877357fd56d57c946838a5260a74f705c2dc898ebd8f5",
+      "gmain.zil": "712e27ab29d36f3d36c7994ec6d41011cb869990d8780a03bb2ee8148d3f1740",
+      "gparser.zil": "869e1391bdd1518495a9f36391ec36045f5f5af401f18edb921b5c9cfd442397",
+      "gsyntax.zil": "b0f0b4de6068bb85cf96306a16e07f410518669d12260682d3ac71e2e42b5621",
+      "gverbs.zil": "e1150d6300e262f774b59fe96f8139980dfad3c41f0e93f3af49140b5f57e74e",
+      "zork1.zil": "3a96d90419db3907951d05fbd0032b3b935775db9f8c41c13bf1f5addaebac9e"
+    },
+    "phase1_specification": "rooms/KITCHEN/states/2.json",
+    "pilot_manifest": "assets/source/white-house/manifest.json"
+  },
+  "overlap_policy": "smallest matching rectangle; authored order breaks equal-area ties; half-open edges"
+}

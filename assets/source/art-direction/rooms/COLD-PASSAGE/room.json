@@ -1,0 +1,127 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "COLD-PASSAGE",
+  "title": "Cold Passage",
+  "runtime_room": 45,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is a cold and damp corridor where a long east-west passageway\nturns into a southward path."
+        ],
+        "source_refs": [
+          "SRC-ROOM-COLD-PASSAGE"
+        ]
+      }
+    ],
+    "objects": [],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-COLD-PASSAGE"
+        ]
+      },
+      {
+        "id": "EXIT-SOUTH",
+        "directions": [
+          "south"
+        ],
+        "destination": "MIRROR-ROOM-1",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-COLD-PASSAGE"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "SLIDE-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-COLD-PASSAGE"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "CAVES"
+    ],
+    "camera": "Look down the east-west corridor toward its southward bend.",
+    "composition": "Use cold damp wall planes and the single bend as the defining geometry; do not reveal unseen destinations.",
+    "lighting_palette": "Cold desaturated stone with minimal illustrative fill.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/cold-passage.scene.json",
+    "scene_sha256": "87d19c4b13e6d6393c4b7beab5ddb63e7e8311c5083823bb362335044152855d",
+    "source_references": [
+      {
+        "id": "SRC-ROOM-COLD-PASSAGE",
+        "file": "1dungeon.zil",
+        "line_start": 1883,
+        "line_end": 1891,
+        "subject": "COLD-PASSAGE"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-COLD-PASSAGE"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

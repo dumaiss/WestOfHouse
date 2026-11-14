@@ -1,0 +1,127 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "WINDING-PASSAGE",
+  "title": "Winding Passage",
+  "runtime_room": 43,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is a winding passage. It seems that there are only exits\non the east and north."
+        ],
+        "source_refs": [
+          "SRC-ROOM-WINDING-PASSAGE"
+        ]
+      }
+    ],
+    "objects": [],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-WINDING-PASSAGE"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "MIRROR-ROOM-2",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-WINDING-PASSAGE"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "TINY-CAVE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-WINDING-PASSAGE"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "CAVES"
+    ],
+    "camera": "Eye-level diagonal view across the winding passage.",
+    "composition": "Keep east and north exits as the only established openings, with the bend hiding their destinations.",
+    "lighting_palette": "Muted gray-brown rock and low cool fill.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/winding-passage.scene.json",
+    "scene_sha256": "0d08ae534327d82fbc3a1b5ac52d9a017af4224203ef50d950346d6678cc87a8",
+    "source_references": [
+      {
+        "id": "SRC-ROOM-WINDING-PASSAGE",
+        "file": "1dungeon.zil",
+        "line_start": 1903,
+        "line_end": 1911,
+        "subject": "WINDING-PASSAGE"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-WINDING-PASSAGE"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

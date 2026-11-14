@@ -1,0 +1,127 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "TWISTING-PASSAGE",
+  "title": "Twisting Passage",
+  "runtime_room": 42,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is a winding passage. It seems that there are only exits\non the east and north."
+        ],
+        "source_refs": [
+          "SRC-ROOM-TWISTING-PASSAGE"
+        ]
+      }
+    ],
+    "objects": [],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-TWISTING-PASSAGE"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "MIRROR-ROOM-1",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-TWISTING-PASSAGE"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "SMALL-CAVE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-TWISTING-PASSAGE"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "CAVES"
+    ],
+    "camera": "Look diagonally toward the bend between east and north openings.",
+    "composition": "Use the winding wall geometry as the main silhouette and preserve the small number of established openings.",
+    "lighting_palette": "Cool rock, low fill and deep turns.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/twisting-passage.scene.json",
+    "scene_sha256": "7af9649d7fc00bca2cfc76acfe4ca5a5d6464b8cca50f9ff66e07cb63791a09d",
+    "source_references": [
+      {
+        "id": "SRC-ROOM-TWISTING-PASSAGE",
+        "file": "1dungeon.zil",
+        "line_start": 1913,
+        "line_end": 1921,
+        "subject": "TWISTING-PASSAGE"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-TWISTING-PASSAGE"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

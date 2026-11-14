@@ -1,0 +1,29 @@
+{
+  "schema": "woh_resource_build_v1",
+  "resources": 18,
+  "mapped_scenes": 8,
+  "unbound_packaged": 0,
+  "archive_sha256": "aac7ab2f86dfe407baaa9bd18122126f22e35e42f006159f13efbab3b89e956f",
+  "archive_bytes": 474624,
+  "rebuilt": [],
+  "verified_payloads": [
+    "zork1.z3",
+    "room-180-state-1.img",
+    "room-180-state-1.wht",
+    "room-180-state-2.img",
+    "room-180-state-2.wht",
+    "room-81-state-1.img",
+    "room-81-state-1.wht",
+    "room-80-state-1.img",
+    "room-80-state-1.wht",
+    "room-79-state-1.img",
+    "room-79-state-1.wht",
+    "room-79-state-2.img",
+    "room-79-state-2.wht",
+    "room-203-state-1.img",
+    "room-203-state-1.wht",
+    "room-203-state-2.img",
+    "room-203-state-2.wht",
+    "WoHTitle.img"
+  ]
+}

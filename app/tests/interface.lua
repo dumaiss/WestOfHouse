@@ -8,6 +8,7 @@ local stage, due, release, release_at = 0, 0, nil, 0
 local xpos,ypos = 0,0
 local epoch,commands = 0,0
 local outside_phase = 0
+local title_seen = false
 local function shot(name)
  for _,s in pairs(manager.machine.screens) do s:snapshot(dir.."/"..name..".png"); break end
 end
@@ -33,11 +34,11 @@ local function move(p,x,y)
  xpos=(xpos+x-p.mx)&0xffff; ypos=(ypos+y-p.my)&0xffff
  field("MOUSE_X"):set_value(xpos); field("MOUSE_Y"):set_value(ypos)
 end
-local function pixels(name)
+local function pixels(name,count)
  local api=emu.plugin.konaos
  local bytes={}
- for a=0,36863 do bytes[#bytes+1]=string.char(api.vram((a>>1)|((a&1)<<16))) end
- local f=assert(io.open(dir.."/"..name..".g7","wb")); f:write(table.concat(bytes)); f:close()
+ for a=0,(count or 40704)-1 do bytes[#bytes+1]=string.char(api.vram((a>>1)|((a&1)<<16))) end
+ local f=assert(io.open(dir.."/"..name..".vram","wb")); f:write(table.concat(bytes)); f:close()
 end
 local function pointer_tables()
  local api=emu.plugin.konaos
@@ -67,7 +68,7 @@ local function read_probe(api)
  local function dword(n) return word(n)|(word(n+2)<<16) end
  return {waiting=byte(4),epoch=word(5),here=word(7),state=word(9),view=byte(11),pages=byte(12),
          length=byte(13),cursor=byte(14),menu=byte(15),mouse=byte(16),commands=word(17),
-         bytes=dword(19),hash=dword(23),mx=word(27),my=word(29)}
+         bytes=dword(19),hash=dword(23),mx=word(27),my=word(29),title=byte(31)}
 end
 local sequence={"north","east","open window","close window","xyzzy","score","quit","y"}
 local expected={{81,1},{79,1},{79,2},{79,1},{79,1},{79,1},{79,1},{79,1}}
@@ -78,6 +79,11 @@ local function tick()
  local api=emu.plugin.konaos
  if not api or release or now<due or not api.keys.idle() then return end
  local p=read_probe(api)
+ if p and p.title==1 then
+  if not title_seen then title_seen=true; due=now+0.5; return end
+  shot("title"); pixels("title",54272)
+  api.keys.queue(" "); due=now+0.5; return
+ end
  if not p or p.waiting~=1 or p.epoch==0 then return end
  if stage==0 then
   assert(p.here==180 and p.state==1 and p.commands==0 and p.pages>1)
@@ -119,22 +125,22 @@ local function tick()
  elseif stage==11 then
   if p.epoch==epoch then return end
   assert(p.commands==1); epoch=p.epoch; record(p)
-  pixels("before-cursor"); move(p,88,110); next_stage()
+  pixels("before-cursor"); move(p,203,130); next_stage()
  elseif stage==12 then
-  if p.mx~=88 or p.my~=110 then return end
+  if p.mx~=203 or p.my~=130 then return end
   pixels("after-cursor"); click(); next_stage()
  elseif stage==13 then
   if p.menu~=1 then return end
-  shot("menu"); move(p,105,69); next_stage()
+  shot("menu"); move(p,210,135); next_stage()
  elseif stage==14 then
-  if p.mx~=105 or p.my~=69 then return end
+  if p.mx~=210 or p.my~=135 then return end
   shot("menu-open-highlight"); click(); next_stage()
  elseif stage==15 then
   if p.epoch==epoch then return end
   assert(p.commands==2 and p.menu==0); epoch=p.epoch; record(p)
-  pixels("before-menu"); move(p,88,110); next_stage()
+  pixels("before-menu"); move(p,203,130); next_stage()
  elseif stage==16 then
-  if p.mx~=88 or p.my~=110 then return end
+  if p.mx~=203 or p.my~=130 then return end
   click(); next_stage()
  elseif stage==17 then
   if p.menu~=1 then return end
@@ -151,10 +157,10 @@ local function tick()
    click(); outside_phase=2; due=now+0.3; return
   elseif outside_phase==2 then
    if p.menu~=0 then return end
-   assert(p.commands==2); pixels("after-outside-click"); move(p,88,110)
+   assert(p.commands==2); pixels("after-outside-click"); move(p,203,130)
    outside_phase=3; due=now+0.3; return
   elseif outside_phase==3 then
-   if p.mx~=88 or p.my~=110 then return end
+   if p.mx~=203 or p.my~=130 then return end
    click(); outside_phase=4; due=now+0.3; return
   end
   if p.menu~=1 then return end

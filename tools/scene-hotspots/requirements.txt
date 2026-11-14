@@ -1,0 +1,2 @@
+Pillow>=9
+jsonschema>=4.19,<5

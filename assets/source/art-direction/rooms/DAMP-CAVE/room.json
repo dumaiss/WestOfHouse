@@ -1,0 +1,176 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "DAMP-CAVE",
+  "title": "Damp Cave",
+  "runtime_room": 39,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This cave has exits to the west and east, and narrows to a crack toward\nthe south. The earth is particularly damp here."
+        ],
+        "source_refs": [
+          "SRC-ROOM-DAMP-CAVE"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "CRACK",
+        "description": "crack",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-CRACK"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-DAMP-CAVE"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "LOUD-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-DAMP-CAVE"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "WHITE-CLIFFS-NORTH",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-DAMP-CAVE"
+        ]
+      },
+      {
+        "id": "EXIT-SOUTH",
+        "directions": [
+          "south"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(SOUTH \"It is too narrow for most insects.\")"
+        },
+        "blocked_text": [
+          "It is too narrow for most insects."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-DAMP-CAVE"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "CAVES"
+    ],
+    "camera": "Eye-level oblique view across the wet cave floor toward the southern crack.",
+    "composition": "Keep east/west openings distinct from the extremely narrow south fissure; emphasize wet earth in broad planes.",
+    "lighting_palette": "Cool damp grays and subdued brown with low fill.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/damp-cave.scene.json",
+    "scene_sha256": "02ff4ea9abb4ea4104f65c48992938ab3c4a3bb1ceef8271049dbe391e724455",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-CRACK",
+        "file": "1dungeon.zil",
+        "line_start": 453,
+        "line_end": 459,
+        "subject": "CRACK"
+      },
+      {
+        "id": "SRC-ROOM-DAMP-CAVE",
+        "file": "1dungeon.zil",
+        "line_start": 1976,
+        "line_end": 1986,
+        "subject": "DAMP-CAVE"
+      },
+      {
+        "id": "SRC-ROUTINE-CRACK-FCN",
+        "file": "1actions.zil",
+        "line_start": 381,
+        "line_end": 383,
+        "subject": "CRACK-FCN"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-DAMP-CAVE"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

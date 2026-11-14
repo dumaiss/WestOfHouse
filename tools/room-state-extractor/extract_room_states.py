@@ -116,7 +116,7 @@ def main(argv=None):
     if missing:
         parser.error('Unknown room ID(s): ' + ', '.join(missing))
     compare = args.compare_legacy or args.scene_facts is not None or args.compatibility_output is not None
-    legacy_directory = (args.scene_facts or ROOT / 'generated-scenes') if compare else None
+    legacy_directory = (args.scene_facts or ROOT / 'assets/source/scene-facts') if compare else None
     dictionary, report, mapping = build(source, selected, legacy_directory)
     outputs = [(args.output, '\n'.join(yaml_lines(dictionary)) + '\n'),
                (args.report or args.output.with_suffix('.report.json'), json.dumps(report, indent=2, ensure_ascii=False) + '\n')]

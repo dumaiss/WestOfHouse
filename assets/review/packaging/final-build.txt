@@ -1,0 +1,122 @@
+make: Entering directory '/home/kitamura/Documents/WestOfHouse/app'
+python3 ../tools/resources/build.py --sdk /home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0
+make -C ../libzvm release KOS_SDK_ROOT=/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0
+make[1]: Entering directory '/home/kitamura/Documents/WestOfHouse/libzvm'
+make zvmtest ZVM_PROFILE=0 ZVM_ASM=0 ZVM_CACHE_ASM=1 ZVM_STACK_PROBE=0 ZVM_STACK=512 DYN_CACHE_PAGES=4 STATIC_CACHE_PAGES=4
+make[2]: Entering directory '/home/kitamura/Documents/WestOfHouse/libzvm'
+sdcc -mz80 -c --nostdinc --Werror -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include/abi -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include   -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 --constseg RCONST  -Iinclude  -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include/kos -I tests -c tests/zvmtest.c -o build/optimized/target/user/zvmtest/zvmtest.rel
+/home/kitamura/Documents/WestOfHouse/app/build/assets/tmpyjhnaru9/WOH.KPR: ok
+resources 18 (catalog capacity 24)
+records   927: 1 header, 3 catalog, 923 live, 0 abandoned
+{
+  "schema": "woh_resource_build_v1",
+  "resources": 18,
+  "mapped_scenes": 8,
+  "unbound_packaged": 0,
+  "archive_sha256": "aac7ab2f86dfe407baaa9bd18122126f22e35e42f006159f13efbab3b89e956f",
+  "archive_bytes": 474624,
+  "rebuilt": [],
+  "verified_payloads": [
+    "zork1.z3",
+    "room-180-state-1.img",
+    "room-180-state-1.wht",
+    "room-180-state-2.img",
+    "room-180-state-2.wht",
+    "room-81-state-1.img",
+    "room-81-state-1.wht",
+    "room-80-state-1.img",
+    "room-80-state-1.wht",
+    "room-79-state-1.img",
+    "room-79-state-1.wht",
+    "room-79-state-2.img",
+    "room-79-state-2.wht",
+    "room-203-state-1.img",
+    "room-203-state-1.wht",
+    "room-203-state-2.img",
+    "room-203-state-2.wht",
+    "WoHTitle.img"
+  ]
+}
+python3 tools/extend_gfx.py --sdk ../../ZephyrOS/build/kos-sdk-0.2.0 --extra build/gfx_border.rel --output build/lib/libgfx.lib --sdar sdar
+sdcc -mz80 -c --nostdinc --Werror -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include/abi -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include   -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 --constseg RCONST  -Iinclude  -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include/kos -I tests -c tests/story_cache.c -o build/optimized/target/user/zvmtest/story_cache.rel
+sdcc -mz80 -c --nostdinc --Werror -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include/abi -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include   -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 --constseg RCONST  -Iinclude  -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include/kos -I tests -c tests/story_cache_z80.c -o build/optimized/target/user/zvmtest/story_cache_z80.rel
+sdcc -mz80 -c --nostdinc --Werror -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include/abi -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include   -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 --constseg RCONST  -Iinclude  -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include/kos -I tests -c tests/stack_probe.c -o build/optimized/target/user/zvmtest/stack_probe.rel
+sdcc -mz80 -c --nostdinc --Werror -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include/abi -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include   -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 --constseg RCONST  -Iinclude  -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include/kos -I tests -c tests/state_report.c -o build/optimized/target/user/zvmtest/state_report.rel
+mkdir -p build/optimized/target/libzvm/
+sdcc   -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 -mz80 -c --nostdinc --Werror -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include/abi -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include -Iinclude -c src/zvm.c -o build/optimized/target/libzvm/zvm.rel
+mkdir -p build/optimized/target/libzvm/
+sdcc   -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 -mz80 -c --nostdinc --Werror -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include/abi -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include -Iinclude -c src/memory.c -o build/optimized/target/libzvm/memory.rel
+mkdir -p build/optimized/target/libzvm/
+sdcc   -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 -mz80 -c --nostdinc --Werror -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include/abi -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include -Iinclude -c src/variables.c -o build/optimized/target/libzvm/variables.rel
+mkdir -p build/optimized/target/libzvm/
+sdcc   -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 -mz80 -c --nostdinc --Werror -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include/abi -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include -Iinclude -c src/frames.c -o build/optimized/target/libzvm/frames.rel
+mkdir -p build/optimized/target/libzvm/
+sdcc   -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 -mz80 -c --nostdinc --Werror -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include/abi -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include -Iinclude -c src/objects.c -o build/optimized/target/libzvm/objects.rel
+mkdir -p build/optimized/target/libzvm/
+sdcc   -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 -mz80 -c --nostdinc --Werror -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include/abi -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include -Iinclude -c src/decode.c -o build/optimized/target/libzvm/decode.rel
+mkdir -p build/optimized/target/libzvm/
+sdcc   -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 -mz80 -c --nostdinc --Werror -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include/abi -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include -Iinclude -c src/execute.c -o build/optimized/target/libzvm/execute.rel
+mkdir -p build/lib
+cp ../../ZephyrOS/build/kos-sdk-0.2.0/lib/libtui.lib build/lib/libtui.lib
+mkdir -p build/optimized/target/libzvm/
+sdcc   -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 -mz80 -c --nostdinc --Werror -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include/abi -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include -Iinclude -c src/opcodes.c -o build/optimized/target/libzvm/opcodes.rel
+mkdir -p build/lib
+cp ../../ZephyrOS/build/kos-sdk-0.2.0/lib/libkres.lib build/lib/libkres.lib
+sdcc -mz80 -c --nostdinc --Werror -I../../ZephyrOS/build/kos-sdk-0.2.0/include/abi -I../../ZephyrOS/build/kos-sdk-0.2.0/include -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 --constseg RCONST  -Isrc  -Igfx  -Ibuild/assets  -I../tools/scene-hotspots  -I../libzvm/include  -I../libzvm/tests  -I../../ZephyrOS/build/kos-sdk-0.2.0/include/kos -I . -c src/main.c -o build/target/user/woh/main.rel
+sdcc -mz80 -c --nostdinc --Werror -I../../ZephyrOS/build/kos-sdk-0.2.0/include/abi -I../../ZephyrOS/build/kos-sdk-0.2.0/include -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 --constseg RCONST  -Isrc  -Igfx  -Ibuild/assets  -I../tools/scene-hotspots  -I../libzvm/include  -I../libzvm/tests  -I../../ZephyrOS/build/kos-sdk-0.2.0/include/kos -I . -c src/game.c -o build/target/user/woh/game.rel
+sdcc -mz80 -c --nostdinc --Werror -I../../ZephyrOS/build/kos-sdk-0.2.0/include/abi -I../../ZephyrOS/build/kos-sdk-0.2.0/include -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 --constseg RCONST  -Isrc  -Igfx  -Ibuild/assets  -I../tools/scene-hotspots  -I../libzvm/include  -I../libzvm/tests  -I../../ZephyrOS/build/kos-sdk-0.2.0/include/kos -I . -c src/game_output.c -o build/target/user/woh/game_output.rel
+sdcc -mz80 -c --nostdinc --Werror -I../../ZephyrOS/build/kos-sdk-0.2.0/include/abi -I../../ZephyrOS/build/kos-sdk-0.2.0/include -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 --constseg RCONST  -Isrc  -Igfx  -Ibuild/assets  -I../tools/scene-hotspots  -I../libzvm/include  -I../libzvm/tests  -I../../ZephyrOS/build/kos-sdk-0.2.0/include/kos -I . -c src/render.c -o build/target/user/woh/render.rel
+sdcc -mz80 -c --nostdinc --Werror -I../../ZephyrOS/build/kos-sdk-0.2.0/include/abi -I../../ZephyrOS/build/kos-sdk-0.2.0/include -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 --constseg RCONST  -Isrc  -Igfx  -Ibuild/assets  -I../tools/scene-hotspots  -I../libzvm/include  -I../libzvm/tests  -I../../ZephyrOS/build/kos-sdk-0.2.0/include/kos -I . -c src/panel.c -o build/target/user/woh/panel.rel
+sdcc -mz80 -c --nostdinc --Werror -I../../ZephyrOS/build/kos-sdk-0.2.0/include/abi -I../../ZephyrOS/build/kos-sdk-0.2.0/include -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 --constseg RCONST  -Isrc  -Igfx  -Ibuild/assets  -I../tools/scene-hotspots  -I../libzvm/include  -I../libzvm/tests  -I../../ZephyrOS/build/kos-sdk-0.2.0/include/kos -I . -c src/menu.c -o build/target/user/woh/menu.rel
+sdcc -mz80 -c --nostdinc --Werror -I../../ZephyrOS/build/kos-sdk-0.2.0/include/abi -I../../ZephyrOS/build/kos-sdk-0.2.0/include -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 --constseg RCONST  -Isrc  -Igfx  -Ibuild/assets  -I../tools/scene-hotspots  -I../libzvm/include  -I../libzvm/tests  -I../../ZephyrOS/build/kos-sdk-0.2.0/include/kos -I . -c src/resources.c -o build/target/user/woh/resources.rel
+mkdir -p build/optimized/target/libzvm/
+sdcc   -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 -mz80 -c --nostdinc --Werror -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include/abi -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include -Iinclude -c src/text.c -o build/optimized/target/libzvm/text.rel
+mkdir -p build/optimized/target/libzvm/
+sdcc   -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 -mz80 -c --nostdinc --Werror -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include/abi -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include -Iinclude -c src/dictionary.c -o build/optimized/target/libzvm/dictionary.rel
+mkdir -p build/optimized/target/libzvm/
+sdcc   -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 -mz80 -c --nostdinc --Werror -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include/abi -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include -Iinclude -c src/input.c -o build/optimized/target/libzvm/input.rel
+mkdir -p build/optimized/target/libzvm/
+sdcc   -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 -mz80 -c --nostdinc --Werror -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include/abi -I/home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/include -Iinclude -c src/services.c -o build/optimized/target/libzvm/services.rel
+sdcc -mz80 -c --nostdinc --Werror -I../../ZephyrOS/build/kos-sdk-0.2.0/include/abi -I../../ZephyrOS/build/kos-sdk-0.2.0/include -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 --constseg RCONST  -Isrc  -Igfx  -Ibuild/assets  -I../tools/scene-hotspots  -I../libzvm/include  -I../libzvm/tests  -I../../ZephyrOS/build/kos-sdk-0.2.0/include/kos -I . -c ../tools/scene-hotspots/consumer.c -o build/target/user/woh/consumer.rel
+mkdir -p build/optimized/lib/
+rm -f build/optimized/lib/libzvm.lib
+sdar -rcD build/optimized/lib/libzvm.lib build/optimized/target/libzvm/zvm.rel build/optimized/target/libzvm/memory.rel build/optimized/target/libzvm/variables.rel build/optimized/target/libzvm/frames.rel build/optimized/target/libzvm/objects.rel build/optimized/target/libzvm/decode.rel build/optimized/target/libzvm/execute.rel build/optimized/target/libzvm/opcodes.rel build/optimized/target/libzvm/text.rel build/optimized/target/libzvm/dictionary.rel build/optimized/target/libzvm/input.rel build/optimized/target/libzvm/services.rel
+{ printf '%s\n' '-n' '-m' '-w'; printf '%s\n' '-i build/optimized/target/user/zvmtest/zvmtest.ihx'; printf '%s\n' '-b _KOS_SDK_DATA = 0x0100'; printf '%s\n' '-b _CODE = 0x015D';   printf '%s\n'  /home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/lib/crt0.rel  build/optimized/target/user/zvmtest/zvmtest.rel build/optimized/target/user/zvmtest/story_cache.rel build/optimized/target/user/zvmtest/story_cache_z80.rel build/optimized/target/user/zvmtest/stack_probe.rel build/optimized/target/user/zvmtest/state_report.rel   ; for lib in build/optimized/lib/libzvm.lib; do printf '%s\n' "-l $lib"; done; printf '%s\n' '-l /home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/lib/libkos.lib'; printf '%s\n' '-e'; } > build/optimized/target/user/zvmtest/zvmtest.lk
+python3 /home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/tools/exeplace.py link build/optimized/target/user/zvmtest/zvmtest.lk build/optimized/target/user/zvmtest/place 512   '--declared=libzvm.lib(memory.rel)' '--declared=libzvm.lib(text.rel)' '--declared=libzvm.lib(services.rel)'
+sdldz80 -f build/optimized/target/user/zvmtest/place/placed.lk
+ASlink >> -f build/optimized/target/user/zvmtest/place/placed.lk
+ASlink >> -n
+touch build/optimized/target/user/zvmtest/zvmtest.link
+python3 /home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/tools/exemanifest.py build/optimized/target/user/zvmtest/zvmtest.map build/optimized/target/user/zvmtest/zvmtest.json --name zvmtest.exe --entry kos_entry --stack 512  --scratch kos_scratch:16  --placement build/optimized/target/user/zvmtest/place/placement.json
+python3 /home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/tools/exepack.py pack build/optimized/target/user/zvmtest/zvmtest.json build/optimized/target/user/zvmtest.exe --objdir build/optimized/target/user/zvmtest --report build/optimized/target/user/zvmtest/zvmtest.report.json
+exepack: build/optimized/target/user/zvmtest/zvmtest.json -> build/optimized/target/user/zvmtest.exe (43184 bytes, entry 015Dh, sha256 cdb232076754b499)
+python3 /home/kitamura/Documents/ZephyrOS/build/kos-sdk-0.2.0/tools/exepack.py validate build/optimized/target/user/zvmtest.exe
+exepack: build/optimized/target/user/zvmtest.exe OK (43184 bytes, sha256 cdb232076754b499f23907a2c49a5790d59a0b10db1ae21ccdf8a70afe2e2ddf)
+Optimized build ready:
+  /home/kitamura/Documents/WestOfHouse/libzvm/build/ZVMTEST.EXE
+  /home/kitamura/Documents/WestOfHouse/libzvm/build/libzvm.lib
+Checksums: /home/kitamura/Documents/WestOfHouse/libzvm/build/SHA256SUMS
+make[2]: Leaving directory '/home/kitamura/Documents/WestOfHouse/libzvm'
+make[1]: Leaving directory '/home/kitamura/Documents/WestOfHouse/libzvm'
+mkdir -p build/lib
+cp ../libzvm/build/libzvm.lib build/lib/libzvm.lib
+sdcc -mz80 -c --nostdinc --Werror -I../../ZephyrOS/build/kos-sdk-0.2.0/include/abi -I../../ZephyrOS/build/kos-sdk-0.2.0/include -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 --constseg RCONST  -Isrc  -Igfx  -Ibuild/assets  -I../tools/scene-hotspots  -I../libzvm/include  -I../libzvm/tests  -I../../ZephyrOS/build/kos-sdk-0.2.0/include/kos -I . -c ../libzvm/tests/story_cache.c -o build/target/user/woh/story_cache.rel
+sdcc -mz80 -c --nostdinc --Werror -I../../ZephyrOS/build/kos-sdk-0.2.0/include/abi -I../../ZephyrOS/build/kos-sdk-0.2.0/include -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1 --constseg RCONST  -Isrc  -Igfx  -Ibuild/assets  -I../tools/scene-hotspots  -I../libzvm/include  -I../libzvm/tests  -I../../ZephyrOS/build/kos-sdk-0.2.0/include/kos -I . -c ../libzvm/tests/story_cache_z80.c -o build/target/user/woh/story_cache_z80.rel
+{ printf '%s\n' '-n' '-m' '-w'; printf '%s\n' '-i build/target/user/woh/woh.ihx'; printf '%s\n' '-b _KOS_SDK_DATA = 0x0100'; printf '%s\n' '-b _CODE = 0x015D';   printf '%s\n'  ../../ZephyrOS/build/kos-sdk-0.2.0/lib/crt0.rel  build/target/user/woh/main.rel build/target/user/woh/game.rel build/target/user/woh/game_output.rel build/target/user/woh/render.rel build/target/user/woh/panel.rel build/target/user/woh/menu.rel build/target/user/woh/resources.rel build/target/user/woh/consumer.rel build/target/user/woh/story_cache.rel build/target/user/woh/story_cache_z80.rel   ; for lib in build/lib/libzvm.lib build/lib/libgfx.lib build/lib/libtui.lib build/lib/libkres.lib; do printf '%s\n' "-l $lib"; done; printf '%s\n' '-l ../../ZephyrOS/build/kos-sdk-0.2.0/lib/libkos.lib'; printf '%s\n' '-e'; } > build/target/user/woh/woh.lk
+python3 ../../ZephyrOS/build/kos-sdk-0.2.0/tools/exeplace.py link build/target/user/woh/woh.lk build/target/user/woh/place 768 build/target/user/woh/game_output.rel build/target/user/woh/story_cache.rel build/target/user/woh/story_cache_z80.rel 'libgfx.lib(gfx_mode.rel)=resident' '--declared=libzvm.lib(memory.rel)' '--declared=libzvm.lib(text.rel)' '--declared=libzvm.lib(services.rel)' '--declared=libtui.lib(tui_mouse.rel)' '--declared=libkres.lib(kres_reader.rel)' '--declared=libkres.lib(kres_mut.rel)' '--declared=libkres.lib(kres_adapter.rel)' '--declared=libkres.lib(kres_adapter_mut.rel)' '--declared=libkres.lib(kres_cache_xmem.rel)'
+sdldz80 -f build/target/user/woh/place/placed.lk
+ASlink >> -f build/target/user/woh/place/placed.lk
+ASlink >> -n
+touch build/target/user/woh/woh.link
+python3 ../../ZephyrOS/build/kos-sdk-0.2.0/tools/exemanifest.py build/target/user/woh/woh.map build/target/user/woh/woh.json --name woh.exe --entry kos_entry --stack 768  --scratch kos_scratch:16  --placement build/target/user/woh/place/placement.json
+python3 ../../ZephyrOS/build/kos-sdk-0.2.0/tools/exepack.py pack build/target/user/woh/woh.json build/target/user/woh.exe --objdir build/target/user/woh --report build/target/user/woh/woh.report.json
+exepack: build/target/user/woh/woh.json -> build/target/user/woh.exe (73196 bytes, entry 015Dh, sha256 0793494234b068a2)
+python3 ../../ZephyrOS/build/kos-sdk-0.2.0/tools/exepack.py validate build/target/user/woh.exe
+exepack: build/target/user/woh.exe OK (73196 bytes, sha256 0793494234b068a259ea12c28bd3717c032b2972d303dda4f7d06ada8394fc5c)
+mkdir -p build/WestOfHouse
+cp build/target/user/woh.exe build/WestOfHouse/woh.exe
+rm -f build/WestOfHouse/zork1.z3
+cd build/WestOfHouse && sha256sum woh.exe WOH.KPR > SHA256SUMS
+Deploy: /home/kitamura/Documents/WestOfHouse/app/build/WestOfHouse/woh.exe
+        /home/kitamura/Documents/WestOfHouse/app/build/WestOfHouse/WOH.KPR
+make: Leaving directory '/home/kitamura/Documents/WestOfHouse/app'

@@ -1,0 +1,235 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "GAS-ROOM",
+  "title": "Gas Room",
+  "runtime_room": 124,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is a small room which smells strongly of coal gas. There is a\nshort climb up some stairs and a narrow tunnel leading east."
+        ],
+        "source_refs": [
+          "SRC-ROOM-GAS-ROOM"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "BRACELET",
+        "description": "sapphire-encrusted bracelet",
+        "kind": "object",
+        "initial_location": "GAS-ROOM",
+        "source_flags": [
+          "TAKEBIT"
+        ],
+        "source_properties": {
+          "TVALUE": 5,
+          "SIZE": 10,
+          "VALUE": 5
+        },
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-BRACELET"
+        ]
+      },
+      {
+        "id": "STAIRS",
+        "description": "stairs",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT",
+          "CLIMBBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-STAIRS"
+        ]
+      },
+      {
+        "id": "PSEUDO-GAS",
+        "description": "gas",
+        "kind": "pseudo_object",
+        "initial_location": "GAS-ROOM",
+        "source_flags": [],
+        "source_properties": {
+          "ACTION": "GAS-PSEUDO"
+        },
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/2",
+        "source_refs": [
+          "SRC-ROOM-GAS-ROOM",
+          "SRC-ROUTINE-GAS-PSEUDO"
+        ]
+      },
+      {
+        "id": "PSEUDO-ODOR",
+        "description": "odor",
+        "kind": "pseudo_object",
+        "initial_location": "GAS-ROOM",
+        "source_flags": [],
+        "source_properties": {
+          "ACTION": "GAS-PSEUDO"
+        },
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/3",
+        "source_refs": [
+          "SRC-ROOM-GAS-ROOM",
+          "SRC-ROUTINE-GAS-PSEUDO"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-GAS-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-UP",
+        "directions": [
+          "up"
+        ],
+        "destination": "SMELLY-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-GAS-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "MINE-1",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-GAS-ROOM"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "SACREDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "MINE"
+    ],
+    "camera": "View the small room obliquely toward its short up-stair and east tunnel.",
+    "composition": "Treat the coal-gas smell as invisible; do not add colored vapor, flame or an explosion.",
+    "lighting_palette": "Dim charcoal and umber with no visible light fixture.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/gas-room.scene.json",
+    "scene_sha256": "9c07643daf90e1b99140c7872461fec7670b3db2ecc67db130a31aa9f4f3004b",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-BRACELET",
+        "file": "1dungeon.zil",
+        "line_start": 824,
+        "line_end": 832,
+        "subject": "BRACELET"
+      },
+      {
+        "id": "SRC-OBJECT-STAIRS",
+        "file": "gglobals.zil",
+        "line_start": 102,
+        "line_end": 108,
+        "subject": "STAIRS"
+      },
+      {
+        "id": "SRC-ROOM-GAS-ROOM",
+        "file": "1dungeon.zil",
+        "line_start": 2476,
+        "line_end": 2487,
+        "subject": "GAS-ROOM"
+      },
+      {
+        "id": "SRC-ROUTINE-BOOM-ROOM",
+        "file": "1actions.zil",
+        "line_start": 2446,
+        "line_end": 2467,
+        "subject": "BOOM-ROOM"
+      },
+      {
+        "id": "SRC-ROUTINE-GAS-PSEUDO",
+        "file": "1actions.zil",
+        "line_start": 3226,
+        "line_end": 3230,
+        "subject": "GAS-PSEUDO"
+      },
+      {
+        "id": "SRC-ROUTINE-STAIRS-F",
+        "file": "gglobals.zil",
+        "line_start": 110,
+        "line_end": 113,
+        "subject": "STAIRS-F"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-GAS-ROOM"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

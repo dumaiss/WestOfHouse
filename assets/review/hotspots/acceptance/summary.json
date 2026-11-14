@@ -1,0 +1,42 @@
+{
+  "schema": "woh_hotspot_pilot_acceptance_v1",
+  "artifact_validation": "PASS",
+  "scene_manifests": 9,
+  "mapped_tables": 8,
+  "unbound_tables": 1,
+  "hotspots": 44,
+  "binary_tables": 9,
+  "binary_bytes": 2578,
+  "warning_records": 14,
+  "unit_tests": 11,
+  "unit_tests_result": "PASS",
+  "c_python_pixel_comparisons": 366336,
+  "parser_commands_checked": 59,
+  "parser_command_warnings": 0,
+  "sdcc_compile": "PASS",
+  "application_source_diff": "none",
+  "application_integration": "deferred by user",
+  "kres_archives_created": 0,
+  "artwork_modified": false,
+  "artwork_preservation_evidence": "Unit tests hash every PNG in the input pilot before and after generation; selected image/crop hashes are also validated.",
+  "protected_phase1_and_encoder_hashes_unchanged": true,
+  "binary_files_sha256": {
+    "binary/room-180-state-1.wht": "f003a6352e786d471658e89c96fa8335f66d564f35613754c9348c58381043b3",
+    "binary/room-180-state-2.wht": "55ccaa8d84fb3c477ee9cf3474285e92223714ee62309cb189df9618a919f5e6",
+    "binary/room-81-state-1.wht": "1d8574efb117160d98fd08519c808c20c0aa383bfd248c1f608e06df47ca30e0",
+    "binary/room-80-state-1.wht": "ea8b469d7fd488d7a7b75a658c68f830c36571511f2866ff8aab183b4f7f5fcc",
+    "binary/room-79-state-1.wht": "d9b7930cf092bacd79f55bd184f264eea607c9ee84f66f89416908053fcaf84a",
+    "binary/room-79-state-2.wht": "985395fd5517f0a8a7d971bafe15f19e6446af55b75fec60f4b7afb16bb7a2ca",
+    "binary/room-203-state-1.wht": "c1ea1a6c8c05e243fd3ab93dcf4f47d034b847b8f8708a71c60414f7bb456689",
+    "binary/room-203-state-2.wht": "35273044421e72cda788cfe2151fddcb0199b4ff2d38a0ccaf4ac1af99ca4fc0",
+    "binary/room-201-state-unbound.wht": "644e6ceee1ab95f88d1024f9cb083469284fef21d394828205b4d36f466848b6"
+  },
+  "hardware_test": "Not applicable: no application changes or deployment.",
+  "canonical_asset_cleanup": {
+    "selected_originals": 9,
+    "superseded_originals_removed": 3,
+    "version_suffixes_remaining": 0,
+    "approved_image_bytes_preserved": true,
+    "hotspot_binary_bytes_preserved": true
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "MAZE-2",
+  "title": "Maze",
+  "runtime_room": 69,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is part of a maze of twisty little passages, all alike."
+        ],
+        "source_refs": [
+          "SRC-ROOM-MAZE-2"
+        ]
+      }
+    ],
+    "objects": [],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MAZE-2"
+        ]
+      },
+      {
+        "id": "EXIT-SOUTH",
+        "directions": [
+          "south"
+        ],
+        "destination": "MAZE-1",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MAZE-2"
+        ]
+      },
+      {
+        "id": "EXIT-DOWN",
+        "directions": [
+          "down"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(DOWN PER MAZE-DIODES)"
+        },
+        "blocked_text": [],
+        "effects": [
+          {
+            "operation": "call_routine",
+            "routine": "MAZE-DIODES",
+            "arguments": [],
+            "source_expression": "(DOWN PER MAZE-DIODES)"
+          }
+        ],
+        "source_refs": [
+          "SRC-ROOM-MAZE-2"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "MAZE-3",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MAZE-2"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "MAZEBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "MAZE"
+    ],
+    "camera": "Low human eye level within a cramped twisting passage.",
+    "composition": "Repeat the shared maze proportions and material treatment without unique decorative navigation clues. Preserve only source-established exits and, where described, the skeleton.",
+    "lighting_palette": "Dim gray-brown stone; broad readable edges with deep corners.",
+    "assumptions": [
+      "Shared passage finish and camera are artistic; all-alike descriptions must stay visually confusable."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/maze-2.scene.json",
+    "scene_sha256": "5093f5774ba9e4ffb14773b31211ff104da0f3973fdf361e6b4eb228875581f4",
+    "source_references": [
+      {
+        "id": "SRC-ROOM-MAZE-2",
+        "file": "1dungeon.zil",
+        "line_start": 1548,
+        "line_end": 1555,
+        "subject": "MAZE-2"
+      },
+      {
+        "id": "SRC-ROUTINE-MAZE-DIODES",
+        "file": "1actions.zil",
+        "line_start": 898,
+        "line_end": 905,
+        "subject": "MAZE-DIODES"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-MAZE-2"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

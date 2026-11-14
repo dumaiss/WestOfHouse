@@ -1,0 +1,314 @@
+{
+  "schema": "woh_phase2_pilot_v1",
+  "target": [
+    256,
+    159
+  ],
+  "source_aspect": "approximately 4:3",
+  "generation_tool": "built-in image_gen",
+  "records": [
+    {
+      "room": "WEST-OF-HOUSE",
+      "runtime_room": 180,
+      "runtime_state": 1,
+      "symbolic_state": "LOOK-68B304A687F9",
+      "asset_key": "room-180-state-1",
+      "binding": "mapped",
+      "phase1_specification": "rooms/WEST-OF-HOUSE/states/1.json",
+      "phase1_prompt": "rooms/WEST-OF-HOUSE/prompts/1.md",
+      "request": "prompts/requests/room-180-state-1.md",
+      "reference_assets": [
+        "room-180-state-1"
+      ],
+      "operation": "edit",
+      "status": "generated",
+      "original": "originals/room-180-state-1.png",
+      "metadata": "metadata/room-180-state-1.json",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "revision_reason": "User requested a classic rounded mailbox on a post with a small flag.",
+      "rgb_preview": "../../review/white-house/previews/rgb/room-180-state-1.png",
+      "yjk_preview": "../../review/white-house/previews/yjk/room-180-state-1.png",
+      "kimg": "../../review/white-house/kimg/room-180-state-1.img",
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "deployment_ready": false,
+      "review": "Classic mailbox revision complete; production continuity review still required."
+    },
+    {
+      "room": "WEST-OF-HOUSE",
+      "runtime_room": 180,
+      "runtime_state": 2,
+      "symbolic_state": "LOOK-9A941A2A2FC0",
+      "asset_key": "room-180-state-2",
+      "binding": "mapped",
+      "phase1_specification": "rooms/WEST-OF-HOUSE/states/2.json",
+      "phase1_prompt": "rooms/WEST-OF-HOUSE/prompts/2.md",
+      "request": "prompts/requests/room-180-state-2.md",
+      "reference_assets": [
+        "room-180-state-1"
+      ],
+      "operation": "edit",
+      "status": "generated",
+      "original": "originals/room-180-state-2.png",
+      "metadata": "metadata/room-180-state-2.json",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "revision_reason": "Keep the user-approved classic mailbox consistent with revised state 1.",
+      "rgb_preview": "../../review/white-house/previews/rgb/room-180-state-2.png",
+      "yjk_preview": "../../review/white-house/previews/yjk/room-180-state-2.png",
+      "kimg": "../../review/white-house/kimg/room-180-state-2.img",
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "deployment_ready": false,
+      "review": "Path and mailbox preserved; minor repainting outside intended change."
+    },
+    {
+      "room": "NORTH-OF-HOUSE",
+      "runtime_room": 81,
+      "runtime_state": 1,
+      "symbolic_state": "INITIAL",
+      "asset_key": "room-81-state-1",
+      "binding": "mapped",
+      "phase1_specification": "rooms/NORTH-OF-HOUSE/states/1.json",
+      "phase1_prompt": "rooms/NORTH-OF-HOUSE/prompts/1.md",
+      "request": "prompts/requests/room-81-state-1.md",
+      "reference_assets": [
+        "room-180-state-1"
+      ],
+      "operation": "generate",
+      "status": "generated",
+      "original": "originals/room-81-state-1.png",
+      "metadata": "metadata/room-81-state-1.json",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "rgb_preview": "../../review/white-house/previews/rgb/room-81-state-1.png",
+      "yjk_preview": "../../review/white-house/previews/yjk/room-81-state-1.png",
+      "kimg": "../../review/white-house/kimg/room-81-state-1.img",
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "deployment_ready": false,
+      "review": "Roof/elevation continuity requires review."
+    },
+    {
+      "room": "SOUTH-OF-HOUSE",
+      "runtime_room": 80,
+      "runtime_state": 1,
+      "symbolic_state": "INITIAL",
+      "asset_key": "room-80-state-1",
+      "binding": "mapped",
+      "phase1_specification": "rooms/SOUTH-OF-HOUSE/states/1.json",
+      "phase1_prompt": "rooms/SOUTH-OF-HOUSE/prompts/1.md",
+      "request": "prompts/requests/room-80-state-1.md",
+      "reference_assets": [
+        "room-180-state-1"
+      ],
+      "operation": "generate",
+      "status": "generated",
+      "original": "originals/room-80-state-1.png",
+      "metadata": "metadata/room-80-state-1.json",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "rgb_preview": "../../review/white-house/previews/rgb/room-80-state-1.png",
+      "yjk_preview": "../../review/white-house/previews/yjk/room-80-state-1.png",
+      "kimg": "../../review/white-house/kimg/room-80-state-1.img",
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "deployment_ready": false,
+      "review": "Roof/elevation continuity requires review."
+    },
+    {
+      "room": "EAST-OF-HOUSE",
+      "runtime_room": 79,
+      "runtime_state": 1,
+      "symbolic_state": "LOOK-4ACD09F6346B",
+      "asset_key": "room-79-state-1",
+      "binding": "mapped",
+      "phase1_specification": "rooms/EAST-OF-HOUSE/states/1.json",
+      "phase1_prompt": "rooms/EAST-OF-HOUSE/prompts/1.md",
+      "request": "prompts/requests/room-79-state-1.md",
+      "reference_assets": [
+        "room-180-state-1"
+      ],
+      "operation": "generate",
+      "status": "generated",
+      "original": "originals/room-79-state-1.png",
+      "metadata": "metadata/room-79-state-1.json",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "rgb_preview": "../../review/white-house/previews/rgb/room-79-state-1.png",
+      "yjk_preview": "../../review/white-house/previews/yjk/room-79-state-1.png",
+      "kimg": "../../review/white-house/kimg/room-79-state-1.img",
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "deployment_ready": false,
+      "review": "Rear building proportions require review."
+    },
+    {
+      "room": "EAST-OF-HOUSE",
+      "runtime_room": 79,
+      "runtime_state": 2,
+      "symbolic_state": "LOOK-B3743B9659AF",
+      "asset_key": "room-79-state-2",
+      "binding": "mapped",
+      "phase1_specification": "rooms/EAST-OF-HOUSE/states/2.json",
+      "phase1_prompt": "rooms/EAST-OF-HOUSE/prompts/2.md",
+      "request": "prompts/requests/room-79-state-2.md",
+      "reference_assets": [
+        "room-79-state-1"
+      ],
+      "operation": "edit",
+      "status": "generated",
+      "original": "originals/room-79-state-2.png",
+      "metadata": "metadata/room-79-state-2.json",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "rgb_preview": "../../review/white-house/previews/rgb/room-79-state-2.png",
+      "yjk_preview": "../../review/white-house/previews/yjk/room-79-state-2.png",
+      "kimg": "../../review/white-house/kimg/room-79-state-2.img",
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "deployment_ready": false,
+      "review": "Corrected: window fully open on the same wall, chimney and environment visually preserved. Cross-view house proportions still require review.",
+      "revision_reason": "Open only the window; preserve state 1 window wall, chimney and environment."
+    },
+    {
+      "room": "KITCHEN",
+      "runtime_room": 203,
+      "runtime_state": 1,
+      "symbolic_state": "LOOK-6DBE643B0841",
+      "asset_key": "room-203-state-1",
+      "binding": "mapped",
+      "phase1_specification": "rooms/KITCHEN/states/1.json",
+      "phase1_prompt": "rooms/KITCHEN/prompts/1.md",
+      "request": "prompts/requests/room-203-state-1.md",
+      "reference_assets": [
+        "room-180-state-1",
+        "room-79-state-1"
+      ],
+      "operation": "generate",
+      "status": "generated",
+      "original": "originals/room-203-state-1.png",
+      "metadata": "metadata/room-203-state-1.json",
+      "source_size": [
+        1586,
+        992
+      ],
+      "rgb_preview": "../../review/white-house/previews/rgb/room-203-state-1.png",
+      "yjk_preview": "../../review/white-house/previews/yjk/room-203-state-1.png",
+      "kimg": "../../review/white-house/kimg/room-203-state-1.img",
+      "crop_box": [
+        0,
+        3,
+        1586,
+        988
+      ],
+      "deployment_ready": false,
+      "review": "Downward chimney and western passage not clearly represented."
+    },
+    {
+      "room": "KITCHEN",
+      "runtime_room": 203,
+      "runtime_state": 2,
+      "symbolic_state": "LOOK-DE296868739F",
+      "asset_key": "room-203-state-2",
+      "binding": "mapped",
+      "phase1_specification": "rooms/KITCHEN/states/2.json",
+      "phase1_prompt": "rooms/KITCHEN/prompts/2.md",
+      "request": "prompts/requests/room-203-state-2.md",
+      "reference_assets": [
+        "room-203-state-1"
+      ],
+      "operation": "edit",
+      "status": "generated",
+      "original": "originals/room-203-state-2.png",
+      "metadata": "metadata/room-203-state-2.json",
+      "source_size": [
+        1585,
+        992
+      ],
+      "rgb_preview": "../../review/white-house/previews/rgb/room-203-state-2.png",
+      "yjk_preview": "../../review/white-house/previews/yjk/room-203-state-2.png",
+      "kimg": "../../review/white-house/kimg/room-203-state-2.img",
+      "crop_box": [
+        0,
+        4,
+        1585,
+        988
+      ],
+      "deployment_ready": false,
+      "review": "Open/ajar distinction inadequate; unintended lighting change."
+    },
+    {
+      "room": "ATTIC",
+      "runtime_room": 201,
+      "runtime_state": null,
+      "symbolic_state": null,
+      "asset_key": "room-201-state-unbound",
+      "binding": "unbound-concept",
+      "phase1_specification": "rooms/ATTIC/room.json",
+      "phase1_prompt": null,
+      "request": "prompts/requests/room-201-state-unbound.md",
+      "reference_assets": [
+        "room-180-state-1",
+        "room-203-state-1"
+      ],
+      "operation": "generate",
+      "status": "generated",
+      "authorization": "User approved an unbound Attic concept; no new state ID assigned.",
+      "original": "originals/room-201-state-unbound.png",
+      "metadata": "metadata/room-201-state-unbound.json",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "rgb_preview": "../../review/white-house/previews/rgb/room-201-state-unbound.png",
+      "yjk_preview": "../../review/white-house/previews/yjk/room-201-state-unbound.png",
+      "kimg": "../../review/white-house/kimg/room-201-state-unbound.img",
+      "crop_box": [
+        0,
+        93,
+        1448,
+        992
+      ],
+      "deployment_ready": false,
+      "review": "Unbound concept; unsupported unboarded attic window."
+    }
+  ]
+}

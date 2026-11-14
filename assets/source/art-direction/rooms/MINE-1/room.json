@@ -1,0 +1,142 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "MINE-1",
+  "title": "Coal Mine",
+  "runtime_room": 19,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is a nondescript part of a coal mine."
+        ],
+        "source_refs": [
+          "SRC-ROOM-MINE-1"
+        ]
+      }
+    ],
+    "objects": [],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MINE-1"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "GAS-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MINE-1"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "MINE-1",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MINE-1"
+        ]
+      },
+      {
+        "id": "EXIT-NE",
+        "directions": [
+          "ne"
+        ],
+        "destination": "MINE-2",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-MINE-1"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "MINE"
+    ],
+    "camera": "Human eye level looking obliquely down the coal working.",
+    "composition": "A nondescript part of the mine, with modest scale and source-established routes. Do not add machinery, tools or conspicuous individual landmarks.",
+    "lighting_palette": "Charcoal and umber, minimal cool illustrative fill.",
+    "assumptions": [
+      "A repeated mine treatment is artistic; the sparse source does not support unique landmarks."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/mine-1.scene.json",
+    "scene_sha256": "50554e6950346f878be589903f3fd8788c0c4887c10abbe945ea0dfa3b8fb4b9",
+    "source_references": [
+      {
+        "id": "SRC-ROOM-MINE-1",
+        "file": "1dungeon.zil",
+        "line_start": 2565,
+        "line_end": 2572,
+        "subject": "MINE-1"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-MINE-1"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

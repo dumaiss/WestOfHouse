@@ -1,0 +1,449 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "DAM-LOBBY",
+  "title": "Dam Lobby",
+  "runtime_room": 154,
+  "runtime_status": "incomplete",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This room appears to have been the waiting room for groups touring\nthe dam. There are open doorways here to the north and east marked\n\"Private\", and there is a path leading south over the top of the dam."
+        ],
+        "source_refs": [
+          "SRC-ROOM-DAM-LOBBY"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "MATCH",
+        "description": "matchbook",
+        "kind": "object",
+        "initial_location": "DAM-LOBBY",
+        "source_flags": [
+          "READBIT",
+          "TAKEBIT"
+        ],
+        "source_properties": {
+          "SIZE": 2,
+          "LDESC": "There is a matchbook whose cover says \"Visit Beautiful FCD#3\" here."
+        },
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-MATCH"
+        ]
+      },
+      {
+        "id": "GUIDE",
+        "description": "tour guidebook",
+        "kind": "object",
+        "initial_location": "DAM-LOBBY",
+        "source_flags": [
+          "READBIT",
+          "TAKEBIT",
+          "BURNBIT"
+        ],
+        "source_properties": {
+          "FDESC": "Some guidebooks entitled \"Flood Control Dam #3\" are on the reception\ndesk."
+        },
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-GUIDE"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-DAM-LOBBY"
+        ]
+      },
+      {
+        "id": "EXIT-SOUTH",
+        "directions": [
+          "south"
+        ],
+        "destination": "DAM-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-DAM-LOBBY"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "MAINTENANCE-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-DAM-LOBBY"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "MAINTENANCE-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-DAM-LOBBY"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "ONBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "DAM-RESERVOIR"
+    ],
+    "camera": "Eye-level corner view covering the north and east thresholds and south return route.",
+    "composition": "Arrange the waiting-room volume around its doorways and reception area only where objects establish it; omit readable signs.",
+    "lighting_palette": "Quiet cool interior light, weathered concrete and dark fittings.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/dam-lobby.scene.json",
+    "scene_sha256": "66550d9b5514d9256a336d9f8968ed918cbffef57b6092c89cfb3d1cb9a0b996",
+    "source_references": [
+      {
+        "id": "SRC-GLOBAL-LIT",
+        "file": "gverbs.zil",
+        "line_start": 1626,
+        "line_end": 1626,
+        "subject": "LIT"
+      },
+      {
+        "id": "SRC-GLOBAL-MATCH-COUNT",
+        "file": "1actions.zil",
+        "line_start": 2263,
+        "line_end": 2263,
+        "subject": "MATCH-COUNT"
+      },
+      {
+        "id": "SRC-OBJECT-GUIDE",
+        "file": "1dungeon.zil",
+        "line_start": 1001,
+        "line_end": 1034,
+        "subject": "GUIDE"
+      },
+      {
+        "id": "SRC-OBJECT-MATCH",
+        "file": "1dungeon.zil",
+        "line_start": 614,
+        "line_end": 639,
+        "subject": "MATCH"
+      },
+      {
+        "id": "SRC-ROOM-DAM-LOBBY",
+        "file": "1dungeon.zil",
+        "line_start": 2147,
+        "line_end": 2157,
+        "subject": "DAM-LOBBY"
+      },
+      {
+        "id": "SRC-ROUTINE-I-MATCH",
+        "file": "1actions.zil",
+        "line_start": 2308,
+        "line_end": 2313,
+        "subject": "I-MATCH"
+      },
+      {
+        "id": "SRC-ROUTINE-MATCH-FUNCTION",
+        "file": "1actions.zil",
+        "line_start": 2265,
+        "line_end": 2306,
+        "subject": "MATCH-FUNCTION"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [
+      {
+        "id": "MATCH.FLAMEBIT",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<FCLEAR ,MATCH ,FLAMEBIT>",
+        "source_refs": []
+      },
+      {
+        "id": "MATCH.ONBIT",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<FCLEAR ,MATCH ,ONBIT>",
+        "source_refs": []
+      },
+      {
+        "id": "LIT",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL LIT <>>",
+        "source_refs": [
+          "SRC-GLOBAL-LIT"
+        ]
+      },
+      {
+        "id": "MATCH-COUNT",
+        "kind": "global",
+        "value_type": "integer",
+        "initial_value": 6,
+        "source_expression": "<GLOBAL MATCH-COUNT 6>",
+        "source_refs": [
+          "SRC-GLOBAL-MATCH-COUNT"
+        ]
+      }
+    ],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "flag_clear",
+              "object": "MATCH",
+              "flag": "FLAMEBIT"
+            },
+            {
+              "op": "flag_clear",
+              "object": "MATCH",
+              "flag": "ONBIT"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "LIT"
+              },
+              "right": {
+                "value": false
+              }
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "MATCH-COUNT"
+              },
+              "right": {
+                "value": 6
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-DAM-LOBBY"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-2",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <SETG MATCH-COUNT <- ,MATCH-COUNT 1>>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-MATCH-FUNCTION"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-3",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "flag_set",
+              "object": "MATCH",
+              "flag": "FLAMEBIT"
+            },
+            {
+              "op": "flag_set",
+              "object": "MATCH",
+              "flag": "ONBIT"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "LIT"
+              },
+              "right": {
+                "value": true
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-MATCH-FUNCTION"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-4",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "flag_set",
+              "object": "MATCH",
+              "flag": "FLAMEBIT"
+            },
+            {
+              "op": "flag_set",
+              "object": "MATCH",
+              "flag": "ONBIT"
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-MATCH-FUNCTION"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-5",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "flag_clear",
+              "object": "MATCH",
+              "flag": "FLAMEBIT"
+            },
+            {
+              "op": "flag_clear",
+              "object": "MATCH",
+              "flag": "ONBIT"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "LIT"
+              },
+              "right": {
+                "value": "<LIT? ,HERE>"
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-MATCH-FUNCTION"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-MATCH-FUNCTION-LAMP-ON-BURN-1",
+        "source_refs": [
+          "SRC-ROUTINE-MATCH-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-2-MATCH-FUNCTION-LAMP-ON-BURN-1",
+        "source_refs": [
+          "SRC-ROUTINE-MATCH-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-3-MATCH-FUNCTION-LAMP-ON-BURN-1",
+        "source_refs": [
+          "SRC-ROUTINE-MATCH-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-4-MATCH-FUNCTION-LAMP-ON-BURN-1",
+        "source_refs": [
+          "SRC-ROUTINE-MATCH-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-5-MATCH-FUNCTION-LAMP-ON-BURN-1",
+        "source_refs": [
+          "SRC-ROUTINE-MATCH-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-6-MATCH-FUNCTION-LAMP-ON-BURN-1",
+        "source_refs": [
+          "SRC-ROUTINE-MATCH-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-7-MATCH-FUNCTION-LAMP-OFF-2",
+        "source_refs": [
+          "SRC-ROUTINE-MATCH-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-8-MATCH-FUNCTION-LAMP-OFF-2",
+        "source_refs": [
+          "SRC-ROUTINE-MATCH-FUNCTION"
+        ]
+      },
+      {
+        "id": "EVENT-9-I-MATCH",
+        "source_refs": [
+          "SRC-ROUTINE-I-MATCH"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values.",
+      "ACTION-STATE conditions describe source mutations and may overlap; arbitrary ZIL was not executed."
+    ]
+  },
+  "unresolved": [
+    {
+      "kind": "runtime_unknown",
+      "detail": "The resolver returns state 0; no positive runtime state or image is assigned."
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "state",
+  "room": "MAZE-14",
+  "title": "Maze",
+  "runtime_room": 53,
+  "runtime_state": 1,
+  "symbolic_state": "INITIAL",
+  "condition": true,
+  "extracted_states": [
+    {
+      "id": "INITIAL",
+      "condition": {
+        "op": "true"
+      },
+      "source_refs": [
+        "SRC-ROOM-MAZE-14"
+      ],
+      "method": "equivalent_static_predicate_and_matching_presentation_text"
+    }
+  ],
+  "description_ids": [
+    "LDESC"
+  ],
+  "canonical": [
+    {
+      "text": "This is part of a maze of twisty little passages, all alike.",
+      "pointer": "/scene/descriptions/0/text/0",
+      "source_refs": [
+        "SRC-ROOM-MAZE-14"
+      ]
+    }
+  ],
+  "required_environmental_features": [
+    "This is part of a maze of twisty little passages, all alike."
+  ],
+  "required_visible_objects": [],
+  "artistic": {
+    "continuity": [
+      "MAZE"
+    ],
+    "camera": "Low human eye level within a cramped twisting passage.",
+    "composition": "Repeat the shared maze proportions and material treatment without unique decorative navigation clues. Preserve only source-established exits and, where described, the skeleton.",
+    "lighting_palette": "Dim gray-brown stone; broad readable edges with deep corners.",
+    "assumptions": [
+      "Shared passage finish and camera are artistic; all-alike descriptions must stay visually confusable."
+    ]
+  },
+  "state_artistic": {
+    "visual_treatment": "Depict the complete room presentation described above.",
+    "omit_source_dressing": []
+  },
+  "invariants": {
+    "canonical_text": [
+      "This is part of a maze of twisty little passages, all alike."
+    ],
+    "artistic": {
+      "continuity": [
+        "MAZE"
+      ],
+      "camera": "Low human eye level within a cramped twisting passage.",
+      "composition": "Repeat the shared maze proportions and material treatment without unique decorative navigation clues. Preserve only source-established exits and, where described, the skeleton.",
+      "lighting_palette": "Dim gray-brown stone; broad readable edges with deep corners.",
+      "assumptions": [
+        "Shared passage finish and camera are artistic; all-alike descriptions must stay visually confusable."
+      ]
+    }
+  },
+  "changes": [],
+  "reference": null,
+  "asset_key": "room-53-state-1",
+  "target": {
+    "width": 256,
+    "height": 159,
+    "hardware": "Yamaha V9958",
+    "eventual_encoding": "YJK",
+    "phase": 1,
+    "source_aspect": "4:3 landscape",
+    "crop": "Safe center crop from 4:3 to 256:159; protect subjects within the central 82.8% of source height and central 90% of width."
+  },
+  "prompt": "Create one complete static illustration of Maze.\n\nViewpoint: Low human eye level within a cramped twisting passage.\n\nThe scene establishes these features: This is part of a maze of twisty little passages, all alike.\n\nComposition: Repeat the shared maze proportions and material treatment without unique decorative navigation clues. Preserve only source-established exits and, where described, the skeleton.\n\nAppearance of this illustration: Depict the complete room presentation described above.\n\nLighting and color: Dim gray-brown stone; broad readable edges with deep corners.\n\nShared world design: Consistent tight gray-brown passage treatment. Do not add marks, numbers, different colored doors or other navigation clues. Each room retains its own asset even if prompts are similar.\n\nStyle: Painterly adventure-game illustration recalling fine late-1980s and early-1990s computer artwork; natural proportions, restrained brushwork, readable silhouettes and broad tonal masses. Aim for roughly 256 visually significant colors, broad related color regions, controlled shading and clear dark/light separation. No exact RGB-count requirement, photographic color noise, excessive gradients or microtextures.\n\nKeep this room camera, underlying architecture, terrain layout, light direction and palette consistent across its variants. Depict the complete scene, including the appearance stated above.\n\nLandscape source composition near 4:3. Final scene is 256 by 159 pixels. Allow safe center cropping to 256:159, keeping essential subjects inside the central 82.8 percent of source height and away from the side boundaries. Use clear silhouettes and broad readable shapes at that final size.\n\nExclude game UI, borders, captions, labels, readable lettering, photographic detail, pixel grids and enlarged pixels. Do not add characters, significant props, openings or events beyond the established scene. Do not depict an action in progress or a before/after collage.\n",
+  "negative_prompt": "No UI, borders, readable text, photorealism, pixel grid, invented props, extra exits or transient action events.",
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/maze-14.scene.json",
+    "scene_sha256": "995dfe4b2a16c67ee1028ce2fe9038edac4134ee972be244c51f5198a6da6a8d",
+    "runtime_source": {
+      "file": "1dungeon.zil",
+      "line": 1705,
+      "expression": "<ROOM MAZE-14 (IN ROOMS) (LDESC \"This is part of a maze of twisty little passages, all alike.\") (DESC \"Maze\") (WEST TO MAZE-15) (NW TO MAZE-14) (NE TO MAZE-7) (SOUTH TO MAZE-7) (FLAGS RLANDBIT MAZEBIT)>"
+    },
+    "mapping_file": "generated-zil/woh-state-ids.json",
+    "mapping_sha256": "c48cbe6f1866460c9141af8f50be2b1120255b13ae8fa44a72cbb1714c3a2137",
+    "dictionary_file": "generated-room-states/room-states.yaml",
+    "dictionary_sha256": "87783e0895b9ebf9d5155dff22e440735c5ac68caca748c1d77840d6c1aacfa0",
+    "story_sha256": "cce1fdc54f18a6616e124db2de245aec1da943b458ebdee61bf1c6ff0a4038d4"
+  },
+  "unresolved": []
+}

@@ -1,0 +1,306 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "CLEARING",
+  "title": "Clearing",
+  "runtime_room": 74,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "You are in a small clearing in a well marked forest path that\nextends to the east and west."
+        ],
+        "source_refs": [
+          "SRC-ROOM-CLEARING"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "TREE",
+        "description": "tree",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT",
+          "CLIMBBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-TREE"
+        ]
+      },
+      {
+        "id": "SONGBIRD",
+        "description": "songbird",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-SONGBIRD"
+        ]
+      },
+      {
+        "id": "WHITE-HOUSE",
+        "description": "white house",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/2",
+        "source_refs": [
+          "SRC-OBJECT-WHITE-HOUSE"
+        ]
+      },
+      {
+        "id": "FOREST",
+        "description": "forest",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/3",
+        "source_refs": [
+          "SRC-OBJECT-FOREST"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CLEARING"
+        ]
+      },
+      {
+        "id": "EXIT-UP",
+        "directions": [
+          "up"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(UP \"There is no tree here suitable for climbing.\")"
+        },
+        "blocked_text": [
+          "There is no tree here suitable for climbing."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CLEARING"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "CANYON-VIEW",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CLEARING"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "FOREST-2",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CLEARING"
+        ]
+      },
+      {
+        "id": "EXIT-SOUTH",
+        "directions": [
+          "south"
+        ],
+        "destination": "FOREST-3",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CLEARING"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "EAST-OF-HOUSE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CLEARING"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "ONBIT",
+      "SACREDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "FOREST"
+    ],
+    "camera": "Eye-level view along the east-west forest track.",
+    "composition": "Keep this modest clearing enclosed by tree masses; distinguish the continuing marked path without adding a grating from another clearing.",
+    "lighting_palette": "Filtered daylight, warm earth and deep green.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/clearing.scene.json",
+    "scene_sha256": "e4a72780bd3713ab6d8e07710e7c3c96b959a0fb09d1469ad9f3e228315a1882",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-FOREST",
+        "file": "1dungeon.zil",
+        "line_start": 56,
+        "line_end": 61,
+        "subject": "FOREST"
+      },
+      {
+        "id": "SRC-OBJECT-SONGBIRD",
+        "file": "1dungeon.zil",
+        "line_start": 40,
+        "line_end": 46,
+        "subject": "SONGBIRD"
+      },
+      {
+        "id": "SRC-OBJECT-TREE",
+        "file": "1dungeon.zil",
+        "line_start": 63,
+        "line_end": 68,
+        "subject": "TREE"
+      },
+      {
+        "id": "SRC-OBJECT-WHITE-HOUSE",
+        "file": "1dungeon.zil",
+        "line_start": 48,
+        "line_end": 54,
+        "subject": "WHITE-HOUSE"
+      },
+      {
+        "id": "SRC-ROOM-CLEARING",
+        "file": "1dungeon.zil",
+        "line_start": 1410,
+        "line_end": 1423,
+        "subject": "CLEARING"
+      },
+      {
+        "id": "SRC-ROUTINE-FOREST-F",
+        "file": "1actions.zil",
+        "line_start": 136,
+        "line_end": 150,
+        "subject": "FOREST-F"
+      },
+      {
+        "id": "SRC-ROUTINE-FOREST-ROOM",
+        "file": "1actions.zil",
+        "line_start": 3004,
+        "line_end": 3009,
+        "subject": "FOREST-ROOM"
+      },
+      {
+        "id": "SRC-ROUTINE-SONGBIRD-F",
+        "file": "1actions.zil",
+        "line_start": 82,
+        "line_end": 90,
+        "subject": "SONGBIRD-F"
+      },
+      {
+        "id": "SRC-ROUTINE-WHITE-HOUSE-F",
+        "file": "1actions.zil",
+        "line_start": 92,
+        "line_end": 127,
+        "subject": "WHITE-HOUSE-F"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-CLEARING"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-WHITE-HOUSE-F-THROUGH-OPEN-4",
+        "source_refs": [
+          "SRC-ROUTINE-WHITE-HOUSE-F"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

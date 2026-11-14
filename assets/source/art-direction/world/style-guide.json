@@ -1,0 +1,34 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "world_style",
+  "interpretation": "Model-authored art direction from the complete 110-room source inventory; creative choices are artistic, not canonical.",
+  "target": {
+    "width": 256,
+    "height": 159,
+    "hardware": "Yamaha V9958",
+    "eventual_encoding": "YJK",
+    "phase": 1,
+    "source_aspect": "4:3 landscape",
+    "crop": "Safe center crop from 4:3 to 256:159; protect subjects within the central 82.8% of source height and central 90% of width."
+  },
+  "style": "Painterly adventure-game illustration recalling fine late-1980s and early-1990s computer artwork; natural proportions, restrained brushwork, readable silhouettes and broad tonal masses.",
+  "architecture": "Domestic white-painted colonial timberwork; underground construction uses broad fitted stone and worn timber where source establishes buildings. Industrial dam and mine structures use sober utilitarian forms. Egyptian tomb vocabulary only in the named tomb. Do not add columns, arches or machinery merely to decorate a cave.",
+  "landscape": "A coherent temperate forest of pines and hemlocks, open fields, pale river cliffs and distant severe mountains. Use the plant types only where compatible with extracted descriptions; do not add a mountain or forest to enclosed rooms.",
+  "geology": "Rock masses are simplified into legible planes; retain explicit granite, sand, white cliffs and mud separately. Generic cave rock receives subdued earth and slate tones as an artistic material choice.",
+  "lighting": "Exterior default is quiet midmorning daylight, upper-left in each local frame, with soft haze only in distant open views. Forest interiors receive filtered light. Enclosed underground views use dim, non-diegetic illustrative fill with deep edge shadows; never invent a visible lamp, sunbeam, window or magical glow as its source. Explicit story light or darkness takes precedence.",
+  "palette": "Aim for roughly 256 visually significant colors, broad related color regions, controlled shading and clear dark/light separation. No exact RGB-count requirement, photographic color noise, excessive gradients or microtextures.",
+  "perspective": "Human-scale viewpoints with believable perspective. Choose framing per room; keep each room camera, static geometry, palette and lighting fixed across states.",
+  "atmosphere": "Evocative, quiet and slightly uncanny; readable foreground and midground, restrained atmospheric perspective only when spatial depth supports it.",
+  "exclusions": [
+    "No photorealism",
+    "No artificial pixel grid or enlarged pixel effects",
+    "No UI, border, caption, lettering or readable text",
+    "No invented characters, significant objects, exits or events",
+    "No color quantization, image generation or YJK conversion in this phase"
+  ],
+  "assumptions": [
+    "Daylight timing, illumination direction, unspecified material finish and camera design are artistic choices.",
+    "Illustrative fill is a visibility convention, not an in-world light fixture.",
+    "A blank inscription surface preserves its physical carrier while honoring the no-text brief; wording remains in canonical provenance."
+  ]
+}

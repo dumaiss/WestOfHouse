@@ -1,0 +1,320 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "SOUTH-OF-HOUSE",
+  "title": "South of House",
+  "runtime_room": 80,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "You are facing the south side of a white house. There is no door here,\nand all the windows are boarded."
+        ],
+        "source_refs": [
+          "SRC-ROOM-SOUTH-OF-HOUSE"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "BOARDED-WINDOW",
+        "description": "boarded window",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-BOARDED-WINDOW"
+        ]
+      },
+      {
+        "id": "BOARD",
+        "description": "board",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-BOARD"
+        ]
+      },
+      {
+        "id": "WHITE-HOUSE",
+        "description": "white house",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/2",
+        "source_refs": [
+          "SRC-OBJECT-WHITE-HOUSE"
+        ]
+      },
+      {
+        "id": "FOREST",
+        "description": "forest",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/3",
+        "source_refs": [
+          "SRC-OBJECT-FOREST"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-SOUTH-OF-HOUSE"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "WEST-OF-HOUSE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-SOUTH-OF-HOUSE"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "EAST-OF-HOUSE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-SOUTH-OF-HOUSE"
+        ]
+      },
+      {
+        "id": "EXIT-NE",
+        "directions": [
+          "ne"
+        ],
+        "destination": "EAST-OF-HOUSE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-SOUTH-OF-HOUSE"
+        ]
+      },
+      {
+        "id": "EXIT-NW",
+        "directions": [
+          "nw"
+        ],
+        "destination": "WEST-OF-HOUSE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-SOUTH-OF-HOUSE"
+        ]
+      },
+      {
+        "id": "EXIT-SOUTH",
+        "directions": [
+          "south"
+        ],
+        "destination": "FOREST-3",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-SOUTH-OF-HOUSE"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(NORTH \"The windows are all boarded.\")"
+        },
+        "blocked_text": [
+          "The windows are all boarded."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-SOUTH-OF-HOUSE"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "ONBIT",
+      "SACREDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "WHITE-HOUSE"
+    ],
+    "camera": "Stand south of the house facing its southern wall.",
+    "composition": "Keep all windows boarded and show no door; preserve the same roof silhouette and white siding as the other exteriors.",
+    "lighting_palette": "Shared midmorning daylight with consistent white-wall values.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/south-of-house.scene.json",
+    "scene_sha256": "42e354d126ef40f78ed5e753c52e989808f1c690eaacbed0d8bb74add0ee2c04",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-BOARD",
+        "file": "1dungeon.zil",
+        "line_start": 13,
+        "line_end": 18,
+        "subject": "BOARD"
+      },
+      {
+        "id": "SRC-OBJECT-BOARDED-WINDOW",
+        "file": "1dungeon.zil",
+        "line_start": 411,
+        "line_end": 417,
+        "subject": "BOARDED-WINDOW"
+      },
+      {
+        "id": "SRC-OBJECT-FOREST",
+        "file": "1dungeon.zil",
+        "line_start": 56,
+        "line_end": 61,
+        "subject": "FOREST"
+      },
+      {
+        "id": "SRC-OBJECT-WHITE-HOUSE",
+        "file": "1dungeon.zil",
+        "line_start": 48,
+        "line_end": 54,
+        "subject": "WHITE-HOUSE"
+      },
+      {
+        "id": "SRC-ROOM-SOUTH-OF-HOUSE",
+        "file": "1dungeon.zil",
+        "line_start": 1280,
+        "line_end": 1293,
+        "subject": "SOUTH-OF-HOUSE"
+      },
+      {
+        "id": "SRC-ROUTINE-BOARD-F",
+        "file": "1actions.zil",
+        "line_start": 44,
+        "line_end": 46,
+        "subject": "BOARD-F"
+      },
+      {
+        "id": "SRC-ROUTINE-BOARDED-WINDOW-FCN",
+        "file": "1actions.zil",
+        "line_start": 370,
+        "line_end": 374,
+        "subject": "BOARDED-WINDOW-FCN"
+      },
+      {
+        "id": "SRC-ROUTINE-FOREST-F",
+        "file": "1actions.zil",
+        "line_start": 136,
+        "line_end": 150,
+        "subject": "FOREST-F"
+      },
+      {
+        "id": "SRC-ROUTINE-WHITE-HOUSE-F",
+        "file": "1actions.zil",
+        "line_start": 92,
+        "line_end": 127,
+        "subject": "WHITE-HOUSE-F"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-SOUTH-OF-HOUSE"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-WHITE-HOUSE-F-THROUGH-OPEN-4",
+        "source_refs": [
+          "SRC-ROUTINE-WHITE-HOUSE-F"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

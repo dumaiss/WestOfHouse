@@ -3,11 +3,11 @@
 #include "kos/types.h"
 
 #define PANEL_COLS 42u
-#define PANEL_ROWS 7u
+#define PANEL_ROWS 5u
 #define PANEL_PAGES 8u
 #define COMMAND_MAX 80u
-#define COLOR_TEXT 0xFEu
-#define COLOR_COMMAND 0xBCu
+#define COLOR_TEXT 5u
+#define COLOR_COMMAND 4u
 
 typedef struct {
     char text[PANEL_ROWS][PANEL_COLS + 1u];

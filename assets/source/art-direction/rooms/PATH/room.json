@@ -1,0 +1,303 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "PATH",
+  "title": "Forest Path",
+  "runtime_room": 75,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is a path winding through a dimly lit forest. The path heads\nnorth-south here. One particularly large tree with some low branches\nstands at the edge of the path."
+        ],
+        "source_refs": [
+          "SRC-ROOM-PATH"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "TREE",
+        "description": "tree",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT",
+          "CLIMBBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-TREE"
+        ]
+      },
+      {
+        "id": "SONGBIRD",
+        "description": "songbird",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-SONGBIRD"
+        ]
+      },
+      {
+        "id": "WHITE-HOUSE",
+        "description": "white house",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/2",
+        "source_refs": [
+          "SRC-OBJECT-WHITE-HOUSE"
+        ]
+      },
+      {
+        "id": "FOREST",
+        "description": "forest",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/3",
+        "source_refs": [
+          "SRC-OBJECT-FOREST"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-PATH"
+        ]
+      },
+      {
+        "id": "EXIT-UP",
+        "directions": [
+          "up"
+        ],
+        "destination": "UP-A-TREE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-PATH"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "GRATING-CLEARING",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-PATH"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "FOREST-2",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-PATH"
+        ]
+      },
+      {
+        "id": "EXIT-SOUTH",
+        "directions": [
+          "south"
+        ],
+        "destination": "NORTH-OF-HOUSE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-PATH"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "FOREST-1",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-PATH"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "ONBIT",
+      "SACREDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "FOREST"
+    ],
+    "camera": "Eye-level view along the north-south forest path.",
+    "composition": "Make the source's particularly large tree with low branches the main landmark, preserving its design in the branch-level room.",
+    "lighting_palette": "Dim filtered canopy light with warm bark.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/path.scene.json",
+    "scene_sha256": "716f5cdf3171a24be8320f25efe9019036d0378a875273dddf838a4617e3efa4",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-FOREST",
+        "file": "1dungeon.zil",
+        "line_start": 56,
+        "line_end": 61,
+        "subject": "FOREST"
+      },
+      {
+        "id": "SRC-OBJECT-SONGBIRD",
+        "file": "1dungeon.zil",
+        "line_start": 40,
+        "line_end": 46,
+        "subject": "SONGBIRD"
+      },
+      {
+        "id": "SRC-OBJECT-TREE",
+        "file": "1dungeon.zil",
+        "line_start": 63,
+        "line_end": 68,
+        "subject": "TREE"
+      },
+      {
+        "id": "SRC-OBJECT-WHITE-HOUSE",
+        "file": "1dungeon.zil",
+        "line_start": 48,
+        "line_end": 54,
+        "subject": "WHITE-HOUSE"
+      },
+      {
+        "id": "SRC-ROOM-PATH",
+        "file": "1dungeon.zil",
+        "line_start": 1363,
+        "line_end": 1377,
+        "subject": "PATH"
+      },
+      {
+        "id": "SRC-ROUTINE-FOREST-F",
+        "file": "1actions.zil",
+        "line_start": 136,
+        "line_end": 150,
+        "subject": "FOREST-F"
+      },
+      {
+        "id": "SRC-ROUTINE-FOREST-ROOM",
+        "file": "1actions.zil",
+        "line_start": 3004,
+        "line_end": 3009,
+        "subject": "FOREST-ROOM"
+      },
+      {
+        "id": "SRC-ROUTINE-SONGBIRD-F",
+        "file": "1actions.zil",
+        "line_start": 82,
+        "line_end": 90,
+        "subject": "SONGBIRD-F"
+      },
+      {
+        "id": "SRC-ROUTINE-WHITE-HOUSE-F",
+        "file": "1actions.zil",
+        "line_start": 92,
+        "line_end": 127,
+        "subject": "WHITE-HOUSE-F"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-PATH"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-WHITE-HOUSE-F-THROUGH-OPEN-4",
+        "source_refs": [
+          "SRC-ROUTINE-WHITE-HOUSE-F"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

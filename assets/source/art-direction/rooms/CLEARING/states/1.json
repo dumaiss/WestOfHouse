@@ -1,0 +1,98 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "state",
+  "room": "CLEARING",
+  "title": "Clearing",
+  "runtime_room": 74,
+  "runtime_state": 1,
+  "symbolic_state": "INITIAL",
+  "condition": true,
+  "extracted_states": [
+    {
+      "id": "INITIAL",
+      "condition": {
+        "op": "true"
+      },
+      "source_refs": [
+        "SRC-ROOM-CLEARING"
+      ],
+      "method": "equivalent_static_predicate_and_matching_presentation_text"
+    }
+  ],
+  "description_ids": [
+    "LDESC"
+  ],
+  "canonical": [
+    {
+      "text": "You are in a small clearing in a well marked forest path that\nextends to the east and west.",
+      "pointer": "/scene/descriptions/0/text/0",
+      "source_refs": [
+        "SRC-ROOM-CLEARING"
+      ]
+    }
+  ],
+  "required_environmental_features": [
+    "You are in a small clearing in a well marked forest path that\nextends to the east and west."
+  ],
+  "required_visible_objects": [],
+  "artistic": {
+    "continuity": [
+      "FOREST"
+    ],
+    "camera": "Eye-level view along the east-west forest track.",
+    "composition": "Keep this modest clearing enclosed by tree masses; distinguish the continuing marked path without adding a grating from another clearing.",
+    "lighting_palette": "Filtered daylight, warm earth and deep green.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "state_artistic": {
+    "visual_treatment": "Depict the complete room presentation described above.",
+    "omit_source_dressing": []
+  },
+  "invariants": {
+    "canonical_text": [
+      "You are in a small clearing in a well marked forest path that\nextends to the east and west."
+    ],
+    "artistic": {
+      "continuity": [
+        "FOREST"
+      ],
+      "camera": "Eye-level view along the east-west forest track.",
+      "composition": "Keep this modest clearing enclosed by tree masses; distinguish the continuing marked path without adding a grating from another clearing.",
+      "lighting_palette": "Filtered daylight, warm earth and deep green.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    }
+  },
+  "changes": [],
+  "reference": null,
+  "asset_key": "room-74-state-1",
+  "target": {
+    "width": 256,
+    "height": 159,
+    "hardware": "Yamaha V9958",
+    "eventual_encoding": "YJK",
+    "phase": 1,
+    "source_aspect": "4:3 landscape",
+    "crop": "Safe center crop from 4:3 to 256:159; protect subjects within the central 82.8% of source height and central 90% of width."
+  },
+  "prompt": "Create one complete static illustration of Clearing.\n\nViewpoint: Eye-level view along the east-west forest track.\n\nThe scene establishes these features: You are in a small clearing in a well marked forest path that extends to the east and west.\n\nComposition: Keep this modest clearing enclosed by tree masses; distinguish the continuing marked path without adding a grating from another clearing.\n\nAppearance of this illustration: Depict the complete room presentation described above.\n\nLighting and color: Filtered daylight, warm earth and deep green.\n\nShared world design: Deep green pine/hemlock masses and warm muted soil. Preserve the path tree trunk and lowest bough shapes between ground and branch views.\n\nStyle: Painterly adventure-game illustration recalling fine late-1980s and early-1990s computer artwork; natural proportions, restrained brushwork, readable silhouettes and broad tonal masses. Aim for roughly 256 visually significant colors, broad related color regions, controlled shading and clear dark/light separation. No exact RGB-count requirement, photographic color noise, excessive gradients or microtextures.\n\nKeep this room camera, underlying architecture, terrain layout, light direction and palette consistent across its variants. Depict the complete scene, including the appearance stated above.\n\nLandscape source composition near 4:3. Final scene is 256 by 159 pixels. Allow safe center cropping to 256:159, keeping essential subjects inside the central 82.8 percent of source height and away from the side boundaries. Use clear silhouettes and broad readable shapes at that final size.\n\nExclude game UI, borders, captions, labels, readable lettering, photographic detail, pixel grids and enlarged pixels. Do not add characters, significant props, openings or events beyond the established scene. Do not depict an action in progress or a before/after collage.\n",
+  "negative_prompt": "No UI, borders, readable text, photorealism, pixel grid, invented props, extra exits or transient action events.",
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/clearing.scene.json",
+    "scene_sha256": "e4a72780bd3713ab6d8e07710e7c3c96b959a0fb09d1469ad9f3e228315a1882",
+    "runtime_source": {
+      "file": "1dungeon.zil",
+      "line": 1410,
+      "expression": "<ROOM CLEARING (IN ROOMS) (LDESC \"You are in a small clearing in a well marked forest path that\\nextends to the east and west.\") (DESC \"Clearing\") (UP \"There is no tree here suitable for climbing.\") (EAST TO CANYON-VIEW) (NORTH TO FOREST-2) (SOUTH TO FOREST-3) (WEST TO EAST-OF-HOUSE) (ACTION FOREST-ROOM) (FLAGS RLANDBIT ONBIT SACREDBIT) (GLOBAL TREE SONGBIRD WHITE-HOUSE FOREST)>"
+    },
+    "mapping_file": "generated-zil/woh-state-ids.json",
+    "mapping_sha256": "c48cbe6f1866460c9141af8f50be2b1120255b13ae8fa44a72cbb1714c3a2137",
+    "dictionary_file": "generated-room-states/room-states.yaml",
+    "dictionary_sha256": "87783e0895b9ebf9d5155dff22e440735c5ac68caca748c1d77840d6c1aacfa0",
+    "story_sha256": "cce1fdc54f18a6616e124db2de245aec1da943b458ebdee61bf1c6ff0a4038d4"
+  },
+  "unresolved": []
+}

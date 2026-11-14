@@ -1,0 +1,98 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "state",
+  "room": "EW-PASSAGE",
+  "title": "East-West Passage",
+  "runtime_room": 41,
+  "runtime_state": 1,
+  "symbolic_state": "INITIAL",
+  "condition": true,
+  "extracted_states": [
+    {
+      "id": "INITIAL",
+      "condition": {
+        "op": "true"
+      },
+      "source_refs": [
+        "SRC-ROOM-EW-PASSAGE"
+      ],
+      "method": "equivalent_static_predicate_and_matching_presentation_text"
+    }
+  ],
+  "description_ids": [
+    "LDESC"
+  ],
+  "canonical": [
+    {
+      "text": "This is a narrow east-west passageway. There is a narrow stairway\nleading down at the north end of the room.",
+      "pointer": "/scene/descriptions/0/text/0",
+      "source_refs": [
+        "SRC-ROOM-EW-PASSAGE"
+      ]
+    }
+  ],
+  "required_environmental_features": [
+    "This is a narrow east-west passageway. There is a narrow stairway\nleading down at the north end of the room."
+  ],
+  "required_visible_objects": [],
+  "artistic": {
+    "continuity": [
+      "CAVES"
+    ],
+    "camera": "Look along the east-west axis from a slightly offset position.",
+    "composition": "Give the northern descending stair a clear mouth distinct from the continuing corridor; keep the space narrow.",
+    "lighting_palette": "Cool low fill on compressed stone planes.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "state_artistic": {
+    "visual_treatment": "Depict the complete room presentation described above.",
+    "omit_source_dressing": []
+  },
+  "invariants": {
+    "canonical_text": [
+      "This is a narrow east-west passageway. There is a narrow stairway\nleading down at the north end of the room."
+    ],
+    "artistic": {
+      "continuity": [
+        "CAVES"
+      ],
+      "camera": "Look along the east-west axis from a slightly offset position.",
+      "composition": "Give the northern descending stair a clear mouth distinct from the continuing corridor; keep the space narrow.",
+      "lighting_palette": "Cool low fill on compressed stone planes.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    }
+  },
+  "changes": [],
+  "reference": null,
+  "asset_key": "room-41-state-1",
+  "target": {
+    "width": 256,
+    "height": 159,
+    "hardware": "Yamaha V9958",
+    "eventual_encoding": "YJK",
+    "phase": 1,
+    "source_aspect": "4:3 landscape",
+    "crop": "Safe center crop from 4:3 to 256:159; protect subjects within the central 82.8% of source height and central 90% of width."
+  },
+  "prompt": "Create one complete static illustration of East-West Passage.\n\nViewpoint: Look along the east-west axis from a slightly offset position.\n\nThe scene establishes these features: This is a narrow east-west passageway. There is a narrow stairway leading down at the north end of the room.\n\nComposition: Give the northern descending stair a clear mouth distinct from the continuing corridor; keep the space narrow.\n\nAppearance of this illustration: Depict the complete room presentation described above.\n\nLighting and color: Cool low fill on compressed stone planes.\n\nShared world design: Broad cool gray and brown stone planes and soft non-diegetic illustrative fill. Do not add common fixtures to unrelated rooms.\n\nStyle: Painterly adventure-game illustration recalling fine late-1980s and early-1990s computer artwork; natural proportions, restrained brushwork, readable silhouettes and broad tonal masses. Aim for roughly 256 visually significant colors, broad related color regions, controlled shading and clear dark/light separation. No exact RGB-count requirement, photographic color noise, excessive gradients or microtextures.\n\nKeep this room camera, underlying architecture, terrain layout, light direction and palette consistent across its variants. Depict the complete scene, including the appearance stated above.\n\nLandscape source composition near 4:3. Final scene is 256 by 159 pixels. Allow safe center cropping to 256:159, keeping essential subjects inside the central 82.8 percent of source height and away from the side boundaries. Use clear silhouettes and broad readable shapes at that final size.\n\nExclude game UI, borders, captions, labels, readable lettering, photographic detail, pixel grids and enlarged pixels. Do not add characters, significant props, openings or events beyond the established scene. Do not depict an action in progress or a before/after collage.\n",
+  "negative_prompt": "No UI, borders, readable text, photorealism, pixel grid, invented props, extra exits or transient action events.",
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/ew-passage.scene.json",
+    "scene_sha256": "46d5e8fef540032bc0e20dc96ff6c2b685258d899c4e374a4d7b0dca7ab88d40",
+    "runtime_source": {
+      "file": "1dungeon.zil",
+      "line": 1938,
+      "expression": "<ROOM EW-PASSAGE (IN ROOMS) (LDESC \"This is a narrow east-west passageway. There is a narrow stairway\\nleading down at the north end of the room.\") (DESC \"East-West Passage\") (EAST TO ROUND-ROOM) (WEST TO TROLL-ROOM) (DOWN TO CHASM-ROOM) (NORTH TO CHASM-ROOM) (FLAGS RLANDBIT) (VALUE 5) (GLOBAL STAIRS)>"
+    },
+    "mapping_file": "generated-zil/woh-state-ids.json",
+    "mapping_sha256": "c48cbe6f1866460c9141af8f50be2b1120255b13ae8fa44a72cbb1714c3a2137",
+    "dictionary_file": "generated-room-states/room-states.yaml",
+    "dictionary_sha256": "87783e0895b9ebf9d5155dff22e440735c5ac68caca748c1d77840d6c1aacfa0",
+    "story_sha256": "cce1fdc54f18a6616e124db2de245aec1da943b458ebdee61bf1c6ff0a4038d4"
+  },
+  "unresolved": []
+}

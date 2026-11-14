@@ -1,0 +1,92 @@
+{
+  "schema": "woh_hotspot_validation_v1",
+  "scenes": 9,
+  "hotspots": 44,
+  "errors": [],
+  "warnings": [
+    {
+      "asset_key": "room-203-state-1",
+      "kind": "visual_uncertainty",
+      "object_id": "CHIMNEY",
+      "detail": "Visible hearth aperture is an imperfect depiction of the source chimney. Avoid the table foreground where possible."
+    },
+    {
+      "asset_key": "room-203-state-1",
+      "kind": "missing_expected_object",
+      "object_id": "SANDWICH-BAG",
+      "detail": "Source room dressing not localized. Recorded explicitly as unresolved."
+    },
+    {
+      "asset_key": "room-203-state-1",
+      "kind": "missing_expected_object",
+      "object_id": "BOTTLE",
+      "detail": "Source room dressing not localized. Recorded explicitly as unresolved."
+    },
+    {
+      "asset_key": "room-203-state-1",
+      "kind": "not_visible",
+      "object_id": "SANDWICH-BAG",
+      "detail": "Source sack on table is not identifiable in the illustration."
+    },
+    {
+      "asset_key": "room-203-state-1",
+      "kind": "not_visible",
+      "object_id": "BOTTLE",
+      "detail": "Source glass bottle is not identifiable; the painted brown jug is not a reliable match."
+    },
+    {
+      "asset_key": "room-203-state-1",
+      "kind": "not_visible",
+      "object_id": "EXIT-WEST",
+      "detail": "No independently identifiable west passage is shown."
+    },
+    {
+      "asset_key": "room-203-state-2",
+      "kind": "visual_uncertainty",
+      "object_id": "CHIMNEY",
+      "detail": "Visible hearth aperture is an imperfect depiction of the source chimney. Avoid the table foreground where possible."
+    },
+    {
+      "asset_key": "room-203-state-2",
+      "kind": "missing_expected_object",
+      "object_id": "SANDWICH-BAG",
+      "detail": "Source room dressing not localized. Recorded explicitly as unresolved."
+    },
+    {
+      "asset_key": "room-203-state-2",
+      "kind": "missing_expected_object",
+      "object_id": "BOTTLE",
+      "detail": "Source room dressing not localized. Recorded explicitly as unresolved."
+    },
+    {
+      "asset_key": "room-203-state-2",
+      "kind": "not_visible",
+      "object_id": "SANDWICH-BAG",
+      "detail": "Source sack on table is not identifiable in the illustration."
+    },
+    {
+      "asset_key": "room-203-state-2",
+      "kind": "not_visible",
+      "object_id": "BOTTLE",
+      "detail": "Source glass bottle is not identifiable; the painted brown jug is not a reliable match."
+    },
+    {
+      "asset_key": "room-203-state-2",
+      "kind": "not_visible",
+      "object_id": "EXIT-WEST",
+      "detail": "No independently identifiable west passage is shown."
+    },
+    {
+      "asset_key": "room-201-state-unbound",
+      "kind": "unsupported_art_feature",
+      "object_id": null,
+      "detail": "Painted attic window has no supporting object/exit in this room; no hotspot assigned."
+    },
+    {
+      "asset_key": "room-201-state-unbound",
+      "kind": "unbound_concept",
+      "object_id": null,
+      "detail": "No runtime state ID; must not be selected for state 0 or any positive state."
+    }
+  ]
+}

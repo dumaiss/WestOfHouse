@@ -1,0 +1,95 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "state",
+  "room": "LOWER-SHAFT",
+  "title": "Drafty Room",
+  "runtime_room": 228,
+  "runtime_state": 1,
+  "symbolic_state": "INITIAL",
+  "condition": true,
+  "extracted_states": [],
+  "description_ids": [
+    "LDESC"
+  ],
+  "canonical": [
+    {
+      "text": "This is a small drafty room in which is the bottom of a long\nshaft. To the south is a passageway and to the east a very narrow\npassage. In the shaft can be seen a heavy iron chain.",
+      "pointer": "/scene/descriptions/0/text/0",
+      "source_refs": [
+        "SRC-ROOM-LOWER-SHAFT"
+      ]
+    }
+  ],
+  "required_environmental_features": [
+    "This is a small drafty room in which is the bottom of a long\nshaft. To the south is a passageway and to the east a very narrow\npassage. In the shaft can be seen a heavy iron chain."
+  ],
+  "required_visible_objects": [
+    "LOWERED-BASKET"
+  ],
+  "artistic": {
+    "continuity": [
+      "MINE"
+    ],
+    "camera": "Stand at the shaft bottom and look upward past its heavy chain.",
+    "composition": "Keep the chain on the same vertical axis as the upper frame; include the south passage and very narrow east gap.",
+    "lighting_palette": "Charcoal rock, dark iron and cold shaft shadow.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "state_artistic": {
+    "visual_treatment": "Depict the complete room presentation described above.",
+    "omit_source_dressing": []
+  },
+  "invariants": {
+    "canonical_text": [
+      "This is a small drafty room in which is the bottom of a long\nshaft. To the south is a passageway and to the east a very narrow\npassage. In the shaft can be seen a heavy iron chain."
+    ],
+    "artistic": {
+      "continuity": [
+        "MINE"
+      ],
+      "camera": "Stand at the shaft bottom and look upward past its heavy chain.",
+      "composition": "Keep the chain on the same vertical axis as the upper frame; include the south passage and very narrow east gap.",
+      "lighting_palette": "Charcoal rock, dark iron and cold shaft shadow.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    }
+  },
+  "changes": [],
+  "reference": null,
+  "asset_key": "room-228-state-1",
+  "target": {
+    "width": 256,
+    "height": 159,
+    "hardware": "Yamaha V9958",
+    "eventual_encoding": "YJK",
+    "phase": 1,
+    "source_aspect": "4:3 landscape",
+    "crop": "Safe center crop from 4:3 to 256:159; protect subjects within the central 82.8% of source height and central 90% of width."
+  },
+  "prompt": "Create one complete static illustration of Drafty Room.\n\nViewpoint: Stand at the shaft bottom and look upward past its heavy chain.\n\nThe scene establishes these features: This is a small drafty room in which is the bottom of a long shaft. To the south is a passageway and to the east a very narrow passage. In the shaft can be seen a heavy iron chain.\n\nComposition: Keep the chain on the same vertical axis as the upper frame; include the south passage and very narrow east gap.\n\nAppearance of this illustration: Depict the complete room presentation described above.\n\nCanonical room dressing: From the chain is suspended a basket. Preserve this coarse room presentation unless the state description above specifies a different appearance.\n\nLighting and color: Charcoal rock, dark iron and cold shaft shadow.\n\nShared world design: Charcoal and umber with broad worn wood planes; reserve shiny metal for explicit fittings.\n\nStyle: Painterly adventure-game illustration recalling fine late-1980s and early-1990s computer artwork; natural proportions, restrained brushwork, readable silhouettes and broad tonal masses. Aim for roughly 256 visually significant colors, broad related color regions, controlled shading and clear dark/light separation. No exact RGB-count requirement, photographic color noise, excessive gradients or microtextures.\n\nKeep this room camera, underlying architecture, terrain layout, light direction and palette consistent across its variants. Depict the complete scene, including the appearance stated above.\n\nLandscape source composition near 4:3. Final scene is 256 by 159 pixels. Allow safe center cropping to 256:159, keeping essential subjects inside the central 82.8 percent of source height and away from the side boundaries. Use clear silhouettes and broad readable shapes at that final size.\n\nExclude game UI, borders, captions, labels, readable lettering, photographic detail, pixel grids and enlarged pixels. Do not add characters, significant props, openings or events beyond the established scene. Do not depict an action in progress or a before/after collage.\n",
+  "negative_prompt": "No UI, borders, readable text, photorealism, pixel grid, invented props, extra exits or transient action events.",
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/lower-shaft.scene.json",
+    "scene_sha256": "e3a4cba00c5017e40cffebe3f20ae48f8a1222cc16dc9d12c6a2ad3637ddec30",
+    "runtime_source": {
+      "file": "1dungeon.zil",
+      "line": 2536,
+      "expression": "<ROOM LOWER-SHAFT (IN ROOMS) (LDESC \"This is a small drafty room in which is the bottom of a long\\nshaft. To the south is a passageway and to the east a very narrow\\npassage. In the shaft can be seen a heavy iron chain.\") (DESC \"Drafty Room\") (SOUTH TO MACHINE-ROOM) (OUT TO TIMBER-ROOM IF EMPTY-HANDED ELSE \"You cannot fit through this passage with that load.\") (EAST TO TIMBER-ROOM IF EMPTY-HANDED ELSE \"You cannot fit through this passage with that load.\") (ACTION NO-OBJS) (FLAGS RLANDBIT SACREDBIT) (PSEUDO \"CHAIN\" CHAIN-PSEUDO)>"
+    },
+    "mapping_file": "generated-zil/woh-state-ids.json",
+    "mapping_sha256": "c48cbe6f1866460c9141af8f50be2b1120255b13ae8fa44a72cbb1714c3a2137",
+    "dictionary_file": "generated-room-states/room-states.yaml",
+    "dictionary_sha256": "87783e0895b9ebf9d5155dff22e440735c5ac68caca748c1d77840d6c1aacfa0",
+    "story_sha256": "cce1fdc54f18a6616e124db2de245aec1da943b458ebdee61bf1c6ff0a4038d4"
+  },
+  "unresolved": [
+    {
+      "kind": "legacy_state_relationship_unresolved",
+      "state": "INITIAL",
+      "detail": "Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly."
+    }
+  ]
+}

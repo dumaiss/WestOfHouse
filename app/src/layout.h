@@ -1,12 +1,8 @@
 #ifndef WOH_LAYOUT_H
 #define WOH_LAYOUT_H
-
-/* G7 screen: scene 0..143, divider 144, seven text rows 146..201,
- * and the existing prompt band 202..211. */
-#define SCENE_HEIGHT 144u
-#define SCENE_TAIL_BYTES 4096u
-#define PANEL_TOP 145u
-#define PANEL_TEXT_TOP 146u
+/* Scene 0..158, divider 159, five text rows 161..200, prompt 202..211. */
+#define SCENE_HEIGHT 159u
+#define PANEL_TOP 160u
+#define PANEL_TEXT_TOP 161u
 #define PROMPT_TOP 202u
-
 #endif

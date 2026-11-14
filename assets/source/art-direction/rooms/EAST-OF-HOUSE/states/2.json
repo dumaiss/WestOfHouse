@@ -1,0 +1,121 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "state",
+  "room": "EAST-OF-HOUSE",
+  "title": "Behind House",
+  "runtime_room": 79,
+  "runtime_state": 2,
+  "symbolic_state": "LOOK-B3743B9659AF",
+  "condition": {
+    "ref": "KITCHEN-WINDOW.OPENBIT",
+    "eq": true
+  },
+  "extracted_states": [
+    {
+      "id": "LOOK-STATE-1",
+      "condition": {
+        "op": "source_expression",
+        "expression": "<FSET? ,KITCHEN-WINDOW ,OPENBIT>"
+      },
+      "source_refs": [
+        "SRC-ROOM-EAST-OF-HOUSE",
+        "SRC-ROUTINE-EAST-HOUSE"
+      ],
+      "method": "equivalent_static_predicate_and_matching_presentation_text"
+    }
+  ],
+  "description_ids": [
+    "M-LOOK-1"
+  ],
+  "canonical": [
+    {
+      "text": "You are behind the white house. A path leads into the forest\nto the east. In one corner of the house there is a small window\nwhich is ",
+      "pointer": "/scene/descriptions/0/text/0",
+      "source_refs": [
+        "SRC-ROOM-EAST-OF-HOUSE",
+        "SRC-ROUTINE-EAST-HOUSE"
+      ]
+    },
+    {
+      "text": "open.",
+      "pointer": "/scene/descriptions/0/text/1",
+      "source_refs": [
+        "SRC-ROOM-EAST-OF-HOUSE",
+        "SRC-ROUTINE-EAST-HOUSE"
+      ]
+    }
+  ],
+  "required_environmental_features": [
+    "You are behind the white house. A path leads into the forest\nto the east. In one corner of the house there is a small window\nwhich is ",
+    "open."
+  ],
+  "required_visible_objects": [],
+  "artistic": {
+    "continuity": [
+      "WHITE-HOUSE"
+    ],
+    "camera": "Stand behind the house and look toward its corner kitchen window.",
+    "composition": "Use the rear wall and small window as the focal structure; include the eastern forest path in the same frame without adding rear doors.",
+    "lighting_palette": "Quiet daylight on white boards and dark green forest.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "state_artistic": {
+    "visual_treatment": "The same rear kitchen window is open.",
+    "omit_source_dressing": []
+  },
+  "invariants": {
+    "canonical_text": [
+      "You are behind the white house. A path leads into the forest\nto the east. In one corner of the house there is a small window\nwhich is "
+    ],
+    "artistic": {
+      "continuity": [
+        "WHITE-HOUSE"
+      ],
+      "camera": "Stand behind the house and look toward its corner kitchen window.",
+      "composition": "Use the rear wall and small window as the focal structure; include the eastern forest path in the same frame without adding rear doors.",
+      "lighting_palette": "Quiet daylight on white boards and dark green forest.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    }
+  },
+  "changes": [
+    "open."
+  ],
+  "reference": {
+    "room": "EAST-OF-HOUSE",
+    "runtime_room": 79,
+    "runtime_state": 1,
+    "asset_key": "room-79-state-1",
+    "status": "preferred future Phase 2 reference; no illustration exists yet"
+  },
+  "asset_key": "room-79-state-2",
+  "target": {
+    "width": 256,
+    "height": 159,
+    "hardware": "Yamaha V9958",
+    "eventual_encoding": "YJK",
+    "phase": 1,
+    "source_aspect": "4:3 landscape",
+    "crop": "Safe center crop from 4:3 to 256:159; protect subjects within the central 82.8% of source height and central 90% of width."
+  },
+  "prompt": "Create one complete static illustration of Behind House.\n\nViewpoint: Stand behind the house and look toward its corner kitchen window.\n\nThe scene establishes these features: You are behind the white house. A path leads into the forest to the east. In one corner of the house there is a small window which is open.\n\nComposition: Use the rear wall and small window as the focal structure; include the eastern forest path in the same frame without adding rear doors.\n\nAppearance of this illustration: The same rear kitchen window is open.\n\nLighting and color: Quiet daylight on white boards and dark green forest.\n\nShared world design: Modest colonial timber dwelling, simple pitched roof, weathered white painted boards; do not introduce extra doors or windows. Pale plaster and dark brown timber inside. Keep roof pitch, wall finish, trim proportions and window construction across views.\n\nStyle: Painterly adventure-game illustration recalling fine late-1980s and early-1990s computer artwork; natural proportions, restrained brushwork, readable silhouettes and broad tonal masses. Aim for roughly 256 visually significant colors, broad related color regions, controlled shading and clear dark/light separation. No exact RGB-count requirement, photographic color noise, excessive gradients or microtextures.\n\nKeep this room camera, underlying architecture, terrain layout, light direction and palette consistent across its variants. Depict the complete scene, including the appearance stated above.\n\nLandscape source composition near 4:3. Final scene is 256 by 159 pixels. Allow safe center cropping to 256:159, keeping essential subjects inside the central 82.8 percent of source height and away from the side boundaries. Use clear silhouettes and broad readable shapes at that final size.\n\nExclude game UI, borders, captions, labels, readable lettering, photographic detail, pixel grids and enlarged pixels. Do not add characters, significant props, openings or events beyond the established scene. Do not depict an action in progress or a before/after collage.\n",
+  "negative_prompt": "No UI, borders, readable text, photorealism, pixel grid, invented props, extra exits or transient action events.",
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/east-of-house.scene.json",
+    "scene_sha256": "16ec535afe98b1ef2029ce2651bb0b8c2a3e079c6bf27b608054cac2a574090d",
+    "runtime_source": {
+      "file": "1actions.zil",
+      "line": 18,
+      "expression": "(<EQUAL? .RARG ,M-LOOK> <TELL \"You are behind the white house. A path leads into the forest\\nto the east. In one corner of the house there is a small window\\nwhich is \"> <COND (<FSET? ,KITCHEN-WINDOW ,OPENBIT> <TELL \"open.\">) (T <TELL \"slightly ajar.\">)> <CRLF>)"
+    },
+    "mapping_file": "generated-zil/woh-state-ids.json",
+    "mapping_sha256": "c48cbe6f1866460c9141af8f50be2b1120255b13ae8fa44a72cbb1714c3a2137",
+    "dictionary_file": "generated-room-states/room-states.yaml",
+    "dictionary_sha256": "87783e0895b9ebf9d5155dff22e440735c5ac68caca748c1d77840d6c1aacfa0",
+    "story_sha256": "cce1fdc54f18a6616e124db2de245aec1da943b458ebdee61bf1c6ff0a4038d4"
+  },
+  "unresolved": []
+}

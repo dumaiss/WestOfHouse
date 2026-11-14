@@ -1,0 +1,228 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "CLIFF-MIDDLE",
+  "title": "Rocky Ledge",
+  "runtime_room": 26,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "You are on a ledge about halfway up the wall of the river canyon.\nYou can see from here that the main flow from Aragain Falls twists\nalong a passage which it is impossible for you to enter. Below you is the\ncanyon bottom. Above you is more cliff, which appears\nclimbable."
+        ],
+        "source_refs": [
+          "SRC-ROOM-CLIFF-MIDDLE"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "CLIMBABLE-CLIFF",
+        "description": "cliff",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT",
+          "CLIMBBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-CLIMBABLE-CLIFF"
+        ]
+      },
+      {
+        "id": "RIVER",
+        "description": "river",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-RIVER"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CLIFF-MIDDLE"
+        ]
+      },
+      {
+        "id": "EXIT-UP",
+        "directions": [
+          "up"
+        ],
+        "destination": "CANYON-VIEW",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CLIFF-MIDDLE"
+        ]
+      },
+      {
+        "id": "EXIT-DOWN",
+        "directions": [
+          "down"
+        ],
+        "destination": "CANYON-BOTTOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CLIFF-MIDDLE"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "ONBIT",
+      "SACREDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "FRIGID-RIVER"
+    ],
+    "camera": "Stand on the mid-height ledge and angle the view between the valley below and cliff above.",
+    "composition": "Frame the inaccessible main-water channel and the drop below with the ledge as a readable foreground; preserve climbable wall above.",
+    "lighting_palette": "Pale daylight on large cliff planes with dark channel recesses.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/cliff-middle.scene.json",
+    "scene_sha256": "4f14df10465978486c3e4913514644ee5d9d088ae41acbb10a2068ebbe9a1199",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-CLIMBABLE-CLIFF",
+        "file": "1dungeon.zil",
+        "line_start": 1115,
+        "line_end": 1121,
+        "subject": "CLIMBABLE-CLIFF"
+      },
+      {
+        "id": "SRC-OBJECT-RIVER",
+        "file": "1dungeon.zil",
+        "line_start": 774,
+        "line_end": 780,
+        "subject": "RIVER"
+      },
+      {
+        "id": "SRC-ROOM-CLIFF-MIDDLE",
+        "file": "1dungeon.zil",
+        "line_start": 2370,
+        "line_end": 2382,
+        "subject": "CLIFF-MIDDLE"
+      },
+      {
+        "id": "SRC-ROUTINE-CLIFF-OBJECT",
+        "file": "1actions.zil",
+        "line_start": 3015,
+        "line_end": 3024,
+        "subject": "CLIFF-OBJECT"
+      },
+      {
+        "id": "SRC-ROUTINE-RIVER-FUNCTION",
+        "file": "1actions.zil",
+        "line_start": 2669,
+        "line_end": 2690,
+        "subject": "RIVER-FUNCTION"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-CLIFF-MIDDLE"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-2",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <REMOVE-CAREFULLY ,PRSO>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-CLIFF-OBJECT"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-CLIFF-OBJECT-PUT-THROW-OFF-2",
+        "source_refs": [
+          "SRC-ROUTINE-CLIFF-OBJECT"
+        ]
+      },
+      {
+        "id": "TRANSITION-2-RIVER-FUNCTION-PUT-1",
+        "source_refs": [
+          "SRC-ROUTINE-RIVER-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-3-RIVER-FUNCTION-PUT-1",
+        "source_refs": [
+          "SRC-ROUTINE-RIVER-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-4-RIVER-FUNCTION-PUT-1",
+        "source_refs": [
+          "SRC-ROUTINE-RIVER-FUNCTION"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values.",
+      "ACTION-STATE conditions describe source mutations and may overlap; arbitrary ZIL was not executed."
+    ]
+  },
+  "unresolved": []
+}

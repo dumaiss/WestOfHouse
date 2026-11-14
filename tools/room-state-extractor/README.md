@@ -141,13 +141,13 @@ Legacy state relationships can be inspected explicitly:
 python3 tools/room-state-extractor/extract_room_states.py --compare-legacy
 # Or choose a legacy source directory and comparison output:
 python3 tools/room-state-extractor/extract_room_states.py \
-  --scene-facts generated-scenes \
+  --scene-facts assets/source/scene-facts \
   --compatibility-output /tmp/legacy-room-comparison.json
 ```
 
 Any of `--compare-legacy`, `--scene-facts` or `--compatibility-output` enables
 comparison. Otherwise no legacy documents are read and no compatibility file is
-written. Default comparison paths are `generated-scenes` and
+written. Default comparison paths are `assets/source/scene-facts` and
 `OUTPUT.compatibility.json`. A missing document is `not_checked`. Changed or
 unproven meanings and missing aliases appear **only in this optional output**;
 they cannot affect the dictionary, recognition report, totals or strict mode.

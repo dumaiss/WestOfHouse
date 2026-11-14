@@ -2,6 +2,7 @@
 #include "game.h"
 #include "woh_bindings.h"
 game_t game;
+static int game_load(game_t *g, panel_t *panel);
 
 const char *game_load_error(int result)
 {
@@ -20,16 +21,28 @@ const char *game_load_error(int result)
 
 int game_open(game_t *g, const char *path, panel_t *panel)
 {
-    uint8_t header[64], i;
-    uint16_t dynamic, checksum;
-    uint32_t end;
-    int handle;
     memset(g, 0, sizeof(*g));
     g->file = open(path, KFS_O_READ);
     if (g->file < 1) return -1;
     g->source.handle = (unsigned int)g->file;
-    if (kos_reader_from_handle(&g->cache.reader, &g->source) < 0 ||
-        kos_reader_read_full(&g->cache.reader, 0, header, 64) != 64) return -2;
+    if (kos_reader_from_handle(&g->cache.reader, &g->source) < 0) return -2;
+    return game_load(g, panel);
+}
+
+int game_open_reader(game_t *g, const kos_reader_t *reader, panel_t *panel)
+{
+    memset(g, 0, sizeof(*g));
+    g->cache.reader = *reader;
+    return game_load(g, panel);
+}
+
+static int game_load(game_t *g, panel_t *panel)
+{
+    uint8_t header[64], i;
+    uint16_t dynamic, checksum;
+    uint32_t end;
+    int handle;
+    if (kos_reader_read_full(&g->cache.reader, 0, header, 64) != 64) return -2;
     for (i = 0; i < 64u; ++i) if (header[i] != woh_story_header[i]) return -3;
     dynamic = ((uint16_t)header[14] << 8) | header[15];
     end = ((uint32_t)header[26] << 9) | ((uint32_t)header[27] << 1);

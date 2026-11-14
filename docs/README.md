@@ -35,7 +35,7 @@ tools/
     test_extract_scenes.py        Extractor and schema tests
 vendor/
   infocom-zork1/                  Original source Git submodule
-generated-scenes/                 Local generated output; not committed
+assets/source/scene-facts/                 Local generated output; not committed
 ```
 
 The original Infocom source is isolated from new West of House code.
@@ -104,7 +104,7 @@ The defaults are:
 
 - source: `vendor/infocom-zork1`
 - schema: `schemas/scene-facts-v1.schema.json`
-- output: `generated-scenes/`
+- output: `assets/source/scene-facts/`
 
 Generated scene files are ignored by Git. The extractor overwrites selected
 output files but does not delete unrelated output.
@@ -124,6 +124,12 @@ The suite verifies room discovery, representative state and event extraction,
 and schema conformance for all 110 rooms in the pinned source snapshot.
 
 ## Offline scene-asset pipeline
+
+The current Phase 1 art-direction transformation is documented in
+[`tools/scene-art/README.md`](../tools/scene-art/README.md). It generates
+256×159 specifications and prompts for the existing runtime `(room, state)`
+pairs. Its [manifest](../assets/source/art-direction/manifest.json) and [review](../assets/review/art-direction/review.md) describe
+the generated collection; no illustrations are generated in this phase.
 
 The asset pipeline proceeds in four broad stages:
 
@@ -313,3 +319,8 @@ New West of House material is covered by the parent repository's
 [MIT License](../LICENSE). The source under `vendor/infocom-zork1` retains its
 own repository history, notices, and license. The parent license does not
 replace or modify the submodule's licensing terms.
+
+## Runtime packaging
+
+See [assets/README.md](../assets/README.md) for the source/runtime/review tree,
+the explicit resource manifest and the current KRES build/deployment procedure.

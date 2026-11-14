@@ -1,0 +1,320 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "CANYON-VIEW",
+  "title": "Canyon View",
+  "runtime_room": 25,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "You are at the top of the Great Canyon on its west wall. From here\nthere is a marvelous view of the canyon and parts of the Frigid River\nupstream. Across the canyon, the walls of the White Cliffs join the\nmighty ramparts of the Flathead Mountains to the east. Following the\nCanyon upstream to the north, Aragain Falls may be seen, complete with\nrainbow. The mighty Frigid River flows out from a great dark cavern. To\nthe west and south can be seen an immense forest, stretching for miles\naround. A path leads northwest. It is possible to climb down into\nthe canyon from here."
+        ],
+        "source_refs": [
+          "SRC-ROOM-CANYON-VIEW"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "CLIMBABLE-CLIFF",
+        "description": "cliff",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT",
+          "CLIMBBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-CLIMBABLE-CLIFF"
+        ]
+      },
+      {
+        "id": "RIVER",
+        "description": "river",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-RIVER"
+        ]
+      },
+      {
+        "id": "RAINBOW",
+        "description": "rainbow",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT",
+          "CLIMBBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/2",
+        "source_refs": [
+          "SRC-OBJECT-RAINBOW"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CANYON-VIEW"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "CLIFF-MIDDLE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CANYON-VIEW"
+        ]
+      },
+      {
+        "id": "EXIT-DOWN",
+        "directions": [
+          "down"
+        ],
+        "destination": "CLIFF-MIDDLE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CANYON-VIEW"
+        ]
+      },
+      {
+        "id": "EXIT-NW",
+        "directions": [
+          "nw"
+        ],
+        "destination": "CLEARING",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CANYON-VIEW"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "FOREST-3",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CANYON-VIEW"
+        ]
+      },
+      {
+        "id": "EXIT-SOUTH",
+        "directions": [
+          "south"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(SOUTH \"Storm-tossed trees block your way.\")"
+        },
+        "blocked_text": [
+          "Storm-tossed trees block your way."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CANYON-VIEW"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "ONBIT",
+      "SACREDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "FRIGID-RIVER"
+    ],
+    "camera": "Stand on the western rim and look across and upstream toward the northern falls.",
+    "composition": "Build depth with rim foreground, opposing White Cliffs, eastern mountains and the northern waterfall/rainbow; forest belongs west and south. Keep the northwest path legible.",
+    "lighting_palette": "Open daylight and restrained distant blue haze.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/canyon-view.scene.json",
+    "scene_sha256": "171a58609f851d68858b1440a1f161b5d0a7afd95d6b5e7d5dd190bb3c891579",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-CLIMBABLE-CLIFF",
+        "file": "1dungeon.zil",
+        "line_start": 1115,
+        "line_end": 1121,
+        "subject": "CLIMBABLE-CLIFF"
+      },
+      {
+        "id": "SRC-OBJECT-RAINBOW",
+        "file": "1dungeon.zil",
+        "line_start": 767,
+        "line_end": 772,
+        "subject": "RAINBOW"
+      },
+      {
+        "id": "SRC-OBJECT-RIVER",
+        "file": "1dungeon.zil",
+        "line_start": 774,
+        "line_end": 780,
+        "subject": "RIVER"
+      },
+      {
+        "id": "SRC-ROOM-CANYON-VIEW",
+        "file": "1dungeon.zil",
+        "line_start": 2384,
+        "line_end": 2404,
+        "subject": "CANYON-VIEW"
+      },
+      {
+        "id": "SRC-ROUTINE-CANYON-VIEW-F",
+        "file": "1dungeon.zil",
+        "line_start": 2406,
+        "line_end": 2411,
+        "subject": "CANYON-VIEW-F"
+      },
+      {
+        "id": "SRC-ROUTINE-CLIFF-OBJECT",
+        "file": "1actions.zil",
+        "line_start": 3015,
+        "line_end": 3024,
+        "subject": "CLIFF-OBJECT"
+      },
+      {
+        "id": "SRC-ROUTINE-RAINBOW-FCN",
+        "file": "1actions.zil",
+        "line_start": 2634,
+        "line_end": 2650,
+        "subject": "RAINBOW-FCN"
+      },
+      {
+        "id": "SRC-ROUTINE-RIVER-FUNCTION",
+        "file": "1actions.zil",
+        "line_start": 2669,
+        "line_end": 2690,
+        "subject": "RIVER-FUNCTION"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-CANYON-VIEW"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-2",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <REMOVE-CAREFULLY ,PRSO>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-CLIFF-OBJECT"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-CLIFF-OBJECT-PUT-THROW-OFF-2",
+        "source_refs": [
+          "SRC-ROUTINE-CLIFF-OBJECT"
+        ]
+      },
+      {
+        "id": "TRANSITION-2-RIVER-FUNCTION-PUT-1",
+        "source_refs": [
+          "SRC-ROUTINE-RIVER-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-3-RIVER-FUNCTION-PUT-1",
+        "source_refs": [
+          "SRC-ROUTINE-RIVER-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-4-RIVER-FUNCTION-PUT-1",
+        "source_refs": [
+          "SRC-ROUTINE-RIVER-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-5-CANYON-VIEW-F-LEAP-1",
+        "source_refs": [
+          "SRC-ROUTINE-CANYON-VIEW-F"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values.",
+      "ACTION-STATE conditions describe source mutations and may overlap; arbitrary ZIL was not executed."
+    ]
+  },
+  "unresolved": []
+}

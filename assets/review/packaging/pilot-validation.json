@@ -1,0 +1,23 @@
+{
+  "schema": "woh_phase2_pilot_acceptance_v1",
+  "artifact_checks": "PASS",
+  "mapped_images": 8,
+  "unbound_concepts": 1,
+  "high_resolution_originals_retained": 9,
+  "generation_records_verified": 9,
+  "superseded_reference_images_removed": 5,
+  "preview_dimensions": [
+    256,
+    159
+  ],
+  "kimg_files_verified": 9,
+  "runtime_pairs_exactly_match_phase1": true,
+  "historical_phase2_snapshot": "assets/review/white-house/metadata/protected-input-hashes.json",
+  "reference_and_request_hashes_verified": true,
+  "source_aspect_exceptions": [
+    "room-203-state-1",
+    "room-203-state-2"
+  ],
+  "visual_review": "Requires changes before production; see EVALUATION.md.",
+  "hardware_display_test": "Not performed."
+}

@@ -1,0 +1,82 @@
+{
+  "schema": "woh_hotspot_pilot_index_v1",
+  "image_size": [
+    256,
+    159
+  ],
+  "pilot_manifest": "assets/source/white-house/manifest.json",
+  "scenes": [
+    {
+      "asset_key": "room-180-state-1",
+      "room": 180,
+      "state": 1,
+      "manifest": "scenes/room-180-state-1.json",
+      "binary": "../../runtime/hotspots/room-180-state-1.wht",
+      "preview": "../../review/hotspots/annotated/room-180-state-1.png"
+    },
+    {
+      "asset_key": "room-180-state-2",
+      "room": 180,
+      "state": 2,
+      "manifest": "scenes/room-180-state-2.json",
+      "binary": "../../runtime/hotspots/room-180-state-2.wht",
+      "preview": "../../review/hotspots/annotated/room-180-state-2.png"
+    },
+    {
+      "asset_key": "room-81-state-1",
+      "room": 81,
+      "state": 1,
+      "manifest": "scenes/room-81-state-1.json",
+      "binary": "../../runtime/hotspots/room-81-state-1.wht",
+      "preview": "../../review/hotspots/annotated/room-81-state-1.png"
+    },
+    {
+      "asset_key": "room-80-state-1",
+      "room": 80,
+      "state": 1,
+      "manifest": "scenes/room-80-state-1.json",
+      "binary": "../../runtime/hotspots/room-80-state-1.wht",
+      "preview": "../../review/hotspots/annotated/room-80-state-1.png"
+    },
+    {
+      "asset_key": "room-79-state-1",
+      "room": 79,
+      "state": 1,
+      "manifest": "scenes/room-79-state-1.json",
+      "binary": "../../runtime/hotspots/room-79-state-1.wht",
+      "preview": "../../review/hotspots/annotated/room-79-state-1.png"
+    },
+    {
+      "asset_key": "room-79-state-2",
+      "room": 79,
+      "state": 2,
+      "manifest": "scenes/room-79-state-2.json",
+      "binary": "../../runtime/hotspots/room-79-state-2.wht",
+      "preview": "../../review/hotspots/annotated/room-79-state-2.png"
+    },
+    {
+      "asset_key": "room-203-state-1",
+      "room": 203,
+      "state": 1,
+      "manifest": "scenes/room-203-state-1.json",
+      "binary": "../../runtime/hotspots/room-203-state-1.wht",
+      "preview": "../../review/hotspots/annotated/room-203-state-1.png"
+    },
+    {
+      "asset_key": "room-203-state-2",
+      "room": 203,
+      "state": 2,
+      "manifest": "scenes/room-203-state-2.json",
+      "binary": "../../runtime/hotspots/room-203-state-2.wht",
+      "preview": "../../review/hotspots/annotated/room-203-state-2.png"
+    },
+    {
+      "asset_key": "room-201-state-unbound",
+      "room": 201,
+      "state": null,
+      "manifest": "scenes/room-201-state-unbound.json",
+      "binary": "../../review/hotspots/binary/room-201-state-unbound.wht",
+      "preview": "../../review/hotspots/annotated/room-201-state-unbound.png"
+    }
+  ]
+}

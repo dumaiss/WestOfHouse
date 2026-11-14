@@ -1,0 +1,343 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "SANDY-CAVE",
+  "title": "Sandy Cave",
+  "runtime_room": 126,
+  "runtime_status": "incomplete",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "This is a sand-filled cave whose exit is to the southwest."
+        ],
+        "source_refs": [
+          "SRC-ROOM-SANDY-CAVE"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "SAND",
+        "description": "sand",
+        "kind": "object",
+        "initial_location": "SANDY-CAVE",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "fixed_feature",
+        "reason": "Direct room fixture; state presentation text takes precedence over initial attributes.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-SAND"
+        ]
+      },
+      {
+        "id": "SCARAB",
+        "description": "beautiful jeweled scarab",
+        "kind": "object",
+        "initial_location": "SANDY-CAVE",
+        "source_flags": [
+          "TAKEBIT",
+          "INVISIBLE"
+        ],
+        "source_properties": {
+          "TVALUE": 5,
+          "SIZE": 8,
+          "VALUE": 5
+        },
+        "visibility": "hidden_initially",
+        "reason": "Initial source attribute marks this object invisible.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-SCARAB"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-SANDY-CAVE"
+        ]
+      },
+      {
+        "id": "EXIT-SW",
+        "directions": [
+          "sw"
+        ],
+        "destination": "SANDY-BEACH",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-SANDY-CAVE"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "FRIGID-RIVER"
+    ],
+    "camera": "Stand low within the sand-filled cave looking toward the southwest mouth.",
+    "composition": "Use sand accumulation to compress the cave volume; no digging variants are created unless assigned by the runtime mapping.",
+    "lighting_palette": "Muted sand ochre and cool recess shadow.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/sandy-cave.scene.json",
+    "scene_sha256": "d47de6e39d02c469c38bf83891b119de9c3f614bf6d4064c7eaeacae291eb5ed",
+    "source_references": [
+      {
+        "id": "SRC-GLOBAL-BDIGS",
+        "file": "1actions.zil",
+        "line_start": 2871,
+        "line_end": 2874,
+        "subject": "BDIGS"
+      },
+      {
+        "id": "SRC-GLOBAL-BEACH-DIG",
+        "file": "1actions.zil",
+        "line_start": 2851,
+        "line_end": 2851,
+        "subject": "BEACH-DIG"
+      },
+      {
+        "id": "SRC-OBJECT-SAND",
+        "file": "1dungeon.zil",
+        "line_start": 817,
+        "line_end": 822,
+        "subject": "SAND"
+      },
+      {
+        "id": "SRC-OBJECT-SCARAB",
+        "file": "1dungeon.zil",
+        "line_start": 871,
+        "line_end": 879,
+        "subject": "SCARAB"
+      },
+      {
+        "id": "SRC-OBJECT-SHOVEL",
+        "file": "1dungeon.zil",
+        "line_start": 849,
+        "line_end": 854,
+        "subject": "SHOVEL"
+      },
+      {
+        "id": "SRC-ROOM-SANDY-CAVE",
+        "file": "1dungeon.zil",
+        "line_start": 2311,
+        "line_end": 2317,
+        "subject": "SANDY-CAVE"
+      },
+      {
+        "id": "SRC-ROUTINE-SAND-FUNCTION",
+        "file": "1actions.zil",
+        "line_start": 2855,
+        "line_end": 2869,
+        "subject": "SAND-FUNCTION"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [
+      {
+        "id": "SCARAB.INVISIBLE",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": true,
+        "source_expression": "<FCLEAR ,SCARAB ,INVISIBLE>",
+        "source_refs": []
+      },
+      {
+        "id": "BEACH-DIG",
+        "kind": "global",
+        "value_type": "integer",
+        "initial_value": -1,
+        "source_expression": "<GLOBAL BEACH-DIG -1>",
+        "source_refs": [
+          "SRC-GLOBAL-BEACH-DIG"
+        ]
+      }
+    ],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "flag_set",
+              "object": "SCARAB",
+              "flag": "INVISIBLE"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "BEACH-DIG"
+              },
+              "right": {
+                "value": -1
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-SANDY-CAVE"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-2",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "BEACH-DIG"
+              },
+              "right": {
+                "value": 3
+              }
+            },
+            {
+              "op": "flag_clear",
+              "object": "SCARAB",
+              "flag": "INVISIBLE"
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-SAND-FUNCTION"
+        ]
+      },
+      {
+        "id": "BEACH-DIG-STATE-0",
+        "condition": {
+          "op": "eq",
+          "left": {
+            "state_variable": "BEACH-DIG"
+          },
+          "right": {
+            "value": 0
+          }
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-GLOBAL-BDIGS",
+          "SRC-ROUTINE-SAND-FUNCTION"
+        ]
+      },
+      {
+        "id": "BEACH-DIG-STATE-1",
+        "condition": {
+          "op": "eq",
+          "left": {
+            "state_variable": "BEACH-DIG"
+          },
+          "right": {
+            "value": 1
+          }
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-GLOBAL-BDIGS",
+          "SRC-ROUTINE-SAND-FUNCTION"
+        ]
+      },
+      {
+        "id": "BEACH-DIG-STATE-2",
+        "condition": {
+          "op": "eq",
+          "left": {
+            "state_variable": "BEACH-DIG"
+          },
+          "right": {
+            "value": 2
+          }
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-GLOBAL-BDIGS",
+          "SRC-ROUTINE-SAND-FUNCTION"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-SAND-FUNCTION-DIG-1",
+        "source_refs": [
+          "SRC-ROUTINE-SAND-FUNCTION"
+        ]
+      },
+      {
+        "id": "TRANSITION-2-SAND-FUNCTION-DIG-1",
+        "source_refs": [
+          "SRC-ROUTINE-SAND-FUNCTION"
+        ]
+      },
+      {
+        "id": "COUNTER-BEACH-DIG-0-SAND-FUNCTION-DIG-1",
+        "source_refs": [
+          "SRC-GLOBAL-BDIGS",
+          "SRC-ROUTINE-SAND-FUNCTION"
+        ]
+      },
+      {
+        "id": "COUNTER-BEACH-DIG-1-SAND-FUNCTION-DIG-1",
+        "source_refs": [
+          "SRC-GLOBAL-BDIGS",
+          "SRC-ROUTINE-SAND-FUNCTION"
+        ]
+      },
+      {
+        "id": "COUNTER-BEACH-DIG-2-SAND-FUNCTION-DIG-1",
+        "source_refs": [
+          "SRC-GLOBAL-BDIGS",
+          "SRC-ROUTINE-SAND-FUNCTION"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": [
+    {
+      "kind": "runtime_unknown",
+      "detail": "The resolver returns state 0; no positive runtime state or image is assigned."
+    }
+  ]
+}

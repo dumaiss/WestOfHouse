@@ -1,0 +1,141 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "state",
+  "room": "LOUD-ROOM",
+  "title": "Loud Room",
+  "runtime_room": 138,
+  "runtime_state": 2,
+  "symbolic_state": "LOOK-DB173A7B909D",
+  "condition": {
+    "not": {
+      "any": [
+        {
+          "all": [
+            {
+              "ref": "GATES-OPEN",
+              "eq": false
+            },
+            {
+              "ref": "LOW-TIDE",
+              "ne": false
+            }
+          ]
+        },
+        {
+          "ref": "LOUD-FLAG",
+          "ne": false
+        }
+      ]
+    }
+  },
+  "extracted_states": [
+    {
+      "id": "LOOK-STATE-2",
+      "condition": {
+        "op": "source_expression",
+        "expression": "<NOT <OR <OR ,LOUD-FLAG <AND <NOT ,GATES-OPEN> ,LOW-TIDE>>>>"
+      },
+      "source_refs": [
+        "SRC-ROOM-LOUD-ROOM",
+        "SRC-ROUTINE-LOUD-ROOM-FCN"
+      ],
+      "method": "equivalent_static_predicate_and_matching_presentation_text"
+    }
+  ],
+  "description_ids": [
+    "M-LOOK-2"
+  ],
+  "canonical": [
+    {
+      "text": "This is a large room with a ceiling which cannot be detected from\nthe ground. There is a narrow passage from east to west and a stone\nstairway leading upward.",
+      "pointer": "/scene/descriptions/1/text/0",
+      "source_refs": [
+        "SRC-ROOM-LOUD-ROOM",
+        "SRC-ROUTINE-LOUD-ROOM-FCN"
+      ]
+    },
+    {
+      "text": " The room is deafeningly loud with an\nundetermined rushing sound. The sound seems to reverberate from all\nof the walls, making it difficult even to think.",
+      "pointer": "/scene/descriptions/1/text/1",
+      "source_refs": [
+        "SRC-ROOM-LOUD-ROOM",
+        "SRC-ROUTINE-LOUD-ROOM-FCN"
+      ]
+    }
+  ],
+  "required_environmental_features": [
+    "This is a large room with a ceiling which cannot be detected from\nthe ground. There is a narrow passage from east to west and a stone\nstairway leading upward.",
+    " The room is deafeningly loud with an\nundetermined rushing sound. The sound seems to reverberate from all\nof the walls, making it difficult even to think."
+  ],
+  "required_visible_objects": [
+    "BAR"
+  ],
+  "artistic": {
+    "continuity": [
+      "DAM-RESERVOIR"
+    ],
+    "camera": "Low human viewpoint with a slight upward angle into the unseen ceiling.",
+    "composition": "Emphasize vast vertical darkness, the east-west passage and stone up-stair. Do not draw visible sound waves for noise variants.",
+    "lighting_palette": "Sparse cool fill and a high ceiling lost in dark value.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "state_artistic": {
+    "visual_treatment": "The deafening sound does not imply a visible source, motion effect or altered architecture. Retain the same complete scene.",
+    "omit_source_dressing": []
+  },
+  "invariants": {
+    "canonical_text": [
+      "This is a large room with a ceiling which cannot be detected from\nthe ground. There is a narrow passage from east to west and a stone\nstairway leading upward."
+    ],
+    "artistic": {
+      "continuity": [
+        "DAM-RESERVOIR"
+      ],
+      "camera": "Low human viewpoint with a slight upward angle into the unseen ceiling.",
+      "composition": "Emphasize vast vertical darkness, the east-west passage and stone up-stair. Do not draw visible sound waves for noise variants.",
+      "lighting_palette": "Sparse cool fill and a high ceiling lost in dark value.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    }
+  },
+  "changes": [
+    " The room is deafeningly loud with an\nundetermined rushing sound. The sound seems to reverberate from all\nof the walls, making it difficult even to think."
+  ],
+  "reference": {
+    "room": "LOUD-ROOM",
+    "runtime_room": 138,
+    "runtime_state": 1,
+    "asset_key": "room-138-state-1",
+    "status": "preferred future Phase 2 reference; no illustration exists yet"
+  },
+  "asset_key": "room-138-state-2",
+  "target": {
+    "width": 256,
+    "height": 159,
+    "hardware": "Yamaha V9958",
+    "eventual_encoding": "YJK",
+    "phase": 1,
+    "source_aspect": "4:3 landscape",
+    "crop": "Safe center crop from 4:3 to 256:159; protect subjects within the central 82.8% of source height and central 90% of width."
+  },
+  "prompt": "Create one complete static illustration of Loud Room.\n\nViewpoint: Low human viewpoint with a slight upward angle into the unseen ceiling.\n\nThe scene establishes these features: This is a large room with a ceiling which cannot be detected from the ground. There is a narrow passage from east to west and a stone stairway leading upward. The room is deafeningly loud with an undetermined rushing sound. The sound seems to reverberate from all of the walls, making it difficult even to think.\n\nComposition: Emphasize vast vertical darkness, the east-west passage and stone up-stair. Do not draw visible sound waves for noise variants.\n\nAppearance of this illustration: The deafening sound does not imply a visible source, motion effect or altered architecture. Retain the same complete scene.\n\nCanonical room dressing: On the ground is a large platinum bar. Preserve this coarse room presentation unless the state description above specifies a different appearance.\n\nLighting and color: Sparse cool fill and a high ceiling lost in dark value.\n\nShared world design: Massive plain concrete engineering, dark iron fittings, restrained green/red/blue/yellow controls; lock bank contours and dam silhouette across water states.\n\nStyle: Painterly adventure-game illustration recalling fine late-1980s and early-1990s computer artwork; natural proportions, restrained brushwork, readable silhouettes and broad tonal masses. Aim for roughly 256 visually significant colors, broad related color regions, controlled shading and clear dark/light separation. No exact RGB-count requirement, photographic color noise, excessive gradients or microtextures.\n\nKeep this room camera, underlying architecture, terrain layout, light direction and palette consistent across its variants. Depict the complete scene, including the appearance stated above.\n\nLandscape source composition near 4:3. Final scene is 256 by 159 pixels. Allow safe center cropping to 256:159, keeping essential subjects inside the central 82.8 percent of source height and away from the side boundaries. Use clear silhouettes and broad readable shapes at that final size.\n\nExclude game UI, borders, captions, labels, readable lettering, photographic detail, pixel grids and enlarged pixels. Do not add characters, significant props, openings or events beyond the established scene. Do not depict an action in progress or a before/after collage.\n",
+  "negative_prompt": "No UI, borders, readable text, photorealism, pixel grid, invented props, extra exits or transient action events.",
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/loud-room.scene.json",
+    "scene_sha256": "536c43e1e657914023cd9af36ce8400ead4e47087d414df3c155908b7e57a4fb",
+    "runtime_source": {
+      "file": "1actions.zil",
+      "line": 1661,
+      "expression": "(<EQUAL? .RARG ,M-LOOK> <TELL \"This is a large room with a ceiling which cannot be detected from\\nthe ground. There is a narrow passage from east to west and a stone\\nstairway leading upward.\"> <COND (<OR ,LOUD-FLAG <AND <NOT ,GATES-OPEN> ,LOW-TIDE>> <TELL \" The room is eerie in its quietness.\">) (T <TELL \" The room is deafeningly loud with an\\nundetermined rushing sound. The sound seems to reverberate from all\\nof the walls, making it difficult even to think.\">)> <CRLF>)"
+    },
+    "mapping_file": "generated-zil/woh-state-ids.json",
+    "mapping_sha256": "c48cbe6f1866460c9141af8f50be2b1120255b13ae8fa44a72cbb1714c3a2137",
+    "dictionary_file": "generated-room-states/room-states.yaml",
+    "dictionary_sha256": "87783e0895b9ebf9d5155dff22e440735c5ac68caca748c1d77840d6c1aacfa0",
+    "story_sha256": "cce1fdc54f18a6616e124db2de245aec1da943b458ebdee61bf1c6ff0a4038d4"
+  },
+  "unresolved": []
+}

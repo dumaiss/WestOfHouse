@@ -1,0 +1,672 @@
+{
+  "schema": "woh_hotspot_parser_checks_v1",
+  "story_sha256": "cce1fdc54f18a6616e124db2de245aec1da943b458ebdee61bf1c6ff0a4038d4",
+  "host_build": [
+    "cc",
+    "-shared",
+    "-fPIC",
+    "-O2",
+    "-DZVM_PROFILE=1",
+    "-I/home/kitamura/Documents/WestOfHouse/libzvm/include",
+    "-I/home/kitamura/Documents/WestOfHouse/libzvm/tests/host/include",
+    "/home/kitamura/Documents/WestOfHouse/libzvm/src/decode.c",
+    "/home/kitamura/Documents/WestOfHouse/libzvm/src/dictionary.c",
+    "/home/kitamura/Documents/WestOfHouse/libzvm/src/execute.c",
+    "/home/kitamura/Documents/WestOfHouse/libzvm/src/frames.c",
+    "/home/kitamura/Documents/WestOfHouse/libzvm/src/input.c",
+    "/home/kitamura/Documents/WestOfHouse/libzvm/src/memory.c",
+    "/home/kitamura/Documents/WestOfHouse/libzvm/src/objects.c",
+    "/home/kitamura/Documents/WestOfHouse/libzvm/src/opcodes.c",
+    "/home/kitamura/Documents/WestOfHouse/libzvm/src/services.c",
+    "/home/kitamura/Documents/WestOfHouse/libzvm/src/text.c",
+    "/home/kitamura/Documents/WestOfHouse/libzvm/src/variables.c",
+    "/home/kitamura/Documents/WestOfHouse/libzvm/src/zvm.c",
+    "-o",
+    "<temporary host library>"
+  ],
+  "setup": "Normal parser commands only; no VM/global/object mutation.",
+  "checks": [
+    {
+      "asset_key": "room-180-state-1",
+      "setup": [],
+      "command": "close mailbox",
+      "result": "parser_accepted",
+      "output": "It is already closed.\n\n>West of House"
+    },
+    {
+      "asset_key": "room-180-state-1",
+      "setup": [],
+      "command": "examine door",
+      "result": "parser_accepted",
+      "output": "The door is closed.\n\n>West of House"
+    },
+    {
+      "asset_key": "room-180-state-1",
+      "setup": [],
+      "command": "examine forest",
+      "result": "parser_accepted",
+      "output": "There's nothing special about the forest.\n\n>West of House"
+    },
+    {
+      "asset_key": "room-180-state-1",
+      "setup": [],
+      "command": "examine house",
+      "result": "parser_accepted",
+      "output": "The house is a beautiful colonial house which is painted white. It is clear that the owners must have been extremely wealthy.\n\n>West of House"
+    },
+    {
+      "asset_key": "room-180-state-1",
+      "setup": [],
+      "command": "examine mailbox",
+      "result": "parser_accepted",
+      "output": "The small mailbox is closed.\n\n>West of House"
+    },
+    {
+      "asset_key": "room-180-state-1",
+      "setup": [],
+      "command": "open door",
+      "result": "parser_accepted",
+      "output": "The door cannot be opened.\n\n>West of House"
+    },
+    {
+      "asset_key": "room-180-state-1",
+      "setup": [],
+      "command": "open mailbox",
+      "result": "parser_accepted",
+      "output": "Opening the small mailbox reveals a leaflet.\n\n>West of House"
+    },
+    {
+      "asset_key": "room-180-state-2",
+      "setup": [],
+      "command": "close mailbox",
+      "result": "parser_accepted",
+      "output": "It is already closed.\n\n>West of House",
+      "scope_note": "Same source room in normal initial play; winning flag is not forced. Southwest is expected to be refused before winning."
+    },
+    {
+      "asset_key": "room-180-state-2",
+      "setup": [],
+      "command": "examine door",
+      "result": "parser_accepted",
+      "output": "The door is closed.\n\n>West of House",
+      "scope_note": "Same source room in normal initial play; winning flag is not forced. Southwest is expected to be refused before winning."
+    },
+    {
+      "asset_key": "room-180-state-2",
+      "setup": [],
+      "command": "examine forest",
+      "result": "parser_accepted",
+      "output": "There's nothing special about the forest.\n\n>West of House",
+      "scope_note": "Same source room in normal initial play; winning flag is not forced. Southwest is expected to be refused before winning."
+    },
+    {
+      "asset_key": "room-180-state-2",
+      "setup": [],
+      "command": "examine house",
+      "result": "parser_accepted",
+      "output": "The house is a beautiful colonial house which is painted white. It is clear that the owners must have been extremely wealthy.\n\n>West of House",
+      "scope_note": "Same source room in normal initial play; winning flag is not forced. Southwest is expected to be refused before winning."
+    },
+    {
+      "asset_key": "room-180-state-2",
+      "setup": [],
+      "command": "examine mailbox",
+      "result": "parser_accepted",
+      "output": "The small mailbox is closed.\n\n>West of House",
+      "scope_note": "Same source room in normal initial play; winning flag is not forced. Southwest is expected to be refused before winning."
+    },
+    {
+      "asset_key": "room-180-state-2",
+      "setup": [],
+      "command": "open door",
+      "result": "parser_accepted",
+      "output": "The door cannot be opened.\n\n>West of House",
+      "scope_note": "Same source room in normal initial play; winning flag is not forced. Southwest is expected to be refused before winning."
+    },
+    {
+      "asset_key": "room-180-state-2",
+      "setup": [],
+      "command": "open mailbox",
+      "result": "parser_accepted",
+      "output": "Opening the small mailbox reveals a leaflet.\n\n>West of House",
+      "scope_note": "Same source room in normal initial play; winning flag is not forced. Southwest is expected to be refused before winning."
+    },
+    {
+      "asset_key": "room-180-state-2",
+      "setup": [],
+      "command": "southwest",
+      "result": "parser_accepted",
+      "output": "Stone Barrow\nYou are standing in front of a massive barrow of stone. In the east face is a huge stone door which is open. You cannot see into the dark of the tomb.\n\n>Stone Barrow",
+      "scope_note": "Same source room in normal initial play; winning flag is not forced. Southwest is expected to be refused before winning."
+    },
+    {
+      "asset_key": "room-81-state-1",
+      "setup": [
+        "north"
+      ],
+      "command": "examine forest",
+      "result": "parser_accepted",
+      "output": "There's nothing special about the forest.\n\n>North of House"
+    },
+    {
+      "asset_key": "room-81-state-1",
+      "setup": [
+        "north"
+      ],
+      "command": "examine house",
+      "result": "parser_accepted",
+      "output": "The house is a beautiful colonial house which is painted white. It is clear that the owners must have been extremely wealthy.\n\n>North of House"
+    },
+    {
+      "asset_key": "room-81-state-1",
+      "setup": [
+        "north"
+      ],
+      "command": "examine window",
+      "result": "parser_accepted",
+      "output": "There's nothing special about the boarded window.\n\n>North of House"
+    },
+    {
+      "asset_key": "room-81-state-1",
+      "setup": [
+        "north"
+      ],
+      "command": "north",
+      "result": "parser_accepted",
+      "output": "Forest Path\nThis is a path winding through a dimly lit forest. The path heads north-south here. One particularly large tree with some low branches stands at the edge of the path.\n\n>Forest Path"
+    },
+    {
+      "asset_key": "room-81-state-1",
+      "setup": [
+        "north"
+      ],
+      "command": "open window",
+      "result": "parser_accepted",
+      "output": "The windows are boarded and can't be opened.\n\n>North of House"
+    },
+    {
+      "asset_key": "room-80-state-1",
+      "setup": [
+        "south"
+      ],
+      "command": "examine forest",
+      "result": "parser_accepted",
+      "output": "There's nothing special about the forest.\n\n>South of House"
+    },
+    {
+      "asset_key": "room-80-state-1",
+      "setup": [
+        "south"
+      ],
+      "command": "examine house",
+      "result": "parser_accepted",
+      "output": "The house is a beautiful colonial house which is painted white. It is clear that the owners must have been extremely wealthy.\n\n>South of House"
+    },
+    {
+      "asset_key": "room-80-state-1",
+      "setup": [
+        "south"
+      ],
+      "command": "examine window",
+      "result": "parser_accepted",
+      "output": "There's nothing special about the boarded window.\n\n>South of House"
+    },
+    {
+      "asset_key": "room-80-state-1",
+      "setup": [
+        "south"
+      ],
+      "command": "open window",
+      "result": "parser_accepted",
+      "output": "The windows are boarded and can't be opened.\n\n>South of House"
+    },
+    {
+      "asset_key": "room-79-state-1",
+      "setup": [
+        "north",
+        "east"
+      ],
+      "command": "east",
+      "result": "parser_accepted",
+      "output": "Clearing\nYou are in a small clearing in a well marked forest path that extends to the east and west.\n\n>Clearing"
+    },
+    {
+      "asset_key": "room-79-state-1",
+      "setup": [
+        "north",
+        "east"
+      ],
+      "command": "enter window",
+      "result": "parser_accepted",
+      "output": "The kitchen window is closed.\n\n>Behind House"
+    },
+    {
+      "asset_key": "room-79-state-1",
+      "setup": [
+        "north",
+        "east"
+      ],
+      "command": "examine forest",
+      "result": "parser_accepted",
+      "output": "There's nothing special about the forest.\n\n>Behind House"
+    },
+    {
+      "asset_key": "room-79-state-1",
+      "setup": [
+        "north",
+        "east"
+      ],
+      "command": "examine house",
+      "result": "parser_accepted",
+      "output": "The house is a beautiful colonial house which is painted white. It is clear that the owners must have been extremely wealthy.\n\n>Behind House"
+    },
+    {
+      "asset_key": "room-79-state-1",
+      "setup": [
+        "north",
+        "east"
+      ],
+      "command": "examine window",
+      "result": "parser_accepted",
+      "output": "The window is slightly ajar, but not enough to allow entry.\n\n>Behind House"
+    },
+    {
+      "asset_key": "room-79-state-1",
+      "setup": [
+        "north",
+        "east"
+      ],
+      "command": "open window",
+      "result": "parser_accepted",
+      "output": "With great effort, you open the window far enough to allow entry.\n\n>Behind House"
+    },
+    {
+      "asset_key": "room-79-state-2",
+      "setup": [
+        "north",
+        "east",
+        "open window"
+      ],
+      "command": "close window",
+      "result": "parser_accepted",
+      "output": "The window closes (more easily than it opened).\n\n>Behind House"
+    },
+    {
+      "asset_key": "room-79-state-2",
+      "setup": [
+        "north",
+        "east",
+        "open window"
+      ],
+      "command": "east",
+      "result": "parser_accepted",
+      "output": "Clearing\nYou are in a small clearing in a well marked forest path that extends to the east and west.\n\n>Clearing"
+    },
+    {
+      "asset_key": "room-79-state-2",
+      "setup": [
+        "north",
+        "east",
+        "open window"
+      ],
+      "command": "enter window",
+      "result": "parser_accepted",
+      "output": "Kitchen\nYou are in the kitchen of the white house. A table seems to have been used recently for the preparation of food. A passage leads to the west and a dark staircase can be seen leading upward. A dark chimney leads down and to the east is a small window which is open.\nOn the table is an elongated brown sack, smelling of hot peppers.\nA bottle is sitting on the table.\nThe glass bottle contains:\n  A quantity of water\n\n>Kitchen"
+    },
+    {
+      "asset_key": "room-79-state-2",
+      "setup": [
+        "north",
+        "east",
+        "open window"
+      ],
+      "command": "examine forest",
+      "result": "parser_accepted",
+      "output": "There's nothing special about the forest.\n\n>Behind House"
+    },
+    {
+      "asset_key": "room-79-state-2",
+      "setup": [
+        "north",
+        "east",
+        "open window"
+      ],
+      "command": "examine house",
+      "result": "parser_accepted",
+      "output": "The house is a beautiful colonial house which is painted white. It is clear that the owners must have been extremely wealthy.\n\n>Behind House"
+    },
+    {
+      "asset_key": "room-79-state-2",
+      "setup": [
+        "north",
+        "east",
+        "open window"
+      ],
+      "command": "examine window",
+      "result": "parser_accepted",
+      "output": "The kitchen window is open, but I can't tell what's beyond it.\n\n>Behind House"
+    },
+    {
+      "asset_key": "room-203-state-1",
+      "setup": [
+        "north",
+        "east",
+        "open window",
+        "enter window",
+        "close window"
+      ],
+      "command": "climb down chimney",
+      "result": "parser_accepted",
+      "output": "You have moved into a dark place.\nIt is pitch black. You are likely to be eaten by a grue.\n\n>Studio"
+    },
+    {
+      "asset_key": "room-203-state-1",
+      "setup": [
+        "north",
+        "east",
+        "open window",
+        "enter window",
+        "close window"
+      ],
+      "command": "enter window",
+      "result": "parser_accepted",
+      "output": "The kitchen window is closed.\n\n>Kitchen"
+    },
+    {
+      "asset_key": "room-203-state-1",
+      "setup": [
+        "north",
+        "east",
+        "open window",
+        "enter window",
+        "close window"
+      ],
+      "command": "examine chimney",
+      "result": "parser_accepted",
+      "output": "The chimney leads downward, and looks climbable.\n\n>Kitchen"
+    },
+    {
+      "asset_key": "room-203-state-1",
+      "setup": [
+        "north",
+        "east",
+        "open window",
+        "enter window",
+        "close window"
+      ],
+      "command": "examine stairs",
+      "result": "parser_accepted",
+      "output": "There's nothing special about the stairs.\n\n>Kitchen"
+    },
+    {
+      "asset_key": "room-203-state-1",
+      "setup": [
+        "north",
+        "east",
+        "open window",
+        "enter window",
+        "close window"
+      ],
+      "command": "examine table",
+      "result": "parser_accepted",
+      "output": "On the table is an elongated brown sack, smelling of hot peppers.\nA bottle is sitting on the table.\nThe glass bottle contains:\n  A quantity of water\n\n>Kitchen"
+    },
+    {
+      "asset_key": "room-203-state-1",
+      "setup": [
+        "north",
+        "east",
+        "open window",
+        "enter window",
+        "close window"
+      ],
+      "command": "examine window",
+      "result": "parser_accepted",
+      "output": "The kitchen window is closed.\n\n>Kitchen"
+    },
+    {
+      "asset_key": "room-203-state-1",
+      "setup": [
+        "north",
+        "east",
+        "open window",
+        "enter window",
+        "close window"
+      ],
+      "command": "open window",
+      "result": "parser_accepted",
+      "output": "With great effort, you open the window far enough to allow entry.\n\n>Kitchen"
+    },
+    {
+      "asset_key": "room-203-state-1",
+      "setup": [
+        "north",
+        "east",
+        "open window",
+        "enter window",
+        "close window"
+      ],
+      "command": "up",
+      "result": "parser_accepted",
+      "output": "You have moved into a dark place.\nIt is pitch black. You are likely to be eaten by a grue.\n\n>Attic"
+    },
+    {
+      "asset_key": "room-203-state-2",
+      "setup": [
+        "north",
+        "east",
+        "open window",
+        "enter window"
+      ],
+      "command": "climb down chimney",
+      "result": "parser_accepted",
+      "output": "You have moved into a dark place.\nIt is pitch black. You are likely to be eaten by a grue.\n\n>Studio"
+    },
+    {
+      "asset_key": "room-203-state-2",
+      "setup": [
+        "north",
+        "east",
+        "open window",
+        "enter window"
+      ],
+      "command": "close window",
+      "result": "parser_accepted",
+      "output": "The window closes (more easily than it opened).\n\n>Kitchen"
+    },
+    {
+      "asset_key": "room-203-state-2",
+      "setup": [
+        "north",
+        "east",
+        "open window",
+        "enter window"
+      ],
+      "command": "enter window",
+      "result": "parser_accepted",
+      "output": "Behind House\n\n>Behind House"
+    },
+    {
+      "asset_key": "room-203-state-2",
+      "setup": [
+        "north",
+        "east",
+        "open window",
+        "enter window"
+      ],
+      "command": "examine chimney",
+      "result": "parser_accepted",
+      "output": "The chimney leads downward, and looks climbable.\n\n>Kitchen"
+    },
+    {
+      "asset_key": "room-203-state-2",
+      "setup": [
+        "north",
+        "east",
+        "open window",
+        "enter window"
+      ],
+      "command": "examine stairs",
+      "result": "parser_accepted",
+      "output": "There's nothing special about the stairs.\n\n>Kitchen"
+    },
+    {
+      "asset_key": "room-203-state-2",
+      "setup": [
+        "north",
+        "east",
+        "open window",
+        "enter window"
+      ],
+      "command": "examine table",
+      "result": "parser_accepted",
+      "output": "On the table is an elongated brown sack, smelling of hot peppers.\nA bottle is sitting on the table.\nThe glass bottle contains:\n  A quantity of water\n\n>Kitchen"
+    },
+    {
+      "asset_key": "room-203-state-2",
+      "setup": [
+        "north",
+        "east",
+        "open window",
+        "enter window"
+      ],
+      "command": "examine window",
+      "result": "parser_accepted",
+      "output": "The kitchen window is open, but I can't tell what's beyond it.\n\n>Kitchen"
+    },
+    {
+      "asset_key": "room-203-state-2",
+      "setup": [
+        "north",
+        "east",
+        "open window",
+        "enter window"
+      ],
+      "command": "up",
+      "result": "parser_accepted",
+      "output": "You have moved into a dark place.\nIt is pitch black. You are likely to be eaten by a grue.\n\n>Attic"
+    },
+    {
+      "asset_key": "room-201-state-unbound",
+      "setup": [
+        "north",
+        "east",
+        "open window",
+        "enter window",
+        "west",
+        "take lamp",
+        "turn on lamp",
+        "east",
+        "up"
+      ],
+      "command": "down",
+      "result": "parser_accepted",
+      "output": "Kitchen\nOn the table is an elongated brown sack, smelling of hot peppers.\nA bottle is sitting on the table.\nThe glass bottle contains:\n  A quantity of water\n\n>Kitchen"
+    },
+    {
+      "asset_key": "room-201-state-unbound",
+      "setup": [
+        "north",
+        "east",
+        "open window",
+        "enter window",
+        "west",
+        "take lamp",
+        "turn on lamp",
+        "east",
+        "up"
+      ],
+      "command": "examine knife",
+      "result": "parser_accepted",
+      "output": "There's nothing special about the nasty knife.\n\n>Attic"
+    },
+    {
+      "asset_key": "room-201-state-unbound",
+      "setup": [
+        "north",
+        "east",
+        "open window",
+        "enter window",
+        "west",
+        "take lamp",
+        "turn on lamp",
+        "east",
+        "up"
+      ],
+      "command": "examine rope",
+      "result": "parser_accepted",
+      "output": "There's nothing special about the rope.\n\n>Attic"
+    },
+    {
+      "asset_key": "room-201-state-unbound",
+      "setup": [
+        "north",
+        "east",
+        "open window",
+        "enter window",
+        "west",
+        "take lamp",
+        "turn on lamp",
+        "east",
+        "up"
+      ],
+      "command": "examine stairs",
+      "result": "parser_accepted",
+      "output": "There's nothing special about the stairs.\n\n>Attic"
+    },
+    {
+      "asset_key": "room-201-state-unbound",
+      "setup": [
+        "north",
+        "east",
+        "open window",
+        "enter window",
+        "west",
+        "take lamp",
+        "turn on lamp",
+        "east",
+        "up"
+      ],
+      "command": "examine table",
+      "result": "parser_accepted",
+      "output": "On a table is a nasty-looking knife.\n\n>Attic"
+    },
+    {
+      "asset_key": "room-201-state-unbound",
+      "setup": [
+        "north",
+        "east",
+        "open window",
+        "enter window",
+        "west",
+        "take lamp",
+        "turn on lamp",
+        "east",
+        "up"
+      ],
+      "command": "take knife",
+      "result": "parser_accepted",
+      "output": "Taken.\n\n>Attic"
+    },
+    {
+      "asset_key": "room-201-state-unbound",
+      "setup": [
+        "north",
+        "east",
+        "open window",
+        "enter window",
+        "west",
+        "take lamp",
+        "turn on lamp",
+        "east",
+        "up"
+      ],
+      "command": "take rope",
+      "result": "parser_accepted",
+      "output": "Taken.\n\n>Attic"
+    }
+  ],
+  "warnings": [],
+  "commands_checked": 59,
+  "parser_accepted": 59
+}

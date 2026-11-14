@@ -1,0 +1,161 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "ON-RAINBOW",
+  "title": "On the Rainbow",
+  "runtime_room": 28,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "You are on top of a rainbow (I bet you never thought you would walk\non a rainbow), with a magnificent view of the Falls. The rainbow\ntravels east-west here."
+        ],
+        "source_refs": [
+          "SRC-ROOM-ON-RAINBOW"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "RAINBOW",
+        "description": "rainbow",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT",
+          "CLIMBBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-RAINBOW"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-ON-RAINBOW"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "END-OF-RAINBOW",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-ON-RAINBOW"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "ARAGAIN-FALLS",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-ON-RAINBOW"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT",
+      "ONBIT",
+      "SACREDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "FRIGID-RIVER"
+    ],
+    "camera": "From the rainbow surface, look along its east-west span toward the waterfall.",
+    "composition": "Use the solid rainbow as a broad near-plane leading over a deep gorge, with the matching falls silhouette beyond; add no railings.",
+    "lighting_palette": "Shared daylight and mist, controlled chromatic bands.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/on-rainbow.scene.json",
+    "scene_sha256": "69e9f31045bad4404fb7a0eec2f34fef5b0ad8c6c4a78055a5999bda240ffa47",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-RAINBOW",
+        "file": "1dungeon.zil",
+        "line_start": 767,
+        "line_end": 772,
+        "subject": "RAINBOW"
+      },
+      {
+        "id": "SRC-ROOM-ON-RAINBOW",
+        "file": "1dungeon.zil",
+        "line_start": 2330,
+        "line_end": 2340,
+        "subject": "ON-RAINBOW"
+      },
+      {
+        "id": "SRC-ROUTINE-RAINBOW-FCN",
+        "file": "1actions.zil",
+        "line_start": 2634,
+        "line_end": 2650,
+        "subject": "RAINBOW-FCN"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-ON-RAINBOW"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

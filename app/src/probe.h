@@ -11,6 +11,7 @@ typedef struct {
     uint16_t commands;
     uint32_t output_bytes, output_hash;
     uint16_t mouse_x, mouse_y;
+    uint8_t title;
 } woh_probe_t;
 extern woh_probe_t woh_probe;
 #endif

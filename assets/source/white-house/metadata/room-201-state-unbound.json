@@ -1,0 +1,30 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "recorded_at_utc": "2026-11-14T03:30:25.371339+00:00",
+  "original_tool_path": "/home/kitamura/.codex/generated_images/01a1b30b-14e6-77a1-92d7-426c931a35aa/exec-3f50d4d8-9017-4a51-97a0-f4df039920be.png",
+  "tool_result": {
+    "output_hint": "Generated images are saved to /home/kitamura/.codex/generated_images/01a1b30b-14e6-77a1-92d7-426c931a35aa as /home/kitamura/.codex/generated_images/01a1b30b-14e6-77a1-92d7-426c931a35aa/exec-3f50d4d8-9017-4a51-97a0-f4df039920be.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+  },
+  "request": "prompts/requests/room-201-state-unbound.md",
+  "request_sha256": "d76b979c0d7d10f4e7cfbd949fb5d085d4cd396737d9a3a4e39b55ae75d41ba2",
+  "references": [
+    {
+      "asset_key": "room-180-state-1",
+      "path": "originals/room-180-state-1.png",
+      "sha256": "30ae0d408cd44cd188af679fd76c0a5a31a840129526a916613cdcef0c34d102",
+      "retained": true
+    },
+    {
+      "asset_key": "room-203-state-1",
+      "path": "originals/room-203-state-1.png",
+      "sha256": "34f9d904e66b82d9342ccd5438ee58faceca6ceb28dcf0b1ad1e40e93e22ffad",
+      "retained": true
+    }
+  ],
+  "source_size": [
+    1448,
+    1086
+  ],
+  "source_sha256": "138b33f5d609dd79128e65cefb338a6388c347c91630f4eb0a6e2925adb1735e",
+  "model_and_seed": "Not exposed by the built-in tool."
+}

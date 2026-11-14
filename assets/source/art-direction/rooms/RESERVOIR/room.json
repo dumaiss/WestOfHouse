@@ -1,0 +1,550 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "RESERVOIR",
+  "title": "Reservoir",
+  "runtime_room": 100,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "M-LOOK-1",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": ",LOW-TIDE"
+        },
+        "text": [
+          "You are on what used to be a large lake, but which is now a large\nmud pile. There are \"shores\" to the north and south."
+        ],
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR",
+          "SRC-ROUTINE-RESERVOIR-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-2",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<NOT <OR ,LOW-TIDE>>"
+        },
+        "text": [
+          "You are on the lake. Beaches can be seen north and south.\nUpstream a small stream enters the lake through a narrow cleft\nin the rocks. The dam can be seen downstream."
+        ],
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR",
+          "SRC-ROUTINE-RESERVOIR-FCN"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "TRUNK",
+        "description": "trunk of jewels",
+        "kind": "object",
+        "initial_location": "RESERVOIR",
+        "source_flags": [
+          "TAKEBIT",
+          "INVISIBLE"
+        ],
+        "source_properties": {
+          "TVALUE": 5,
+          "SIZE": 35,
+          "VALUE": 15,
+          "FDESC": "Lying half buried in the mud is an old trunk, bulging with jewels.",
+          "LDESC": "There is an old trunk here, bulging with assorted jewels."
+        },
+        "visibility": "hidden_initially",
+        "reason": "Initial source attribute marks this object invisible.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-TRUNK"
+        ]
+      },
+      {
+        "id": "GLOBAL-WATER",
+        "description": "water",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "DRINKBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-GLOBAL-WATER"
+        ]
+      },
+      {
+        "id": "PSEUDO-STREAM",
+        "description": "stream",
+        "kind": "pseudo_object",
+        "initial_location": "RESERVOIR",
+        "source_flags": [],
+        "source_properties": {
+          "ACTION": "STREAM-PSEUDO"
+        },
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/2",
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR",
+          "SRC-ROUTINE-STREAM-PSEUDO"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "RESERVOIR-NORTH",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR"
+        ]
+      },
+      {
+        "id": "EXIT-SOUTH",
+        "directions": [
+          "south"
+        ],
+        "destination": "RESERVOIR-SOUTH",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR"
+        ]
+      },
+      {
+        "id": "EXIT-UP",
+        "directions": [
+          "up"
+        ],
+        "destination": "IN-STREAM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "IN-STREAM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR"
+        ]
+      },
+      {
+        "id": "EXIT-DOWN",
+        "directions": [
+          "down"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(DOWN \"The dam blocks your way.\")"
+        },
+        "blocked_text": [
+          "The dam blocks your way."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR"
+        ]
+      }
+    ],
+    "source_flags": [
+      "NONLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "DAM-RESERVOIR"
+    ],
+    "camera": "View from near water or mud level along the basin's north-south extent.",
+    "composition": "Show north and south banks and source-stated upstream rock cleft/downstream dam only in descriptions that establish them; keep the same basin shape for lake and mud variants.",
+    "lighting_palette": "Muted teal water or broad brown mud under consistent cool light.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/reservoir.scene.json",
+    "scene_sha256": "9e6ed14c2122d116d67f7c5a7281bc94e2f7cbf24d258679193d28dbc4c08ab6",
+    "source_references": [
+      {
+        "id": "SRC-GLOBAL-LOW-TIDE",
+        "file": "1dungeon.zil",
+        "line_start": 1230,
+        "line_end": 1230,
+        "subject": "LOW-TIDE"
+      },
+      {
+        "id": "SRC-GLOBAL-PRSA",
+        "file": "gparser.zil",
+        "line_start": 14,
+        "line_end": 14,
+        "subject": "PRSA"
+      },
+      {
+        "id": "SRC-GLOBAL-PRSI",
+        "file": "gparser.zil",
+        "line_start": 15,
+        "line_end": 15,
+        "subject": "PRSI"
+      },
+      {
+        "id": "SRC-GLOBAL-PRSO",
+        "file": "gparser.zil",
+        "line_start": 16,
+        "line_end": 16,
+        "subject": "PRSO"
+      },
+      {
+        "id": "SRC-OBJECT-GLOBAL-WATER",
+        "file": "1dungeon.zil",
+        "line_start": 78,
+        "line_end": 83,
+        "subject": "GLOBAL-WATER"
+      },
+      {
+        "id": "SRC-OBJECT-TRUNK",
+        "file": "1dungeon.zil",
+        "line_start": 1048,
+        "line_end": 1060,
+        "subject": "TRUNK"
+      },
+      {
+        "id": "SRC-ROOM-RESERVOIR",
+        "file": "1dungeon.zil",
+        "line_start": 1783,
+        "line_end": 1794,
+        "subject": "RESERVOIR"
+      },
+      {
+        "id": "SRC-ROUTINE-RESERVOIR-FCN",
+        "file": "1actions.zil",
+        "line_start": 1444,
+        "line_end": 1462,
+        "subject": "RESERVOIR-FCN"
+      },
+      {
+        "id": "SRC-ROUTINE-STREAM-PSEUDO",
+        "file": "1actions.zil",
+        "line_start": 3185,
+        "line_end": 3189,
+        "subject": "STREAM-PSEUDO"
+      },
+      {
+        "id": "SRC-ROUTINE-TRUNK-F",
+        "file": "1actions.zil",
+        "line_start": 4140,
+        "line_end": 4141,
+        "subject": "TRUNK-F"
+      },
+      {
+        "id": "SRC-ROUTINE-WATER-F",
+        "file": "1actions.zil",
+        "line_start": 157,
+        "line_end": 237,
+        "subject": "WATER-F"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [
+      {
+        "id": "LOW-TIDE",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL LOW-TIDE <>>",
+        "source_refs": [
+          "SRC-GLOBAL-LOW-TIDE"
+        ]
+      },
+      {
+        "id": "PRSA",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL PRSA <>>",
+        "source_refs": [
+          "SRC-GLOBAL-PRSA"
+        ]
+      },
+      {
+        "id": "PRSI",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL PRSI <>>",
+        "source_refs": [
+          "SRC-GLOBAL-PRSI"
+        ]
+      },
+      {
+        "id": "PRSO",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL PRSO <>>",
+        "source_refs": [
+          "SRC-GLOBAL-PRSO"
+        ]
+      }
+    ],
+    "extracted_states": [
+      {
+        "id": "LOOK-STATE-1",
+        "condition": {
+          "op": "source_expression",
+          "expression": ",LOW-TIDE"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR",
+          "SRC-ROUTINE-RESERVOIR-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-2",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<NOT <OR ,LOW-TIDE>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR",
+          "SRC-ROUTINE-RESERVOIR-FCN"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-3",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "PRSA"
+              },
+              "right": {
+                "value": "V?PUT"
+              }
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "PRSI"
+              },
+              "right": {
+                "value": "PRSO"
+              }
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "PRSO"
+              },
+              "right": {
+                "value": ".W"
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-4",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <REMOVE-CAREFULLY .W>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-5",
+        "condition": {
+          "op": "located_in",
+          "object": "PRSO",
+          "location": "AV"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-6",
+        "condition": {
+          "op": "located_in",
+          "object": "WATER",
+          "location": "BOTTLE"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-7",
+        "condition": {
+          "op": "located_in",
+          "object": "WATER",
+          "location": "AV"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-8",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <REMOVE-CAREFULLY ,WATER> <REMOVE-CAREFULLY ,WATER>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-9",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <REMOVE-CAREFULLY ,WATER>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-WATER-F-FILL-3",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-2-WATER-F-TAKE-PUT-4",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-3-WATER-F-TAKE-PUT-5",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-4-WATER-F-TAKE-PUT-5",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-5-WATER-F-TAKE-PUT-5",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-6-WATER-F-TAKE-PUT-5",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-7-WATER-F-DROP-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-8-WATER-F-DROP-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-9-WATER-F-DROP-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-10-WATER-F-DROP-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-11-WATER-F-THROW-7",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values.",
+      "ACTION-STATE conditions describe source mutations and may overlap; arbitrary ZIL was not executed."
+    ]
+  },
+  "unresolved": []
+}

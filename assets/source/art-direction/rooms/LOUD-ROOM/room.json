@@ -1,0 +1,295 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "LOUD-ROOM",
+  "title": "Loud Room",
+  "runtime_room": 138,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "M-LOOK-1",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<OR ,LOUD-FLAG <AND <NOT ,GATES-OPEN> ,LOW-TIDE>>"
+        },
+        "text": [
+          "This is a large room with a ceiling which cannot be detected from\nthe ground. There is a narrow passage from east to west and a stone\nstairway leading upward.",
+          " The room is eerie in its quietness."
+        ],
+        "source_refs": [
+          "SRC-ROOM-LOUD-ROOM",
+          "SRC-ROUTINE-LOUD-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-2",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<NOT <OR <OR ,LOUD-FLAG <AND <NOT ,GATES-OPEN> ,LOW-TIDE>>>>"
+        },
+        "text": [
+          "This is a large room with a ceiling which cannot be detected from\nthe ground. There is a narrow passage from east to west and a stone\nstairway leading upward.",
+          " The room is deafeningly loud with an\nundetermined rushing sound. The sound seems to reverberate from all\nof the walls, making it difficult even to think."
+        ],
+        "source_refs": [
+          "SRC-ROOM-LOUD-ROOM",
+          "SRC-ROUTINE-LOUD-ROOM-FCN"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "BAR",
+        "description": "platinum bar",
+        "kind": "object",
+        "initial_location": "LOUD-ROOM",
+        "source_flags": [
+          "TAKEBIT",
+          "SACREDBIT"
+        ],
+        "source_properties": {
+          "TVALUE": 5,
+          "SIZE": 20,
+          "VALUE": 10,
+          "LDESC": "On the ground is a large platinum bar."
+        },
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-BAR"
+        ]
+      },
+      {
+        "id": "STAIRS",
+        "description": "stairs",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT",
+          "CLIMBBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-STAIRS"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-LOUD-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "DAMP-CAVE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-LOUD-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "ROUND-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-LOUD-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-UP",
+        "directions": [
+          "up"
+        ],
+        "destination": "DEEP-CANYON",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-LOUD-ROOM"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "DAM-RESERVOIR"
+    ],
+    "camera": "Low human viewpoint with a slight upward angle into the unseen ceiling.",
+    "composition": "Emphasize vast vertical darkness, the east-west passage and stone up-stair. Do not draw visible sound waves for noise variants.",
+    "lighting_palette": "Sparse cool fill and a high ceiling lost in dark value.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/loud-room.scene.json",
+    "scene_sha256": "536c43e1e657914023cd9af36ce8400ead4e47087d414df3c155908b7e57a4fb",
+    "source_references": [
+      {
+        "id": "SRC-GLOBAL-GATES-OPEN",
+        "file": "1actions.zil",
+        "line_start": 1154,
+        "line_end": 1154,
+        "subject": "GATES-OPEN"
+      },
+      {
+        "id": "SRC-GLOBAL-LOUD-FLAG",
+        "file": "1actions.zil",
+        "line_start": 1658,
+        "line_end": 1658,
+        "subject": "LOUD-FLAG"
+      },
+      {
+        "id": "SRC-GLOBAL-LOW-TIDE",
+        "file": "1dungeon.zil",
+        "line_start": 1230,
+        "line_end": 1230,
+        "subject": "LOW-TIDE"
+      },
+      {
+        "id": "SRC-OBJECT-BAR",
+        "file": "1dungeon.zil",
+        "line_start": 725,
+        "line_end": 734,
+        "subject": "BAR"
+      },
+      {
+        "id": "SRC-OBJECT-STAIRS",
+        "file": "gglobals.zil",
+        "line_start": 102,
+        "line_end": 108,
+        "subject": "STAIRS"
+      },
+      {
+        "id": "SRC-ROOM-LOUD-ROOM",
+        "file": "1dungeon.zil",
+        "line_start": 1988,
+        "line_end": 1996,
+        "subject": "LOUD-ROOM"
+      },
+      {
+        "id": "SRC-ROUTINE-LOUD-ROOM-FCN",
+        "file": "1actions.zil",
+        "line_start": 1660,
+        "line_end": 1728,
+        "subject": "LOUD-ROOM-FCN"
+      },
+      {
+        "id": "SRC-ROUTINE-STAIRS-F",
+        "file": "gglobals.zil",
+        "line_start": 110,
+        "line_end": 113,
+        "subject": "STAIRS-F"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [
+      {
+        "id": "GATES-OPEN",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL GATES-OPEN <>>",
+        "source_refs": [
+          "SRC-GLOBAL-GATES-OPEN"
+        ]
+      },
+      {
+        "id": "LOUD-FLAG",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL LOUD-FLAG <>>",
+        "source_refs": [
+          "SRC-GLOBAL-LOUD-FLAG"
+        ]
+      },
+      {
+        "id": "LOW-TIDE",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL LOW-TIDE <>>",
+        "source_refs": [
+          "SRC-GLOBAL-LOW-TIDE"
+        ]
+      }
+    ],
+    "extracted_states": [
+      {
+        "id": "LOOK-STATE-1",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<OR ,LOUD-FLAG <AND <NOT ,GATES-OPEN> ,LOW-TIDE>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-LOUD-ROOM",
+          "SRC-ROUTINE-LOUD-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-2",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<NOT <OR <OR ,LOUD-FLAG <AND <NOT ,GATES-OPEN> ,LOW-TIDE>>>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-LOUD-ROOM",
+          "SRC-ROUTINE-LOUD-ROOM-FCN"
+        ]
+      }
+    ],
+    "transitions": [],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
+    ]
+  },
+  "unresolved": []
+}

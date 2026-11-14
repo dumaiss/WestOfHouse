@@ -1,0 +1,636 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "RESERVOIR-SOUTH",
+  "title": "Reservoir South",
+  "runtime_room": 50,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "M-LOOK-1",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND ,LOW-TIDE ,GATES-OPEN>"
+        },
+        "text": [
+          "You are in a long room, to the north of which was formerly a lake.\nHowever, with the water level lowered, there is merely a wide stream\nrunning through the center of the room.",
+          "There is a path along the stream to the east or west, a steep pathway\nclimbing southwest along the edge of a chasm, and a path leading into a\ncanyon to the southeast."
+        ],
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR-SOUTH",
+          "SRC-ROUTINE-RESERVOIR-SOUTH-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-2",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": ",GATES-OPEN"
+        },
+        "text": [
+          "You are in a long room. To the north is a large lake, too deep\nto cross. You notice, however, that the water level appears to be\ndropping at a rapid rate. Before long, it might be possible to cross\nto the other side from here.",
+          "There is a path along the stream to the east or west, a steep pathway\nclimbing southwest along the edge of a chasm, and a path leading into a\ncanyon to the southeast."
+        ],
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR-SOUTH",
+          "SRC-ROUTINE-RESERVOIR-SOUTH-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-3",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": ",LOW-TIDE"
+        },
+        "text": [
+          "You are in a long room, to the north of which is a wide area which\nwas formerly a reservoir, but now is merely a stream. You notice,\nhowever, that the level of the stream is rising quickly and that\nbefore long it will be impossible to cross here.",
+          "There is a path along the stream to the east or west, a steep pathway\nclimbing southwest along the edge of a chasm, and a path leading into a\ncanyon to the southeast."
+        ],
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR-SOUTH",
+          "SRC-ROUTINE-RESERVOIR-SOUTH-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-4",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<NOT <OR <AND ,LOW-TIDE ,GATES-OPEN> ,GATES-OPEN ,LOW-TIDE>>"
+        },
+        "text": [
+          "You are in a long room on the south shore of a large lake, far\ntoo deep and wide for crossing.",
+          "There is a path along the stream to the east or west, a steep pathway\nclimbing southwest along the edge of a chasm, and a path leading into a\ncanyon to the southeast."
+        ],
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR-SOUTH",
+          "SRC-ROUTINE-RESERVOIR-SOUTH-FCN"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "GLOBAL-WATER",
+        "description": "water",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "DRINKBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-GLOBAL-WATER"
+        ]
+      },
+      {
+        "id": "PSEUDO-LAKE",
+        "description": "lake",
+        "kind": "pseudo_object",
+        "initial_location": "RESERVOIR-SOUTH",
+        "source_flags": [],
+        "source_properties": {
+          "ACTION": "LAKE-PSEUDO"
+        },
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR-SOUTH",
+          "SRC-ROUTINE-LAKE-PSEUDO"
+        ]
+      },
+      {
+        "id": "PSEUDO-CHASM",
+        "description": "chasm",
+        "kind": "pseudo_object",
+        "initial_location": "RESERVOIR-SOUTH",
+        "source_flags": [],
+        "source_properties": {
+          "ACTION": "CHASM-PSEUDO"
+        },
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/2",
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR-SOUTH",
+          "SRC-ROUTINE-CHASM-PSEUDO"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR-SOUTH"
+        ]
+      },
+      {
+        "id": "EXIT-SE",
+        "directions": [
+          "se"
+        ],
+        "destination": "DEEP-CANYON",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR-SOUTH"
+        ]
+      },
+      {
+        "id": "EXIT-SW",
+        "directions": [
+          "sw"
+        ],
+        "destination": "CHASM-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR-SOUTH"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "DAM-ROOM",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR-SOUTH"
+        ]
+      },
+      {
+        "id": "EXIT-WEST",
+        "directions": [
+          "west"
+        ],
+        "destination": "STREAM-VIEW",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR-SOUTH"
+        ]
+      },
+      {
+        "id": "EXIT-NORTH",
+        "directions": [
+          "north"
+        ],
+        "destination": "RESERVOIR",
+        "condition": {
+          "op": "source_expression",
+          "expression": "LOW-TIDE"
+        },
+        "blocked_text": [
+          "You would drown."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR-SOUTH"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "DAM-RESERVOIR"
+    ],
+    "camera": "Stand at the southern shore looking north across the long basin.",
+    "composition": "Keep east/west streamside paths, southwest steep chasm route and southeast canyon route distinct; hold basin contours fixed across water levels.",
+    "lighting_palette": "Cool water reflection, gray-brown shoreline and low fill.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/reservoir-south.scene.json",
+    "scene_sha256": "4b1f22f6b205582217cf50a66d2fe275adcf4d8f052b40657587ad3e05ca59da",
+    "source_references": [
+      {
+        "id": "SRC-GLOBAL-GATES-OPEN",
+        "file": "1actions.zil",
+        "line_start": 1154,
+        "line_end": 1154,
+        "subject": "GATES-OPEN"
+      },
+      {
+        "id": "SRC-GLOBAL-LOW-TIDE",
+        "file": "1dungeon.zil",
+        "line_start": 1230,
+        "line_end": 1230,
+        "subject": "LOW-TIDE"
+      },
+      {
+        "id": "SRC-GLOBAL-PRSA",
+        "file": "gparser.zil",
+        "line_start": 14,
+        "line_end": 14,
+        "subject": "PRSA"
+      },
+      {
+        "id": "SRC-GLOBAL-PRSI",
+        "file": "gparser.zil",
+        "line_start": 15,
+        "line_end": 15,
+        "subject": "PRSI"
+      },
+      {
+        "id": "SRC-GLOBAL-PRSO",
+        "file": "gparser.zil",
+        "line_start": 16,
+        "line_end": 16,
+        "subject": "PRSO"
+      },
+      {
+        "id": "SRC-OBJECT-GLOBAL-WATER",
+        "file": "1dungeon.zil",
+        "line_start": 78,
+        "line_end": 83,
+        "subject": "GLOBAL-WATER"
+      },
+      {
+        "id": "SRC-OBJECT-PSEUDO-OBJECT",
+        "file": "gglobals.zil",
+        "line_start": 37,
+        "line_end": 40,
+        "subject": "PSEUDO-OBJECT"
+      },
+      {
+        "id": "SRC-ROOM-RESERVOIR-SOUTH",
+        "file": "1dungeon.zil",
+        "line_start": 1769,
+        "line_end": 1781,
+        "subject": "RESERVOIR-SOUTH"
+      },
+      {
+        "id": "SRC-ROUTINE-CHASM-PSEUDO",
+        "file": "1actions.zil",
+        "line_start": 3191,
+        "line_end": 3201,
+        "subject": "CHASM-PSEUDO"
+      },
+      {
+        "id": "SRC-ROUTINE-LAKE-PSEUDO",
+        "file": "1actions.zil",
+        "line_start": 3177,
+        "line_end": 3183,
+        "subject": "LAKE-PSEUDO"
+      },
+      {
+        "id": "SRC-ROUTINE-RESERVOIR-SOUTH-FCN",
+        "file": "1actions.zil",
+        "line_start": 1415,
+        "line_end": 1442,
+        "subject": "RESERVOIR-SOUTH-FCN"
+      },
+      {
+        "id": "SRC-ROUTINE-WATER-F",
+        "file": "1actions.zil",
+        "line_start": 157,
+        "line_end": 237,
+        "subject": "WATER-F"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [
+      {
+        "id": "GATES-OPEN",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL GATES-OPEN <>>",
+        "source_refs": [
+          "SRC-GLOBAL-GATES-OPEN"
+        ]
+      },
+      {
+        "id": "LOW-TIDE",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL LOW-TIDE <>>",
+        "source_refs": [
+          "SRC-GLOBAL-LOW-TIDE"
+        ]
+      },
+      {
+        "id": "PRSA",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL PRSA <>>",
+        "source_refs": [
+          "SRC-GLOBAL-PRSA"
+        ]
+      },
+      {
+        "id": "PRSI",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL PRSI <>>",
+        "source_refs": [
+          "SRC-GLOBAL-PRSI"
+        ]
+      },
+      {
+        "id": "PRSO",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL PRSO <>>",
+        "source_refs": [
+          "SRC-GLOBAL-PRSO"
+        ]
+      }
+    ],
+    "extracted_states": [
+      {
+        "id": "LOOK-STATE-1",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND ,LOW-TIDE ,GATES-OPEN>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR-SOUTH",
+          "SRC-ROUTINE-RESERVOIR-SOUTH-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-2",
+        "condition": {
+          "op": "source_expression",
+          "expression": ",GATES-OPEN"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR-SOUTH",
+          "SRC-ROUTINE-RESERVOIR-SOUTH-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-3",
+        "condition": {
+          "op": "source_expression",
+          "expression": ",LOW-TIDE"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR-SOUTH",
+          "SRC-ROUTINE-RESERVOIR-SOUTH-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-4",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<NOT <OR <AND ,LOW-TIDE ,GATES-OPEN> ,GATES-OPEN ,LOW-TIDE>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-RESERVOIR-SOUTH",
+          "SRC-ROUTINE-RESERVOIR-SOUTH-FCN"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-5",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "PRSA"
+              },
+              "right": {
+                "value": "V?PUT"
+              }
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "PRSI"
+              },
+              "right": {
+                "value": "PRSO"
+              }
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "PRSO"
+              },
+              "right": {
+                "value": ".W"
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-6",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <REMOVE-CAREFULLY .W>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-7",
+        "condition": {
+          "op": "located_in",
+          "object": "PRSO",
+          "location": "AV"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-8",
+        "condition": {
+          "op": "located_in",
+          "object": "WATER",
+          "location": "BOTTLE"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-9",
+        "condition": {
+          "op": "located_in",
+          "object": "WATER",
+          "location": "AV"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-10",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <REMOVE-CAREFULLY ,WATER> <REMOVE-CAREFULLY ,WATER>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-11",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <REMOVE-CAREFULLY ,WATER>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-12",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <REMOVE-CAREFULLY ,PRSO>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-CHASM-PSEUDO"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-WATER-F-FILL-3",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-2-WATER-F-TAKE-PUT-4",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-3-WATER-F-TAKE-PUT-5",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-4-WATER-F-TAKE-PUT-5",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-5-WATER-F-TAKE-PUT-5",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-6-WATER-F-TAKE-PUT-5",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-7-WATER-F-DROP-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-8-WATER-F-DROP-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-9-WATER-F-DROP-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-10-WATER-F-DROP-GIVE-6",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-11-WATER-F-THROW-7",
+        "source_refs": [
+          "SRC-ROUTINE-WATER-F"
+        ]
+      },
+      {
+        "id": "TRANSITION-12-CHASM-PSEUDO-PUT-THROW-OFF-3",
+        "source_refs": [
+          "SRC-ROUTINE-CHASM-PSEUDO"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values.",
+      "ACTION-STATE conditions describe source mutations and may overlap; arbitrary ZIL was not executed."
+    ]
+  },
+  "unresolved": []
+}

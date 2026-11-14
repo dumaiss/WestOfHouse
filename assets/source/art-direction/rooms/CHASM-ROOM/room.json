@@ -1,0 +1,287 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "CHASM-ROOM",
+  "title": "Chasm",
+  "runtime_room": 37,
+  "runtime_status": "ready",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "LDESC",
+        "trigger": "look",
+        "condition": {
+          "op": "true"
+        },
+        "text": [
+          "A chasm runs southwest to northeast and the path follows it. You are\non the south side of the chasm, where a crack opens into a passage."
+        ],
+        "source_refs": [
+          "SRC-ROOM-CHASM-ROOM"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "CRACK",
+        "description": "crack",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-CRACK"
+        ]
+      },
+      {
+        "id": "STAIRS",
+        "description": "stairs",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT",
+          "CLIMBBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-STAIRS"
+        ]
+      },
+      {
+        "id": "PSEUDO-CHASM",
+        "description": "chasm",
+        "kind": "pseudo_object",
+        "initial_location": "CHASM-ROOM",
+        "source_flags": [],
+        "source_properties": {
+          "ACTION": "CHASM-PSEUDO"
+        },
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/2",
+        "source_refs": [
+          "SRC-ROOM-CHASM-ROOM",
+          "SRC-ROUTINE-CHASM-PSEUDO"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CHASM-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-NE",
+        "directions": [
+          "ne"
+        ],
+        "destination": "RESERVOIR-SOUTH",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CHASM-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-SW",
+        "directions": [
+          "sw"
+        ],
+        "destination": "EW-PASSAGE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CHASM-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-UP",
+        "directions": [
+          "up"
+        ],
+        "destination": "EW-PASSAGE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CHASM-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-SOUTH",
+        "directions": [
+          "south"
+        ],
+        "destination": "NS-PASSAGE",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CHASM-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-DOWN",
+        "directions": [
+          "down"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(DOWN \"Are you out of your mind?\")"
+        },
+        "blocked_text": [
+          "Are you out of your mind?"
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CHASM-ROOM"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "FRIGID-RIVER"
+    ],
+    "camera": "Stand on the south side, looking diagonally along the southwest-to-northeast cleft.",
+    "composition": "Let the chasm create the dominant diagonal, with its following path and the crack into a passage remaining distinct.",
+    "lighting_palette": "Muted slate rock with shadow inside the cleft.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/chasm-room.scene.json",
+    "scene_sha256": "31410d1be0ccc62984027998a969cbc3b25b8538d879c7d31cff26c6433ea036",
+    "source_references": [
+      {
+        "id": "SRC-OBJECT-CRACK",
+        "file": "1dungeon.zil",
+        "line_start": 453,
+        "line_end": 459,
+        "subject": "CRACK"
+      },
+      {
+        "id": "SRC-OBJECT-PSEUDO-OBJECT",
+        "file": "gglobals.zil",
+        "line_start": 37,
+        "line_end": 40,
+        "subject": "PSEUDO-OBJECT"
+      },
+      {
+        "id": "SRC-OBJECT-STAIRS",
+        "file": "gglobals.zil",
+        "line_start": 102,
+        "line_end": 108,
+        "subject": "STAIRS"
+      },
+      {
+        "id": "SRC-ROOM-CHASM-ROOM",
+        "file": "1dungeon.zil",
+        "line_start": 2008,
+        "line_end": 2021,
+        "subject": "CHASM-ROOM"
+      },
+      {
+        "id": "SRC-ROUTINE-CHASM-PSEUDO",
+        "file": "1actions.zil",
+        "line_start": 3191,
+        "line_end": 3201,
+        "subject": "CHASM-PSEUDO"
+      },
+      {
+        "id": "SRC-ROUTINE-CRACK-FCN",
+        "file": "1actions.zil",
+        "line_start": 381,
+        "line_end": 383,
+        "subject": "CRACK-FCN"
+      },
+      {
+        "id": "SRC-ROUTINE-STAIRS-F",
+        "file": "gglobals.zil",
+        "line_start": 110,
+        "line_end": 113,
+        "subject": "STAIRS-F"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [],
+    "extracted_states": [
+      {
+        "id": "INITIAL",
+        "condition": {
+          "op": "true"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-CHASM-ROOM"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-2",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <REMOVE-CAREFULLY ,PRSO>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-CHASM-PSEUDO"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-CHASM-PSEUDO-PUT-THROW-OFF-3",
+        "source_refs": [
+          "SRC-ROUTINE-CHASM-PSEUDO"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values.",
+      "ACTION-STATE conditions describe source mutations and may overlap; arbitrary ZIL was not executed."
+    ]
+  },
+  "unresolved": []
+}

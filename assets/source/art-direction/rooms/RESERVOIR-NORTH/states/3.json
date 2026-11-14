@@ -1,0 +1,142 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "state",
+  "room": "RESERVOIR-NORTH",
+  "title": "Reservoir North",
+  "runtime_room": 172,
+  "runtime_state": 3,
+  "symbolic_state": "LOOK-AF3761505961",
+  "condition": {
+    "all": [
+      {
+        "ref": "LOW-TIDE",
+        "ne": false
+      },
+      {
+        "not": {
+          "any": [
+            {
+              "all": [
+                {
+                  "ref": "GATES-OPEN",
+                  "ne": false
+                },
+                {
+                  "ref": "LOW-TIDE",
+                  "ne": false
+                }
+              ]
+            },
+            {
+              "ref": "GATES-OPEN",
+              "ne": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "extracted_states": [],
+  "description_ids": [
+    "M-LOOK-3"
+  ],
+  "canonical": [
+    {
+      "text": "You are in a cavernous area, to the south of which is a very wide\nstream. The level of the stream is rising rapidly, and it appears\nthat before long it will be impossible to cross to the other side.",
+      "pointer": "/scene/descriptions/2/text/0",
+      "source_refs": [
+        "SRC-ROOM-RESERVOIR-NORTH",
+        "SRC-ROUTINE-RESERVOIR-NORTH-FCN"
+      ]
+    },
+    {
+      "text": "There is a slimy stairway leaving the room to the north.",
+      "pointer": "/scene/descriptions/2/text/1",
+      "source_refs": [
+        "SRC-ROOM-RESERVOIR-NORTH",
+        "SRC-ROUTINE-RESERVOIR-NORTH-FCN"
+      ]
+    }
+  ],
+  "required_environmental_features": [
+    "You are in a cavernous area, to the south of which is a very wide\nstream. The level of the stream is rising rapidly, and it appears\nthat before long it will be impossible to cross to the other side.",
+    "There is a slimy stairway leaving the room to the north."
+  ],
+  "required_visible_objects": [
+    "PUMP"
+  ],
+  "artistic": {
+    "continuity": [
+      "DAM-RESERVOIR"
+    ],
+    "camera": "Stand at the northern shore looking south across the cavernous basin.",
+    "composition": "Keep the fixed shoreline and northern slimy stair while water level determines exposed mud or lake extent.",
+    "lighting_palette": "Cool reflected fill, teal water and brown-gray mud.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "state_artistic": {
+    "visual_treatment": "The wide stream is rising; use water spreading along the low basin margin.",
+    "omit_source_dressing": []
+  },
+  "invariants": {
+    "canonical_text": [
+      "There is a slimy stairway leaving the room to the north."
+    ],
+    "artistic": {
+      "continuity": [
+        "DAM-RESERVOIR"
+      ],
+      "camera": "Stand at the northern shore looking south across the cavernous basin.",
+      "composition": "Keep the fixed shoreline and northern slimy stair while water level determines exposed mud or lake extent.",
+      "lighting_palette": "Cool reflected fill, teal water and brown-gray mud.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    }
+  },
+  "changes": [
+    "You are in a cavernous area, to the south of which is a very wide\nstream. The level of the stream is rising rapidly, and it appears\nthat before long it will be impossible to cross to the other side."
+  ],
+  "reference": {
+    "room": "RESERVOIR-NORTH",
+    "runtime_room": 172,
+    "runtime_state": 1,
+    "asset_key": "room-172-state-1",
+    "status": "preferred future Phase 2 reference; no illustration exists yet"
+  },
+  "asset_key": "room-172-state-3",
+  "target": {
+    "width": 256,
+    "height": 159,
+    "hardware": "Yamaha V9958",
+    "eventual_encoding": "YJK",
+    "phase": 1,
+    "source_aspect": "4:3 landscape",
+    "crop": "Safe center crop from 4:3 to 256:159; protect subjects within the central 82.8% of source height and central 90% of width."
+  },
+  "prompt": "Create one complete static illustration of Reservoir North.\n\nViewpoint: Stand at the northern shore looking south across the cavernous basin.\n\nThe scene establishes these features: You are in a cavernous area, to the south of which is a very wide stream. The level of the stream is rising rapidly, and it appears that before long it will be impossible to cross to the other side. There is a slimy stairway leaving the room to the north.\n\nComposition: Keep the fixed shoreline and northern slimy stair while water level determines exposed mud or lake extent.\n\nAppearance of this illustration: The wide stream is rising; use water spreading along the low basin margin.\n\nCanonical room dressing: hand-held air pump. Preserve this coarse room presentation unless the state description above specifies a different appearance.\n\nLighting and color: Cool reflected fill, teal water and brown-gray mud.\n\nShared world design: Massive plain concrete engineering, dark iron fittings, restrained green/red/blue/yellow controls; lock bank contours and dam silhouette across water states.\n\nStyle: Painterly adventure-game illustration recalling fine late-1980s and early-1990s computer artwork; natural proportions, restrained brushwork, readable silhouettes and broad tonal masses. Aim for roughly 256 visually significant colors, broad related color regions, controlled shading and clear dark/light separation. No exact RGB-count requirement, photographic color noise, excessive gradients or microtextures.\n\nKeep this room camera, underlying architecture, terrain layout, light direction and palette consistent across its variants. Depict the complete scene, including the appearance stated above.\n\nLandscape source composition near 4:3. Final scene is 256 by 159 pixels. Allow safe center cropping to 256:159, keeping essential subjects inside the central 82.8 percent of source height and away from the side boundaries. Use clear silhouettes and broad readable shapes at that final size.\n\nExclude game UI, borders, captions, labels, readable lettering, photographic detail, pixel grids and enlarged pixels. Do not add characters, significant props, openings or events beyond the established scene. Do not depict an action in progress or a before/after collage.\n",
+  "negative_prompt": "No UI, borders, readable text, photorealism, pixel grid, invented props, extra exits or transient action events.",
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/reservoir-north.scene.json",
+    "scene_sha256": "d90b836551af1e42c479eb7300cd34c7d8dc6f0266682a31975431de82760a4f",
+    "runtime_source": {
+      "file": "1actions.zil",
+      "line": 1465,
+      "expression": "(<EQUAL? .RARG ,M-LOOK> <COND (<AND ,LOW-TIDE ,GATES-OPEN> <TELL \"You are in a large cavernous room, the south of which was formerly\\na lake. However, with the water level lowered, there is merely\\na wide stream running through there.\">) (,GATES-OPEN <TELL \"You are in a large cavernous area. To the south is a wide lake,\\nwhose water level appears to be falling rapidly.\">) (,LOW-TIDE <TELL \"You are in a cavernous area, to the south of which is a very wide\\nstream. The level of the stream is rising rapidly, and it appears\\nthat before long it will be impossible to cross to the other side.\">) (T <TELL \"You are in a large cavernous room, north of a large lake.\">)> <CRLF> <TELL \"There is a slimy stairway leaving the room to the north.\" CR>)"
+    },
+    "mapping_file": "generated-zil/woh-state-ids.json",
+    "mapping_sha256": "c48cbe6f1866460c9141af8f50be2b1120255b13ae8fa44a72cbb1714c3a2137",
+    "dictionary_file": "generated-room-states/room-states.yaml",
+    "dictionary_sha256": "87783e0895b9ebf9d5155dff22e440735c5ac68caca748c1d77840d6c1aacfa0",
+    "story_sha256": "cce1fdc54f18a6616e124db2de245aec1da943b458ebdee61bf1c6ff0a4038d4"
+  },
+  "unresolved": [
+    {
+      "kind": "legacy_state_relationship_unresolved",
+      "state": "LOOK-AF3761505961",
+      "detail": "Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly."
+    }
+  ]
+}

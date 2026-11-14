@@ -4,6 +4,8 @@
 #include "menu.h"
 enum { PERF_SETUP, PERF_SCENE, PERF_PANEL, PERF_PAGE, PERF_PROMPT, PERF_MENU_OPEN, PERF_MENU_CLOSE, PERF_COUNT };
 int render_open(void);
+int render_title(void);
+int render_game_screen(void);
 void render_close(void);
 int render_scene(uint16_t room, uint16_t state);
 int render_panel(const panel_t *panel, uint8_t transition);

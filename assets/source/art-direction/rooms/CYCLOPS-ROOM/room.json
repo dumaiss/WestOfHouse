@@ -1,0 +1,732 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "room",
+  "room": "CYCLOPS-ROOM",
+  "title": "Cyclops Room",
+  "runtime_room": 185,
+  "runtime_status": "incomplete",
+  "canonical": {
+    "descriptions": [
+      {
+        "id": "M-LOOK-1",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND ,CYCLOPS-FLAG <NOT ,MAGIC-FLAG>>"
+        },
+        "text": [
+          "This room has an exit on the northwest, and a staircase leading up.",
+          "The cyclops is sleeping blissfully at the foot of the stairs."
+        ],
+        "source_refs": [
+          "SRC-ROOM-CYCLOPS-ROOM",
+          "SRC-ROUTINE-CYCLOPS-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-2",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": ",MAGIC-FLAG"
+        },
+        "text": [
+          "This room has an exit on the northwest, and a staircase leading up.",
+          "The east wall, previously solid, now has a cyclops-sized opening in it."
+        ],
+        "source_refs": [
+          "SRC-ROOM-CYCLOPS-ROOM",
+          "SRC-ROUTINE-CYCLOPS-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-3",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<0? ,CYCLOWRATH>"
+        },
+        "text": [
+          "This room has an exit on the northwest, and a staircase leading up.",
+          "A cyclops, who looks prepared to eat horses (much less mere\nadventurers), blocks the staircase. From his state of health, and\nthe bloodstains on the walls, you gather that he is not very\nfriendly, though he likes people."
+        ],
+        "source_refs": [
+          "SRC-ROOM-CYCLOPS-ROOM",
+          "SRC-ROUTINE-CYCLOPS-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-4",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<G? ,CYCLOWRATH 0>"
+        },
+        "text": [
+          "This room has an exit on the northwest, and a staircase leading up.",
+          "The cyclops is standing in the corner, eyeing you closely. I don't\nthink he likes you very much. He looks extremely hungry, even for a\ncyclops."
+        ],
+        "source_refs": [
+          "SRC-ROOM-CYCLOPS-ROOM",
+          "SRC-ROUTINE-CYCLOPS-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-5",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<L? ,CYCLOWRATH 0>"
+        },
+        "text": [
+          "This room has an exit on the northwest, and a staircase leading up.",
+          "The cyclops, having eaten the hot peppers, appears to be gasping.\nHis enflamed tongue protrudes from his man-sized mouth."
+        ],
+        "source_refs": [
+          "SRC-ROOM-CYCLOPS-ROOM",
+          "SRC-ROUTINE-CYCLOPS-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "M-LOOK-6",
+        "trigger": "look",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<NOT <OR <AND ,CYCLOPS-FLAG <NOT ,MAGIC-FLAG>> ,MAGIC-FLAG <0? ,CYCLOWRATH> <G? ,CYCLOWRATH 0> <L? ,CYCLOWRATH 0>>>"
+        },
+        "text": [
+          "This room has an exit on the northwest, and a staircase leading up."
+        ],
+        "source_refs": [
+          "SRC-ROOM-CYCLOPS-ROOM",
+          "SRC-ROUTINE-CYCLOPS-ROOM-FCN"
+        ]
+      }
+    ],
+    "objects": [
+      {
+        "id": "CYCLOPS",
+        "description": "cyclops",
+        "kind": "object",
+        "initial_location": "CYCLOPS-ROOM",
+        "source_flags": [
+          "ACTORBIT",
+          "NDESCBIT",
+          "TRYTAKEBIT"
+        ],
+        "source_properties": {
+          "STRENGTH": 10000
+        },
+        "visibility": "scene_prop",
+        "reason": "Canonical room dressing from source placement; no inventory or pose simulation. Runtime presentation text takes precedence.",
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-CYCLOPS"
+        ]
+      },
+      {
+        "id": "STAIRS",
+        "description": "stairs",
+        "kind": "local_global",
+        "initial_location": "LOCAL-GLOBALS",
+        "source_flags": [
+          "NDESCBIT",
+          "CLIMBBIT"
+        ],
+        "source_properties": {},
+        "visibility": "parser_scope",
+        "reason": "Generic/global handler; visibility requires explicit environmental description.",
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-STAIRS"
+        ]
+      }
+    ],
+    "exits": [
+      {
+        "id": "EXIT-IN",
+        "directions": [
+          "in"
+        ],
+        "destination": null,
+        "condition": {
+          "op": "source_expression",
+          "expression": "(IN ROOMS)"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CYCLOPS-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-NW",
+        "directions": [
+          "nw"
+        ],
+        "destination": "MAZE-15",
+        "condition": {
+          "op": "true"
+        },
+        "blocked_text": [],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CYCLOPS-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-EAST",
+        "directions": [
+          "east"
+        ],
+        "destination": "STRANGE-PASSAGE",
+        "condition": {
+          "op": "source_expression",
+          "expression": "MAGIC-FLAG"
+        },
+        "blocked_text": [
+          "The east wall is solid rock."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CYCLOPS-ROOM"
+        ]
+      },
+      {
+        "id": "EXIT-UP",
+        "directions": [
+          "up"
+        ],
+        "destination": "TREASURE-ROOM",
+        "condition": {
+          "op": "source_expression",
+          "expression": "CYCLOPS-FLAG"
+        },
+        "blocked_text": [
+          "The cyclops doesn't look like he'll let you past."
+        ],
+        "effects": [],
+        "source_refs": [
+          "SRC-ROOM-CYCLOPS-ROOM"
+        ]
+      }
+    ],
+    "source_flags": [
+      "RLANDBIT"
+    ]
+  },
+  "inferred": [
+    {
+      "text": "Connected rooms share design language; adjacency alone does not establish a visible sightline.",
+      "basis": "Source exit destinations, preserved without adding routes."
+    }
+  ],
+  "artistic": {
+    "continuity": [
+      "CAVES"
+    ],
+    "camera": "Stand well short of the staircase and view its foot and the east wall together.",
+    "composition": "Keep the northwest exit, staircase and east wall in fixed positions across possible cyclops presentations; use only the creature appearance associated with an established runtime presentation.",
+    "lighting_palette": "Low neutral fill with warm brown-gray stone.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/cyclops-room.scene.json",
+    "scene_sha256": "295033fc4dbce4f8119a9c942b367f011a10725d23ec4354777522cd583184ff",
+    "source_references": [
+      {
+        "id": "SRC-GLOBAL-CYCLOPS-FLAG",
+        "file": "1dungeon.zil",
+        "line_start": 1225,
+        "line_end": 1225,
+        "subject": "CYCLOPS-FLAG"
+      },
+      {
+        "id": "SRC-GLOBAL-CYCLOWRATH",
+        "file": "1actions.zil",
+        "line_start": 1513,
+        "line_end": 1513,
+        "subject": "CYCLOWRATH"
+      },
+      {
+        "id": "SRC-GLOBAL-MAGIC-FLAG",
+        "file": "1dungeon.zil",
+        "line_start": 1231,
+        "line_end": 1231,
+        "subject": "MAGIC-FLAG"
+      },
+      {
+        "id": "SRC-GLOBAL-WINNER",
+        "file": "gparser.zil",
+        "line_start": 32,
+        "line_end": 32,
+        "subject": "WINNER"
+      },
+      {
+        "id": "SRC-OBJECT-CYCLOPS",
+        "file": "1dungeon.zil",
+        "line_start": 387,
+        "line_end": 394,
+        "subject": "CYCLOPS"
+      },
+      {
+        "id": "SRC-OBJECT-STAIRS",
+        "file": "gglobals.zil",
+        "line_start": 102,
+        "line_end": 108,
+        "subject": "STAIRS"
+      },
+      {
+        "id": "SRC-ROOM-CYCLOPS-ROOM",
+        "file": "1dungeon.zil",
+        "line_start": 1728,
+        "line_end": 1738,
+        "subject": "CYCLOPS-ROOM"
+      },
+      {
+        "id": "SRC-ROUTINE-CYCLOPS-FCN",
+        "file": "1actions.zil",
+        "line_start": 1515,
+        "line_end": 1594,
+        "subject": "CYCLOPS-FCN"
+      },
+      {
+        "id": "SRC-ROUTINE-CYCLOPS-ROOM-FCN",
+        "file": "1actions.zil",
+        "line_start": 1616,
+        "line_end": 1642,
+        "subject": "CYCLOPS-ROOM-FCN"
+      },
+      {
+        "id": "SRC-ROUTINE-I-CYCLOPS",
+        "file": "1actions.zil",
+        "line_start": 1596,
+        "line_end": 1614,
+        "subject": "I-CYCLOPS"
+      },
+      {
+        "id": "SRC-ROUTINE-STAIRS-F",
+        "file": "gglobals.zil",
+        "line_start": 110,
+        "line_end": 113,
+        "subject": "STAIRS-F"
+      }
+    ]
+  },
+  "supporting_context": {
+    "state_variables": [
+      {
+        "id": "BOTTLE.OPENBIT",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<FSET ,BOTTLE ,OPENBIT>",
+        "source_refs": []
+      },
+      {
+        "id": "CYCLOPS.FIGHTBIT",
+        "kind": "object_flag",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<FSET ,CYCLOPS ,FIGHTBIT>",
+        "source_refs": []
+      },
+      {
+        "id": "CYCLOPS-FLAG",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL CYCLOPS-FLAG <>>",
+        "source_refs": [
+          "SRC-GLOBAL-CYCLOPS-FLAG"
+        ]
+      },
+      {
+        "id": "CYCLOWRATH",
+        "kind": "global",
+        "value_type": "integer",
+        "initial_value": 0,
+        "source_expression": "<GLOBAL CYCLOWRATH 0>",
+        "source_refs": [
+          "SRC-GLOBAL-CYCLOWRATH"
+        ]
+      },
+      {
+        "id": "MAGIC-FLAG",
+        "kind": "global",
+        "value_type": "boolean",
+        "initial_value": false,
+        "source_expression": "<GLOBAL MAGIC-FLAG <>>",
+        "source_refs": [
+          "SRC-GLOBAL-MAGIC-FLAG"
+        ]
+      },
+      {
+        "id": "WINNER",
+        "kind": "global",
+        "value_type": "integer",
+        "initial_value": 0,
+        "source_expression": "<GLOBAL WINNER 0>",
+        "source_refs": [
+          "SRC-GLOBAL-WINNER"
+        ]
+      }
+    ],
+    "extracted_states": [
+      {
+        "id": "LOOK-STATE-1",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AND ,CYCLOPS-FLAG <NOT ,MAGIC-FLAG>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-CYCLOPS-ROOM",
+          "SRC-ROUTINE-CYCLOPS-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-2",
+        "condition": {
+          "op": "source_expression",
+          "expression": ",MAGIC-FLAG"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-CYCLOPS-ROOM",
+          "SRC-ROUTINE-CYCLOPS-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-3",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<0? ,CYCLOWRATH>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-CYCLOPS-ROOM",
+          "SRC-ROUTINE-CYCLOPS-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-4",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<G? ,CYCLOWRATH 0>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-CYCLOPS-ROOM",
+          "SRC-ROUTINE-CYCLOPS-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-5",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<L? ,CYCLOWRATH 0>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-CYCLOPS-ROOM",
+          "SRC-ROUTINE-CYCLOPS-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "LOOK-STATE-6",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<NOT <OR <AND ,CYCLOPS-FLAG <NOT ,MAGIC-FLAG>> ,MAGIC-FLAG <0? ,CYCLOWRATH> <G? ,CYCLOWRATH 0> <L? ,CYCLOWRATH 0>>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROOM-CYCLOPS-ROOM",
+          "SRC-ROUTINE-CYCLOPS-ROOM-FCN"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-7",
+        "condition": {
+          "op": "eq",
+          "left": {
+            "state_variable": "CYCLOWRATH"
+          },
+          "right": {
+            "value": "<MIN -1 <- .COUNT>>"
+          }
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-CYCLOPS-FCN"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-8",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "located_in",
+              "object": "BOTTLE",
+              "location": "HERE"
+            },
+            {
+              "op": "flag_set",
+              "object": "BOTTLE",
+              "flag": "OPENBIT"
+            },
+            {
+              "op": "flag_clear",
+              "object": "CYCLOPS",
+              "flag": "FIGHTBIT"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "CYCLOPS-FLAG"
+              },
+              "right": {
+                "value": true
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-CYCLOPS-FCN"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-9",
+        "condition": {
+          "op": "located_in",
+          "object": "PRSO",
+          "location": "HERE"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-CYCLOPS-FCN"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-10",
+        "condition": {
+          "op": "eq",
+          "left": {
+            "state_variable": "WINNER"
+          },
+          "right": {
+            "value": "ADVENTURER"
+          }
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-CYCLOPS-FCN"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-11",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "CYCLOPS-FLAG"
+              },
+              "right": {
+                "value": false
+              }
+            },
+            {
+              "op": "flag_set",
+              "object": "CYCLOPS",
+              "flag": "FIGHTBIT"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "CYCLOWRATH"
+              },
+              "right": {
+                "value": "<- .COUNT>"
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-CYCLOPS-FCN"
+        ]
+      },
+      {
+        "id": "ACTION-STATE-12",
+        "condition": {
+          "op": "and",
+          "args": [
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "CYCLOPS-FLAG"
+              },
+              "right": {
+                "value": false
+              }
+            },
+            {
+              "op": "flag_set",
+              "object": "CYCLOPS",
+              "flag": "FIGHTBIT"
+            },
+            {
+              "op": "eq",
+              "left": {
+                "state_variable": "CYCLOWRATH"
+              },
+              "right": {
+                "value": ".COUNT"
+              }
+            }
+          ]
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-CYCLOPS-FCN"
+        ]
+      },
+      {
+        "id": "EVENT-STATE-13",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <SETG CYCLOWRATH <- ,CYCLOWRATH 1>>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-I-CYCLOPS"
+        ]
+      },
+      {
+        "id": "EVENT-STATE-14",
+        "condition": {
+          "op": "source_expression",
+          "expression": "<AFTER <SETG CYCLOWRATH <+ ,CYCLOWRATH 1>>>"
+        },
+        "stable": true,
+        "source_refs": [
+          "SRC-ROUTINE-I-CYCLOPS"
+        ]
+      }
+    ],
+    "transitions": [
+      {
+        "id": "TRANSITION-1-CYCLOPS-FCN-GIVE-2",
+        "source_refs": [
+          "SRC-ROUTINE-CYCLOPS-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-2-CYCLOPS-FCN-GIVE-2",
+        "source_refs": [
+          "SRC-ROUTINE-CYCLOPS-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-3-CYCLOPS-FCN-GIVE-2",
+        "source_refs": [
+          "SRC-ROUTINE-CYCLOPS-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-4-CYCLOPS-FCN-THROW-ATTACK-MUNG-3",
+        "source_refs": [
+          "SRC-ROUTINE-CYCLOPS-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-5-CYCLOPS-FCN-THROW-ATTACK-MUNG-3",
+        "source_refs": [
+          "SRC-ROUTINE-CYCLOPS-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-6-CYCLOPS-FCN-THROW-ATTACK-MUNG-3",
+        "source_refs": [
+          "SRC-ROUTINE-CYCLOPS-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-7-CYCLOPS-FCN-ODYSSEUS-7",
+        "source_refs": [
+          "SRC-ROUTINE-CYCLOPS-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-8-CYCLOPS-FCN-ALARM-KICK-ATTACK-BURN-MUNG-9",
+        "source_refs": [
+          "SRC-ROUTINE-CYCLOPS-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-9-CYCLOPS-FCN-ALARM-KICK-ATTACK-BURN-MUNG-9",
+        "source_refs": [
+          "SRC-ROUTINE-CYCLOPS-FCN"
+        ]
+      },
+      {
+        "id": "TRANSITION-10-CYCLOPS-FCN-THROW-11",
+        "source_refs": [
+          "SRC-ROUTINE-CYCLOPS-FCN"
+        ]
+      },
+      {
+        "id": "EVENT-12-I-CYCLOPS",
+        "source_refs": [
+          "SRC-ROUTINE-I-CYCLOPS"
+        ]
+      },
+      {
+        "id": "EVENT-13-I-CYCLOPS",
+        "source_refs": [
+          "SRC-ROUTINE-I-CYCLOPS"
+        ]
+      },
+      {
+        "id": "EVENT-14-I-CYCLOPS",
+        "source_refs": [
+          "SRC-ROUTINE-I-CYCLOPS"
+        ]
+      },
+      {
+        "id": "EVENT-15-I-CYCLOPS",
+        "source_refs": [
+          "SRC-ROUTINE-I-CYCLOPS"
+        ]
+      },
+      {
+        "id": "EVENT-16-I-CYCLOPS",
+        "source_refs": [
+          "SRC-ROUTINE-I-CYCLOPS"
+        ]
+      },
+      {
+        "id": "EVENT-17-I-CYCLOPS",
+        "source_refs": [
+          "SRC-ROUTINE-I-CYCLOPS"
+        ]
+      }
+    ],
+    "notes": [
+      "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values.",
+      "ACTION-STATE conditions describe source mutations and may overlap; arbitrary ZIL was not executed."
+    ]
+  },
+  "unresolved": [
+    {
+      "kind": "runtime_unknown",
+      "detail": "The resolver returns state 0; no positive runtime state or image is assigned."
+    }
+  ]
+}
