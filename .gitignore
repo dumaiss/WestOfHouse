@@ -64,3 +64,5 @@ assets/source/scene-facts/
 
 # build directories
 **/build/**
+app/acceptance-data/G0-ACCEPTANCE.md
+app/ACCEPTANCE.md
