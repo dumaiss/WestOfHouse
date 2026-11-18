@@ -1,0 +1,51 @@
+{
+  "schema": "scene_hotspots_v1",
+  "room": 72,
+  "state": 2,
+  "room_name": "CELLAR",
+  "binding": "mapped",
+  "asset_key": "room-72-state-2",
+  "image_size": [
+    256,
+    159
+  ],
+  "image": {
+    "path": "assets/review/white-house-completion/rgb/room-72-state-2.png",
+    "sha256": "f073fcf8063028a02553ee3592b62b9f646fc7050d4374ffa261310233c30336",
+    "original_path": "assets/source/white-house-completion/originals/room-72-state-2.png",
+    "original_sha256": "79fe231ca0076835b98ce3850ae9b4624166c45dd4443b6b6117ee3eca9f99a9",
+    "crop_box": [
+      0,
+      93,
+      1448,
+      992
+    ],
+    "coordinate_reference": "final RGB preview; no additional scaling transform"
+  },
+  "hotspots": [],
+  "unresolved": [],
+  "localization": {
+    "method": "Assistant visual inspection of final RGB crops",
+    "observations": "assets/source/white-house-completion/observations.json",
+    "observations_sha256": "4eede9b95b5bb8e64e9414ff94cbc2c22a7adeb9fc0ea1368190d15fed3bda90"
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/cellar.scene.json",
+    "scene_sha256": "ae53619713a5ce4d83944e13a9fe02ec85c9a6a1d01633b450d09fc5fbe6877a",
+    "zil_source_sha256": {
+      "1actions.zil": "443b9e0082f51b04ae053418039005945efa29945d945102cf7d494fef02fdf7",
+      "1dungeon.zil": "8e223dc75ce64cff8542266101742ea73774533787c5257e8df4a262e4f02766",
+      "gclock.zil": "92c4d66f18eeba8de1497215a0e17ade6c2cf1e5e050f016cf99160e41b154c6",
+      "gglobals.zil": "5945abfeeff71cd2b2088653c7572d3c72bf14d5af65c41b4425d945a6bb6e0a",
+      "gmacros.zil": "d665c73e9231429a772877357fd56d57c946838a5260a74f705c2dc898ebd8f5",
+      "gmain.zil": "712e27ab29d36f3d36c7994ec6d41011cb869990d8780a03bb2ee8148d3f1740",
+      "gparser.zil": "869e1391bdd1518495a9f36391ec36045f5f5af401f18edb921b5c9cfd442397",
+      "gsyntax.zil": "b0f0b4de6068bb85cf96306a16e07f410518669d12260682d3ac71e2e42b5621",
+      "gverbs.zil": "e1150d6300e262f774b59fe96f8139980dfad3c41f0e93f3af49140b5f57e74e",
+      "zork1.zil": "3a96d90419db3907951d05fbd0032b3b935775db9f8c41c13bf1f5addaebac9e"
+    },
+    "phase1_specification": "assets/source/art-direction/rooms/CELLAR/states/2.json",
+    "pilot_manifest": "assets/source/white-house-completion/manifest.json"
+  },
+  "overlap_policy": "smallest matching rectangle; authored order breaks equal-area ties; half-open edges"
+}

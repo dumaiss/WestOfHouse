@@ -1,0 +1,98 @@
+{
+  "schema": "woh_house_visibility_acceptance_v1",
+  "story_sha256": "dabcfa053043aeaebfb9d0839c0a05e31a277fc2aeb724111bcdb85be60a1e3d",
+  "extraction_tests": 29,
+  "compiled_story_tests": 15,
+  "scene_art_tests": 6,
+  "visibility_transitions": [
+    [
+      201,
+      1
+    ],
+    [
+      201,
+      2
+    ],
+    [
+      201,
+      1
+    ],
+    [
+      72,
+      2
+    ],
+    [
+      72,
+      1
+    ]
+  ],
+  "living_room_combinations": [
+    {
+      "values": {
+        "MAGIC-FLAG": false,
+        "RUG-MOVED": false,
+        "TRAP-DOOR.OPENBIT": false
+      },
+      "state": 1
+    },
+    {
+      "values": {
+        "MAGIC-FLAG": false,
+        "RUG-MOVED": false,
+        "TRAP-DOOR.OPENBIT": true
+      },
+      "state": 8
+    },
+    {
+      "values": {
+        "MAGIC-FLAG": false,
+        "RUG-MOVED": true,
+        "TRAP-DOOR.OPENBIT": false
+      },
+      "state": 7
+    },
+    {
+      "values": {
+        "MAGIC-FLAG": false,
+        "RUG-MOVED": true,
+        "TRAP-DOOR.OPENBIT": true
+      },
+      "state": 2
+    },
+    {
+      "values": {
+        "MAGIC-FLAG": true,
+        "RUG-MOVED": false,
+        "TRAP-DOOR.OPENBIT": false
+      },
+      "state": 3
+    },
+    {
+      "values": {
+        "MAGIC-FLAG": true,
+        "RUG-MOVED": false,
+        "TRAP-DOOR.OPENBIT": true
+      },
+      "state": 4
+    },
+    {
+      "values": {
+        "MAGIC-FLAG": true,
+        "RUG-MOVED": true,
+        "TRAP-DOOR.OPENBIT": false
+      },
+      "state": 6
+    },
+    {
+      "values": {
+        "MAGIC-FLAG": true,
+        "RUG-MOVED": true,
+        "TRAP-DOOR.OPENBIT": true
+      },
+      "state": 5
+    }
+  ],
+  "source_visibility_gate": "vendor/infocom-zork1/gverbs.zil:1635 DESCRIBE-ROOM, NOT LIT returns before room description",
+  "target_emulator_run": false,
+  "application_or_archive_rebuilt_by_this_work": false
+}

@@ -1,0 +1,233 @@
+{
+  "schema": "woh_house_extraction_acceptance_v1",
+  "story_sha256": "00eaa4685eedfc05d3bddd02a0b0b14105fa6254c07a4854eaf6ac58fe735125",
+  "sidecar_sha256": "815a1f8c51b1d459087411dc2144b714f510ce87373512cb6cdda4e758cea79d",
+  "dictionary_sha256": "1489eacc9de917a046d0e2c8ed136c30822bfa65114959408ddc56f2dcc8c137",
+  "runtime_mapping_sha256": "d29da639daec4a27ff76a890ef161867045794ce337faaa408d847d2383da3f4",
+  "unchanged_other_room_definitions_and_numeric_ids": true,
+  "rooms": {
+    "ATTIC": {
+      "room": "ATTIC",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        }
+      ]
+    },
+    "LIVING-ROOM": {
+      "room": "LIVING-ROOM",
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "LOOK-12D6CBF94BFE"
+        },
+        {
+          "value": 2,
+          "id": "LOOK-3C6469886505"
+        },
+        {
+          "value": 3,
+          "id": "LOOK-5AC43322EDEC"
+        },
+        {
+          "value": 4,
+          "id": "LOOK-61C0DBB76304"
+        },
+        {
+          "value": 5,
+          "id": "LOOK-6C431F0D8929"
+        },
+        {
+          "value": 6,
+          "id": "LOOK-8C68B2B893CB"
+        },
+        {
+          "value": 7,
+          "id": "LOOK-9BC48C0752B7"
+        },
+        {
+          "value": 8,
+          "id": "LOOK-DAF0F91818C8"
+        }
+      ]
+    }
+  },
+  "compiled_story_checks": {
+    "living_room_fixture": [
+      {
+        "values": {
+          "MAGIC-FLAG": false,
+          "RUG-MOVED": false,
+          "TRAP-DOOR.OPENBIT": false
+        },
+        "state": 1
+      },
+      {
+        "values": {
+          "MAGIC-FLAG": false,
+          "RUG-MOVED": false,
+          "TRAP-DOOR.OPENBIT": true
+        },
+        "state": 8
+      },
+      {
+        "values": {
+          "MAGIC-FLAG": false,
+          "RUG-MOVED": true,
+          "TRAP-DOOR.OPENBIT": false
+        },
+        "state": 7
+      },
+      {
+        "values": {
+          "MAGIC-FLAG": false,
+          "RUG-MOVED": true,
+          "TRAP-DOOR.OPENBIT": true
+        },
+        "state": 2
+      },
+      {
+        "values": {
+          "MAGIC-FLAG": true,
+          "RUG-MOVED": false,
+          "TRAP-DOOR.OPENBIT": false
+        },
+        "state": 3
+      },
+      {
+        "values": {
+          "MAGIC-FLAG": true,
+          "RUG-MOVED": false,
+          "TRAP-DOOR.OPENBIT": true
+        },
+        "state": 4
+      },
+      {
+        "values": {
+          "MAGIC-FLAG": true,
+          "RUG-MOVED": true,
+          "TRAP-DOOR.OPENBIT": false
+        },
+        "state": 6
+      },
+      {
+        "values": {
+          "MAGIC-FLAG": true,
+          "RUG-MOVED": true,
+          "TRAP-DOOR.OPENBIT": true
+        },
+        "state": 5
+      }
+    ],
+    "house_walkthrough": [
+      {
+        "command": null,
+        "room": 180,
+        "state": 1
+      },
+      {
+        "command": "north",
+        "room": 81,
+        "state": 1
+      },
+      {
+        "command": "east",
+        "room": 79,
+        "state": 1
+      },
+      {
+        "command": "open window",
+        "room": 79,
+        "state": 2
+      },
+      {
+        "command": "enter",
+        "room": 203,
+        "state": 2
+      },
+      {
+        "command": "west",
+        "room": 193,
+        "state": 1
+      },
+      {
+        "command": "take lamp",
+        "room": 193,
+        "state": 1
+      },
+      {
+        "command": "turn on lamp",
+        "room": 193,
+        "state": 1
+      },
+      {
+        "command": "east",
+        "room": 203,
+        "state": 2
+      },
+      {
+        "command": "up",
+        "room": 201,
+        "state": 1
+      },
+      {
+        "command": "look",
+        "room": 201,
+        "state": 1
+      },
+      {
+        "command": "down",
+        "room": 203,
+        "state": 2
+      },
+      {
+        "command": "west",
+        "room": 193,
+        "state": 1
+      },
+      {
+        "command": "move rug",
+        "room": 193,
+        "state": 7
+      },
+      {
+        "command": "open trap door",
+        "room": 193,
+        "state": 2
+      },
+      {
+        "command": "close trap door",
+        "room": 193,
+        "state": 7
+      }
+    ]
+  },
+  "verification": {
+    "room_state_tests": 29,
+    "state_reporting_tests": 14,
+    "scene_extractor_tests": 5,
+    "scene_art_tests": 6,
+    "scene_art_rooms": 110,
+    "scene_art_runtime_pairs": 136,
+    "mame_run": false,
+    "application_c_tests": 4,
+    "application_python_tests": 3,
+    "target_executable_pack_validation": true
+  },
+  "limitations": [
+    "Living Room full boolean domain checked with controlled VM writes; this does not assert every combination is reachable in ordinary play.",
+    "Walkthrough enters the lit Attic and exercises rug and trapdoor actions. Cyclops-opening combinations use MAGIC-FLAG fixtures.",
+    "Image/resource integration of the newly assigned rooms is separate."
+  ],
+  "application_bundle": {
+    "directory": "app/build/WestOfHouse",
+    "woh.exe_sha256": "c5133235152c36e3973c05df19d74aa8648b6181bc1791eadc9af7565c0eb4ce",
+    "WOH.KPR_sha256": "4178f97a962fdb54c507e620be50751bc18991fdeb85a3cfc07f0653e99429da",
+    "archive_story_matches_compiled_story": true,
+    "resources": 18,
+    "mapped_scenes": 8
+  }
+}

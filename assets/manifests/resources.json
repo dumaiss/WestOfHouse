@@ -266,15 +266,406 @@
       "source": "assets/source/hotspots/scenes/room-203-state-2.json"
     },
     {
+      "id": "room-201-state-1.img",
+      "type": "scene",
+      "path": "assets/runtime/scenes/room-201-state-1.img",
+      "room": 201,
+      "state": 1,
+      "hotspots": "room-201-state-1.wht",
+      "source": "assets/source/white-house-completion/originals/room-201-state-1.png",
+      "specification": "assets/source/art-direction/rooms/ATTIC/states/1.json",
+      "crop_box": [
+        0,
+        93,
+        1448,
+        992
+      ],
+      "size": [
+        256,
+        159
+      ],
+      "mode": "yae",
+      "resample": "box",
+      "yjk_quality": "optimized"
+    },
+    {
+      "id": "room-201-state-1.wht",
+      "type": "hotspots",
+      "path": "assets/runtime/hotspots/room-201-state-1.wht",
+      "room": 201,
+      "state": 1,
+      "image": "room-201-state-1.img",
+      "source": "assets/source/hotspots/scenes/room-201-state-1.json"
+    },
+    {
+      "id": "room-201-state-2.img",
+      "type": "scene",
+      "path": "assets/runtime/scenes/room-201-state-2.img",
+      "room": 201,
+      "state": 2,
+      "hotspots": "room-201-state-2.wht",
+      "source": "assets/source/white-house-completion/originals/room-201-state-2.png",
+      "specification": "assets/source/art-direction/rooms/ATTIC/states/2.json",
+      "crop_box": [
+        0,
+        93,
+        1448,
+        992
+      ],
+      "size": [
+        256,
+        159
+      ],
+      "mode": "yae",
+      "resample": "box",
+      "yjk_quality": "optimized"
+    },
+    {
+      "id": "room-201-state-2.wht",
+      "type": "hotspots",
+      "path": "assets/runtime/hotspots/room-201-state-2.wht",
+      "room": 201,
+      "state": 2,
+      "image": "room-201-state-2.img",
+      "source": "assets/source/hotspots/scenes/room-201-state-2.json"
+    },
+    {
+      "id": "room-193-state-1.img",
+      "type": "scene",
+      "path": "assets/runtime/scenes/room-193-state-1.img",
+      "room": 193,
+      "state": 1,
+      "hotspots": "room-193-state-1.wht",
+      "source": "assets/source/house-interiors/originals/room-193-state-unbound.png",
+      "specification": "assets/source/art-direction/rooms/LIVING-ROOM/states/1.json",
+      "crop_box": [
+        0,
+        145,
+        1448,
+        1044
+      ],
+      "size": [
+        256,
+        159
+      ],
+      "mode": "yae",
+      "resample": "box",
+      "yjk_quality": "optimized"
+    },
+    {
+      "id": "room-193-state-1.wht",
+      "type": "hotspots",
+      "path": "assets/runtime/hotspots/room-193-state-1.wht",
+      "room": 193,
+      "state": 1,
+      "image": "room-193-state-1.img",
+      "source": "assets/source/hotspots/scenes/room-193-state-1.json"
+    },
+    {
+      "id": "room-193-state-2.img",
+      "type": "scene",
+      "path": "assets/runtime/scenes/room-193-state-2.img",
+      "room": 193,
+      "state": 2,
+      "hotspots": "room-193-state-2.wht",
+      "source": "assets/source/white-house-completion/originals/room-193-state-2.png",
+      "specification": "assets/source/art-direction/rooms/LIVING-ROOM/states/2.json",
+      "crop_box": [
+        0,
+        145,
+        1448,
+        1044
+      ],
+      "size": [
+        256,
+        159
+      ],
+      "mode": "yae",
+      "resample": "box",
+      "yjk_quality": "optimized"
+    },
+    {
+      "id": "room-193-state-2.wht",
+      "type": "hotspots",
+      "path": "assets/runtime/hotspots/room-193-state-2.wht",
+      "room": 193,
+      "state": 2,
+      "image": "room-193-state-2.img",
+      "source": "assets/source/hotspots/scenes/room-193-state-2.json"
+    },
+    {
+      "id": "room-193-state-3.img",
+      "type": "scene",
+      "path": "assets/runtime/scenes/room-193-state-3.img",
+      "room": 193,
+      "state": 3,
+      "hotspots": "room-193-state-3.wht",
+      "source": "assets/source/white-house-completion/originals/room-193-state-3.png",
+      "specification": "assets/source/art-direction/rooms/LIVING-ROOM/states/3.json",
+      "crop_box": [
+        0,
+        145,
+        1448,
+        1044
+      ],
+      "size": [
+        256,
+        159
+      ],
+      "mode": "yae",
+      "resample": "box",
+      "yjk_quality": "optimized"
+    },
+    {
+      "id": "room-193-state-3.wht",
+      "type": "hotspots",
+      "path": "assets/runtime/hotspots/room-193-state-3.wht",
+      "room": 193,
+      "state": 3,
+      "image": "room-193-state-3.img",
+      "source": "assets/source/hotspots/scenes/room-193-state-3.json"
+    },
+    {
+      "id": "room-193-state-4.img",
+      "type": "scene",
+      "path": "assets/runtime/scenes/room-193-state-4.img",
+      "room": 193,
+      "state": 4,
+      "hotspots": "room-193-state-4.wht",
+      "source": "assets/source/white-house-completion/originals/room-193-state-4.png",
+      "specification": "assets/source/art-direction/rooms/LIVING-ROOM/states/4.json",
+      "crop_box": [
+        0,
+        145,
+        1448,
+        1044
+      ],
+      "size": [
+        256,
+        159
+      ],
+      "mode": "yae",
+      "resample": "box",
+      "yjk_quality": "optimized"
+    },
+    {
+      "id": "room-193-state-4.wht",
+      "type": "hotspots",
+      "path": "assets/runtime/hotspots/room-193-state-4.wht",
+      "room": 193,
+      "state": 4,
+      "image": "room-193-state-4.img",
+      "source": "assets/source/hotspots/scenes/room-193-state-4.json"
+    },
+    {
+      "id": "room-193-state-5.img",
+      "type": "scene",
+      "path": "assets/runtime/scenes/room-193-state-5.img",
+      "room": 193,
+      "state": 5,
+      "hotspots": "room-193-state-5.wht",
+      "source": "assets/source/white-house-completion/originals/room-193-state-5.png",
+      "specification": "assets/source/art-direction/rooms/LIVING-ROOM/states/5.json",
+      "crop_box": [
+        0,
+        145,
+        1448,
+        1044
+      ],
+      "size": [
+        256,
+        159
+      ],
+      "mode": "yae",
+      "resample": "box",
+      "yjk_quality": "optimized"
+    },
+    {
+      "id": "room-193-state-5.wht",
+      "type": "hotspots",
+      "path": "assets/runtime/hotspots/room-193-state-5.wht",
+      "room": 193,
+      "state": 5,
+      "image": "room-193-state-5.img",
+      "source": "assets/source/hotspots/scenes/room-193-state-5.json"
+    },
+    {
+      "id": "room-193-state-6.img",
+      "type": "scene",
+      "path": "assets/runtime/scenes/room-193-state-6.img",
+      "room": 193,
+      "state": 6,
+      "hotspots": "room-193-state-6.wht",
+      "source": "assets/source/white-house-completion/originals/room-193-state-6.png",
+      "specification": "assets/source/art-direction/rooms/LIVING-ROOM/states/6.json",
+      "crop_box": [
+        0,
+        145,
+        1448,
+        1044
+      ],
+      "size": [
+        256,
+        159
+      ],
+      "mode": "yae",
+      "resample": "box",
+      "yjk_quality": "optimized"
+    },
+    {
+      "id": "room-193-state-6.wht",
+      "type": "hotspots",
+      "path": "assets/runtime/hotspots/room-193-state-6.wht",
+      "room": 193,
+      "state": 6,
+      "image": "room-193-state-6.img",
+      "source": "assets/source/hotspots/scenes/room-193-state-6.json"
+    },
+    {
+      "id": "room-193-state-7.img",
+      "type": "scene",
+      "path": "assets/runtime/scenes/room-193-state-7.img",
+      "room": 193,
+      "state": 7,
+      "hotspots": "room-193-state-7.wht",
+      "source": "assets/source/white-house-completion/originals/room-193-state-7.png",
+      "specification": "assets/source/art-direction/rooms/LIVING-ROOM/states/7.json",
+      "crop_box": [
+        0,
+        145,
+        1448,
+        1044
+      ],
+      "size": [
+        256,
+        159
+      ],
+      "mode": "yae",
+      "resample": "box",
+      "yjk_quality": "optimized"
+    },
+    {
+      "id": "room-193-state-7.wht",
+      "type": "hotspots",
+      "path": "assets/runtime/hotspots/room-193-state-7.wht",
+      "room": 193,
+      "state": 7,
+      "image": "room-193-state-7.img",
+      "source": "assets/source/hotspots/scenes/room-193-state-7.json"
+    },
+    {
+      "id": "room-193-state-8.img",
+      "type": "scene",
+      "path": "assets/runtime/scenes/room-193-state-8.img",
+      "room": 193,
+      "state": 8,
+      "hotspots": "room-193-state-8.wht",
+      "source": "assets/source/white-house-completion/originals/room-193-state-8.png",
+      "specification": "assets/source/art-direction/rooms/LIVING-ROOM/states/8.json",
+      "crop_box": [
+        0,
+        145,
+        1448,
+        1044
+      ],
+      "size": [
+        256,
+        159
+      ],
+      "mode": "yae",
+      "resample": "box",
+      "yjk_quality": "optimized"
+    },
+    {
+      "id": "room-193-state-8.wht",
+      "type": "hotspots",
+      "path": "assets/runtime/hotspots/room-193-state-8.wht",
+      "room": 193,
+      "state": 8,
+      "image": "room-193-state-8.img",
+      "source": "assets/source/hotspots/scenes/room-193-state-8.json"
+    },
+    {
+      "id": "room-72-state-1.img",
+      "type": "scene",
+      "path": "assets/runtime/scenes/room-72-state-1.img",
+      "room": 72,
+      "state": 1,
+      "hotspots": "room-72-state-1.wht",
+      "source": "assets/source/house-interiors/originals/room-72-state-1.png",
+      "specification": "assets/source/art-direction/rooms/CELLAR/states/1.json",
+      "crop_box": [
+        0,
+        93,
+        1448,
+        992
+      ],
+      "size": [
+        256,
+        159
+      ],
+      "mode": "yae",
+      "resample": "box",
+      "yjk_quality": "optimized"
+    },
+    {
+      "id": "room-72-state-1.wht",
+      "type": "hotspots",
+      "path": "assets/runtime/hotspots/room-72-state-1.wht",
+      "room": 72,
+      "state": 1,
+      "image": "room-72-state-1.img",
+      "source": "assets/source/hotspots/scenes/room-72-state-1.json"
+    },
+    {
+      "id": "room-72-state-2.img",
+      "type": "scene",
+      "path": "assets/runtime/scenes/room-72-state-2.img",
+      "room": 72,
+      "state": 2,
+      "hotspots": "room-72-state-2.wht",
+      "source": "assets/source/white-house-completion/originals/room-72-state-2.png",
+      "specification": "assets/source/art-direction/rooms/CELLAR/states/2.json",
+      "crop_box": [
+        0,
+        93,
+        1448,
+        992
+      ],
+      "size": [
+        256,
+        159
+      ],
+      "mode": "yae",
+      "resample": "box",
+      "yjk_quality": "optimized"
+    },
+    {
+      "id": "room-72-state-2.wht",
+      "type": "hotspots",
+      "path": "assets/runtime/hotspots/room-72-state-2.wht",
+      "room": 72,
+      "state": 2,
+      "image": "room-72-state-2.img",
+      "source": "assets/source/hotspots/scenes/room-72-state-2.json"
+    },
+    {
       "id": "WoHTitle.img",
       "type": "ui",
       "path": "assets/runtime/ui/WoHTitle.img",
       "source": "assets/source/ui/WoHTitle.png",
       "build": "preencoded; preserve bytes",
       "role": "title"
+    },
+    {
+      "id": "advent4.pcm",
+      "type": "music",
+      "path": "assets/runtime/music/advent4.pcm",
+      "source": "assets/runtime/music/advent4.pcm",
+      "build": "pcmconv dpcm4; preserve bytes",
+      "role": "background"
     }
   ],
-  "unbound_concepts": [
-    "assets/source/hotspots/scenes/room-201-state-unbound.json"
-  ]
+  "unbound_concepts": [],
+  "scene_collection": "assets/source/white-house-completion/manifest.json"
 }

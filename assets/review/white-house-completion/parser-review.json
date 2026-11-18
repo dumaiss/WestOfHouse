@@ -1,0 +1,138 @@
+{
+  "method": "Normal parser commands against the independently built darkness-aware story; action refusals remain authoritative game behavior.",
+  "commands": [
+    {
+      "command": null,
+      "response": "ZORK I: The Great Underground Empire\nInfocom interactive fiction - a fantasy story\nCopyright (c) 1981, 1982, 1983, 1984, 1985, 1986 Infocom, Inc. All rights reserved.\nZORK is a registered trademark of Infocom, Inc.\nRelease 0 / Serial number 000001\n\nWest of House\nYou are standing in an open field west of a white house, with a boarded front door.\nThere is a small mailbox here.\n\n>West of House"
+    },
+    {
+      "command": "north",
+      "response": "North of House\nYou are facing the north side of a white house. There is no door here, and all the windows are boarded up. To the north a narrow path winds through the trees.\n\n>North of House"
+    },
+    {
+      "command": "east",
+      "response": "Behind House\nYou are behind the white house. A path leads into the forest to the east. In one corner of the house there is a small window which is slightly ajar.\n\n>Behind House"
+    },
+    {
+      "command": "open window",
+      "response": "With great effort, you open the window far enough to allow entry.\n\n>Behind House"
+    },
+    {
+      "command": "enter",
+      "response": "Kitchen\nYou are in the kitchen of the white house. A table seems to have been used recently for the preparation of food. A passage leads to the west and a dark staircase can be seen leading upward. A dark chimney leads down and to the east is a small window which is open.\nOn the table is an elongated brown sack, smelling of hot peppers.\nA bottle is sitting on the table.\nThe glass bottle contains:\n  A quantity of water\n\n>Kitchen"
+    },
+    {
+      "command": "west",
+      "response": "Living Room\nYou are in the living room. There is a doorway to the east, a wooden door with strange gothic lettering to the west, which appears to be nailed shut, a trophy case, and a large oriental rug in the center of the room.\nAbove the trophy case hangs an elvish sword of great antiquity.\nA battery-powered brass lantern is on the trophy case.\n\n>Living Room"
+    },
+    {
+      "command": "examine case",
+      "response": "The trophy case is empty.\n\n>Living Room"
+    },
+    {
+      "command": "examine lamp",
+      "response": "The lamp is turned off.\n\n>Living Room"
+    },
+    {
+      "command": "take lamp",
+      "response": "Taken.\n\n>Living Room"
+    },
+    {
+      "command": "turn on lamp",
+      "response": "The brass lantern is now on.\n\n>Living Room"
+    },
+    {
+      "command": "examine sword",
+      "response": "There's nothing special about the sword.\n\n>Living Room"
+    },
+    {
+      "command": "take sword",
+      "response": "Taken.\n\n>Living Room"
+    },
+    {
+      "command": "examine lettering",
+      "response": "The engravings translate to \"This space intentionally left blank.\"\n\n>Living Room"
+    },
+    {
+      "command": "read lettering",
+      "response": "The engravings translate to \"This space intentionally left blank.\"\n\n>Living Room"
+    },
+    {
+      "command": "examine rug",
+      "response": "There's nothing special about the carpet.\n\n>Living Room"
+    },
+    {
+      "command": "move rug",
+      "response": "With a great effort, the rug is moved to one side of the room, revealing the dusty cover of a closed trap door.\n\n>Living Room"
+    },
+    {
+      "command": "examine trapdoor",
+      "response": "The trap door is closed.\n\n>Living Room"
+    },
+    {
+      "command": "open trapdoor",
+      "response": "The door reluctantly opens to reveal a rickety staircase descending into darkness.\n\n>Living Room"
+    },
+    {
+      "command": "close trapdoor",
+      "response": "The door swings shut and closes.\n\n>Living Room"
+    },
+    {
+      "command": "east",
+      "response": "Kitchen\nOn the table is an elongated brown sack, smelling of hot peppers.\nA bottle is sitting on the table.\nThe glass bottle contains:\n  A quantity of water\n\n>Kitchen"
+    },
+    {
+      "command": "up",
+      "response": "Attic\nThis is the attic. The only exit is a stairway leading down.\nA large coil of rope is lying in the corner.\nOn a table is a nasty-looking knife.\n\n>Attic"
+    },
+    {
+      "command": "examine stairs",
+      "response": "There's nothing special about the stairs.\n\n>Attic"
+    },
+    {
+      "command": "examine table",
+      "response": "On a table is a nasty-looking knife.\n\n>Attic"
+    },
+    {
+      "command": "examine knife",
+      "response": "There's nothing special about the nasty knife.\n\n>Attic"
+    },
+    {
+      "command": "take knife",
+      "response": "Taken.\n\n>Attic"
+    },
+    {
+      "command": "examine rope",
+      "response": "There's nothing special about the rope.\n\n>Attic"
+    },
+    {
+      "command": "take rope",
+      "response": "Taken.\n\n>Attic"
+    },
+    {
+      "command": "down",
+      "response": "Kitchen\nOn the table is an elongated brown sack, smelling of hot peppers.\nA bottle is sitting on the table.\nThe glass bottle contains:\n  A quantity of water\n\n>Kitchen"
+    },
+    {
+      "command": "west",
+      "response": "Living Room\n\n>Living Room"
+    },
+    {
+      "command": "open trapdoor",
+      "response": "The door reluctantly opens to reveal a rickety staircase descending into darkness.\n\n>Living Room"
+    },
+    {
+      "command": "down",
+      "response": "The trap door crashes shut, and you hear someone barring it.\n\nCellar\nYou are in a dark and damp cellar with a narrow passageway leading north, and a crawlway to the south. On the west is the bottom of a steep metal ramp which is unclimbable.\nYour sword is glowing with a faint blue glow.\n\n>Cellar"
+    },
+    {
+      "command": "examine ramp",
+      "response": "There's nothing special about the chute.\n\n>Cellar"
+    },
+    {
+      "command": "climb ramp",
+      "response": "You try to ascend the ramp, but it is impossible, and you slide back down.\n\n>Cellar"
+    }
+  ],
+  "errors": []
+}

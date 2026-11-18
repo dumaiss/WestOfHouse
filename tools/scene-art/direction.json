@@ -1643,6 +1643,93 @@
         "visual_treatment": "Include the revealed secret path leading southwest into the forest; retain the house and mailbox.",
         "omit_source_dressing": []
       }
+    },
+    "LIVING-ROOM": {
+      "LOOK-12D6CBF94BFE": {
+        "visual_treatment": "The west wooden door is nailed shut, with strange gothic lettering; there is no cyclops-shaped opening. The large oriental rug covers the trapdoor in the center of the room; do not reveal a trapdoor or stairs. Preserve the same room architecture, east doorway, trophy case, camera and lighting across all variants. Lettering should read as indistinct carved marks, not readable text.",
+        "omit_source_dressing": [
+          "RUG",
+          "TRAP-DOOR"
+        ]
+      },
+      "LOOK-3C6469886505": {
+        "visual_treatment": "The west wooden door is nailed shut, with strange gothic lettering; there is no cyclops-shaped opening. The heavy oriental rug lies moved aside, beside the open trapdoor and its descending stairway. Preserve the same room architecture, east doorway, trophy case, camera and lighting across all variants. Lettering should read as indistinct carved marks, not readable text.",
+        "omit_source_dressing": [
+          "RUG",
+          "TRAP-DOOR"
+        ]
+      },
+      "LOOK-5AC43322EDEC": {
+        "visual_treatment": "The west wooden door has a cyclops-shaped opening; its strange gothic lettering remains above the opening. The large oriental rug covers the trapdoor in the center of the room; do not reveal a trapdoor or stairs. Preserve the same room architecture, east doorway, trophy case, camera and lighting across all variants. Lettering should read as indistinct carved marks, not readable text.",
+        "omit_source_dressing": [
+          "RUG",
+          "TRAP-DOOR"
+        ]
+      },
+      "LOOK-61C0DBB76304": {
+        "visual_treatment": "The west wooden door has a cyclops-shaped opening; its strange gothic lettering remains above the opening. An open trapdoor is visible at the viewer's feet. Preserve the rug without inventing a separately recorded rug movement; the source explicitly describes this combination. Preserve the same room architecture, east doorway, trophy case, camera and lighting across all variants. Lettering should read as indistinct carved marks, not readable text.",
+        "omit_source_dressing": [
+          "RUG",
+          "TRAP-DOOR"
+        ]
+      },
+      "LOOK-6C431F0D8929": {
+        "visual_treatment": "The west wooden door has a cyclops-shaped opening; its strange gothic lettering remains above the opening. The heavy oriental rug lies moved aside, beside the open trapdoor and its descending stairway. Preserve the same room architecture, east doorway, trophy case, camera and lighting across all variants. Lettering should read as indistinct carved marks, not readable text.",
+        "omit_source_dressing": [
+          "RUG",
+          "TRAP-DOOR"
+        ]
+      },
+      "LOOK-8C68B2B893CB": {
+        "visual_treatment": "The west wooden door has a cyclops-shaped opening; its strange gothic lettering remains above the opening. The heavy oriental rug lies moved aside, beside the exposed closed trapdoor. Preserve the same room architecture, east doorway, trophy case, camera and lighting across all variants. Lettering should read as indistinct carved marks, not readable text.",
+        "omit_source_dressing": [
+          "RUG",
+          "TRAP-DOOR"
+        ]
+      },
+      "LOOK-9BC48C0752B7": {
+        "visual_treatment": "The west wooden door is nailed shut, with strange gothic lettering; there is no cyclops-shaped opening. The heavy oriental rug lies moved aside, beside the exposed closed trapdoor. Preserve the same room architecture, east doorway, trophy case, camera and lighting across all variants. Lettering should read as indistinct carved marks, not readable text.",
+        "omit_source_dressing": [
+          "RUG",
+          "TRAP-DOOR"
+        ]
+      },
+      "LOOK-DAF0F91818C8": {
+        "visual_treatment": "The west wooden door is nailed shut, with strange gothic lettering; there is no cyclops-shaped opening. An open trapdoor is visible at the viewer's feet. Preserve the rug without inventing a separately recorded rug movement; the source explicitly describes this combination. Preserve the same room architecture, east doorway, trophy case, camera and lighting across all variants. Lettering should read as indistinct carved marks, not readable text.",
+        "omit_source_dressing": [
+          "RUG",
+          "TRAP-DOOR"
+        ]
+      }
+    },
+    "ATTIC": {
+      "INITIAL": {
+        "visual_treatment": "Depict the complete lit room presentation. Preserve the existing selected scene; lighting can come from any available game light source, not a new window or invented lamp.",
+        "omit_source_dressing": []
+      },
+      "VISIBILITY-DARK": {
+        "visual_treatment": "Pitch black: no visible room geometry, objects, windows, stairs, light source, eyes, silhouettes or highlights. The shared source description says it is pitch black; the room-specific description is not visible.",
+        "omit_source_dressing": [
+          "ATTIC-TABLE",
+          "KNIFE",
+          "ROPE",
+          "STAIRS"
+        ]
+      }
+    },
+    "CELLAR": {
+      "LOOK-584D7B5798BA": {
+        "visual_treatment": "Depict the complete lit room presentation. Preserve the existing selected scene; lighting can come from any available game light source, not a new window or invented lamp.",
+        "omit_source_dressing": []
+      },
+      "VISIBILITY-DARK": {
+        "visual_treatment": "Pitch black: no visible room geometry, objects, windows, stairs, light source, eyes, silhouettes or highlights. The shared source description says it is pitch black; the room-specific description is not visible.",
+        "omit_source_dressing": [
+          "TRAP-DOOR",
+          "SLIDE",
+          "STAIRS"
+        ]
+      }
     }
   }
 }

@@ -109,10 +109,10 @@
       "expression": "(<EQUAL? .RARG ,M-LOOK> <TELL \"You are on the south edge of a deep canyon. Passages lead off to the\\neast, northwest and southwest. A stairway leads down.\"> <COND (<AND ,GATES-OPEN <NOT ,LOW-TIDE>> <TELL \" You can hear a loud roaring sound, like that of rushing water, from\\nbelow.\">) (<AND <NOT ,GATES-OPEN> ,LOW-TIDE> <CRLF> <RTRUE>) (T <TELL \" You can hear the sound of flowing water from below.\">)> <CRLF>)"
     },
     "mapping_file": "generated-zil/woh-state-ids.json",
-    "mapping_sha256": "c48cbe6f1866460c9141af8f50be2b1120255b13ae8fa44a72cbb1714c3a2137",
+    "mapping_sha256": "fac10745f9bcaff4aa469691821db5bd8a3ff68adb7e4d9d02c8336c0548ad50",
     "dictionary_file": "generated-room-states/room-states.yaml",
-    "dictionary_sha256": "87783e0895b9ebf9d5155dff22e440735c5ac68caca748c1d77840d6c1aacfa0",
-    "story_sha256": "cce1fdc54f18a6616e124db2de245aec1da943b458ebdee61bf1c6ff0a4038d4"
+    "dictionary_sha256": "9eff0d15621441d15a6fb427d75b65ddb1a5d8fa7f6d6fe48c223b1d42d25695",
+    "story_sha256": "dabcfa053043aeaebfb9d0839c0a05e31a277fc2aeb724111bcdb85be60a1e3d"
   },
   "unresolved": [
     {

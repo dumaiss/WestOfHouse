@@ -1,0 +1,10 @@
+{
+  "scenes": 20,
+  "hotspots": 109,
+  "runtime_pairs": 20,
+  "binary_roundtrips": 20,
+  "overlap_pixels_checked": 814080,
+  "archive_modified": false,
+  "application_modified": false,
+  "errors": []
+}

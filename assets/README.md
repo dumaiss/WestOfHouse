@@ -10,13 +10,14 @@ assets/
   source/
     scene-facts/                 Rebuildable scene_facts_v1 extraction
     art-direction/               Phase 1 world/room/state specs and prompts
-    white-house/                 Nine approved selections, requests, provenance
+    white-house/                 Original pilot selections and provenance
+    white-house-completion/      Approved 20-state selection and generation records
     hotspots/scenes/             Editable Phase 2B rectangular annotations
     ui/WoHTitle.png              Original title source
   runtime/
     story/zork1.z3               Exact instrumented story bytes
-    scenes/room-*-state-*.img     Eight complete 256×159 YJK+YAE KIMG scenes
-    hotspots/room-*-state-*.wht   Eight WHT1 action/hit tables
+    scenes/room-*-state-*.img     Twenty complete 256×159 YJK+YAE KIMG scenes
+    hotspots/room-*-state-*.wht   Twenty WHT1 action/hit tables
     ui/WoHTitle.img              Existing 256×212 YJK title (unchanged)
   review/
     art-direction/               Phase 1 validation and readiness review
@@ -25,10 +26,14 @@ assets/
     migration.json               Move inventory and binary preservation hashes
 ```
 
-The nine source illustrations and generation prompts are retained. Attic room
-201 is an **unbound concept**, with its conversions/hotspot binary in review;
-it is never assigned state 0 or packaged as a runtime pair. Existing visual
-quality/continuity warnings remain in review; packaging is not art approval.
+The approved runtime collection is selected by
+`source/white-house-completion/manifest.json`: 20 room/state pairs covering the
+house exterior, Kitchen, Attic, Living Room and Cellar. Attic and Cellar each
+have state 1 lit and state 2 pitch black, with empty dark-state hotspot tables.
+The eight Living Room variants preserve the underlying environment. All source
+PNGs, exact prompts and reference relationships remain in their named source
+collections. The package also includes the title, matching story and background
+music. Historical unbound concept files remain generation provenance only.
 The earlier `docs/west_of_house_256x144.g7` is a historical G0 fixture, retained
 for its earlier acceptance records; the current build does not consume it.
 
@@ -90,11 +95,14 @@ archive with the SDK tool and compares every payload to its declared file.
    under `source/white-house` (or another named collection). Never overwrite
    a source PNG during conversion. Update the selected image manifest and crop.
 3. Review final 256×159 geometry. Edit `source/hotspots/scenes/<key>.json` and
-   the corresponding reviewed vision observations in
-   `tools/scene-hotspots/observations.json`. Image/provenance hashes must match;
+   the corresponding reviewed vision observations in the selected collection
+   (`source/white-house-completion/observations.json` for the current set). Image/provenance hashes must match;
    changed artwork requires a new localization review. Rectangles are integer
    `[x,y,width,height]`, half-open, one rectangle per object. Empty tables work.
-4. `python3 tools/scene-hotspots/generate.py` explicitly regenerates the pilot
+4. `python3 tools/scene-images/build_white_house_completion.py` rebuilds the
+   current review collection without AI calls. After a localization change,
+   copy its approved JSON into `source/hotspots/scenes/` for packaging.
+   `python3 tools/scene-hotspots/generate.py` explicitly regenerates the original pilot
    annotations/actions from source facts and reviewed observations, plus
    overlays. It overwrites editable annotations; use normal `make -C app`
    to compile edits without replacing them. Validate with `validate.py`.
@@ -132,7 +140,8 @@ The runtime scene recipe is now `mode: yae`, `yjk_quality: optimized`.
 The application uses `GFX_MODE_256x212_YJK_YAE` and a seven-entry UI palette.
 Palette drawing uses indices 0–6; the hardware sprite pointer retains its fixed
 colours. Menu positions and save-under copies align to four-pixel J/K groups.
-The story, room/state keys, crop geometry and hotspot/action payloads are unchanged.
+The current approved collection contains 20 runtime room/state pairs with
+matching crop-bound hotspot/action tables and the darkness-aware story.
 
 Earlier G7 IMG comparisons are in `review/white-house/kimg-g7/`; YJK and
 YJK+YAE comparisons remain in `kimg/` and `kimg-yae/`. The title stays pure YJK

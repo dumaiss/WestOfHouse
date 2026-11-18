@@ -76,6 +76,26 @@ class FixtureTests(unittest.TestCase):
                 self.assertEqual(1, sum(evaluate(s.condition, {'BOX.OPENBIT': flag, 'COUNT': count})
                                         is True for s in states))
 
+    def test_local_scalar_alias_is_path_local_and_invalidated_by_writes(self):
+        d = Discovery(self.source, 'CONDITIONAL')
+        paths = d.sequence([expression('<SET COPY ,FLAG>'), expression(
+            '<COND (.COPY <TELL "Set.">) (T <TELL "Clear.">)>')])
+        for flag in (False, True):
+            matches = [p for p in paths if evaluate(p.condition, {'FLAG': flag})]
+            self.assertEqual(1, len(matches))
+            self.assertEqual(('Set.' if flag else 'Clear.',), matches[0].text)
+        paths = d.sequence([expression('<SET COPY ,FLAG>'), expression('<SETG FLAG T>'),
+                            expression('<COND (.COPY <TELL "Old value.">)>')])
+        self.assertTrue(any(unknowns(p.condition) for p in paths))
+
+    def test_static_room_guards_respect_ordered_cond(self):
+        d = Discovery(self.source, 'PLAIN')
+        node = expression('''<COND
+            (<NOT <EQUAL? ,HERE ,OTHER>> <COND (<VERB? TIE> <TELL "No.">)>)
+            (<VERB? UNTIE> <FCLEAR ,BOX ,OPENBIT> <TELL "Elsewhere.">)>''')
+        reachable = list(d.room_action_nodes(node))
+        self.assertFalse(any('Elsewhere.' in str(n) for n in reachable))
+
     def test_immediate_parent_not_recursive_containment(self):
         dictionary, _, _ = build(self.source, ['RELATION'])
         room = dictionary['rooms'][0]
@@ -311,8 +331,39 @@ class CorpusTests(unittest.TestCase):
             self.assertIsNone(checks[name]['validation']['coverage_gap'])
         self.assertEqual('incomplete', rooms['SANDY-CAVE']['status'])
         self.assertIsNotNone(checks['SANDY-CAVE']['validation']['coverage_gap'])
-        self.assertEqual('incomplete', rooms['LIVING-ROOM']['status'])
-        self.assertTrue(checks['LIVING-ROOM']['validation']['overlaps'])
+        self.assertEqual('ready', rooms['LIVING-ROOM']['status'])
+        self.assertEqual(8, len(rooms['LIVING-ROOM']['states']))
+        self.assertTrue(checks['LIVING-ROOM']['validation']['predicate_partition_complete'])
+
+    def test_house_rooms_have_complete_source_proven_partitions(self):
+        names = ['ATTIC', 'LIVING-ROOM', 'KITCHEN', 'CELLAR', 'WEST-OF-HOUSE',
+                 'NORTH-OF-HOUSE', 'SOUTH-OF-HOUSE', 'EAST-OF-HOUSE']
+        dictionary, report, _ = build(self.source, names)
+        self.assertTrue(all(r['status'] == 'ready' for r in dictionary['rooms']))
+        attic = next(r for r in dictionary['rooms'] if r['id'] == 'ATTIC')
+        self.assertEqual(['LIT'], [o['id'] for o in attic['observe']])
+        self.assertEqual(['INITIAL', 'VISIBILITY-DARK'], [s['id'] for s in attic['states']])
+        for name in ['ATTIC', 'CELLAR']:
+            room = next(r for r in dictionary['rooms'] if r['id'] == name)
+            for lit in [0, 1, 65535]:
+                matches = [s for s in room['states'] if evaluate(s['match'], {'LIT': lit})]
+                self.assertEqual(1, len(matches))
+                self.assertEqual(lit == 0, matches[0]['id'] == 'VISIBILITY-DARK')
+        d = Discovery(self.source, 'LIVING-ROOM')
+        states = d.discover()
+        self.assertEqual({'MAGIC-FLAG', 'RUG-MOVED', 'TRAP-DOOR.OPENBIT'},
+                         set().union(*(refs(s.condition) for s in states)))
+        import itertools
+        for magic, rug, opened in itertools.product((False, True), repeat=3):
+            values = dict(zip(('MAGIC-FLAG', 'RUG-MOVED', 'TRAP-DOOR.OPENBIT'),
+                              (magic, rug, opened)))
+            matches = [s for s in states if evaluate(s.condition, values)]
+            self.assertEqual(1, len(matches))
+            text = ' '.join(matches[0].text)
+            self.assertEqual(magic, 'cyclops-shaped' in text)
+            self.assertEqual(opened, 'open trap door' in text)
+            self.assertEqual(not rug and not opened, 'large oriental rug' in text)
+        self.assertTrue(all(r['validation']['predicate_partition_complete'] for r in report['rooms']))
 
     def test_optional_legacy_comparison_cannot_affect_recognition(self):
         plain = build(self.source, ['SANDY-CAVE', 'ATLANTIS-ROOM'])

@@ -1,0 +1,30 @@
+{
+  "schema": "woh_scene_conversion_v1",
+  "encoder": "/home/kitamura/Documents/ZephyrOS/tools/kimg.py",
+  "encoder_sha256": "1b00dd1dd4e5053fb565337687dd109bd4cf25b76c352c74e7ead77abaf56189",
+  "quality": "optimized",
+  "target": [
+    256,
+    159
+  ],
+  "records": [
+    {
+      "asset_key": "room-72-state-1",
+      "runtime_room": 72,
+      "runtime_state": 1,
+      "rgb": "assets/review/house-interiors/rgb/room-72-state-1.png",
+      "kimg": "assets/review/house-interiors/kimg-yae/room-72-state-1.img",
+      "preview": "assets/review/house-interiors/yae/room-72-state-1.png",
+      "kimg_sha256": "b97cd39d5c44b5a37481d8cbb506f44c1dcbf9acb2ef8c635ea8ca820b507f24"
+    },
+    {
+      "asset_key": "room-193-state-unbound",
+      "runtime_room": 193,
+      "runtime_state": null,
+      "rgb": "assets/review/house-interiors/rgb/room-193-state-unbound.png",
+      "kimg": "assets/review/house-interiors/kimg-yae/room-193-state-unbound.img",
+      "preview": "assets/review/house-interiors/yae/room-193-state-unbound.png",
+      "kimg_sha256": "7c6231f250278859366a78f61dcbfaa4c24e7097c1e9e9958cce5873a002a4ff"
+    }
+  ]
+}

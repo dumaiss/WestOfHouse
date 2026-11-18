@@ -122,3 +122,25 @@ or that assets exist. Complex ZIL, recursive containment, dynamic properties,
 reference-to-reference comparisons and general control-flow compilation remain
 outside this implementation. No extra analyzer was introduced to improve the
 pass count. See CORPUS.md for actual metrics and the remaining recognition failures.
+
+
+## House-room source patterns
+
+Simple `SET` aliases of typed scalar reads are tracked per description path.
+Substitution preserves the original global/object observation rather than emitting
+locals. Any mutation or unknown call invalidates the bindings; unsupported local
+assignments remain limitations. This intentionally does not interpret general
+local computations, calls or loops.
+
+Shared action handlers are walked with a three-valued static room guard check.
+Only boolean logic and comparisons of HERE against named rooms are proven;
+unknown guards retain both possibilities. Ordered COND branches after a proven
+true guard are unreachable. In particular, ROPE-FUNCTION's first non-Dome branch
+excludes all later tying/untying actions while analyzing ATTIC.
+
+A complete, centrally validated LOOK partition owns the presentation of fixture
+objects referenced by its attribute observations. Supported action-result
+candidates affecting only these fixtures are absorbed by that partition after
+analyzing the complete handler. If the handler has an unresolved candidate, no
+such reconciliation is applied. This removes the competing rug post-state in
+LIVING-ROOM without hiding MACHINE-ROOM's unsupported contents/call paths.

@@ -30,39 +30,24 @@ rooms:
         match: true
   -
     id: "ATTIC"
-    status: "incomplete"
+    status: "ready"
     observe:
       -
-        id: "DOME-FLAG"
+        id: "LIT"
         kind: "global"
-        symbol: "DOME-FLAG"
-        value_type: "boolean"
-      -
-        id: "ROPE.NDESCBIT"
-        kind: "object_attribute"
-        object: "ROPE"
-        attribute: "NDESCBIT"
-        value_type: "boolean"
+        symbol: "LIT"
+        value_type: "unsigned16"
     states:
       -
         id: "INITIAL"
-        status: "unresolved"
-      -
-        id: "POST-ROPE-FUNCTION-03A35DFC4152"
         match:
-          all:
-            -
-              ref: "DOME-FLAG"
-              eq: false
-            -
-              ref: "ROPE.NDESCBIT"
-              eq: false
+          ref: "LIT"
+          ne: 0
       -
-        id: "POST-ROPE-FUNCTION-11683019530A"
-        status: "unresolved"
-      -
-        id: "POST-ROPE-FUNCTION-F678716CD25E"
-        status: "unresolved"
+        id: "VISIBILITY-DARK"
+        match:
+          ref: "LIT"
+          eq: 0
   -
     id: "BAT-ROOM"
     status: "ready"
@@ -90,11 +75,23 @@ rooms:
   -
     id: "CELLAR"
     status: "ready"
-    observe: []
+    observe:
+      -
+        id: "LIT"
+        kind: "global"
+        symbol: "LIT"
+        value_type: "unsigned16"
     states:
       -
         id: "LOOK-584D7B5798BA"
-        match: true
+        match:
+          ref: "LIT"
+          ne: 0
+      -
+        id: "VISIBILITY-DARK"
+        match:
+          ref: "LIT"
+          eq: 0
   -
     id: "CHASM-ROOM"
     status: "ready"
@@ -797,18 +794,17 @@ rooms:
         match: true
   -
     id: "LIVING-ROOM"
-    status: "incomplete"
+    status: "ready"
     observe:
+      -
+        id: "MAGIC-FLAG"
+        kind: "global"
+        symbol: "MAGIC-FLAG"
+        value_type: "boolean"
       -
         id: "RUG-MOVED"
         kind: "global"
         symbol: "RUG-MOVED"
-        value_type: "boolean"
-      -
-        id: "TRAP-DOOR.INVISIBLE"
-        kind: "object_attribute"
-        object: "TRAP-DOOR"
-        attribute: "INVISIBLE"
         value_type: "boolean"
       -
         id: "TRAP-DOOR.OPENBIT"
@@ -816,59 +812,167 @@ rooms:
         object: "TRAP-DOOR"
         attribute: "OPENBIT"
         value_type: "boolean"
-      -
-        id: "TRAP-DOOR.TOUCHBIT"
-        kind: "object_attribute"
-        object: "TRAP-DOOR"
-        attribute: "TOUCHBIT"
-        value_type: "boolean"
     states:
       -
-        id: "LOOK-01BE1293376B"
-        status: "unresolved"
-      -
-        id: "LOOK-4C35D2A006EC"
-        status: "unresolved"
-      -
-        id: "LOOK-5B4C4750931F"
-        status: "unresolved"
-      -
-        id: "LOOK-8B511529C3C2"
-        status: "unresolved"
-      -
-        id: "LOOK-9ADA81680DF7"
-        status: "unresolved"
-      -
-        id: "LOOK-BACFA7AD6B78"
-        status: "unresolved"
-      -
-        id: "LOOK-DAB1A6534E35"
-        status: "unresolved"
-      -
-        id: "LOOK-F63F105AE16A"
-        status: "unresolved"
-      -
-        id: "POST-RUG-FCN-8536C292402B"
+        id: "LOOK-12D6CBF94BFE"
         match:
           all:
             -
-              ref: "TRAP-DOOR.INVISIBLE"
+              ref: "MAGIC-FLAG"
               eq: false
             -
-              ref: "RUG-MOVED"
-              eq: true
-        status: "ambiguous"
+              not:
+                any:
+                  -
+                    all:
+                      -
+                        ref: "TRAP-DOOR.OPENBIT"
+                        eq: true
+                      -
+                        ref: "RUG-MOVED"
+                        ne: false
+                  -
+                    ref: "TRAP-DOOR.OPENBIT"
+                    eq: true
+                  -
+                    ref: "RUG-MOVED"
+                    ne: false
       -
-        id: "POST-TRAP-DOOR-FCN-AE99A4D6CC11"
+        id: "LOOK-3C6469886505"
+        match:
+          all:
+            -
+              ref: "MAGIC-FLAG"
+              eq: false
+            -
+              ref: "TRAP-DOOR.OPENBIT"
+              eq: true
+            -
+              ref: "RUG-MOVED"
+              ne: false
+      -
+        id: "LOOK-5AC43322EDEC"
+        match:
+          all:
+            -
+              ref: "MAGIC-FLAG"
+              ne: false
+            -
+              not:
+                any:
+                  -
+                    all:
+                      -
+                        ref: "TRAP-DOOR.OPENBIT"
+                        eq: true
+                      -
+                        ref: "RUG-MOVED"
+                        ne: false
+                  -
+                    ref: "TRAP-DOOR.OPENBIT"
+                    eq: true
+                  -
+                    ref: "RUG-MOVED"
+                    ne: false
+      -
+        id: "LOOK-61C0DBB76304"
         match:
           all:
             -
               ref: "TRAP-DOOR.OPENBIT"
+              eq: true
+            -
+              ref: "MAGIC-FLAG"
+              ne: false
+            -
+              not:
+                any:
+                  -
+                    all:
+                      -
+                        ref: "TRAP-DOOR.OPENBIT"
+                        eq: true
+                      -
+                        ref: "RUG-MOVED"
+                        ne: false
+                  -
+                    ref: "RUG-MOVED"
+                    ne: false
+      -
+        id: "LOOK-6C431F0D8929"
+        match:
+          all:
+            -
+              ref: "TRAP-DOOR.OPENBIT"
+              eq: true
+            -
+              ref: "MAGIC-FLAG"
+              ne: false
+            -
+              ref: "RUG-MOVED"
+              ne: false
+      -
+        id: "LOOK-8C68B2B893CB"
+        match:
+          all:
+            -
+              ref: "MAGIC-FLAG"
+              ne: false
+            -
+              ref: "RUG-MOVED"
+              ne: false
+            -
+              not:
+                all:
+                  -
+                    ref: "TRAP-DOOR.OPENBIT"
+                    eq: true
+                  -
+                    ref: "RUG-MOVED"
+                    ne: false
+      -
+        id: "LOOK-9BC48C0752B7"
+        match:
+          all:
+            -
+              ref: "MAGIC-FLAG"
               eq: false
             -
-              ref: "TRAP-DOOR.TOUCHBIT"
+              ref: "RUG-MOVED"
+              ne: false
+            -
+              not:
+                all:
+                  -
+                    ref: "TRAP-DOOR.OPENBIT"
+                    eq: true
+                  -
+                    ref: "RUG-MOVED"
+                    ne: false
+      -
+        id: "LOOK-DAF0F91818C8"
+        match:
+          all:
+            -
+              ref: "MAGIC-FLAG"
               eq: false
-        status: "ambiguous"
+            -
+              ref: "TRAP-DOOR.OPENBIT"
+              eq: true
+            -
+              not:
+                any:
+                  -
+                    all:
+                      -
+                        ref: "TRAP-DOOR.OPENBIT"
+                        eq: true
+                      -
+                        ref: "RUG-MOVED"
+                        ne: false
+                  -
+                    ref: "RUG-MOVED"
+                    ne: false
   -
     id: "LOUD-ROOM"
     status: "ready"

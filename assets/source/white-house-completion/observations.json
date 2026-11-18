@@ -1,0 +1,2645 @@
+{
+  "schema": "woh_completion_visual_observations_v1",
+  "method": "Assistant visual inspection of final RGB crops; existing approved pilot observations retained for unchanged crops.",
+  "scenes": {
+    "room-180-state-1": {
+      "image_sha256": "44a59b02072c23f28ef42e5ba277fd8e1f4137e5f33ad03744abaf5e09866bc7",
+      "hotspots": [
+        {
+          "object_id": "WHITE-HOUSE",
+          "label": "House",
+          "rect": [
+            52,
+            4,
+            190,
+            146
+          ],
+          "confidence": "high",
+          "background": true,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine house"
+            }
+          ]
+        },
+        {
+          "object_id": "FRONT-DOOR",
+          "label": "Door",
+          "rect": [
+            153,
+            89,
+            39,
+            57
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine door"
+            },
+            {
+              "label": "Open",
+              "command": "open door"
+            }
+          ]
+        },
+        {
+          "object_id": "MAILBOX",
+          "label": "Mailbox",
+          "rect": [
+            193,
+            120,
+            20,
+            34
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine mailbox"
+            },
+            {
+              "label": "Open",
+              "command": "open mailbox"
+            },
+            {
+              "label": "Close",
+              "command": "close mailbox"
+            }
+          ]
+        },
+        {
+          "object_id": "FOREST",
+          "label": "Forest",
+          "rect": [
+            0,
+            67,
+            50,
+            49
+          ],
+          "confidence": "high",
+          "background": true,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine forest"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "object_id": "ADVERTISEMENT",
+          "status": "concealed",
+          "detail": "Leaflet is inside the closed mailbox; no visible leaflet is localized."
+        }
+      ]
+    },
+    "room-180-state-2": {
+      "image_sha256": "eedfe54674cab7d57fa453d6ef98b84e55e17c766ed2ae1b92cb2726153b42d7",
+      "hotspots": [
+        {
+          "object_id": "WHITE-HOUSE",
+          "label": "House",
+          "rect": [
+            52,
+            4,
+            190,
+            146
+          ],
+          "confidence": "high",
+          "background": true,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine house"
+            }
+          ]
+        },
+        {
+          "object_id": "FRONT-DOOR",
+          "label": "Door",
+          "rect": [
+            153,
+            89,
+            39,
+            57
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine door"
+            },
+            {
+              "label": "Open",
+              "command": "open door"
+            }
+          ]
+        },
+        {
+          "object_id": "MAILBOX",
+          "label": "Mailbox",
+          "rect": [
+            193,
+            120,
+            20,
+            34
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine mailbox"
+            },
+            {
+              "label": "Open",
+              "command": "open mailbox"
+            },
+            {
+              "label": "Close",
+              "command": "close mailbox"
+            }
+          ]
+        },
+        {
+          "object_id": "FOREST",
+          "label": "Forest",
+          "rect": [
+            0,
+            67,
+            50,
+            49
+          ],
+          "confidence": "high",
+          "background": true,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine forest"
+            }
+          ]
+        },
+        {
+          "object_id": "EXIT-SW",
+          "label": "Secret path",
+          "rect": [
+            7,
+            111,
+            47,
+            32
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Canonical state reveals the southwest path; visible in this image.",
+          "actions": [
+            {
+              "label": "Go SW",
+              "command": "southwest"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "object_id": "ADVERTISEMENT",
+          "status": "concealed",
+          "detail": "Leaflet is inside the closed mailbox; no visible leaflet is localized."
+        }
+      ]
+    },
+    "room-81-state-1": {
+      "image_sha256": "a9463f48ebe0bf463904fc7c1cb67f1a9a53a4095a1a45f9da428e64a567f3b3",
+      "hotspots": [
+        {
+          "object_id": "WHITE-HOUSE",
+          "label": "House",
+          "rect": [
+            7,
+            18,
+            181,
+            135
+          ],
+          "confidence": "high",
+          "background": true,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine house"
+            }
+          ]
+        },
+        {
+          "object_id": "BOARDED-WINDOW",
+          "label": "Window A",
+          "rect": [
+            49,
+            51,
+            36,
+            36
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine window"
+            },
+            {
+              "label": "Open",
+              "command": "open window"
+            }
+          ]
+        },
+        {
+          "object_id": "BOARDED-WINDOW",
+          "label": "Window B",
+          "rect": [
+            115,
+            51,
+            37,
+            36
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine window"
+            },
+            {
+              "label": "Open",
+              "command": "open window"
+            }
+          ]
+        },
+        {
+          "object_id": "BOARDED-WINDOW",
+          "label": "Window C",
+          "rect": [
+            49,
+            95,
+            36,
+            39
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine window"
+            },
+            {
+              "label": "Open",
+              "command": "open window"
+            }
+          ]
+        },
+        {
+          "object_id": "BOARDED-WINDOW",
+          "label": "Window D",
+          "rect": [
+            115,
+            95,
+            37,
+            39
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine window"
+            },
+            {
+              "label": "Open",
+              "command": "open window"
+            }
+          ]
+        },
+        {
+          "object_id": "EXIT-NORTH",
+          "label": "North path",
+          "rect": [
+            188,
+            92,
+            68,
+            67
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visible winding path and explicit north exit.",
+          "actions": [
+            {
+              "label": "Go north",
+              "command": "north"
+            }
+          ]
+        },
+        {
+          "object_id": "FOREST",
+          "label": "Forest",
+          "rect": [
+            191,
+            22,
+            65,
+            66
+          ],
+          "confidence": "high",
+          "background": true,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine forest"
+            }
+          ]
+        }
+      ],
+      "unresolved": []
+    },
+    "room-80-state-1": {
+      "image_sha256": "2963988b05ccadc5e45f311c9e01b50b555d74a1ca1693a8204d8619c9f76d24",
+      "hotspots": [
+        {
+          "object_id": "WHITE-HOUSE",
+          "label": "House",
+          "rect": [
+            35,
+            16,
+            190,
+            138
+          ],
+          "confidence": "high",
+          "background": true,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine house"
+            }
+          ]
+        },
+        {
+          "object_id": "FOREST",
+          "label": "Forest",
+          "rect": [
+            0,
+            79,
+            33,
+            49
+          ],
+          "confidence": "high",
+          "background": true,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine forest"
+            }
+          ]
+        },
+        {
+          "object_id": "BOARDED-WINDOW",
+          "label": "Window 1",
+          "rect": [
+            65,
+            51,
+            32,
+            37
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine window"
+            },
+            {
+              "label": "Open",
+              "command": "open window"
+            }
+          ]
+        },
+        {
+          "object_id": "BOARDED-WINDOW",
+          "label": "Window 2",
+          "rect": [
+            116,
+            51,
+            32,
+            37
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine window"
+            },
+            {
+              "label": "Open",
+              "command": "open window"
+            }
+          ]
+        },
+        {
+          "object_id": "BOARDED-WINDOW",
+          "label": "Window 3",
+          "rect": [
+            166,
+            51,
+            32,
+            37
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine window"
+            },
+            {
+              "label": "Open",
+              "command": "open window"
+            }
+          ]
+        },
+        {
+          "object_id": "BOARDED-WINDOW",
+          "label": "Window 4",
+          "rect": [
+            65,
+            94,
+            32,
+            37
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine window"
+            },
+            {
+              "label": "Open",
+              "command": "open window"
+            }
+          ]
+        },
+        {
+          "object_id": "BOARDED-WINDOW",
+          "label": "Window 5",
+          "rect": [
+            116,
+            94,
+            32,
+            37
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine window"
+            },
+            {
+              "label": "Open",
+              "command": "open window"
+            }
+          ]
+        },
+        {
+          "object_id": "BOARDED-WINDOW",
+          "label": "Window 6",
+          "rect": [
+            166,
+            94,
+            32,
+            37
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine window"
+            },
+            {
+              "label": "Open",
+              "command": "open window"
+            }
+          ]
+        }
+      ],
+      "unresolved": []
+    },
+    "room-79-state-1": {
+      "image_sha256": "359c8b24628a73dfb690ac23c197268b166ae9846e28d4261e3d033711e4eaf5",
+      "hotspots": [
+        {
+          "object_id": "WHITE-HOUSE",
+          "label": "House",
+          "rect": [
+            0,
+            3,
+            183,
+            154
+          ],
+          "confidence": "high",
+          "background": true,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine house"
+            }
+          ]
+        },
+        {
+          "object_id": "KITCHEN-WINDOW",
+          "label": "Window",
+          "rect": [
+            114,
+            69,
+            30,
+            58
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine window"
+            },
+            {
+              "label": "Open",
+              "command": "open window"
+            },
+            {
+              "label": "Enter",
+              "command": "enter window"
+            }
+          ]
+        },
+        {
+          "object_id": "FOREST",
+          "label": "Forest",
+          "rect": [
+            185,
+            0,
+            71,
+            103
+          ],
+          "confidence": "high",
+          "background": true,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine forest"
+            }
+          ]
+        },
+        {
+          "object_id": "EXIT-EAST",
+          "label": "Forest path",
+          "rect": [
+            192,
+            108,
+            64,
+            49
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visible forest path matches explicit east exit.",
+          "actions": [
+            {
+              "label": "Go east",
+              "command": "east"
+            }
+          ]
+        }
+      ],
+      "unresolved": []
+    },
+    "room-79-state-2": {
+      "image_sha256": "3ba10b42003529a57c4b85c1563d445054e01ecc35a652e56160ef6ff274ab3a",
+      "hotspots": [
+        {
+          "object_id": "WHITE-HOUSE",
+          "label": "House",
+          "rect": [
+            0,
+            3,
+            183,
+            154
+          ],
+          "confidence": "high",
+          "background": true,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine house"
+            }
+          ]
+        },
+        {
+          "object_id": "KITCHEN-WINDOW",
+          "label": "Window",
+          "rect": [
+            114,
+            69,
+            30,
+            58
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine window"
+            },
+            {
+              "label": "Close",
+              "command": "close window"
+            },
+            {
+              "label": "Enter",
+              "command": "enter window"
+            }
+          ]
+        },
+        {
+          "object_id": "FOREST",
+          "label": "Forest",
+          "rect": [
+            185,
+            0,
+            71,
+            103
+          ],
+          "confidence": "high",
+          "background": true,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine forest"
+            }
+          ]
+        },
+        {
+          "object_id": "EXIT-EAST",
+          "label": "Forest path",
+          "rect": [
+            192,
+            108,
+            64,
+            49
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visible forest path matches explicit east exit.",
+          "actions": [
+            {
+              "label": "Go east",
+              "command": "east"
+            }
+          ]
+        }
+      ],
+      "unresolved": []
+    },
+    "room-203-state-1": {
+      "image_sha256": "1734009981ab52ca02f474b220e0873ca30cd7a3926aed76c8ee45d3642b37e6",
+      "hotspots": [
+        {
+          "object_id": "KITCHEN-TABLE",
+          "label": "Table",
+          "rect": [
+            88,
+            89,
+            130,
+            70
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine table"
+            }
+          ]
+        },
+        {
+          "object_id": "KITCHEN-WINDOW",
+          "label": "Window",
+          "rect": [
+            208,
+            30,
+            39,
+            66
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine window"
+            },
+            {
+              "label": "Open",
+              "command": "open window"
+            },
+            {
+              "label": "Go out",
+              "command": "enter window"
+            }
+          ]
+        },
+        {
+          "object_id": "STAIRS",
+          "label": "Stairs",
+          "rect": [
+            5,
+            17,
+            48,
+            141
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine stairs"
+            },
+            {
+              "label": "Go up",
+              "command": "up"
+            }
+          ]
+        },
+        {
+          "object_id": "CHIMNEY",
+          "label": "Chimney",
+          "rect": [
+            81,
+            57,
+            77,
+            42
+          ],
+          "confidence": "medium",
+          "background": false,
+          "basis": "Visible hearth aperture is an imperfect depiction of the source chimney. Avoid the table foreground where possible.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine chimney"
+            },
+            {
+              "label": "Climb",
+              "command": "climb down chimney"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "object_id": "SANDWICH-BAG",
+          "status": "not_visible",
+          "detail": "Source sack on table is not identifiable in the illustration."
+        },
+        {
+          "object_id": "BOTTLE",
+          "status": "not_visible",
+          "detail": "Source glass bottle is not identifiable; the painted brown jug is not a reliable match."
+        },
+        {
+          "object_id": "EXIT-WEST",
+          "status": "not_visible",
+          "detail": "No independently identifiable west passage is shown."
+        },
+        {
+          "object_id": "GARLIC",
+          "status": "concealed",
+          "detail": "Garlic is in the source sack; painted onions are not identified as it."
+        },
+        {
+          "object_id": "LUNCH",
+          "status": "concealed",
+          "detail": "Source sack contents are not shown."
+        }
+      ]
+    },
+    "room-203-state-2": {
+      "image_sha256": "6e494ff2cef5bbb4b645197b051e6520ee1b31ceeaaa98970c61683c05afcb37",
+      "hotspots": [
+        {
+          "object_id": "KITCHEN-TABLE",
+          "label": "Table",
+          "rect": [
+            88,
+            89,
+            130,
+            70
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine table"
+            }
+          ]
+        },
+        {
+          "object_id": "KITCHEN-WINDOW",
+          "label": "Window",
+          "rect": [
+            208,
+            30,
+            39,
+            66
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine window"
+            },
+            {
+              "label": "Close",
+              "command": "close window"
+            },
+            {
+              "label": "Go out",
+              "command": "enter window"
+            }
+          ]
+        },
+        {
+          "object_id": "STAIRS",
+          "label": "Stairs",
+          "rect": [
+            5,
+            17,
+            48,
+            141
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine stairs"
+            },
+            {
+              "label": "Go up",
+              "command": "up"
+            }
+          ]
+        },
+        {
+          "object_id": "CHIMNEY",
+          "label": "Chimney",
+          "rect": [
+            81,
+            57,
+            77,
+            42
+          ],
+          "confidence": "medium",
+          "background": false,
+          "basis": "Visible hearth aperture is an imperfect depiction of the source chimney. Avoid the table foreground where possible.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine chimney"
+            },
+            {
+              "label": "Climb",
+              "command": "climb down chimney"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "object_id": "SANDWICH-BAG",
+          "status": "not_visible",
+          "detail": "Source sack on table is not identifiable in the illustration."
+        },
+        {
+          "object_id": "BOTTLE",
+          "status": "not_visible",
+          "detail": "Source glass bottle is not identifiable; the painted brown jug is not a reliable match."
+        },
+        {
+          "object_id": "EXIT-WEST",
+          "status": "not_visible",
+          "detail": "No independently identifiable west passage is shown."
+        },
+        {
+          "object_id": "GARLIC",
+          "status": "concealed",
+          "detail": "Garlic is in the source sack; painted onions are not identified as it."
+        },
+        {
+          "object_id": "LUNCH",
+          "status": "concealed",
+          "detail": "Source sack contents are not shown."
+        }
+      ]
+    },
+    "room-201-state-1": {
+      "image_sha256": "789c754ca8fe3253031b4ada9ef067491127c80886714a2f410d398b94b21cbe",
+      "hotspots": [
+        {
+          "object_id": "STAIRS",
+          "label": "Stairs",
+          "rect": [
+            0,
+            75,
+            94,
+            84
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine stairs"
+            },
+            {
+              "label": "Go down",
+              "command": "down"
+            }
+          ]
+        },
+        {
+          "object_id": "ATTIC-TABLE",
+          "label": "Table",
+          "rect": [
+            154,
+            98,
+            102,
+            61
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine table"
+            }
+          ]
+        },
+        {
+          "object_id": "KNIFE",
+          "label": "Knife",
+          "rect": [
+            189,
+            107,
+            49,
+            19
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine knife"
+            },
+            {
+              "label": "Take",
+              "command": "take knife"
+            }
+          ]
+        },
+        {
+          "object_id": "ROPE",
+          "label": "Rope",
+          "rect": [
+            205,
+            70,
+            51,
+            35
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine rope"
+            },
+            {
+              "label": "Take",
+              "command": "take rope"
+            }
+          ]
+        }
+      ],
+      "unresolved": []
+    },
+    "room-72-state-1": {
+      "image_sha256": "ad9c83970d15af90237dd4ffb7bc9896a324ccf273ea8dfda412716fba84c95c",
+      "hotspots": [
+        {
+          "object_id": "SLIDE",
+          "label": "Ramp",
+          "rect": [
+            1,
+            1,
+            95,
+            154
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine ramp"
+            },
+            {
+              "label": "Climb",
+              "command": "climb ramp"
+            }
+          ]
+        },
+        {
+          "object_id": "EXIT-NORTH",
+          "label": "Passage",
+          "rect": [
+            144,
+            39,
+            47,
+            77
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Go north",
+              "command": "north"
+            }
+          ]
+        },
+        {
+          "object_id": "EXIT-SOUTH",
+          "label": "Crawlway",
+          "rect": [
+            204,
+            85,
+            50,
+            39
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Go south",
+              "command": "south"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "object_id": "STAIRS",
+          "status": "not_visible",
+          "detail": "The selected cellar illustration does not show stairs leading up; no rectangle is invented."
+        },
+        {
+          "object_id": "TRAP-DOOR",
+          "status": "not_visible",
+          "detail": "The upper trapdoor is outside the illustrated cellar view."
+        },
+        {
+          "object_id": "EXIT-UP",
+          "status": "not_visible",
+          "detail": "The exit up is not depicted; it remains available through normal text input."
+        }
+      ]
+    },
+    "room-193-state-1": {
+      "image_sha256": "ccb7f838f39bef78d04598de816d3c3559c6e6559d34f6c89913d1aa89c3c64d",
+      "hotspots": [
+        {
+          "object_id": "TROPHY-CASE",
+          "label": "Case",
+          "rect": [
+            88,
+            51,
+            90,
+            44
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine case"
+            }
+          ]
+        },
+        {
+          "object_id": "LAMP",
+          "label": "Lantern",
+          "rect": [
+            150,
+            28,
+            23,
+            24
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine lamp"
+            },
+            {
+              "label": "Take",
+              "command": "take lamp"
+            },
+            {
+              "label": "Turn on",
+              "command": "turn on lamp"
+            }
+          ]
+        },
+        {
+          "object_id": "SWORD",
+          "label": "Sword",
+          "rect": [
+            90,
+            16,
+            77,
+            17
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine sword"
+            },
+            {
+              "label": "Take",
+              "command": "take sword"
+            }
+          ]
+        },
+        {
+          "object_id": "WOODEN-DOOR",
+          "label": "Door",
+          "rect": [
+            12,
+            0,
+            60,
+            99
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine lettering"
+            },
+            {
+              "label": "Read",
+              "command": "read lettering"
+            }
+          ]
+        },
+        {
+          "object_id": "EXIT-EAST",
+          "label": "Kitchen",
+          "rect": [
+            210,
+            22,
+            46,
+            84
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Go east",
+              "command": "east"
+            }
+          ]
+        },
+        {
+          "object_id": "RUG",
+          "label": "Rug",
+          "rect": [
+            3,
+            96,
+            247,
+            56
+          ],
+          "confidence": "high",
+          "background": true,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine rug"
+            },
+            {
+              "label": "Move",
+              "command": "move rug"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "object_id": "TRAP-DOOR",
+          "status": "concealed",
+          "detail": "The central rug covers the closed trapdoor in this presentation; no hidden hotspot is exposed."
+        },
+        {
+          "object_id": "MAP",
+          "status": "concealed",
+          "detail": "No map appears in this selected room illustration; inventory and treasure contents do not add image keys."
+        }
+      ]
+    },
+    "room-193-state-2": {
+      "image_sha256": "156d162d3f9f1cd5a41401acda10a357913ba3f80493cfcb16fef86996a656e5",
+      "hotspots": [
+        {
+          "object_id": "TROPHY-CASE",
+          "label": "Case",
+          "rect": [
+            88,
+            51,
+            90,
+            44
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine case"
+            }
+          ]
+        },
+        {
+          "object_id": "LAMP",
+          "label": "Lantern",
+          "rect": [
+            150,
+            28,
+            23,
+            24
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine lamp"
+            },
+            {
+              "label": "Take",
+              "command": "take lamp"
+            },
+            {
+              "label": "Turn on",
+              "command": "turn on lamp"
+            }
+          ]
+        },
+        {
+          "object_id": "SWORD",
+          "label": "Sword",
+          "rect": [
+            90,
+            16,
+            77,
+            17
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine sword"
+            },
+            {
+              "label": "Take",
+              "command": "take sword"
+            }
+          ]
+        },
+        {
+          "object_id": "WOODEN-DOOR",
+          "label": "Door",
+          "rect": [
+            12,
+            0,
+            60,
+            99
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine lettering"
+            },
+            {
+              "label": "Read",
+              "command": "read lettering"
+            }
+          ]
+        },
+        {
+          "object_id": "EXIT-EAST",
+          "label": "Kitchen",
+          "rect": [
+            210,
+            22,
+            46,
+            84
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Go east",
+              "command": "east"
+            }
+          ]
+        },
+        {
+          "object_id": "RUG",
+          "label": "Rug",
+          "rect": [
+            8,
+            95,
+            237,
+            35
+          ],
+          "confidence": "high",
+          "background": true,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine rug"
+            },
+            {
+              "label": "Move",
+              "command": "move rug"
+            }
+          ]
+        },
+        {
+          "object_id": "TRAP-DOOR",
+          "label": "Trapdoor",
+          "rect": [
+            70,
+            132,
+            108,
+            27
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine trapdoor"
+            },
+            {
+              "label": "Close",
+              "command": "close trapdoor"
+            }
+          ]
+        },
+        {
+          "object_id": "STAIRS",
+          "label": "Stairs",
+          "rect": [
+            87,
+            143,
+            70,
+            16
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Go down",
+              "command": "down"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "object_id": "MAP",
+          "status": "concealed",
+          "detail": "No map appears in this selected room illustration; inventory and treasure contents do not add image keys."
+        }
+      ]
+    },
+    "room-193-state-3": {
+      "image_sha256": "112b1062fdb9cfbcfb88c26602e9410dffd459531b182983fbdd38b12387f4d8",
+      "hotspots": [
+        {
+          "object_id": "TROPHY-CASE",
+          "label": "Case",
+          "rect": [
+            88,
+            51,
+            90,
+            44
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine case"
+            }
+          ]
+        },
+        {
+          "object_id": "LAMP",
+          "label": "Lantern",
+          "rect": [
+            150,
+            28,
+            23,
+            24
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine lamp"
+            },
+            {
+              "label": "Take",
+              "command": "take lamp"
+            },
+            {
+              "label": "Turn on",
+              "command": "turn on lamp"
+            }
+          ]
+        },
+        {
+          "object_id": "SWORD",
+          "label": "Sword",
+          "rect": [
+            90,
+            16,
+            77,
+            17
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine sword"
+            },
+            {
+              "label": "Take",
+              "command": "take sword"
+            }
+          ]
+        },
+        {
+          "object_id": "WOODEN-DOOR",
+          "label": "Door",
+          "rect": [
+            12,
+            0,
+            60,
+            99
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine lettering"
+            },
+            {
+              "label": "Read",
+              "command": "read lettering"
+            }
+          ]
+        },
+        {
+          "object_id": "EXIT-EAST",
+          "label": "Kitchen",
+          "rect": [
+            210,
+            22,
+            46,
+            84
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Go east",
+              "command": "east"
+            }
+          ]
+        },
+        {
+          "object_id": "RUG",
+          "label": "Rug",
+          "rect": [
+            3,
+            96,
+            247,
+            56
+          ],
+          "confidence": "high",
+          "background": true,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine rug"
+            },
+            {
+              "label": "Move",
+              "command": "move rug"
+            }
+          ]
+        },
+        {
+          "object_id": "EXIT-WEST",
+          "label": "Passage",
+          "rect": [
+            25,
+            34,
+            35,
+            44
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Go west",
+              "command": "west"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "object_id": "TRAP-DOOR",
+          "status": "concealed",
+          "detail": "The central rug covers the closed trapdoor in this presentation; no hidden hotspot is exposed."
+        },
+        {
+          "object_id": "MAP",
+          "status": "concealed",
+          "detail": "No map appears in this selected room illustration; inventory and treasure contents do not add image keys."
+        }
+      ]
+    },
+    "room-193-state-4": {
+      "image_sha256": "49c9bf166cbce7512ca5ffa506bfc370113e8372190eba175b809d64450b336d",
+      "hotspots": [
+        {
+          "object_id": "TROPHY-CASE",
+          "label": "Case",
+          "rect": [
+            88,
+            51,
+            90,
+            44
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine case"
+            }
+          ]
+        },
+        {
+          "object_id": "LAMP",
+          "label": "Lantern",
+          "rect": [
+            150,
+            28,
+            23,
+            24
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine lamp"
+            },
+            {
+              "label": "Take",
+              "command": "take lamp"
+            },
+            {
+              "label": "Turn on",
+              "command": "turn on lamp"
+            }
+          ]
+        },
+        {
+          "object_id": "SWORD",
+          "label": "Sword",
+          "rect": [
+            90,
+            16,
+            77,
+            17
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine sword"
+            },
+            {
+              "label": "Take",
+              "command": "take sword"
+            }
+          ]
+        },
+        {
+          "object_id": "WOODEN-DOOR",
+          "label": "Door",
+          "rect": [
+            12,
+            0,
+            60,
+            99
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine lettering"
+            },
+            {
+              "label": "Read",
+              "command": "read lettering"
+            }
+          ]
+        },
+        {
+          "object_id": "EXIT-EAST",
+          "label": "Kitchen",
+          "rect": [
+            210,
+            22,
+            46,
+            84
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Go east",
+              "command": "east"
+            }
+          ]
+        },
+        {
+          "object_id": "RUG",
+          "label": "Rug",
+          "rect": [
+            3,
+            96,
+            247,
+            56
+          ],
+          "confidence": "high",
+          "background": true,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine rug"
+            },
+            {
+              "label": "Move",
+              "command": "move rug"
+            }
+          ]
+        },
+        {
+          "object_id": "EXIT-WEST",
+          "label": "Passage",
+          "rect": [
+            25,
+            34,
+            35,
+            44
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Go west",
+              "command": "west"
+            }
+          ]
+        },
+        {
+          "object_id": "TRAP-DOOR",
+          "label": "Trapdoor",
+          "rect": [
+            75,
+            124,
+            110,
+            35
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine trapdoor"
+            },
+            {
+              "label": "Close",
+              "command": "close trapdoor"
+            }
+          ]
+        },
+        {
+          "object_id": "STAIRS",
+          "label": "Stairs",
+          "rect": [
+            91,
+            143,
+            71,
+            16
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Go down",
+              "command": "down"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "object_id": "MAP",
+          "status": "concealed",
+          "detail": "No map appears in this selected room illustration; inventory and treasure contents do not add image keys."
+        }
+      ]
+    },
+    "room-193-state-5": {
+      "image_sha256": "fba4460ee63d1673b775368cfb2602580c6162aceeea13a53d90cdab174019ea",
+      "hotspots": [
+        {
+          "object_id": "TROPHY-CASE",
+          "label": "Case",
+          "rect": [
+            88,
+            51,
+            90,
+            44
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine case"
+            }
+          ]
+        },
+        {
+          "object_id": "LAMP",
+          "label": "Lantern",
+          "rect": [
+            150,
+            28,
+            23,
+            24
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine lamp"
+            },
+            {
+              "label": "Take",
+              "command": "take lamp"
+            },
+            {
+              "label": "Turn on",
+              "command": "turn on lamp"
+            }
+          ]
+        },
+        {
+          "object_id": "SWORD",
+          "label": "Sword",
+          "rect": [
+            90,
+            16,
+            77,
+            17
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine sword"
+            },
+            {
+              "label": "Take",
+              "command": "take sword"
+            }
+          ]
+        },
+        {
+          "object_id": "WOODEN-DOOR",
+          "label": "Door",
+          "rect": [
+            12,
+            0,
+            60,
+            99
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine lettering"
+            },
+            {
+              "label": "Read",
+              "command": "read lettering"
+            }
+          ]
+        },
+        {
+          "object_id": "EXIT-EAST",
+          "label": "Kitchen",
+          "rect": [
+            210,
+            22,
+            46,
+            84
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Go east",
+              "command": "east"
+            }
+          ]
+        },
+        {
+          "object_id": "RUG",
+          "label": "Rug",
+          "rect": [
+            8,
+            95,
+            237,
+            35
+          ],
+          "confidence": "high",
+          "background": true,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine rug"
+            },
+            {
+              "label": "Move",
+              "command": "move rug"
+            }
+          ]
+        },
+        {
+          "object_id": "EXIT-WEST",
+          "label": "Passage",
+          "rect": [
+            25,
+            34,
+            35,
+            44
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Go west",
+              "command": "west"
+            }
+          ]
+        },
+        {
+          "object_id": "TRAP-DOOR",
+          "label": "Trapdoor",
+          "rect": [
+            70,
+            132,
+            108,
+            27
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine trapdoor"
+            },
+            {
+              "label": "Close",
+              "command": "close trapdoor"
+            }
+          ]
+        },
+        {
+          "object_id": "STAIRS",
+          "label": "Stairs",
+          "rect": [
+            87,
+            143,
+            70,
+            16
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Go down",
+              "command": "down"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "object_id": "MAP",
+          "status": "concealed",
+          "detail": "No map appears in this selected room illustration; inventory and treasure contents do not add image keys."
+        }
+      ]
+    },
+    "room-193-state-6": {
+      "image_sha256": "a7166f6135d8654c5e2d1587ad56164cf7eb864b13e4dfa49884604d53bd47a6",
+      "hotspots": [
+        {
+          "object_id": "TROPHY-CASE",
+          "label": "Case",
+          "rect": [
+            88,
+            51,
+            90,
+            44
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine case"
+            }
+          ]
+        },
+        {
+          "object_id": "LAMP",
+          "label": "Lantern",
+          "rect": [
+            150,
+            28,
+            23,
+            24
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine lamp"
+            },
+            {
+              "label": "Take",
+              "command": "take lamp"
+            },
+            {
+              "label": "Turn on",
+              "command": "turn on lamp"
+            }
+          ]
+        },
+        {
+          "object_id": "SWORD",
+          "label": "Sword",
+          "rect": [
+            90,
+            16,
+            77,
+            17
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine sword"
+            },
+            {
+              "label": "Take",
+              "command": "take sword"
+            }
+          ]
+        },
+        {
+          "object_id": "WOODEN-DOOR",
+          "label": "Door",
+          "rect": [
+            12,
+            0,
+            60,
+            99
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine lettering"
+            },
+            {
+              "label": "Read",
+              "command": "read lettering"
+            }
+          ]
+        },
+        {
+          "object_id": "EXIT-EAST",
+          "label": "Kitchen",
+          "rect": [
+            210,
+            22,
+            46,
+            84
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Go east",
+              "command": "east"
+            }
+          ]
+        },
+        {
+          "object_id": "RUG",
+          "label": "Rug",
+          "rect": [
+            8,
+            95,
+            237,
+            35
+          ],
+          "confidence": "high",
+          "background": true,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine rug"
+            },
+            {
+              "label": "Move",
+              "command": "move rug"
+            }
+          ]
+        },
+        {
+          "object_id": "EXIT-WEST",
+          "label": "Passage",
+          "rect": [
+            25,
+            34,
+            35,
+            44
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Go west",
+              "command": "west"
+            }
+          ]
+        },
+        {
+          "object_id": "TRAP-DOOR",
+          "label": "Trapdoor",
+          "rect": [
+            70,
+            132,
+            108,
+            27
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine trapdoor"
+            },
+            {
+              "label": "Open",
+              "command": "open trapdoor"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "object_id": "MAP",
+          "status": "concealed",
+          "detail": "No map appears in this selected room illustration; inventory and treasure contents do not add image keys."
+        }
+      ]
+    },
+    "room-193-state-7": {
+      "image_sha256": "73e4a174646f983dba7b186b8fd3de8cccb03efa91fc838d25d60f31f5428f01",
+      "hotspots": [
+        {
+          "object_id": "TROPHY-CASE",
+          "label": "Case",
+          "rect": [
+            88,
+            51,
+            90,
+            44
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine case"
+            }
+          ]
+        },
+        {
+          "object_id": "LAMP",
+          "label": "Lantern",
+          "rect": [
+            150,
+            28,
+            23,
+            24
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine lamp"
+            },
+            {
+              "label": "Take",
+              "command": "take lamp"
+            },
+            {
+              "label": "Turn on",
+              "command": "turn on lamp"
+            }
+          ]
+        },
+        {
+          "object_id": "SWORD",
+          "label": "Sword",
+          "rect": [
+            90,
+            16,
+            77,
+            17
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine sword"
+            },
+            {
+              "label": "Take",
+              "command": "take sword"
+            }
+          ]
+        },
+        {
+          "object_id": "WOODEN-DOOR",
+          "label": "Door",
+          "rect": [
+            12,
+            0,
+            60,
+            99
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine lettering"
+            },
+            {
+              "label": "Read",
+              "command": "read lettering"
+            }
+          ]
+        },
+        {
+          "object_id": "EXIT-EAST",
+          "label": "Kitchen",
+          "rect": [
+            210,
+            22,
+            46,
+            84
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Go east",
+              "command": "east"
+            }
+          ]
+        },
+        {
+          "object_id": "RUG",
+          "label": "Rug",
+          "rect": [
+            8,
+            95,
+            237,
+            35
+          ],
+          "confidence": "high",
+          "background": true,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine rug"
+            },
+            {
+              "label": "Move",
+              "command": "move rug"
+            }
+          ]
+        },
+        {
+          "object_id": "TRAP-DOOR",
+          "label": "Trapdoor",
+          "rect": [
+            70,
+            132,
+            108,
+            27
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine trapdoor"
+            },
+            {
+              "label": "Open",
+              "command": "open trapdoor"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "object_id": "MAP",
+          "status": "concealed",
+          "detail": "No map appears in this selected room illustration; inventory and treasure contents do not add image keys."
+        }
+      ]
+    },
+    "room-193-state-8": {
+      "image_sha256": "aedec058a7b69d91d13ee70193cb1a28e98241504e18b282066d9c62b454d0bc",
+      "hotspots": [
+        {
+          "object_id": "TROPHY-CASE",
+          "label": "Case",
+          "rect": [
+            88,
+            51,
+            90,
+            44
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine case"
+            }
+          ]
+        },
+        {
+          "object_id": "LAMP",
+          "label": "Lantern",
+          "rect": [
+            150,
+            28,
+            23,
+            24
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine lamp"
+            },
+            {
+              "label": "Take",
+              "command": "take lamp"
+            },
+            {
+              "label": "Turn on",
+              "command": "turn on lamp"
+            }
+          ]
+        },
+        {
+          "object_id": "SWORD",
+          "label": "Sword",
+          "rect": [
+            90,
+            16,
+            77,
+            17
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine sword"
+            },
+            {
+              "label": "Take",
+              "command": "take sword"
+            }
+          ]
+        },
+        {
+          "object_id": "WOODEN-DOOR",
+          "label": "Door",
+          "rect": [
+            12,
+            0,
+            60,
+            99
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine lettering"
+            },
+            {
+              "label": "Read",
+              "command": "read lettering"
+            }
+          ]
+        },
+        {
+          "object_id": "EXIT-EAST",
+          "label": "Kitchen",
+          "rect": [
+            210,
+            22,
+            46,
+            84
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Go east",
+              "command": "east"
+            }
+          ]
+        },
+        {
+          "object_id": "RUG",
+          "label": "Rug",
+          "rect": [
+            3,
+            96,
+            247,
+            56
+          ],
+          "confidence": "high",
+          "background": true,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine rug"
+            },
+            {
+              "label": "Move",
+              "command": "move rug"
+            }
+          ]
+        },
+        {
+          "object_id": "TRAP-DOOR",
+          "label": "Trapdoor",
+          "rect": [
+            75,
+            124,
+            110,
+            35
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Examine",
+              "command": "examine trapdoor"
+            },
+            {
+              "label": "Close",
+              "command": "close trapdoor"
+            }
+          ]
+        },
+        {
+          "object_id": "STAIRS",
+          "label": "Stairs",
+          "rect": [
+            91,
+            143,
+            71,
+            16
+          ],
+          "confidence": "high",
+          "background": false,
+          "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+          "actions": [
+            {
+              "label": "Go down",
+              "command": "down"
+            }
+          ]
+        }
+      ],
+      "unresolved": [
+        {
+          "object_id": "MAP",
+          "status": "concealed",
+          "detail": "No map appears in this selected room illustration; inventory and treasure contents do not add image keys."
+        }
+      ]
+    },
+    "room-201-state-2": {
+      "image_sha256": "33f78c567cd44635491c7529b025fa4fdc9bffe3ecd3173da64daddf83910aab",
+      "hotspots": [],
+      "unresolved": []
+    },
+    "room-72-state-2": {
+      "image_sha256": "f073fcf8063028a02553ee3592b62b9f646fc7050d4374ffa261310233c30336",
+      "hotspots": [],
+      "unresolved": []
+    }
+  }
+}

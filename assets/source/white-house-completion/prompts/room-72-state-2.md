@@ -1,0 +1,3 @@
+Use case: lighting-weather
+Asset type: one complete independent Zork I game scene, room 72 state 2, pitch-black cellar.
+The referenced image is the lit room, supplied solely to identify which scene has lost visibility. Depict the same viewpoint with absolutely no available light. The game says: It is pitch black. Nothing in the room can be seen. The ENTIRE image must be uniformly opaque solid black. No faint outlines, no room geometry, no textures, no highlights, no light source, no glow, no windows, no eyes, no grue, no text, no UI, no border, no transparency. Do not preserve visible details from the reference. This is the darkness presentation itself, not a dimly lit illustration. Landscape approximately 4:3, high-resolution PNG; final display 256 by 159.

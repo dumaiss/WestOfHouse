@@ -1,0 +1,17 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "output_hint": "Generated images are saved to /home/kitamura/.codex/generated_images/01a1b30b-14e6-77a1-92d7-426c931a35aa as /home/kitamura/.codex/generated_images/01a1b30b-14e6-77a1-92d7-426c931a35aa/exec-dd8c4342-8930-47bc-a8d2-26e3f8b8091d.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "references": [
+    "assets/source/white-house-completion/originals/room-193-state-7.png"
+  ],
+  "operation": "edit",
+  "runtime_room": 193,
+  "runtime_state": 2,
+  "prompt_path": "assets/source/white-house-completion/prompts/room-193-state-2.md",
+  "prompt_sha256": "c6478fe0e47556cb0d29127c89cf6e06547ecb90c634317e378d195da8c8896c",
+  "source_sha256": "4ec3aeb3a9813190294a553be3a22201c53d9272b1ea39c2b77463b01aeb2947",
+  "source_size": [
+    1448,
+    1086
+  ]
+}

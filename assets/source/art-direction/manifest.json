@@ -142,13 +142,34 @@
     {
       "room": "ATTIC",
       "runtime_room": 201,
-      "runtime_status": "incomplete",
+      "runtime_status": "ready",
       "specification": "rooms/ATTIC/room.json",
-      "states": [],
+      "states": [
+        {
+          "runtime_state": 1,
+          "symbolic_state": "INITIAL",
+          "asset_key": "room-201-state-1",
+          "specification": "rooms/ATTIC/states/1.json",
+          "prompt": "rooms/ATTIC/prompts/1.md"
+        },
+        {
+          "runtime_state": 2,
+          "symbolic_state": "VISIBILITY-DARK",
+          "asset_key": "room-201-state-2",
+          "specification": "rooms/ATTIC/states/2.json",
+          "prompt": "rooms/ATTIC/prompts/2.md"
+        }
+      ],
       "diagnostics": [
         {
-          "kind": "runtime_unknown",
-          "detail": "The resolver returns state 0; no positive runtime state or image is assigned."
+          "kind": "legacy_state_relationship_unresolved",
+          "state": "INITIAL",
+          "detail": "Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly."
+        },
+        {
+          "kind": "legacy_state_relationship_unresolved",
+          "state": "VISIBILITY-DARK",
+          "detail": "Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly."
         }
       ],
       "unmapped_extracted_states": [
@@ -503,10 +524,35 @@
           "asset_key": "room-72-state-1",
           "specification": "rooms/CELLAR/states/1.json",
           "prompt": "rooms/CELLAR/prompts/1.md"
+        },
+        {
+          "runtime_state": 2,
+          "symbolic_state": "VISIBILITY-DARK",
+          "asset_key": "room-72-state-2",
+          "specification": "rooms/CELLAR/states/2.json",
+          "prompt": "rooms/CELLAR/prompts/2.md"
         }
       ],
-      "diagnostics": [],
+      "diagnostics": [
+        {
+          "kind": "legacy_state_relationship_unresolved",
+          "state": "LOOK-584D7B5798BA",
+          "detail": "Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly."
+        },
+        {
+          "kind": "legacy_state_relationship_unresolved",
+          "state": "VISIBILITY-DARK",
+          "detail": "Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly."
+        }
+      ],
       "unmapped_extracted_states": [
+        {
+          "id": "LOOK-STATE-1",
+          "condition": {
+            "op": "true"
+          },
+          "reason": "No authoritative equivalent legacy relationship established; no additional asset assigned."
+        },
         {
           "id": "ACTION-STATE-2",
           "condition": {
@@ -2792,13 +2838,106 @@
     {
       "room": "LIVING-ROOM",
       "runtime_room": 193,
-      "runtime_status": "incomplete",
+      "runtime_status": "ready",
       "specification": "rooms/LIVING-ROOM/room.json",
-      "states": [],
+      "states": [
+        {
+          "runtime_state": 1,
+          "symbolic_state": "LOOK-12D6CBF94BFE",
+          "asset_key": "room-193-state-1",
+          "specification": "rooms/LIVING-ROOM/states/1.json",
+          "prompt": "rooms/LIVING-ROOM/prompts/1.md"
+        },
+        {
+          "runtime_state": 2,
+          "symbolic_state": "LOOK-3C6469886505",
+          "asset_key": "room-193-state-2",
+          "specification": "rooms/LIVING-ROOM/states/2.json",
+          "prompt": "rooms/LIVING-ROOM/prompts/2.md"
+        },
+        {
+          "runtime_state": 3,
+          "symbolic_state": "LOOK-5AC43322EDEC",
+          "asset_key": "room-193-state-3",
+          "specification": "rooms/LIVING-ROOM/states/3.json",
+          "prompt": "rooms/LIVING-ROOM/prompts/3.md"
+        },
+        {
+          "runtime_state": 4,
+          "symbolic_state": "LOOK-61C0DBB76304",
+          "asset_key": "room-193-state-4",
+          "specification": "rooms/LIVING-ROOM/states/4.json",
+          "prompt": "rooms/LIVING-ROOM/prompts/4.md"
+        },
+        {
+          "runtime_state": 5,
+          "symbolic_state": "LOOK-6C431F0D8929",
+          "asset_key": "room-193-state-5",
+          "specification": "rooms/LIVING-ROOM/states/5.json",
+          "prompt": "rooms/LIVING-ROOM/prompts/5.md"
+        },
+        {
+          "runtime_state": 6,
+          "symbolic_state": "LOOK-8C68B2B893CB",
+          "asset_key": "room-193-state-6",
+          "specification": "rooms/LIVING-ROOM/states/6.json",
+          "prompt": "rooms/LIVING-ROOM/prompts/6.md"
+        },
+        {
+          "runtime_state": 7,
+          "symbolic_state": "LOOK-9BC48C0752B7",
+          "asset_key": "room-193-state-7",
+          "specification": "rooms/LIVING-ROOM/states/7.json",
+          "prompt": "rooms/LIVING-ROOM/prompts/7.md"
+        },
+        {
+          "runtime_state": 8,
+          "symbolic_state": "LOOK-DAF0F91818C8",
+          "asset_key": "room-193-state-8",
+          "specification": "rooms/LIVING-ROOM/states/8.json",
+          "prompt": "rooms/LIVING-ROOM/prompts/8.md"
+        }
+      ],
       "diagnostics": [
         {
-          "kind": "runtime_unknown",
-          "detail": "The resolver returns state 0; no positive runtime state or image is assigned."
+          "kind": "legacy_state_relationship_unresolved",
+          "state": "LOOK-12D6CBF94BFE",
+          "detail": "Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly."
+        },
+        {
+          "kind": "legacy_state_relationship_unresolved",
+          "state": "LOOK-3C6469886505",
+          "detail": "Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly."
+        },
+        {
+          "kind": "legacy_state_relationship_unresolved",
+          "state": "LOOK-5AC43322EDEC",
+          "detail": "Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly."
+        },
+        {
+          "kind": "legacy_state_relationship_unresolved",
+          "state": "LOOK-61C0DBB76304",
+          "detail": "Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly."
+        },
+        {
+          "kind": "legacy_state_relationship_unresolved",
+          "state": "LOOK-6C431F0D8929",
+          "detail": "Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly."
+        },
+        {
+          "kind": "legacy_state_relationship_unresolved",
+          "state": "LOOK-8C68B2B893CB",
+          "detail": "Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly."
+        },
+        {
+          "kind": "legacy_state_relationship_unresolved",
+          "state": "LOOK-9BC48C0752B7",
+          "detail": "Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly."
+        },
+        {
+          "kind": "legacy_state_relationship_unresolved",
+          "state": "LOOK-DAF0F91818C8",
+          "detail": "Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly."
         }
       ],
       "unmapped_extracted_states": [
@@ -7030,5 +7169,5 @@
     "source_aspect": "4:3 landscape",
     "crop": "Safe center crop from 4:3 to 256:159; protect subjects within the central 82.8% of source height and central 90% of width."
   },
-  "story_sha256": "cce1fdc54f18a6616e124db2de245aec1da943b458ebdee61bf1c6ff0a4038d4"
+  "story_sha256": "dabcfa053043aeaebfb9d0839c0a05e31a277fc2aeb724111bcdb85be60a1e3d"
 }

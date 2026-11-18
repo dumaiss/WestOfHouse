@@ -1,0 +1,237 @@
+{
+  "schema": "scene_hotspots_v1",
+  "room": 180,
+  "state": 1,
+  "room_name": "WEST-OF-HOUSE",
+  "binding": "mapped",
+  "asset_key": "room-180-state-1",
+  "image_size": [
+    256,
+    159
+  ],
+  "image": {
+    "path": "assets/review/white-house-completion/rgb/room-180-state-1.png",
+    "sha256": "44a59b02072c23f28ef42e5ba277fd8e1f4137e5f33ad03744abaf5e09866bc7",
+    "original_path": "assets/source/white-house/originals/room-180-state-1.png",
+    "original_sha256": "30ae0d408cd44cd188af679fd76c0a5a31a840129526a916613cdcef0c34d102",
+    "crop_box": [
+      0,
+      0,
+      1448,
+      899
+    ],
+    "coordinate_reference": "final RGB preview; no additional scaling transform"
+  },
+  "hotspots": [
+    {
+      "object_id": "WHITE-HOUSE",
+      "label": "House",
+      "rect": [
+        52,
+        4,
+        190,
+        146
+      ],
+      "confidence": "high",
+      "background": true,
+      "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+      "actions": [
+        {
+          "label": "Examine",
+          "command": "examine house",
+          "source_refs": [
+            "SRC-OBJECT-WHITE-HOUSE"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 199,
+            "expression": "<SYNTAX EXAMINE OBJECT (MANY) = V-EXAMINE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        }
+      ],
+      "id": "h1",
+      "provenance": {
+        "pointer": "/scene/objects/3",
+        "source_refs": [
+          "SRC-OBJECT-WHITE-HOUSE"
+        ]
+      }
+    },
+    {
+      "object_id": "FRONT-DOOR",
+      "label": "Door",
+      "rect": [
+        153,
+        89,
+        39,
+        57
+      ],
+      "confidence": "high",
+      "background": false,
+      "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+      "actions": [
+        {
+          "label": "Examine",
+          "command": "examine door",
+          "source_refs": [
+            "SRC-OBJECT-FRONT-DOOR"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 199,
+            "expression": "<SYNTAX EXAMINE OBJECT (MANY) = V-EXAMINE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        },
+        {
+          "label": "Open",
+          "command": "open door",
+          "source_refs": [
+            "SRC-OBJECT-FRONT-DOOR"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 337,
+            "expression": "<SYNTAX OPEN OBJECT (FIND DOORBIT) (HELD CARRIED ON-GROUND IN-ROOM) = V-OPEN>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        }
+      ],
+      "id": "h2",
+      "provenance": {
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-FRONT-DOOR"
+        ]
+      }
+    },
+    {
+      "object_id": "MAILBOX",
+      "label": "Mailbox",
+      "rect": [
+        193,
+        120,
+        20,
+        34
+      ],
+      "confidence": "high",
+      "background": false,
+      "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+      "actions": [
+        {
+          "label": "Examine",
+          "command": "examine mailbox",
+          "source_refs": [
+            "SRC-OBJECT-MAILBOX"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 199,
+            "expression": "<SYNTAX EXAMINE OBJECT (MANY) = V-EXAMINE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        },
+        {
+          "label": "Open",
+          "command": "open mailbox",
+          "source_refs": [
+            "SRC-OBJECT-MAILBOX"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 337,
+            "expression": "<SYNTAX OPEN OBJECT (FIND DOORBIT) (HELD CARRIED ON-GROUND IN-ROOM) = V-OPEN>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        },
+        {
+          "label": "Close",
+          "command": "close mailbox",
+          "source_refs": [
+            "SRC-OBJECT-MAILBOX"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 140,
+            "expression": "<SYNTAX CLOSE OBJECT (FIND DOORBIT) (HELD CARRIED ON-GROUND IN-ROOM) = V-CLOSE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        }
+      ],
+      "id": "h3",
+      "provenance": {
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-MAILBOX"
+        ]
+      }
+    },
+    {
+      "object_id": "FOREST",
+      "label": "Forest",
+      "rect": [
+        0,
+        67,
+        50,
+        49
+      ],
+      "confidence": "high",
+      "background": true,
+      "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+      "actions": [
+        {
+          "label": "Examine",
+          "command": "examine forest",
+          "source_refs": [
+            "SRC-OBJECT-FOREST"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 199,
+            "expression": "<SYNTAX EXAMINE OBJECT (MANY) = V-EXAMINE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        }
+      ],
+      "id": "h4",
+      "provenance": {
+        "pointer": "/scene/objects/5",
+        "source_refs": [
+          "SRC-OBJECT-FOREST"
+        ]
+      }
+    }
+  ],
+  "unresolved": [
+    {
+      "object_id": "ADVERTISEMENT",
+      "status": "concealed",
+      "detail": "Leaflet is inside the closed mailbox; no visible leaflet is localized."
+    }
+  ],
+  "localization": {
+    "method": "Assistant visual inspection of final RGB crops",
+    "observations": "assets/source/white-house-completion/observations.json",
+    "observations_sha256": "4eede9b95b5bb8e64e9414ff94cbc2c22a7adeb9fc0ea1368190d15fed3bda90"
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/west-of-house.scene.json",
+    "scene_sha256": "b87f1143c3c138b49b0f2658f66d499513ddbf79631ac9bd44eb84c5c8d24817",
+    "zil_source_sha256": {
+      "1actions.zil": "443b9e0082f51b04ae053418039005945efa29945d945102cf7d494fef02fdf7",
+      "1dungeon.zil": "8e223dc75ce64cff8542266101742ea73774533787c5257e8df4a262e4f02766",
+      "gclock.zil": "92c4d66f18eeba8de1497215a0e17ade6c2cf1e5e050f016cf99160e41b154c6",
+      "gglobals.zil": "5945abfeeff71cd2b2088653c7572d3c72bf14d5af65c41b4425d945a6bb6e0a",
+      "gmacros.zil": "d665c73e9231429a772877357fd56d57c946838a5260a74f705c2dc898ebd8f5",
+      "gmain.zil": "712e27ab29d36f3d36c7994ec6d41011cb869990d8780a03bb2ee8148d3f1740",
+      "gparser.zil": "869e1391bdd1518495a9f36391ec36045f5f5af401f18edb921b5c9cfd442397",
+      "gsyntax.zil": "b0f0b4de6068bb85cf96306a16e07f410518669d12260682d3ac71e2e42b5621",
+      "gverbs.zil": "e1150d6300e262f774b59fe96f8139980dfad3c41f0e93f3af49140b5f57e74e",
+      "zork1.zil": "3a96d90419db3907951d05fbd0032b3b935775db9f8c41c13bf1f5addaebac9e"
+    },
+    "phase1_specification": "assets/source/art-direction/rooms/WEST-OF-HOUSE/states/1.json",
+    "pilot_manifest": "assets/source/white-house-completion/manifest.json"
+  },
+  "overlap_policy": "smallest matching rectangle; authored order breaks equal-area ties; half-open edges"
+}

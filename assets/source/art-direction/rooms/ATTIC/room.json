@@ -4,7 +4,7 @@
   "room": "ATTIC",
   "title": "Attic",
   "runtime_room": 201,
-  "runtime_status": "incomplete",
+  "runtime_status": "ready",
   "canonical": {
     "descriptions": [
       {
@@ -446,10 +446,5 @@
       "Generated mechanically from ZIL source; unresolved expressions are preserved as source_expression values."
     ]
   },
-  "unresolved": [
-    {
-      "kind": "runtime_unknown",
-      "detail": "The resolver returns state 0; no positive runtime state or image is assigned."
-    }
-  ]
+  "unresolved": []
 }

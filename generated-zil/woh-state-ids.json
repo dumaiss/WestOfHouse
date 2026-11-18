@@ -28,8 +28,17 @@
     },
     {
       "room": "ATTIC",
-      "status": "incomplete",
-      "states": []
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "INITIAL"
+        },
+        {
+          "value": 2,
+          "id": "VISIBILITY-DARK"
+        }
+      ]
     },
     {
       "room": "BAT-ROOM",
@@ -68,6 +77,10 @@
         {
           "value": 1,
           "id": "LOOK-584D7B5798BA"
+        },
+        {
+          "value": 2,
+          "id": "VISIBILITY-DARK"
         }
       ]
     },
@@ -468,8 +481,41 @@
     },
     {
       "room": "LIVING-ROOM",
-      "status": "incomplete",
-      "states": []
+      "status": "ready",
+      "states": [
+        {
+          "value": 1,
+          "id": "LOOK-12D6CBF94BFE"
+        },
+        {
+          "value": 2,
+          "id": "LOOK-3C6469886505"
+        },
+        {
+          "value": 3,
+          "id": "LOOK-5AC43322EDEC"
+        },
+        {
+          "value": 4,
+          "id": "LOOK-61C0DBB76304"
+        },
+        {
+          "value": 5,
+          "id": "LOOK-6C431F0D8929"
+        },
+        {
+          "value": 6,
+          "id": "LOOK-8C68B2B893CB"
+        },
+        {
+          "value": 7,
+          "id": "LOOK-9BC48C0752B7"
+        },
+        {
+          "value": 8,
+          "id": "LOOK-DAF0F91818C8"
+        }
+      ]
     },
     {
       "room": "LOUD-ROOM",

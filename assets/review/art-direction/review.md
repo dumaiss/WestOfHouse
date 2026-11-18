@@ -1,6 +1,6 @@
 # Phase 1 review
 
-Rooms: 110. Runtime states / prompts: 127. Unresolved runtime rooms: 11.
+Rooms: 110. Runtime states / prompts: 138. Unresolved runtime rooms: 9.
 
 ## Validation
 
@@ -20,9 +20,14 @@ Schema and semantic checks: PASS.
 ## Room diagnostics
 
 ### ATTIC
-- runtime_unknown: The resolver returns state 0; no positive runtime state or image is assigned.
+- legacy_state_relationship_unresolved: Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly.
+- legacy_state_relationship_unresolved: Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly.
 
 ### CANYON-BOTTOM
+- legacy_state_relationship_unresolved: Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly.
+
+### CELLAR
+- legacy_state_relationship_unresolved: Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly.
 - legacy_state_relationship_unresolved: Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly.
 
 ### CYCLOPS-ROOM
@@ -56,7 +61,14 @@ Schema and semantic checks: PASS.
 - legacy_state_relationship_unresolved: Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly.
 
 ### LIVING-ROOM
-- runtime_unknown: The resolver returns state 0; no positive runtime state or image is assigned.
+- legacy_state_relationship_unresolved: Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly.
+- legacy_state_relationship_unresolved: Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly.
+- legacy_state_relationship_unresolved: Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly.
+- legacy_state_relationship_unresolved: Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly.
+- legacy_state_relationship_unresolved: Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly.
+- legacy_state_relationship_unresolved: Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly.
+- legacy_state_relationship_unresolved: Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly.
+- legacy_state_relationship_unresolved: Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly.
 
 ### LOWER-SHAFT
 - legacy_state_relationship_unresolved: Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly.

@@ -66,6 +66,20 @@ validated domain. It does **not** certify assets, nor prove discovery of every
 presentation variation in the game. `incomplete` means a real recognition issue
 prevents deterministic selection; the report lists its blocking reasons.
 
+## House-room extraction
+
+Attic and Living Room are now ready. Attic and Cellar also include the shared
+`LIT == 0` darkness presentation; their existing lit identity remains state 1
+and darkness is state 2. This is explicitly reviewed house-area coverage, not
+a claim that visibility has been modeled for every underground room. Shared object handlers are traversed with
+ordered, statically provable room guards, so rope actions restricted to the
+Dome Room do not create Attic states. A validated full-room LOOK partition
+absorbs supported action replies affecting the same described fixtures. This
+reconciliation is withheld when the handler has unresolved candidate paths;
+unknown presentation effects are not discarded to achieve readiness.
+
+See [house states](HOUSE-STATES.md) for the current numeric bindings and checks.
+
 ## Dictionary contract
 
 The [JSON Schema](../../schemas/room-state-dictionary-v1.schema.json) describes
@@ -103,7 +117,10 @@ The matching algebra supports `true`; `{ref: ID, eq: VALUE}` / `ne`; numeric
 `lt`, `le`, `gt`, `ge`; and `all`, `any`, `not`. Source `G?`/`L?` use signed
 ordering. Unsigned ordering is not guessed from a signed primitive. Dynamic
 selectors, recursive containment, comparison between two observations and unknown
-locals remain unsupported. In room-local source analysis, a location operand
+locals remain unsupported except for simple path-local aliases of typed scalar
+reads (`SET RUG? ,RUG-MOVED`, for example). Aliases are substituted into later
+conditions and forgotten on writes or unknown calls; they are not runtime
+observations. In room-local source analysis, a location operand
 `HERE` denotes the analyzed room; this does not implement VM current-room binding.
 
 Strings use quoted JSON scalar spelling, valid YAML with no boolean-name
@@ -153,7 +170,9 @@ unproven meanings and missing aliases appear **only in this optional output**;
 they cannot affect the dictionary, recognition report, totals or strict mode.
 Previous compatibility files are not implicitly refreshed by a normal run.
 
-State IDs and source predicates remain unchanged by this correction. Conditional
+The earlier readiness correction kept state IDs and source predicates unchanged.
+The house extraction update changes only the two previously incomplete room
+definitions, preserving all other room definitions and assigned numeric IDs. Conditional
 look/post-mutation IDs use stable content hashes; initial/counter IDs retain their
 existing naming. Future downstream build stages may consume these identities
 without requiring assets to exist at this milestone.

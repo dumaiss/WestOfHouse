@@ -1,0 +1,16 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "output_hint": "Generated images are saved to /home/kitamura/.codex/generated_images/01a1b30b-14e6-77a1-92d7-426c931a35aa as /home/kitamura/.codex/generated_images/01a1b30b-14e6-77a1-92d7-426c931a35aa/exec-4ee4213c-ba51-479a-ba26-22fa71167cec.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "reference": "assets/source/white-house/originals/room-201-state-unbound.png",
+  "operation": "edit",
+  "runtime_room": 201,
+  "runtime_state": 1,
+  "reason": "Remove unsupported attic window; preserve existing source-backed room dressing.",
+  "prompt_path": "assets/source/white-house-completion/prompts/room-201-state-1.md",
+  "prompt_sha256": "de9ac71fe2a6ab96140adcf7e1d9defa051de815073cc2733d7d380d5522fd39",
+  "source_sha256": "46e4a6b4a5dec38deba48b183856ef03c008067aa940f6cdb1ec10f19d868841",
+  "source_size": [
+    1448,
+    1086
+  ]
+}

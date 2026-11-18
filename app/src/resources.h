@@ -7,6 +7,9 @@
 int resources_open(const char *path);
 void resources_close(void);
 int resources_story(kos_reader_t *reader);
+/* The background music (a KonaOS PCM stream), or negative when the archive
+ * carries none. */
+int resources_music(kos_reader_t *reader);
 /* 1: mapped scene, 0: no artwork for pair, negative: bad/missing payload. */
 int resources_scene(uint16_t room, uint16_t state);
 /* Title is the existing full-screen YJK KIMG resource. */

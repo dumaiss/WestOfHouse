@@ -1,0 +1,89 @@
+{
+  "schema": "woh_scene_images_v1",
+  "target": [
+    256,
+    159
+  ],
+  "records": [
+    {
+      "asset_key": "room-72-state-1",
+      "room": "CELLAR",
+      "runtime_room": 72,
+      "runtime_state": 1,
+      "binding": "mapped",
+      "generation": {
+        "tool": "built-in image_gen.imagegen",
+        "original_tool_path": "/home/kitamura/.codex/generated_images/01a1b30b-14e6-77a1-92d7-426c931a35aa/exec-44a399a9-4ba1-4121-9a0d-caf3c6f35fe0.png",
+        "output_hint": "Generated images are saved to /home/kitamura/.codex/generated_images/01a1b30b-14e6-77a1-92d7-426c931a35aa as /home/kitamura/.codex/generated_images/01a1b30b-14e6-77a1-92d7-426c931a35aa/exec-44a399a9-4ba1-4121-9a0d-caf3c6f35fe0.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+      },
+      "original": "originals/room-72-state-1.png",
+      "prompt": "prompts/room-72-state-1.md",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "crop_box": [
+        0,
+        93,
+        1448,
+        992
+      ],
+      "phase1_specification": "assets/source/art-direction/rooms/CELLAR/states/1.json",
+      "source_sha256": "72a070ef932a25d58daad2b3f8b7ac64beab6041cbe4e9062880b0087c19ba8d",
+      "prompt_sha256": "ca9fa9a6265db0308e11744c97240845cdaf1d9b74af644900382abf714e367c",
+      "reference_images": [
+        {
+          "path": "assets/source/white-house/originals/room-203-state-1.png",
+          "sha256": "34f9d904e66b82d9342ccd5438ee58faceca6ceb28dcf0b1ad1e40e93e22ffad",
+          "role": "style and shared interior materials"
+        },
+        {
+          "path": "assets/source/white-house/originals/room-201-state-unbound.png",
+          "sha256": "138b33f5d609dd79128e65cefb338a6388c347c91630f4eb0a6e2925adb1735e",
+          "role": "style and shared interior materials"
+        }
+      ],
+      "deployment_ready": false
+    },
+    {
+      "asset_key": "room-193-state-unbound",
+      "room": "LIVING-ROOM",
+      "runtime_room": 193,
+      "runtime_state": null,
+      "binding": "unbound-concept",
+      "generation": {
+        "tool": "built-in image_gen.imagegen",
+        "original_tool_path": "/home/kitamura/.codex/generated_images/01a1b30b-14e6-77a1-92d7-426c931a35aa/exec-68c05f86-6603-43b7-bb58-aef39cc091b7.png",
+        "output_hint": "Generated images are saved to /home/kitamura/.codex/generated_images/01a1b30b-14e6-77a1-92d7-426c931a35aa as /home/kitamura/.codex/generated_images/01a1b30b-14e6-77a1-92d7-426c931a35aa/exec-68c05f86-6603-43b7-bb58-aef39cc091b7.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+      },
+      "original": "originals/room-193-state-unbound.png",
+      "prompt": "prompts/room-193-state-unbound.md",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "crop_box": [
+        0,
+        93,
+        1448,
+        992
+      ],
+      "phase1_specification": "assets/source/art-direction/rooms/LIVING-ROOM/room.json",
+      "source_sha256": "6f5b6e207380148fba3df5da4a03f8f3e240f949b2af8994c68f171ce130d7d3",
+      "prompt_sha256": "25a70b05ca04a418171cb8c5c59b10de0d334d29ca1ad1ee5889291389252d67",
+      "reference_images": [
+        {
+          "path": "assets/source/white-house/originals/room-203-state-1.png",
+          "sha256": "34f9d904e66b82d9342ccd5438ee58faceca6ceb28dcf0b1ad1e40e93e22ffad",
+          "role": "style and shared interior materials"
+        },
+        {
+          "path": "assets/source/white-house/originals/room-201-state-unbound.png",
+          "sha256": "138b33f5d609dd79128e65cefb338a6388c347c91630f4eb0a6e2925adb1735e",
+          "role": "style and shared interior materials"
+        }
+      ],
+      "deployment_ready": false
+    }
+  ]
+}

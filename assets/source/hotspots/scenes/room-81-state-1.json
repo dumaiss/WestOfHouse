@@ -10,7 +10,7 @@
     159
   ],
   "image": {
-    "path": "assets/review/white-house/previews/rgb/room-81-state-1.png",
+    "path": "assets/review/white-house-completion/rgb/room-81-state-1.png",
     "sha256": "a9463f48ebe0bf463904fc7c1cb67f1a9a53a4095a1a45f9da428e64a567f3b3",
     "original_path": "assets/source/white-house/originals/room-81-state-1.png",
     "original_sha256": "35c72846709cf21287a1698525955b52318b3f5ac68f0fadafa46f511b5a33ca",
@@ -34,7 +34,6 @@
       ],
       "confidence": "high",
       "background": true,
-      "id": "h1",
       "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
       "actions": [
         {
@@ -51,6 +50,7 @@
           "authority": "Suggestion only; the original parser validates and executes it."
         }
       ],
+      "id": "h1",
       "provenance": {
         "pointer": "/scene/objects/2",
         "source_refs": [
@@ -68,7 +68,6 @@
         36
       ],
       "confidence": "high",
-      "id": "h2",
       "background": false,
       "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
       "actions": [
@@ -99,6 +98,7 @@
           "authority": "Suggestion only; the original parser validates and executes it."
         }
       ],
+      "id": "h2",
       "provenance": {
         "pointer": "/scene/objects/0",
         "source_refs": [
@@ -116,7 +116,6 @@
         36
       ],
       "confidence": "high",
-      "id": "h3",
       "background": false,
       "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
       "actions": [
@@ -147,6 +146,7 @@
           "authority": "Suggestion only; the original parser validates and executes it."
         }
       ],
+      "id": "h3",
       "provenance": {
         "pointer": "/scene/objects/0",
         "source_refs": [
@@ -164,7 +164,6 @@
         39
       ],
       "confidence": "high",
-      "id": "h4",
       "background": false,
       "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
       "actions": [
@@ -195,6 +194,7 @@
           "authority": "Suggestion only; the original parser validates and executes it."
         }
       ],
+      "id": "h4",
       "provenance": {
         "pointer": "/scene/objects/0",
         "source_refs": [
@@ -212,7 +212,6 @@
         39
       ],
       "confidence": "high",
-      "id": "h5",
       "background": false,
       "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
       "actions": [
@@ -243,6 +242,7 @@
           "authority": "Suggestion only; the original parser validates and executes it."
         }
       ],
+      "id": "h5",
       "provenance": {
         "pointer": "/scene/objects/0",
         "source_refs": [
@@ -260,9 +260,8 @@
         67
       ],
       "confidence": "high",
-      "basis": "Visible winding path and explicit north exit.",
-      "id": "h6",
       "background": false,
+      "basis": "Visible winding path and explicit north exit.",
       "actions": [
         {
           "label": "Go north",
@@ -277,6 +276,7 @@
           "authority": "Suggestion only; the original parser validates and executes it."
         }
       ],
+      "id": "h6",
       "provenance": {
         "pointer": "/scene/exits/5",
         "source_refs": [
@@ -295,7 +295,6 @@
       ],
       "confidence": "high",
       "background": true,
-      "id": "h7",
       "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
       "actions": [
         {
@@ -312,6 +311,7 @@
           "authority": "Suggestion only; the original parser validates and executes it."
         }
       ],
+      "id": "h7",
       "provenance": {
         "pointer": "/scene/objects/3",
         "source_refs": [
@@ -322,9 +322,9 @@
   ],
   "unresolved": [],
   "localization": {
-    "method": "Vision inspection by the coding assistant of the final RGB previews and original illustrations; rectangles estimated directly in final 256x159 pixels. No keyword/image-template localization.",
-    "observations": "tools/scene-hotspots/observations.json",
-    "observations_sha256": "270c6e38858865cf79ddbcf3f1eec5adf798c2a26ca3d31718336e68d49a216e"
+    "method": "Assistant visual inspection of final RGB crops",
+    "observations": "assets/source/white-house-completion/observations.json",
+    "observations_sha256": "4eede9b95b5bb8e64e9414ff94cbc2c22a7adeb9fc0ea1368190d15fed3bda90"
   },
   "provenance": {
     "scene_file": "assets/source/scene-facts/north-of-house.scene.json",
@@ -341,8 +341,8 @@
       "gverbs.zil": "e1150d6300e262f774b59fe96f8139980dfad3c41f0e93f3af49140b5f57e74e",
       "zork1.zil": "3a96d90419db3907951d05fbd0032b3b935775db9f8c41c13bf1f5addaebac9e"
     },
-    "phase1_specification": "rooms/NORTH-OF-HOUSE/states/1.json",
-    "pilot_manifest": "assets/source/white-house/manifest.json"
+    "phase1_specification": "assets/source/art-direction/rooms/NORTH-OF-HOUSE/states/1.json",
+    "pilot_manifest": "assets/source/white-house-completion/manifest.json"
   },
   "overlap_policy": "smallest matching rectangle; authored order breaks equal-area ties; half-open edges"
 }

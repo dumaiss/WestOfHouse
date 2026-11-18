@@ -14,6 +14,9 @@ MUTATIONS = {'SETG', 'FSET', 'FCLEAR', 'MOVE', 'REMOVE', 'REMOVE-CAREFULLY', 'PU
 # Flags with a direct visible/presentation meaning. Other mutations do not
 # establish a candidate state merely because an action changes game memory.
 PRESENTATION_FLAGS = {'INVISIBLE', 'OPENBIT', 'ONBIT', 'NDESCBIT', 'TOUCHBIT', 'MUNGBIT'}
+# Explicitly reviewed house-area coverage. Other underground rooms need their
+# own visibility review before their existing presentation identities change.
+HOUSE_VISIBILITY_ROOMS = {'ATTIC', 'CELLAR'}
 
 
 @dataclass
@@ -44,6 +47,9 @@ class PathState:
     limitations: tuple = ()
     terminal: bool = False
     returned: bool = False
+    # Per-path snapshots of simple local assignments. Unknown calls and writes
+    # invalidate them rather than silently re-reading a possibly changed global.
+    locals: dict = field(default_factory=dict)
 
 
 def remove_ref(condition, ref):
@@ -85,6 +91,15 @@ class Discovery:
         self.states = []
         self.events = set()
         self.counter_states = {}
+        self.look_objects = set()
+        self.covered_action_ids = set()
+
+    def local_value(self, node, path):
+        if isinstance(node, zil.Atom) and node.value.startswith('.'):
+            return path.locals.get(zil.symbol(node), node)
+        if isinstance(node, zil.Form):
+            return replace(node, items=[self.local_value(v, path) for v in node.items])
+        return node
 
     def issue(self, reason, value, **details):
         record = {'reason': reason, 'source': provenance(value), **details}
@@ -158,7 +173,7 @@ class Discovery:
                     for clause in node.items[1:]:
                         if not isinstance(clause, zil.Form) or not clause.items:
                             continue
-                        condition = self.norm.condition(clause.items[0])
+                        condition = self.norm.condition(self.local_value(clause.items[0], path))
                         branch = combine('all', [path.condition, negate(combine('any', prior)), condition])
                         has_else |= condition is True
                         prior.append(condition)
@@ -181,6 +196,20 @@ class Discovery:
                     continue
                 if op in MUTATIONS:
                     path = self.mutation(path, node)
+                    path = replace(path, locals={})
+                elif op == 'SET' and len(node.items) == 3:
+                    name = zil.symbol(node.items[1])
+                    value = self.local_value(node.items[2], path)
+                    bindings = dict(path.locals)
+                    # Only a typed scalar read is admitted.
+                    # Unsupported assignments forget an earlier binding.
+                    if self.norm.operand(value):
+                        bindings[name] = value
+                        path = replace(path, locals=bindings)
+                    else:
+                        bindings.pop(name, None)
+                        path = replace(path, locals=bindings,
+                                       limitations=path.limitations + (zil.render(node),))
                 elif op == 'TELL':
                     tables = tuple((n, len(path.writes)) for n in zil.walk(node) if zil.head(n) == 'GET')
                     opaque = tuple('Unsupported TELL interpolation: ' + zil.render(n)
@@ -206,7 +235,8 @@ class Discovery:
                 elif op:
                     # Retain unsupported calls/control forms. Their text or
                     # mutation side effects must not be silently ignored.
-                    path = replace(path, limitations=path.limitations + (zil.render(node),))
+                    path = replace(path, locals={},
+                                   limitations=path.limitations + (zil.render(node),))
                     for nested in zil.walk(node):
                         if zil.head(nested) == 'QUEUE' and len(nested.items) > 1:
                             event = zil.symbol(nested.items[1])
@@ -304,7 +334,8 @@ class Discovery:
     def action_states(self, routine):
         # Discover action bodies from syntax alone. Trigger operands are not
         # persistent observations; other guards remain part of the proof.
-        for node in zil.walk(routine.form):
+        before = {s.id for s in self.states}
+        for node in self.room_action_nodes(routine.form):
             if zil.head(node) != 'COND':
                 continue
             for clause in node.items[1:]:
@@ -314,6 +345,58 @@ class Discovery:
                 if not zil.contains_symbol(guard, 'VERB?'):
                     continue
                 self.action_body(routine, guard, clause.items[1:])
+        added = [s for s in self.states if s.id not in before]
+        if all(not unknowns(s.condition) for s in added):
+            self.states = [s for s in self.states
+                           if s.id in before or s.id not in self.covered_action_ids]
+
+    def room_guard(self, node):
+        """Prove only static room guards; action/global conditions stay unknown.
+
+        This is used for reachability, not emitted recognition predicates. A
+        shared object's handler can contain actions for entirely different rooms.
+        """
+        op = zil.head(node)
+        if zil.scalar(node) is True:
+            return True
+        if zil.scalar(node) is False:
+            return False
+        args = node.items[1:] if isinstance(node, zil.Form) else []
+        if op in {'EQUAL?', '==?'} and len(args) >= 2:
+            names = [zil.symbol(a) for a in args]
+            if names[0] == 'HERE' and all(n in self.source.index['ROOM'] for n in names[1:]):
+                return self.room in names[1:]
+        if op == 'NOT' and len(args) == 1:
+            result = self.room_guard(args[0])
+            return None if result is None else not result
+        if op in {'AND', 'OR'}:
+            values = [self.room_guard(a) for a in args]
+            if op == 'AND':
+                return False if False in values else None if None in values else True
+            return True if True in values else None if None in values else False
+        return None
+
+    def room_action_nodes(self, node):
+        """Walk reachable COND bodies, respecting proven earlier branches."""
+        if not isinstance(node, zil.Form):
+            return
+        if zil.head(node) == 'COND':
+            clauses = []
+            for clause in node.items[1:]:
+                if not isinstance(clause, zil.Form) or not clause.items:
+                    continue
+                known = self.room_guard(clause.items[0])
+                if known is not False:
+                    clauses.append(clause)
+                if known is True:
+                    break
+            yield replace(node, items=[node.items[0], *clauses])
+            for clause in clauses:
+                for child in clause.items[1:]:
+                    yield from self.room_action_nodes(child)
+        else:
+            for child in node.items:
+                yield from self.room_action_nodes(child)
 
     def trigger_guard(self, guard):
         op = zil.head(guard)
@@ -340,7 +423,12 @@ class Discovery:
                 if path.limitations:
                     condition = combine('all', [condition, {'unknown': '; '.join(path.limitations)}])
                 identity = digest([routine.name, condition, path.text])
-                self.add(State('POST-' + routine.name + '-' + identity, condition,
+                state_id = 'POST-' + routine.name + '-' + identity
+                if all(self.norm.observations[ref].symbol in self.look_objects for ref in relevant):
+                    # Reconcile only after the whole action handler has been
+                    # analyzed. Unsupported sibling paths must remain visible.
+                    self.covered_action_ids.add(state_id)
+                self.add(State(state_id, condition,
                                'explicit_presentation_mutation', provenance(routine.form), path.text))
 
     def discover(self):
@@ -348,6 +436,12 @@ class Discovery:
         action = self.source.property_values(room, 'ACTION')
         handler = self.source.index['ROUTINE'].get(zil.symbol(action[0])) if action else None
         has_look = self.look_states(handler) if handler else False
+        if has_look:
+            from validation import validate
+            if validate(self.states, self.norm.observations, self.source)['ready']:
+                self.look_objects = {self.norm.observations[ref].symbol
+                                     for state in self.states for ref in refs(state.condition)
+                                     if self.norm.observations[ref].kind == 'object_attribute'}
         for name in self.source.handlers(self.room):
             self.action_states(self.source.index['ROUTINE'][name])
         if not has_look:
@@ -362,5 +456,39 @@ class Discovery:
                 condition = True
             base_text = tuple(zil.strings_in(self.source.property_values(room, 'LDESC')))
             self.add(State('INITIAL', condition, 'base_room_description', provenance(room.form), base_text))
+        self.house_visibility_states()
         self.states.sort(key=lambda s: (s.id != 'INITIAL', s.id))
         return self.states
+
+    def house_visibility_states(self):
+        """Apply the source's shared darkness gate to the reviewed house rooms.
+
+        Read the already computed LIT VM word; do not inspect lantern inventory,
+        call LIT? (which has parser side effects), or add another image key.
+        Existing lit identities stay unchanged; VISIBILITY-DARK sorts after them.
+        """
+        if self.room not in HOUSE_VISIBILITY_ROOMS:
+            return
+        routine = self.source.index['ROUTINE'].get('DESCRIBE-ROOM')
+        if routine is None or 'LIT' not in self.source.index['GLOBAL']:
+            return
+        cond = next((n for n in routine.form.items[3:] if zil.head(n) == 'COND'), None)
+        clause = cond.items[1] if cond and len(cond.items) > 1 else None
+        if (not clause or zil.render(clause.items[0]) != '<NOT ,LIT>'
+                or not any(zil.head(n) == 'TELL' and 'It is pitch black.' in tuple(zil.strings_in(n))
+                           for n in clause.items[1:])
+                or not any(zil.head(n) == 'RFALSE' for n in clause.items[1:])):
+            self.add(State('VISIBILITY-DARK', {'unknown': 'Shared darkness gate changed'},
+                           'shared_darkness_description', provenance(routine.form)))
+            return
+        # VM globals are 16-bit words. Testing zero/nonzero needs no inference
+        # about the return type of the parser's complex LIT? routine.
+        observation = self.norm.observe(Observation('global', 'LIT', 'unsigned16'))
+        for state in self.states:
+            state.condition = combine('all', [state.condition, {'ref': observation.id, 'ne': 0}])
+        origin = provenance(clause)
+        origin['description'] = 'It is pitch black.'
+        # Room-specific LDESC/M-LOOK text is bypassed in darkness. The shared
+        # message is traced in origin, not misattributed to a room's scene facts.
+        self.add(State('VISIBILITY-DARK', {'ref': observation.id, 'eq': 0},
+                       'shared_darkness_description', origin))

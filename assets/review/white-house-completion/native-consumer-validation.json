@@ -1,0 +1,9 @@
+{
+  "scenes": 20,
+  "native_consumer_accepted": 20,
+  "native_action_decoding": "passed",
+  "native_python_hit_agreement_pixels": 814080,
+  "dark_tables_empty": true,
+  "consumer_source_sha256": "f076efa3f5cabc0dbb182ae6ec6386c71bc747c0367f6e416cba33748cd8e29f",
+  "errors": []
+}

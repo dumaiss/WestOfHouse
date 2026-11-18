@@ -1,0 +1,337 @@
+{
+  "schema": "scene_hotspots_v1",
+  "room": 193,
+  "state": 1,
+  "room_name": "LIVING-ROOM",
+  "binding": "mapped",
+  "asset_key": "room-193-state-1",
+  "image_size": [
+    256,
+    159
+  ],
+  "image": {
+    "path": "assets/review/white-house-completion/rgb/room-193-state-1.png",
+    "sha256": "ccb7f838f39bef78d04598de816d3c3559c6e6559d34f6c89913d1aa89c3c64d",
+    "original_path": "assets/source/house-interiors/originals/room-193-state-unbound.png",
+    "original_sha256": "6f5b6e207380148fba3df5da4a03f8f3e240f949b2af8994c68f171ce130d7d3",
+    "crop_box": [
+      0,
+      145,
+      1448,
+      1044
+    ],
+    "coordinate_reference": "final RGB preview; no additional scaling transform"
+  },
+  "hotspots": [
+    {
+      "object_id": "TROPHY-CASE",
+      "label": "Case",
+      "rect": [
+        88,
+        51,
+        90,
+        44
+      ],
+      "confidence": "high",
+      "background": false,
+      "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+      "actions": [
+        {
+          "label": "Examine",
+          "command": "examine case",
+          "source_refs": [
+            "SRC-OBJECT-TROPHY-CASE"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 199,
+            "expression": "<SYNTAX EXAMINE OBJECT (MANY) = V-EXAMINE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        }
+      ],
+      "id": "h1",
+      "provenance": {
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-TROPHY-CASE"
+        ]
+      }
+    },
+    {
+      "object_id": "LAMP",
+      "label": "Lantern",
+      "rect": [
+        150,
+        28,
+        23,
+        24
+      ],
+      "confidence": "high",
+      "background": false,
+      "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+      "actions": [
+        {
+          "label": "Examine",
+          "command": "examine lamp",
+          "source_refs": [
+            "SRC-OBJECT-LAMP"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 199,
+            "expression": "<SYNTAX EXAMINE OBJECT (MANY) = V-EXAMINE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        },
+        {
+          "label": "Take",
+          "command": "take lamp",
+          "source_refs": [
+            "SRC-OBJECT-LAMP"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 469,
+            "expression": "<SYNTAX TAKE OBJECT (FIND TAKEBIT) (ON-GROUND IN-ROOM MANY) = V-TAKE PRE-TAKE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        },
+        {
+          "label": "Turn on",
+          "command": "turn on lamp",
+          "source_refs": [
+            "SRC-OBJECT-LAMP"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 505,
+            "expression": "<SYNTAX TURN OBJECT (FIND TURNBIT) (HELD CARRIED ON-GROUND IN-ROOM) WITH OBJECT (FIND RMUNGBIT) = V-TURN PRE-TURN>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        }
+      ],
+      "id": "h2",
+      "provenance": {
+        "pointer": "/scene/objects/3",
+        "source_refs": [
+          "SRC-OBJECT-LAMP"
+        ]
+      }
+    },
+    {
+      "object_id": "SWORD",
+      "label": "Sword",
+      "rect": [
+        90,
+        16,
+        77,
+        17
+      ],
+      "confidence": "high",
+      "background": false,
+      "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+      "actions": [
+        {
+          "label": "Examine",
+          "command": "examine sword",
+          "source_refs": [
+            "SRC-OBJECT-SWORD"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 199,
+            "expression": "<SYNTAX EXAMINE OBJECT (MANY) = V-EXAMINE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        },
+        {
+          "label": "Take",
+          "command": "take sword",
+          "source_refs": [
+            "SRC-OBJECT-SWORD"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 469,
+            "expression": "<SYNTAX TAKE OBJECT (FIND TAKEBIT) (ON-GROUND IN-ROOM MANY) = V-TAKE PRE-TAKE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        }
+      ],
+      "id": "h3",
+      "provenance": {
+        "pointer": "/scene/objects/5",
+        "source_refs": [
+          "SRC-OBJECT-SWORD"
+        ]
+      }
+    },
+    {
+      "object_id": "WOODEN-DOOR",
+      "label": "Door",
+      "rect": [
+        12,
+        0,
+        60,
+        99
+      ],
+      "confidence": "high",
+      "background": false,
+      "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+      "actions": [
+        {
+          "label": "Examine",
+          "command": "examine lettering",
+          "source_refs": [
+            "SRC-OBJECT-WOODEN-DOOR"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 199,
+            "expression": "<SYNTAX EXAMINE OBJECT (MANY) = V-EXAMINE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        },
+        {
+          "label": "Read",
+          "command": "read lettering",
+          "source_refs": [
+            "SRC-OBJECT-WOODEN-DOOR"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 401,
+            "expression": "<SYNTAX READ OBJECT (FIND READBIT) (HELD CARRIED ON-GROUND IN-ROOM TAKE) = V-READ PRE-READ>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        }
+      ],
+      "id": "h4",
+      "provenance": {
+        "pointer": "/scene/objects/4",
+        "source_refs": [
+          "SRC-OBJECT-WOODEN-DOOR"
+        ]
+      }
+    },
+    {
+      "object_id": "EXIT-EAST",
+      "label": "Kitchen",
+      "rect": [
+        210,
+        22,
+        46,
+        84
+      ],
+      "confidence": "high",
+      "background": false,
+      "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+      "actions": [
+        {
+          "label": "Go east",
+          "command": "east",
+          "source_refs": [
+            "SRC-ROOM-LIVING-ROOM"
+          ],
+          "parser_source": {
+            "kind": "room_exit_direction",
+            "note": "Direction is established by the source room exit, not a new game action."
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        }
+      ],
+      "id": "h5",
+      "provenance": {
+        "pointer": "/scene/exits/1",
+        "source_refs": [
+          "SRC-ROOM-LIVING-ROOM"
+        ]
+      }
+    },
+    {
+      "object_id": "RUG",
+      "label": "Rug",
+      "rect": [
+        3,
+        96,
+        247,
+        56
+      ],
+      "confidence": "high",
+      "background": true,
+      "basis": "Visually localized in the final 256x159 crop; smaller fixture/exit regions take precedence over the rug or door.",
+      "actions": [
+        {
+          "label": "Examine",
+          "command": "examine rug",
+          "source_refs": [
+            "SRC-OBJECT-RUG"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 199,
+            "expression": "<SYNTAX EXAMINE OBJECT (MANY) = V-EXAMINE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        },
+        {
+          "label": "Move",
+          "command": "move rug",
+          "source_refs": [
+            "SRC-OBJECT-RUG"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 323,
+            "expression": "<SYNTAX MOVE OBJECT (ON-GROUND IN-ROOM) = V-MOVE PRE-MOVE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        }
+      ],
+      "id": "h6",
+      "provenance": {
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-RUG"
+        ]
+      }
+    }
+  ],
+  "unresolved": [
+    {
+      "object_id": "TRAP-DOOR",
+      "status": "concealed",
+      "detail": "The central rug covers the closed trapdoor in this presentation; no hidden hotspot is exposed."
+    },
+    {
+      "object_id": "MAP",
+      "status": "concealed",
+      "detail": "No map appears in this selected room illustration; inventory and treasure contents do not add image keys."
+    }
+  ],
+  "localization": {
+    "method": "Assistant visual inspection of final RGB crops",
+    "observations": "assets/source/white-house-completion/observations.json",
+    "observations_sha256": "4eede9b95b5bb8e64e9414ff94cbc2c22a7adeb9fc0ea1368190d15fed3bda90"
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/living-room.scene.json",
+    "scene_sha256": "e518fcd24be921e88812a00fc8de160139d12cf957f2b5f3cd95714b38a76040",
+    "zil_source_sha256": {
+      "1actions.zil": "443b9e0082f51b04ae053418039005945efa29945d945102cf7d494fef02fdf7",
+      "1dungeon.zil": "8e223dc75ce64cff8542266101742ea73774533787c5257e8df4a262e4f02766",
+      "gclock.zil": "92c4d66f18eeba8de1497215a0e17ade6c2cf1e5e050f016cf99160e41b154c6",
+      "gglobals.zil": "5945abfeeff71cd2b2088653c7572d3c72bf14d5af65c41b4425d945a6bb6e0a",
+      "gmacros.zil": "d665c73e9231429a772877357fd56d57c946838a5260a74f705c2dc898ebd8f5",
+      "gmain.zil": "712e27ab29d36f3d36c7994ec6d41011cb869990d8780a03bb2ee8148d3f1740",
+      "gparser.zil": "869e1391bdd1518495a9f36391ec36045f5f5af401f18edb921b5c9cfd442397",
+      "gsyntax.zil": "b0f0b4de6068bb85cf96306a16e07f410518669d12260682d3ac71e2e42b5621",
+      "gverbs.zil": "e1150d6300e262f774b59fe96f8139980dfad3c41f0e93f3af49140b5f57e74e",
+      "zork1.zil": "3a96d90419db3907951d05fbd0032b3b935775db9f8c41c13bf1f5addaebac9e"
+    },
+    "phase1_specification": "assets/source/art-direction/rooms/LIVING-ROOM/states/1.json",
+    "pilot_manifest": "assets/source/white-house-completion/manifest.json"
+  },
+  "overlap_policy": "smallest matching rectangle; authored order breaks equal-area ties; half-open edges"
+}

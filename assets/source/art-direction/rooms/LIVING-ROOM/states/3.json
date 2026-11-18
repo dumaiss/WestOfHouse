@@ -1,0 +1,172 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "state",
+  "room": "LIVING-ROOM",
+  "title": "Living Room",
+  "runtime_room": 193,
+  "runtime_state": 3,
+  "symbolic_state": "LOOK-5AC43322EDEC",
+  "condition": {
+    "all": [
+      {
+        "ref": "MAGIC-FLAG",
+        "ne": false
+      },
+      {
+        "not": {
+          "any": [
+            {
+              "all": [
+                {
+                  "ref": "TRAP-DOOR.OPENBIT",
+                  "eq": true
+                },
+                {
+                  "ref": "RUG-MOVED",
+                  "ne": false
+                }
+              ]
+            },
+            {
+              "ref": "TRAP-DOOR.OPENBIT",
+              "eq": true
+            },
+            {
+              "ref": "RUG-MOVED",
+              "ne": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "extracted_states": [],
+  "description_ids": [
+    "M-LOOK-4"
+  ],
+  "canonical": [
+    {
+      "text": "You are in the living room. There is a doorway to the east",
+      "pointer": "/scene/descriptions/3/text/0",
+      "source_refs": [
+        "SRC-ROOM-LIVING-ROOM",
+        "SRC-ROUTINE-LIVING-ROOM-FCN"
+      ]
+    },
+    {
+      "text": ". To the\nwest is a cyclops-shaped opening in an old wooden door, above which is\nsome strange gothic lettering, ",
+      "pointer": "/scene/descriptions/3/text/1",
+      "source_refs": [
+        "SRC-ROOM-LIVING-ROOM",
+        "SRC-ROUTINE-LIVING-ROOM-FCN"
+      ]
+    },
+    {
+      "text": "a trophy case, ",
+      "pointer": "/scene/descriptions/3/text/2",
+      "source_refs": [
+        "SRC-ROOM-LIVING-ROOM",
+        "SRC-ROUTINE-LIVING-ROOM-FCN"
+      ]
+    },
+    {
+      "text": "and a large oriental rug in the center of the room.",
+      "pointer": "/scene/descriptions/3/text/3",
+      "source_refs": [
+        "SRC-ROOM-LIVING-ROOM",
+        "SRC-ROUTINE-LIVING-ROOM-FCN"
+      ]
+    }
+  ],
+  "required_environmental_features": [
+    "You are in the living room. There is a doorway to the east",
+    ". To the\nwest is a cyclops-shaped opening in an old wooden door, above which is\nsome strange gothic lettering, ",
+    "a trophy case, ",
+    "and a large oriental rug in the center of the room."
+  ],
+  "required_visible_objects": [
+    "TROPHY-CASE",
+    "LAMP",
+    "WOODEN-DOOR",
+    "SWORD"
+  ],
+  "artistic": {
+    "continuity": [
+      "WHITE-HOUSE"
+    ],
+    "camera": "Stand on the north side looking across the rug toward the west door, with the east doorway readable.",
+    "composition": "Lock trophy-case position, rug footprint, west door and floor trapdoor site; preserve the house's timber/plaster vocabulary.",
+    "lighting_palette": "Quiet diffuse room light, ivory walls and dark brown timber.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "state_artistic": {
+    "visual_treatment": "The west wooden door has a cyclops-shaped opening; its strange gothic lettering remains above the opening. The large oriental rug covers the trapdoor in the center of the room; do not reveal a trapdoor or stairs. Preserve the same room architecture, east doorway, trophy case, camera and lighting across all variants. Lettering should read as indistinct carved marks, not readable text.",
+    "omit_source_dressing": [
+      "RUG",
+      "TRAP-DOOR"
+    ]
+  },
+  "invariants": {
+    "canonical_text": [
+      "You are in the living room. There is a doorway to the east",
+      "a trophy case, "
+    ],
+    "artistic": {
+      "continuity": [
+        "WHITE-HOUSE"
+      ],
+      "camera": "Stand on the north side looking across the rug toward the west door, with the east doorway readable.",
+      "composition": "Lock trophy-case position, rug footprint, west door and floor trapdoor site; preserve the house's timber/plaster vocabulary.",
+      "lighting_palette": "Quiet diffuse room light, ivory walls and dark brown timber.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    }
+  },
+  "changes": [
+    ". To the\nwest is a cyclops-shaped opening in an old wooden door, above which is\nsome strange gothic lettering, ",
+    "and a large oriental rug in the center of the room."
+  ],
+  "reference": {
+    "room": "LIVING-ROOM",
+    "runtime_room": 193,
+    "runtime_state": 1,
+    "asset_key": "room-193-state-1",
+    "status": "preferred future Phase 2 reference; no illustration exists yet"
+  },
+  "asset_key": "room-193-state-3",
+  "target": {
+    "width": 256,
+    "height": 159,
+    "hardware": "Yamaha V9958",
+    "eventual_encoding": "YJK",
+    "phase": 1,
+    "source_aspect": "4:3 landscape",
+    "crop": "Safe center crop from 4:3 to 256:159; protect subjects within the central 82.8% of source height and central 90% of width."
+  },
+  "prompt": "Create one complete static illustration of Living Room.\n\nViewpoint: Stand on the north side looking across the rug toward the west door, with the east doorway readable.\n\nThe scene establishes these features: You are in the living room. There is a doorway to the east . To the west is a cyclops-shaped opening in an old wooden door, above which is some strange gothic lettering, a trophy case, and a large oriental rug in the center of the room.\n\nComposition: Lock trophy-case position, rug footprint, west door and floor trapdoor site; preserve the house's timber/plaster vocabulary.\n\nAppearance of this illustration: The west wooden door has a cyclops-shaped opening; its strange gothic lettering remains above the opening. The large oriental rug covers the trapdoor in the center of the room; do not reveal a trapdoor or stairs. Preserve the same room architecture, east doorway, trophy case, camera and lighting across all variants. Lettering should read as indistinct carved marks, not readable text.\n\nCanonical room dressing: trophy case; There is a brass lantern (battery-powered) here; wooden door; Above the trophy case hangs an elvish sword of great antiquity. Preserve this coarse room presentation unless the state description above specifies a different appearance.\n\nLighting and color: Quiet diffuse room light, ivory walls and dark brown timber.\n\nShared world design: Modest colonial timber dwelling, simple pitched roof, weathered white painted boards; do not introduce extra doors or windows. Pale plaster and dark brown timber inside. Keep roof pitch, wall finish, trim proportions and window construction across views.\n\nStyle: Painterly adventure-game illustration recalling fine late-1980s and early-1990s computer artwork; natural proportions, restrained brushwork, readable silhouettes and broad tonal masses. Aim for roughly 256 visually significant colors, broad related color regions, controlled shading and clear dark/light separation. No exact RGB-count requirement, photographic color noise, excessive gradients or microtextures.\n\nKeep this room camera, underlying architecture, terrain layout, light direction and palette consistent across its variants. Depict the complete scene, including the appearance stated above.\n\nLandscape source composition near 4:3. Final scene is 256 by 159 pixels. Allow safe center cropping to 256:159, keeping essential subjects inside the central 82.8 percent of source height and away from the side boundaries. Use clear silhouettes and broad readable shapes at that final size.\n\nExclude game UI, borders, captions, labels, readable lettering, photographic detail, pixel grids and enlarged pixels. Do not add characters, significant props, openings or events beyond the established scene. Do not depict an action in progress or a before/after collage.\n",
+  "negative_prompt": "No UI, borders, readable text, photorealism, pixel grid, invented props, extra exits or transient action events.",
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/living-room.scene.json",
+    "scene_sha256": "e518fcd24be921e88812a00fc8de160139d12cf957f2b5f3cd95714b38a76040",
+    "runtime_source": {
+      "file": "1actions.zil",
+      "line": 450,
+      "expression": "(<EQUAL? .RARG ,M-LOOK> <TELL \"You are in the living room. There is a doorway to the east\"> <COND (,MAGIC-FLAG <TELL \". To the\\nwest is a cyclops-shaped opening in an old wooden door, above which is\\nsome strange gothic lettering, \">) (T <TELL \", a wooden\\ndoor with strange gothic lettering to the west, which appears to be\\nnailed shut, \">)> <TELL \"a trophy case, \"> <SET RUG? ,RUG-MOVED> <COND (<AND .RUG? <FSET? ,TRAP-DOOR ,OPENBIT>> <TELL \"and a rug lying beside an open trap door.\">) (.RUG? <TELL \"and a closed trap door at your feet.\">) (<FSET? ,TRAP-DOOR ,OPENBIT> <TELL \"and an open trap door at your feet.\">) (T <TELL \"and a large oriental rug in the center of the room.\">)> <CRLF> T)"
+    },
+    "mapping_file": "generated-zil/woh-state-ids.json",
+    "mapping_sha256": "fac10745f9bcaff4aa469691821db5bd8a3ff68adb7e4d9d02c8336c0548ad50",
+    "dictionary_file": "generated-room-states/room-states.yaml",
+    "dictionary_sha256": "9eff0d15621441d15a6fb427d75b65ddb1a5d8fa7f6d6fe48c223b1d42d25695",
+    "story_sha256": "dabcfa053043aeaebfb9d0839c0a05e31a277fc2aeb724111bcdb85be60a1e3d"
+  },
+  "unresolved": [
+    {
+      "kind": "legacy_state_relationship_unresolved",
+      "state": "LOOK-5AC43322EDEC",
+      "detail": "Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly."
+    }
+  ]
+}

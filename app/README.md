@@ -17,7 +17,9 @@ The SDK's copies under `build/target/` are build intermediates.
 WOH displays the archived full-screen YJK title until any key is pressed.
 It then starts the archived `.z3` story and selects complete 256×159 YJK+YAE scenes
 and WHT1 hotspot/menu payloads by the exact numeric `(room,state)` pair.
-Eight mapped White House pilot scenes are packaged. Attic remains unbound.
+Twenty approved White House scene states are packaged, including all eight
+Living Room variants and lit/dark states for Attic and Cellar. Dark scenes have
+no visible-object hotspots. The background music resource is preserved.
 Unillustrated pairs have a blank scene and no hotspots; keyboard play continues.
 The text panel has five rows, eight pages of history, and the existing editor.
 Mouse menus contain one to three authored actions; the normal Zork parser

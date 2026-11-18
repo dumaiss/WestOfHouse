@@ -16,7 +16,7 @@ EXE_CFLAGS += -DDYN_CACHE_PAGES=4 -DSTATIC_CACHE_PAGES=4 -DZVM_CACHE_ASM=1
 VPATH := src:../libzvm/tests:../tools/scene-hotspots
 
 SOURCES := src/main.c src/game.c src/game_output.c src/render.c src/panel.c src/menu.c src/resources.c ../tools/scene-hotspots/consumer.c ../libzvm/tests/story_cache.c ../libzvm/tests/story_cache_z80.c
-$(eval $(call exe_program,woh,.,$(SOURCES),STACK=768,LIBS=zvm:gfx:kres,RESIDENT=game_output.c:story_cache.c:story_cache_z80.c,PLACE=libgfx.lib(gfx_mode.rel)=resident,INCLUDES=src:gfx:build/assets:../tools/scene-hotspots:../libzvm/include:../libzvm/tests:$(KOS_SDK_ROOT)/include/kos))
+$(eval $(call exe_program,woh,.,$(SOURCES),STACK=768,LIBS=zvm:gfx:kres:snd,RESIDENT=game_output.c:story_cache.c:story_cache_z80.c,PLACE=libgfx.lib(gfx_mode.rel)=resident,INCLUDES=src:gfx:build/assets:../tools/scene-hotspots:../libzvm/include:../libzvm/tests:$(KOS_SDK_ROOT)/include/kos))
 
 .PHONY: all bundle resources test clean FORCE
 all: bundle
@@ -33,6 +33,9 @@ build/lib/libzvm.lib: FORCE
 	mkdir -p $(@D)
 	cp ../libzvm/build/libzvm.lib $@
 build/lib/libkres.lib: $(KOS_SDK_ROOT)/lib/libkres.lib
+	mkdir -p $(@D)
+	cp $< $@
+build/lib/libsnd.lib: $(KOS_SDK_ROOT)/lib/libsnd.lib
 	mkdir -p $(@D)
 	cp $< $@
 build/gfx_border.rel: gfx/gfx_border.c gfx/gfx_border.h Makefile

@@ -1,3 +1,19 @@
+# House-room extraction update
+
+The resolver now covers 101 ready rooms (9 incomplete), including Attic/Cellar lit state 1 and dark state 2,
+and all eight Living Room presentations. The updated host suite passes 15 tests,
+including an actual house walkthrough compared byte-for-byte with the baseline
+and all eight controlled Living Room boolean combinations. The room-state
+extractor passes 29 tests. Existing ready-room IDs are unchanged.
+
+Current darkness-aware house evidence:
+[state-acceptance.json](../../assets/review/white-house-completion/state-acceptance.json).
+The earlier [house-extraction.json](acceptance-data/house-extraction.json)
+records the preceding lit-only extraction milestone.
+The story and sidecar have been rebuilt together in `libzvm/build/`.
+No target/MAME run was performed for this extraction update; target measurements
+and hashes in the original report below describe the earlier story.
+
 # State reporting acceptance — 2026-11-08
 
 The installed ZILf/ZAPF compiled the generated resolver for all **99 ready

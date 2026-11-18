@@ -57,6 +57,22 @@ def kimg_header(path):
     return mode, w, h
 
 
+def pcm_header(path):
+    """The KPCM v1 header libsnd's player accepts: mono 8-bit, codec u8 or
+    dpcm4, 4-24 kHz, the payload inside the file."""
+    data = path.read_bytes()
+    if len(data) < 512:
+        raise ValueError('Truncated PCM: ' + str(path))
+    (magic, version, codec, channels, bits, rate, samples, payload,
+     offset, size) = struct.unpack_from('<4sBBBBIIIIH', data)
+    if (magic != b'KPCM' or version != 1 or codec not in (0, 1) or
+            channels != 1 or bits != 8 or not 4000 <= rate <= 24000 or
+            offset != 512 or size != 512 or (codec == 0 and payload != samples) or
+            len(data) < 512 + payload or b'\0' not in data[32:96]):
+        raise ValueError('Invalid PCM: ' + str(path))
+    return codec, rate, samples
+
+
 def declaration(manifest):
     """Validate selection before generating or staging anything."""
     if manifest.get('schema') != 'woh_resources_v1':
@@ -68,14 +84,14 @@ def declaration(manifest):
                 name in ('.', '..') or name in names):
             raise ValueError('Invalid/duplicate KRES name: ' + name)
         names.add(name)
-        if kind not in ('story', 'scene', 'hotspots', 'ui'):
+        if kind not in ('story', 'scene', 'hotspots', 'ui', 'music'):
             raise ValueError('Unsupported resource type: ' + kind)
         path = local(row['path'], 'assets/runtime')
-        suffix = '.z3' if kind == 'story' else '.wht' if kind == 'hotspots' else '.img'
+        suffix = {'story': '.z3', 'hotspots': '.wht', 'music': '.pcm'}.get(kind, '.img')
         if path.suffix.lower() != suffix or path in paths:
             raise ValueError('Duplicate/unexpected runtime file: ' + row['path'])
         paths.add(path)
-        local(row['source'], 'assets/source' if kind != 'story' else None)
+        local(row['source'], 'assets/source' if kind not in ('story', 'music') else None)
         if not local(row['source']).is_file():
             raise ValueError('Missing source: ' + row['source'])
         if kind in pairs:
@@ -87,6 +103,8 @@ def declaration(manifest):
         raise ValueError('Exactly one title resource is required')
     if len([r for r in manifest['resources'] if r['type'] == 'story']) != 1:
         raise ValueError('Exactly one story resource is required')
+    if len([r for r in manifest['resources'] if r['type'] == 'music']) > 1:
+        raise ValueError('At most one music resource is allowed')
     if pairs['scene'].keys() != pairs['hotspots'].keys():
         raise ValueError('Scene/hotspot pair sets differ')
     authority = read(ROOT / 'assets/source/art-direction/manifest.json')
@@ -100,17 +118,24 @@ def declaration(manifest):
         spec = read(local(scene['specification'], 'assets/source/art-direction'))
         if (spec['runtime_room'], spec['runtime_state']) != pair:
             raise ValueError('State specification differs: ' + key)
-    pilot = read(ROOT / 'assets/source/white-house/manifest.json')
-    expected = {(r['runtime_room'], r['runtime_state']) for r in pilot['records'] if r['binding'] == 'mapped'}
+    collection = manifest.get('scene_collection')
+    pilot = read(local(collection, 'assets/source') if collection else ROOT / 'assets/source/white-house/manifest.json')
+    completed = pilot.get('schema') == 'woh_white_house_completion_v1'
+    expected = {(r['runtime_room'], r['runtime_state']) for r in pilot['records']
+                if completed or r['binding'] == 'mapped'}
     selected = {r['asset_key']:r for r in pilot['records']}
     for row in pairs['scene'].values():
         record=selected.get(row['id'][:-4])
         if row.get('size') != [256,159] or row.get('mode') != 'yae' or row.get('yjk_quality') != 'optimized' or row.get('resample') != 'box':
             raise ValueError('Unsupported scene conversion recipe: '+row['id'])
         if record:
-            approved=(ROOT/'assets/source/white-house'/record['original']).resolve()
+            approved=(ROOT/record['original'] if completed else ROOT/'assets/source/white-house'/record['original']).resolve()
             if local(row['source'])!=approved or row['crop_box']!=record['crop_box']:
                 raise ValueError('Scene crop/source differs from hotspot coordinate reference: '+row['id'])
+            if completed and sha(approved) != record['original_sha256']:
+                raise ValueError('Approved scene source changed: ' + row['id'])
+        elif completed:
+            raise ValueError('Scene absent from approved collection: ' + row['id'])
     if not expected <= pairs['scene'].keys():
         raise ValueError('Missing mapped pilot scene')
     for p in manifest['unbound_concepts']:
@@ -120,6 +145,40 @@ def declaration(manifest):
     if extras:
         raise ValueError('Orphan/unexpected runtime files: ' + ', '.join(str(p.relative_to(ROOT)) for p in extras))
     return pairs
+
+
+def completion_validator(manifest):
+    """Reuse the reviewed collection's source/vision grounding for new rooms.
+
+    The original pilot validator has a deliberately narrower room/menu policy.
+    Completion tables use their own saved observations and the same WHT1 format.
+    Both paths reject changes to reviewed geometry, commands and provenance.
+    """
+    if not manifest.get('scene_collection'):
+        return None
+    collection = read(local(manifest['scene_collection'], 'assets/source'))
+    if collection.get('schema') != 'woh_white_house_completion_v1':
+        raise ValueError('Unsupported selected scene collection')
+    path = ROOT/'tools/scene-images/build_white_house_completion.py'
+    spec = importlib.util.spec_from_file_location('woh_completion', path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    observations_path = local(manifest['scene_collection']).parent/'observations.json'
+    observations = read(observations_path)
+    records = {r['asset_key']: r for r in collection['records']}
+    source = module.Source(ROOT/'vendor/infocom-zork1')
+    import jsonschema
+    schema = read(ROOT/'schemas/scene-hotspots-v1.schema.json')
+
+    def check(scene):
+        key = scene['asset_key']
+        if key not in records:
+            raise ValueError('Hotspots absent from approved collection: ' + key)
+        jsonschema.validate(scene, schema)
+        expected = module.hotspot_scene(records[key], observations['scenes'][key], source, observations_path)
+        if scene != expected:
+            raise ValueError('Hotspots differ from reviewed source/vision observations: ' + key)
+    return check
 
 
 def build_rows(manifest, sdk, build, rebuild):
@@ -133,6 +192,7 @@ def build_rows(manifest, sdk, build, rebuild):
     spec.loader.exec_module(kimg)
     from PIL import Image
     args = hotspot_arguments([])
+    check_completion = completion_validator(manifest)
     for row in manifest['resources']:
         source, output = local(row['source']), local(row['path'])
         kind = row['type']
@@ -142,9 +202,12 @@ def build_rows(manifest, sdk, build, rebuild):
         fingerprint = hashlib.sha256(json.dumps(dependencies, sort_keys=True).encode()).hexdigest()
         if kind == 'hotspots':
             scene = read(source)
-            errors, _ = validate_scene(scene, args)
-            if errors:
-                raise ValueError(row['id'] + ': ' + '; '.join(errors))
+            if check_completion:
+                check_completion(scene)
+            else:
+                errors, _ = validate_scene(scene, args)
+                if errors:
+                    raise ValueError(row['id'] + ': ' + '; '.join(errors))
             if (scene['room'], scene['state']) != (row['room'], row['state']):
                 raise ValueError('Hotspot binding differs')
             data = encode(scene)
@@ -170,8 +233,16 @@ def build_rows(manifest, sdk, build, rebuild):
                     kimg.convert(png, result, 'yae', (256, 159), resample='box', yjk_quality='optimized')
                     write_changed(output, result.read_bytes())
             changed.append(row['id'])
+        elif kind == 'music':
+            # A KonaOS PCM stream (libsnd snd_pcm_*), stored as converted by
+            # the SDK's tools/pcmconv.py: the bytes are packed unchanged.
+            data = source.read_bytes()
+            if source != output and (not output.exists() or output.read_bytes() != data):
+                write_changed(output, data); changed.append(row['id'])
         if not output.is_file():
             raise ValueError('Missing runtime resource: ' + row['path'])
+        if kind == 'music':
+            pcm_header(output)
         if kind in ('scene', 'ui'):
             mode, w, h = kimg_header(output)
             if kind == 'ui' and row.get('role')=='title' and (mode,w,h)!=(2,256,212):
@@ -190,14 +261,18 @@ def generated_header(manifest, pairs, path):
     story = next(r['id'] for r in manifest['resources'] if r['type'] == 'story')
     title = next(r['id'] for r in manifest['resources'] if r.get('role') == 'title')
     bound = max(local(r['path']).stat().st_size for r in pairs['hotspots'].values())
+    music = [r['id'] for r in manifest['resources'] if r['type'] == 'music']
     text = ('/* Generated from assets/manifests/resources.json; do not edit. */\n'
             '#ifndef WOH_RESOURCE_NAMES_H\n#define WOH_RESOURCE_NAMES_H\n'
             f'#define WOH_TITLE_RESOURCE "{title}"\n'
             f'#define WOH_STORY_RESOURCE "{story}"\n#define WOH_HOTSPOT_BYTES {bound}u\n'
-            'typedef struct { uint16_t room, state; const char *image, *hotspots; } scene_key_t;\n'
+            + (f'#define WOH_MUSIC_RESOURCE "{music[0]}"\n' if music else '') +
+            'typedef struct { uint16_t room, state; const char *image; } scene_key_t;\n'
             'static const scene_key_t scene_keys[] = {\n')
     for (room, state), row in rows:
-        text += f'    {{{room}u,{state}u,"{row["id"]}","{row["hotspots"]}"}},\n'
+        # Declaration validation guarantees the same base name for image/WHT.
+        # Avoid keeping both full names in the limited resident constant area.
+        text += f'    {{{room}u,{state}u,"{row["id"]}"}},\n'
     text += '};\n#define WOH_SCENE_COUNT %du\n#endif\n' % len(rows)
     write_changed(path, text.encode())
 

@@ -1,0 +1,217 @@
+{
+  "schema": "scene_hotspots_v1",
+  "room": 79,
+  "state": 2,
+  "room_name": "EAST-OF-HOUSE",
+  "binding": "mapped",
+  "asset_key": "room-79-state-2",
+  "image_size": [
+    256,
+    159
+  ],
+  "image": {
+    "path": "assets/review/white-house-completion/rgb/room-79-state-2.png",
+    "sha256": "3ba10b42003529a57c4b85c1563d445054e01ecc35a652e56160ef6ff274ab3a",
+    "original_path": "assets/source/white-house/originals/room-79-state-2.png",
+    "original_sha256": "d8946397139731533cad24cc61c56e2c135ec8f15e08ba2a7aa19487ff99e250",
+    "crop_box": [
+      0,
+      0,
+      1448,
+      899
+    ],
+    "coordinate_reference": "final RGB preview; no additional scaling transform"
+  },
+  "hotspots": [
+    {
+      "object_id": "WHITE-HOUSE",
+      "label": "House",
+      "rect": [
+        0,
+        3,
+        183,
+        154
+      ],
+      "confidence": "high",
+      "background": true,
+      "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+      "actions": [
+        {
+          "label": "Examine",
+          "command": "examine house",
+          "source_refs": [
+            "SRC-OBJECT-WHITE-HOUSE"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 199,
+            "expression": "<SYNTAX EXAMINE OBJECT (MANY) = V-EXAMINE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        }
+      ],
+      "id": "h1",
+      "provenance": {
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-WHITE-HOUSE"
+        ]
+      }
+    },
+    {
+      "object_id": "KITCHEN-WINDOW",
+      "label": "Window",
+      "rect": [
+        114,
+        69,
+        30,
+        58
+      ],
+      "confidence": "high",
+      "background": false,
+      "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+      "actions": [
+        {
+          "label": "Examine",
+          "command": "examine window",
+          "source_refs": [
+            "SRC-OBJECT-KITCHEN-WINDOW"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 199,
+            "expression": "<SYNTAX EXAMINE OBJECT (MANY) = V-EXAMINE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        },
+        {
+          "label": "Close",
+          "command": "close window",
+          "source_refs": [
+            "SRC-OBJECT-KITCHEN-WINDOW"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 140,
+            "expression": "<SYNTAX CLOSE OBJECT (FIND DOORBIT) (HELD CARRIED ON-GROUND IN-ROOM) = V-CLOSE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        },
+        {
+          "label": "Enter",
+          "command": "enter window",
+          "source_refs": [
+            "SRC-OBJECT-KITCHEN-WINDOW"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 194,
+            "expression": "<SYNTAX ENTER = V-ENTER>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        }
+      ],
+      "id": "h2",
+      "provenance": {
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-KITCHEN-WINDOW"
+        ]
+      }
+    },
+    {
+      "object_id": "FOREST",
+      "label": "Forest",
+      "rect": [
+        185,
+        0,
+        71,
+        103
+      ],
+      "confidence": "high",
+      "background": true,
+      "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+      "actions": [
+        {
+          "label": "Examine",
+          "command": "examine forest",
+          "source_refs": [
+            "SRC-OBJECT-FOREST"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 199,
+            "expression": "<SYNTAX EXAMINE OBJECT (MANY) = V-EXAMINE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        }
+      ],
+      "id": "h3",
+      "provenance": {
+        "pointer": "/scene/objects/2",
+        "source_refs": [
+          "SRC-OBJECT-FOREST"
+        ]
+      }
+    },
+    {
+      "object_id": "EXIT-EAST",
+      "label": "Forest path",
+      "rect": [
+        192,
+        108,
+        64,
+        49
+      ],
+      "confidence": "high",
+      "background": false,
+      "basis": "Visible forest path matches explicit east exit.",
+      "actions": [
+        {
+          "label": "Go east",
+          "command": "east",
+          "source_refs": [
+            "SRC-ROOM-EAST-OF-HOUSE"
+          ],
+          "parser_source": {
+            "kind": "room_exit_direction",
+            "note": "Direction is established by the source room exit, not a new game action."
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        }
+      ],
+      "id": "h4",
+      "provenance": {
+        "pointer": "/scene/exits/5",
+        "source_refs": [
+          "SRC-ROOM-EAST-OF-HOUSE"
+        ]
+      }
+    }
+  ],
+  "unresolved": [],
+  "localization": {
+    "method": "Assistant visual inspection of final RGB crops",
+    "observations": "assets/source/white-house-completion/observations.json",
+    "observations_sha256": "4eede9b95b5bb8e64e9414ff94cbc2c22a7adeb9fc0ea1368190d15fed3bda90"
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/east-of-house.scene.json",
+    "scene_sha256": "16ec535afe98b1ef2029ce2651bb0b8c2a3e079c6bf27b608054cac2a574090d",
+    "zil_source_sha256": {
+      "1actions.zil": "443b9e0082f51b04ae053418039005945efa29945d945102cf7d494fef02fdf7",
+      "1dungeon.zil": "8e223dc75ce64cff8542266101742ea73774533787c5257e8df4a262e4f02766",
+      "gclock.zil": "92c4d66f18eeba8de1497215a0e17ade6c2cf1e5e050f016cf99160e41b154c6",
+      "gglobals.zil": "5945abfeeff71cd2b2088653c7572d3c72bf14d5af65c41b4425d945a6bb6e0a",
+      "gmacros.zil": "d665c73e9231429a772877357fd56d57c946838a5260a74f705c2dc898ebd8f5",
+      "gmain.zil": "712e27ab29d36f3d36c7994ec6d41011cb869990d8780a03bb2ee8148d3f1740",
+      "gparser.zil": "869e1391bdd1518495a9f36391ec36045f5f5af401f18edb921b5c9cfd442397",
+      "gsyntax.zil": "b0f0b4de6068bb85cf96306a16e07f410518669d12260682d3ac71e2e42b5621",
+      "gverbs.zil": "e1150d6300e262f774b59fe96f8139980dfad3c41f0e93f3af49140b5f57e74e",
+      "zork1.zil": "3a96d90419db3907951d05fbd0032b3b935775db9f8c41c13bf1f5addaebac9e"
+    },
+    "phase1_specification": "assets/source/art-direction/rooms/EAST-OF-HOUSE/states/2.json",
+    "pilot_manifest": "assets/source/white-house-completion/manifest.json"
+  },
+  "overlap_policy": "smallest matching rectangle; authored order breaks equal-area ties; half-open edges"
+}

@@ -1,0 +1,31 @@
+Use case: precise-object-edit
+Asset type: one complete Zork I adventure illustration, runtime room 193 state 8.
+
+Use the initial room as the edit target. Reveal an OPEN rectangular wooden floor trapdoor at the viewer's feet with a rickety wooden stairway descending into darkness. This source state has not set the rug-moved flag: retain the rug in its central location, folding back only the portion over the hatch to make the open hatch physically readable, rather than moving the rug aside. Keep the hatch and rug readable within the middle foreground with sensible cropping. Preserve the nailed-shut western door and its gothic marks.
+
+Preserve the reference image's exact viewpoint, timber ceiling, pale plaster walls, structural beams, west doorway, right kitchen doorway and glimpse beyond, trophy case, lantern, sword, room proportions, brushwork, palette and lighting. Do not add or remove any unrelated prop. No layout redesign, no zoom, no camera change. The result is a single independent complete illustration, never a comparison or collage. Landscape approximately 4:3, retain high resolution. Target preview 256 by 159 with broad readable tonal regions; no text, UI, captions, borders or pixel grid.
+
+Existing Phase 1 creative brief (state facts are authoritative; the reference governs unchanged appearance):
+Create one complete static illustration of Living Room.
+
+Viewpoint: Stand on the north side looking across the rug toward the west door, with the east doorway readable.
+
+The scene establishes these features: You are in the living room. There is a doorway to the east , a wooden door with strange gothic lettering to the west, which appears to be nailed shut, a trophy case, and an open trap door at your feet.
+
+Composition: Lock trophy-case position, rug footprint, west door and floor trapdoor site; preserve the house's timber/plaster vocabulary.
+
+Appearance of this illustration: The west wooden door is nailed shut, with strange gothic lettering; there is no cyclops-shaped opening. An open trapdoor is visible at the viewer's feet. Preserve the rug without inventing a separately recorded rug movement; the source explicitly describes this combination. Preserve the same room architecture, east doorway, trophy case, camera and lighting across all variants. Lettering should read as indistinct carved marks, not readable text.
+
+Canonical room dressing: trophy case; There is a brass lantern (battery-powered) here; wooden door; Above the trophy case hangs an elvish sword of great antiquity. Preserve this coarse room presentation unless the state description above specifies a different appearance.
+
+Lighting and color: Quiet diffuse room light, ivory walls and dark brown timber.
+
+Shared world design: Modest colonial timber dwelling, simple pitched roof, weathered white painted boards; do not introduce extra doors or windows. Pale plaster and dark brown timber inside. Keep roof pitch, wall finish, trim proportions and window construction across views.
+
+Style: Painterly adventure-game illustration recalling fine late-1980s and early-1990s computer artwork; natural proportions, restrained brushwork, readable silhouettes and broad tonal masses. Aim for roughly 256 visually significant colors, broad related color regions, controlled shading and clear dark/light separation. No exact RGB-count requirement, photographic color noise, excessive gradients or microtextures.
+
+Keep this room camera, underlying architecture, terrain layout, light direction and palette consistent across its variants. Depict the complete scene, including the appearance stated above.
+
+Landscape source composition near 4:3. Final scene is 256 by 159 pixels. Allow safe center cropping to 256:159, keeping essential subjects inside the central 82.8 percent of source height and away from the side boundaries. Use clear silhouettes and broad readable shapes at that final size.
+
+Exclude game UI, borders, captions, labels, readable lettering, photographic detail, pixel grids and enlarged pixels. Do not add characters, significant props, openings or events beyond the established scene. Do not depict an action in progress or a before/after collage.

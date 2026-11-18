@@ -1,12 +1,12 @@
 {
   "schema": "scene_art_validation_v1",
   "rooms": 110,
-  "states": 127,
-  "prompts": 127,
-  "runtime_unknown_rooms": 11,
-  "legacy_relationships_unresolved": 28,
+  "states": 138,
+  "prompts": 138,
+  "runtime_unknown_rooms": 9,
+  "legacy_relationships_unresolved": 40,
   "supporting_action_states_excluded": 248,
-  "unique_runtime_pairs": 127,
+  "unique_runtime_pairs": 138,
   "target": [
     256,
     159

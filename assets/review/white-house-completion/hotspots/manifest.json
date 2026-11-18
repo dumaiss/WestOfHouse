@@ -1,0 +1,543 @@
+{
+  "schema": "woh_completion_hotspots_v1",
+  "scenes": [
+    {
+      "asset_key": "room-180-state-1",
+      "room": 180,
+      "state": 1,
+      "inputs": {
+        "rgb_sha256": "44a59b02072c23f28ef42e5ba277fd8e1f4137e5f33ad03744abaf5e09866bc7",
+        "encoder_sha256": "1b00dd1dd4e5053fb565337687dd109bd4cf25b76c352c74e7ead77abaf56189",
+        "mode": "yae",
+        "quality": "optimized"
+      },
+      "kimg": "assets/review/white-house-completion/kimg-yae/room-180-state-1.img",
+      "kimg_sha256": "f5944d43ade4fa1dd8277f57fd50aaae360f2bd44a04405e7c43c54a961e6814",
+      "rgb": "assets/review/white-house-completion/rgb/room-180-state-1.png",
+      "yae_preview": "assets/review/white-house-completion/yae/room-180-state-1.png",
+      "hotspot_json": "assets/review/white-house-completion/hotspots/scenes/room-180-state-1.json",
+      "hotspot_binary": "assets/review/white-house-completion/hotspots/binary/room-180-state-1.wht",
+      "hotspot_bytes": 245,
+      "hotspots": 4,
+      "unresolved": [
+        {
+          "object_id": "ADVERTISEMENT",
+          "status": "concealed",
+          "detail": "Leaflet is inside the closed mailbox; no visible leaflet is localized."
+        }
+      ]
+    },
+    {
+      "asset_key": "room-180-state-2",
+      "room": 180,
+      "state": 2,
+      "inputs": {
+        "rgb_sha256": "eedfe54674cab7d57fa453d6ef98b84e55e17c766ed2ae1b92cb2726153b42d7",
+        "encoder_sha256": "1b00dd1dd4e5053fb565337687dd109bd4cf25b76c352c74e7ead77abaf56189",
+        "mode": "yae",
+        "quality": "optimized"
+      },
+      "kimg": "assets/review/white-house-completion/kimg-yae/room-180-state-2.img",
+      "kimg_sha256": "48a4538e6da59739af4a7a3f384c010c6247a26bdd368f97ea5b2f82d8a9a102",
+      "rgb": "assets/review/white-house-completion/rgb/room-180-state-2.png",
+      "yae_preview": "assets/review/white-house-completion/yae/room-180-state-2.png",
+      "hotspot_json": "assets/review/white-house-completion/hotspots/scenes/room-180-state-2.json",
+      "hotspot_binary": "assets/review/white-house-completion/hotspots/binary/room-180-state-2.wht",
+      "hotspot_bytes": 280,
+      "hotspots": 5,
+      "unresolved": [
+        {
+          "object_id": "ADVERTISEMENT",
+          "status": "concealed",
+          "detail": "Leaflet is inside the closed mailbox; no visible leaflet is localized."
+        }
+      ]
+    },
+    {
+      "asset_key": "room-81-state-1",
+      "room": 81,
+      "state": 1,
+      "inputs": {
+        "rgb_sha256": "a9463f48ebe0bf463904fc7c1cb67f1a9a53a4095a1a45f9da428e64a567f3b3",
+        "encoder_sha256": "1b00dd1dd4e5053fb565337687dd109bd4cf25b76c352c74e7ead77abaf56189",
+        "mode": "yae",
+        "quality": "optimized"
+      },
+      "kimg": "assets/review/white-house-completion/kimg-yae/room-81-state-1.img",
+      "kimg_sha256": "723703a8ce699e610455c8fb201c297397e318b62110d102530b05a71ed6698f",
+      "rgb": "assets/review/white-house-completion/rgb/room-81-state-1.png",
+      "yae_preview": "assets/review/white-house-completion/yae/room-81-state-1.png",
+      "hotspot_json": "assets/review/white-house-completion/hotspots/scenes/room-81-state-1.json",
+      "hotspot_binary": "assets/review/white-house-completion/hotspots/binary/room-81-state-1.wht",
+      "hotspot_bytes": 377,
+      "hotspots": 7,
+      "unresolved": []
+    },
+    {
+      "asset_key": "room-80-state-1",
+      "room": 80,
+      "state": 1,
+      "inputs": {
+        "rgb_sha256": "2963988b05ccadc5e45f311c9e01b50b555d74a1ca1693a8204d8619c9f76d24",
+        "encoder_sha256": "1b00dd1dd4e5053fb565337687dd109bd4cf25b76c352c74e7ead77abaf56189",
+        "mode": "yae",
+        "quality": "optimized"
+      },
+      "kimg": "assets/review/white-house-completion/kimg-yae/room-80-state-1.img",
+      "kimg_sha256": "8a0d866fec5e14e9680bbf7005eb0bdafd64ca2918292fae9be7c71e24b21ea2",
+      "rgb": "assets/review/white-house-completion/rgb/room-80-state-1.png",
+      "yae_preview": "assets/review/white-house-completion/yae/room-80-state-1.png",
+      "hotspot_json": "assets/review/white-house-completion/hotspots/scenes/room-80-state-1.json",
+      "hotspot_binary": "assets/review/white-house-completion/hotspots/binary/room-80-state-1.wht",
+      "hotspot_bytes": 456,
+      "hotspots": 8,
+      "unresolved": []
+    },
+    {
+      "asset_key": "room-79-state-1",
+      "room": 79,
+      "state": 1,
+      "inputs": {
+        "rgb_sha256": "359c8b24628a73dfb690ac23c197268b166ae9846e28d4261e3d033711e4eaf5",
+        "encoder_sha256": "1b00dd1dd4e5053fb565337687dd109bd4cf25b76c352c74e7ead77abaf56189",
+        "mode": "yae",
+        "quality": "optimized"
+      },
+      "kimg": "assets/review/white-house-completion/kimg-yae/room-79-state-1.img",
+      "kimg_sha256": "95c99bb2437299a67be8423810d5fc2d3d05f7bae31021933ca88a9325441ee6",
+      "rgb": "assets/review/white-house-completion/rgb/room-79-state-1.png",
+      "yae_preview": "assets/review/white-house-completion/yae/room-79-state-1.png",
+      "hotspot_json": "assets/review/white-house-completion/hotspots/scenes/room-79-state-1.json",
+      "hotspot_binary": "assets/review/white-house-completion/hotspots/binary/room-79-state-1.wht",
+      "hotspot_bytes": 225,
+      "hotspots": 4,
+      "unresolved": []
+    },
+    {
+      "asset_key": "room-79-state-2",
+      "room": 79,
+      "state": 2,
+      "inputs": {
+        "rgb_sha256": "3ba10b42003529a57c4b85c1563d445054e01ecc35a652e56160ef6ff274ab3a",
+        "encoder_sha256": "1b00dd1dd4e5053fb565337687dd109bd4cf25b76c352c74e7ead77abaf56189",
+        "mode": "yae",
+        "quality": "optimized"
+      },
+      "kimg": "assets/review/white-house-completion/kimg-yae/room-79-state-2.img",
+      "kimg_sha256": "6d530e363d68ef14c0102b70f5fd7ef5713c2acd7a5849ae81909e901c164a75",
+      "rgb": "assets/review/white-house-completion/rgb/room-79-state-2.png",
+      "yae_preview": "assets/review/white-house-completion/yae/room-79-state-2.png",
+      "hotspot_json": "assets/review/white-house-completion/hotspots/scenes/room-79-state-2.json",
+      "hotspot_binary": "assets/review/white-house-completion/hotspots/binary/room-79-state-2.wht",
+      "hotspot_bytes": 227,
+      "hotspots": 4,
+      "unresolved": []
+    },
+    {
+      "asset_key": "room-203-state-1",
+      "room": 203,
+      "state": 1,
+      "inputs": {
+        "rgb_sha256": "1734009981ab52ca02f474b220e0873ca30cd7a3926aed76c8ee45d3642b37e6",
+        "encoder_sha256": "1b00dd1dd4e5053fb565337687dd109bd4cf25b76c352c74e7ead77abaf56189",
+        "mode": "yae",
+        "quality": "optimized"
+      },
+      "kimg": "assets/review/white-house-completion/kimg-yae/room-203-state-1.img",
+      "kimg_sha256": "df6db68514e78e1969ba00d838a78d4f997eb1c5f2fa8e184d36d4896efa449e",
+      "rgb": "assets/review/white-house-completion/rgb/room-203-state-1.png",
+      "yae_preview": "assets/review/white-house-completion/yae/room-203-state-1.png",
+      "hotspot_json": "assets/review/white-house-completion/hotspots/scenes/room-203-state-1.json",
+      "hotspot_binary": "assets/review/white-house-completion/hotspots/binary/room-203-state-1.wht",
+      "hotspot_bytes": 267,
+      "hotspots": 4,
+      "unresolved": [
+        {
+          "object_id": "SANDWICH-BAG",
+          "status": "not_visible",
+          "detail": "Source sack on table is not identifiable in the illustration."
+        },
+        {
+          "object_id": "BOTTLE",
+          "status": "not_visible",
+          "detail": "Source glass bottle is not identifiable; the painted brown jug is not a reliable match."
+        },
+        {
+          "object_id": "EXIT-WEST",
+          "status": "not_visible",
+          "detail": "No independently identifiable west passage is shown."
+        },
+        {
+          "object_id": "GARLIC",
+          "status": "concealed",
+          "detail": "Garlic is in the source sack; painted onions are not identified as it."
+        },
+        {
+          "object_id": "LUNCH",
+          "status": "concealed",
+          "detail": "Source sack contents are not shown."
+        }
+      ]
+    },
+    {
+      "asset_key": "room-203-state-2",
+      "room": 203,
+      "state": 2,
+      "inputs": {
+        "rgb_sha256": "6e494ff2cef5bbb4b645197b051e6520ee1b31ceeaaa98970c61683c05afcb37",
+        "encoder_sha256": "1b00dd1dd4e5053fb565337687dd109bd4cf25b76c352c74e7ead77abaf56189",
+        "mode": "yae",
+        "quality": "optimized"
+      },
+      "kimg": "assets/review/white-house-completion/kimg-yae/room-203-state-2.img",
+      "kimg_sha256": "8e2a886d74e6fa2c1fb416ce25c651bbda5089f94ad7bfd91001e1c6726b23ba",
+      "rgb": "assets/review/white-house-completion/rgb/room-203-state-2.png",
+      "yae_preview": "assets/review/white-house-completion/yae/room-203-state-2.png",
+      "hotspot_json": "assets/review/white-house-completion/hotspots/scenes/room-203-state-2.json",
+      "hotspot_binary": "assets/review/white-house-completion/hotspots/binary/room-203-state-2.wht",
+      "hotspot_bytes": 269,
+      "hotspots": 4,
+      "unresolved": [
+        {
+          "object_id": "SANDWICH-BAG",
+          "status": "not_visible",
+          "detail": "Source sack on table is not identifiable in the illustration."
+        },
+        {
+          "object_id": "BOTTLE",
+          "status": "not_visible",
+          "detail": "Source glass bottle is not identifiable; the painted brown jug is not a reliable match."
+        },
+        {
+          "object_id": "EXIT-WEST",
+          "status": "not_visible",
+          "detail": "No independently identifiable west passage is shown."
+        },
+        {
+          "object_id": "GARLIC",
+          "status": "concealed",
+          "detail": "Garlic is in the source sack; painted onions are not identified as it."
+        },
+        {
+          "object_id": "LUNCH",
+          "status": "concealed",
+          "detail": "Source sack contents are not shown."
+        }
+      ]
+    },
+    {
+      "asset_key": "room-201-state-1",
+      "room": 201,
+      "state": 1,
+      "inputs": {
+        "rgb_sha256": "789c754ca8fe3253031b4ada9ef067491127c80886714a2f410d398b94b21cbe",
+        "encoder_sha256": "1b00dd1dd4e5053fb565337687dd109bd4cf25b76c352c74e7ead77abaf56189",
+        "mode": "yae",
+        "quality": "optimized"
+      },
+      "kimg": "assets/review/white-house-completion/kimg-yae/room-201-state-1.img",
+      "kimg_sha256": "b2b7f07664af9c284a201a267a2f06d6935d83f2856474ac8c8008ffd585f976",
+      "rgb": "assets/review/white-house-completion/rgb/room-201-state-1.png",
+      "yae_preview": "assets/review/white-house-completion/yae/room-201-state-1.png",
+      "hotspot_json": "assets/review/white-house-completion/hotspots/scenes/room-201-state-1.json",
+      "hotspot_binary": "assets/review/white-house-completion/hotspots/binary/room-201-state-1.wht",
+      "hotspot_bytes": 232,
+      "hotspots": 4,
+      "unresolved": []
+    },
+    {
+      "asset_key": "room-201-state-2",
+      "room": 201,
+      "state": 2,
+      "inputs": {
+        "rgb_sha256": "33f78c567cd44635491c7529b025fa4fdc9bffe3ecd3173da64daddf83910aab",
+        "encoder_sha256": "1b00dd1dd4e5053fb565337687dd109bd4cf25b76c352c74e7ead77abaf56189",
+        "mode": "yae",
+        "quality": "optimized"
+      },
+      "kimg": "assets/review/white-house-completion/kimg-yae/room-201-state-2.img",
+      "kimg_sha256": "dcc6d61c90000ca39c67d52c57f2604eb7ea1d38a5f3be8015b73ad2bb1fb143",
+      "rgb": "assets/review/white-house-completion/rgb/room-201-state-2.png",
+      "yae_preview": "assets/review/white-house-completion/yae/room-201-state-2.png",
+      "hotspot_json": "assets/review/white-house-completion/hotspots/scenes/room-201-state-2.json",
+      "hotspot_binary": "assets/review/white-house-completion/hotspots/binary/room-201-state-2.wht",
+      "hotspot_bytes": 48,
+      "hotspots": 0,
+      "unresolved": []
+    },
+    {
+      "asset_key": "room-193-state-1",
+      "room": 193,
+      "state": 1,
+      "inputs": {
+        "rgb_sha256": "ccb7f838f39bef78d04598de816d3c3559c6e6559d34f6c89913d1aa89c3c64d",
+        "encoder_sha256": "1b00dd1dd4e5053fb565337687dd109bd4cf25b76c352c74e7ead77abaf56189",
+        "mode": "yae",
+        "quality": "optimized"
+      },
+      "kimg": "assets/review/white-house-completion/kimg-yae/room-193-state-1.img",
+      "kimg_sha256": "2074d3002e0fbc706084f7428d198ac99119c088e36550259526aeebf9769cb0",
+      "rgb": "assets/review/white-house-completion/rgb/room-193-state-1.png",
+      "yae_preview": "assets/review/white-house-completion/yae/room-193-state-1.png",
+      "hotspot_json": "assets/review/white-house-completion/hotspots/scenes/room-193-state-1.json",
+      "hotspot_binary": "assets/review/white-house-completion/hotspots/binary/room-193-state-1.wht",
+      "hotspot_bytes": 335,
+      "hotspots": 6,
+      "unresolved": [
+        {
+          "object_id": "TRAP-DOOR",
+          "status": "concealed",
+          "detail": "The central rug covers the closed trapdoor in this presentation; no hidden hotspot is exposed."
+        },
+        {
+          "object_id": "MAP",
+          "status": "concealed",
+          "detail": "No map appears in this selected room illustration; inventory and treasure contents do not add image keys."
+        }
+      ]
+    },
+    {
+      "asset_key": "room-193-state-2",
+      "room": 193,
+      "state": 2,
+      "inputs": {
+        "rgb_sha256": "156d162d3f9f1cd5a41401acda10a357913ba3f80493cfcb16fef86996a656e5",
+        "encoder_sha256": "1b00dd1dd4e5053fb565337687dd109bd4cf25b76c352c74e7ead77abaf56189",
+        "mode": "yae",
+        "quality": "optimized"
+      },
+      "kimg": "assets/review/white-house-completion/kimg-yae/room-193-state-2.img",
+      "kimg_sha256": "d1c29d2843ce11c9d84392f57a4a9e6c576b7afae617a16786dedbf31000186b",
+      "rgb": "assets/review/white-house-completion/rgb/room-193-state-2.png",
+      "yae_preview": "assets/review/white-house-completion/yae/room-193-state-2.png",
+      "hotspot_json": "assets/review/white-house-completion/hotspots/scenes/room-193-state-2.json",
+      "hotspot_binary": "assets/review/white-house-completion/hotspots/binary/room-193-state-2.wht",
+      "hotspot_bytes": 424,
+      "hotspots": 8,
+      "unresolved": [
+        {
+          "object_id": "MAP",
+          "status": "concealed",
+          "detail": "No map appears in this selected room illustration; inventory and treasure contents do not add image keys."
+        }
+      ]
+    },
+    {
+      "asset_key": "room-193-state-3",
+      "room": 193,
+      "state": 3,
+      "inputs": {
+        "rgb_sha256": "112b1062fdb9cfbcfb88c26602e9410dffd459531b182983fbdd38b12387f4d8",
+        "encoder_sha256": "1b00dd1dd4e5053fb565337687dd109bd4cf25b76c352c74e7ead77abaf56189",
+        "mode": "yae",
+        "quality": "optimized"
+      },
+      "kimg": "assets/review/white-house-completion/kimg-yae/room-193-state-3.img",
+      "kimg_sha256": "1555633c0d2ac737bfc0d883cffc184e728333eab6470872c17f95ebb014041f",
+      "rgb": "assets/review/white-house-completion/rgb/room-193-state-3.png",
+      "yae_preview": "assets/review/white-house-completion/yae/room-193-state-3.png",
+      "hotspot_json": "assets/review/white-house-completion/hotspots/scenes/room-193-state-3.json",
+      "hotspot_binary": "assets/review/white-house-completion/hotspots/binary/room-193-state-3.wht",
+      "hotspot_bytes": 363,
+      "hotspots": 7,
+      "unresolved": [
+        {
+          "object_id": "TRAP-DOOR",
+          "status": "concealed",
+          "detail": "The central rug covers the closed trapdoor in this presentation; no hidden hotspot is exposed."
+        },
+        {
+          "object_id": "MAP",
+          "status": "concealed",
+          "detail": "No map appears in this selected room illustration; inventory and treasure contents do not add image keys."
+        }
+      ]
+    },
+    {
+      "asset_key": "room-193-state-4",
+      "room": 193,
+      "state": 4,
+      "inputs": {
+        "rgb_sha256": "49c9bf166cbce7512ca5ffa506bfc370113e8372190eba175b809d64450b336d",
+        "encoder_sha256": "1b00dd1dd4e5053fb565337687dd109bd4cf25b76c352c74e7ead77abaf56189",
+        "mode": "yae",
+        "quality": "optimized"
+      },
+      "kimg": "assets/review/white-house-completion/kimg-yae/room-193-state-4.img",
+      "kimg_sha256": "3844497fd57d79deff5f158620d1025cabe09633fdddd9768a3e9b739ea35b3a",
+      "rgb": "assets/review/white-house-completion/rgb/room-193-state-4.png",
+      "yae_preview": "assets/review/white-house-completion/yae/room-193-state-4.png",
+      "hotspot_json": "assets/review/white-house-completion/hotspots/scenes/room-193-state-4.json",
+      "hotspot_binary": "assets/review/white-house-completion/hotspots/binary/room-193-state-4.wht",
+      "hotspot_bytes": 452,
+      "hotspots": 9,
+      "unresolved": [
+        {
+          "object_id": "MAP",
+          "status": "concealed",
+          "detail": "No map appears in this selected room illustration; inventory and treasure contents do not add image keys."
+        }
+      ]
+    },
+    {
+      "asset_key": "room-193-state-5",
+      "room": 193,
+      "state": 5,
+      "inputs": {
+        "rgb_sha256": "fba4460ee63d1673b775368cfb2602580c6162aceeea13a53d90cdab174019ea",
+        "encoder_sha256": "1b00dd1dd4e5053fb565337687dd109bd4cf25b76c352c74e7ead77abaf56189",
+        "mode": "yae",
+        "quality": "optimized"
+      },
+      "kimg": "assets/review/white-house-completion/kimg-yae/room-193-state-5.img",
+      "kimg_sha256": "db2d83aaafb9e1b6c657e70750a276f41331bf4b832dc6870dffe72608855969",
+      "rgb": "assets/review/white-house-completion/rgb/room-193-state-5.png",
+      "yae_preview": "assets/review/white-house-completion/yae/room-193-state-5.png",
+      "hotspot_json": "assets/review/white-house-completion/hotspots/scenes/room-193-state-5.json",
+      "hotspot_binary": "assets/review/white-house-completion/hotspots/binary/room-193-state-5.wht",
+      "hotspot_bytes": 452,
+      "hotspots": 9,
+      "unresolved": [
+        {
+          "object_id": "MAP",
+          "status": "concealed",
+          "detail": "No map appears in this selected room illustration; inventory and treasure contents do not add image keys."
+        }
+      ]
+    },
+    {
+      "asset_key": "room-193-state-6",
+      "room": 193,
+      "state": 6,
+      "inputs": {
+        "rgb_sha256": "a7166f6135d8654c5e2d1587ad56164cf7eb864b13e4dfa49884604d53bd47a6",
+        "encoder_sha256": "1b00dd1dd4e5053fb565337687dd109bd4cf25b76c352c74e7ead77abaf56189",
+        "mode": "yae",
+        "quality": "optimized"
+      },
+      "kimg": "assets/review/white-house-completion/kimg-yae/room-193-state-6.img",
+      "kimg_sha256": "6520a880b3704fe444dfc716e7433bfb72a6416177ed168f9b944eca2acb5523",
+      "rgb": "assets/review/white-house-completion/rgb/room-193-state-6.png",
+      "yae_preview": "assets/review/white-house-completion/yae/room-193-state-6.png",
+      "hotspot_json": "assets/review/white-house-completion/hotspots/scenes/room-193-state-6.json",
+      "hotspot_binary": "assets/review/white-house-completion/hotspots/binary/room-193-state-6.wht",
+      "hotspot_bytes": 423,
+      "hotspots": 8,
+      "unresolved": [
+        {
+          "object_id": "MAP",
+          "status": "concealed",
+          "detail": "No map appears in this selected room illustration; inventory and treasure contents do not add image keys."
+        }
+      ]
+    },
+    {
+      "asset_key": "room-193-state-7",
+      "room": 193,
+      "state": 7,
+      "inputs": {
+        "rgb_sha256": "73e4a174646f983dba7b186b8fd3de8cccb03efa91fc838d25d60f31f5428f01",
+        "encoder_sha256": "1b00dd1dd4e5053fb565337687dd109bd4cf25b76c352c74e7ead77abaf56189",
+        "mode": "yae",
+        "quality": "optimized"
+      },
+      "kimg": "assets/review/white-house-completion/kimg-yae/room-193-state-7.img",
+      "kimg_sha256": "c53606bc187a88f559703df43442c6b3e1a6256473c2cd4bf3e64642e27873b7",
+      "rgb": "assets/review/white-house-completion/rgb/room-193-state-7.png",
+      "yae_preview": "assets/review/white-house-completion/yae/room-193-state-7.png",
+      "hotspot_json": "assets/review/white-house-completion/hotspots/scenes/room-193-state-7.json",
+      "hotspot_binary": "assets/review/white-house-completion/hotspots/binary/room-193-state-7.wht",
+      "hotspot_bytes": 395,
+      "hotspots": 7,
+      "unresolved": [
+        {
+          "object_id": "MAP",
+          "status": "concealed",
+          "detail": "No map appears in this selected room illustration; inventory and treasure contents do not add image keys."
+        }
+      ]
+    },
+    {
+      "asset_key": "room-193-state-8",
+      "room": 193,
+      "state": 8,
+      "inputs": {
+        "rgb_sha256": "aedec058a7b69d91d13ee70193cb1a28e98241504e18b282066d9c62b454d0bc",
+        "encoder_sha256": "1b00dd1dd4e5053fb565337687dd109bd4cf25b76c352c74e7ead77abaf56189",
+        "mode": "yae",
+        "quality": "optimized"
+      },
+      "kimg": "assets/review/white-house-completion/kimg-yae/room-193-state-8.img",
+      "kimg_sha256": "88d5d6ef6faaa23cf712baf64170b5489b0219dc426d696348d3fe7be247c0d6",
+      "rgb": "assets/review/white-house-completion/rgb/room-193-state-8.png",
+      "yae_preview": "assets/review/white-house-completion/yae/room-193-state-8.png",
+      "hotspot_json": "assets/review/white-house-completion/hotspots/scenes/room-193-state-8.json",
+      "hotspot_binary": "assets/review/white-house-completion/hotspots/binary/room-193-state-8.wht",
+      "hotspot_bytes": 424,
+      "hotspots": 8,
+      "unresolved": [
+        {
+          "object_id": "MAP",
+          "status": "concealed",
+          "detail": "No map appears in this selected room illustration; inventory and treasure contents do not add image keys."
+        }
+      ]
+    },
+    {
+      "asset_key": "room-72-state-1",
+      "room": 72,
+      "state": 1,
+      "inputs": {
+        "rgb_sha256": "ad9c83970d15af90237dd4ffb7bc9896a324ccf273ea8dfda412716fba84c95c",
+        "encoder_sha256": "1b00dd1dd4e5053fb565337687dd109bd4cf25b76c352c74e7ead77abaf56189",
+        "mode": "yae",
+        "quality": "optimized"
+      },
+      "kimg": "assets/review/white-house-completion/kimg-yae/room-72-state-1.img",
+      "kimg_sha256": "b97cd39d5c44b5a37481d8cbb506f44c1dcbf9acb2ef8c635ea8ca820b507f24",
+      "rgb": "assets/review/white-house-completion/rgb/room-72-state-1.png",
+      "yae_preview": "assets/review/white-house-completion/yae/room-72-state-1.png",
+      "hotspot_json": "assets/review/white-house-completion/hotspots/scenes/room-72-state-1.json",
+      "hotspot_binary": "assets/review/white-house-completion/hotspots/binary/room-72-state-1.wht",
+      "hotspot_bytes": 159,
+      "hotspots": 3,
+      "unresolved": [
+        {
+          "object_id": "STAIRS",
+          "status": "not_visible",
+          "detail": "The selected cellar illustration does not show stairs leading up; no rectangle is invented."
+        },
+        {
+          "object_id": "TRAP-DOOR",
+          "status": "not_visible",
+          "detail": "The upper trapdoor is outside the illustrated cellar view."
+        },
+        {
+          "object_id": "EXIT-UP",
+          "status": "not_visible",
+          "detail": "The exit up is not depicted; it remains available through normal text input."
+        }
+      ]
+    },
+    {
+      "asset_key": "room-72-state-2",
+      "room": 72,
+      "state": 2,
+      "inputs": {
+        "rgb_sha256": "f073fcf8063028a02553ee3592b62b9f646fc7050d4374ffa261310233c30336",
+        "encoder_sha256": "1b00dd1dd4e5053fb565337687dd109bd4cf25b76c352c74e7ead77abaf56189",
+        "mode": "yae",
+        "quality": "optimized"
+      },
+      "kimg": "assets/review/white-house-completion/kimg-yae/room-72-state-2.img",
+      "kimg_sha256": "dcc6d61c90000ca39c67d52c57f2604eb7ea1d38a5f3be8015b73ad2bb1fb143",
+      "rgb": "assets/review/white-house-completion/rgb/room-72-state-2.png",
+      "yae_preview": "assets/review/white-house-completion/yae/room-72-state-2.png",
+      "hotspot_json": "assets/review/white-house-completion/hotspots/scenes/room-72-state-2.json",
+      "hotspot_binary": "assets/review/white-house-completion/hotspots/binary/room-72-state-2.wht",
+      "hotspot_bytes": 48,
+      "hotspots": 0,
+      "unresolved": []
+    }
+  ]
+}

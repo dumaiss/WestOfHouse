@@ -52,8 +52,8 @@ then symbolic state ID order. Ordering the input YAML differently does not
 change the result. IDs may change when the room's definitions change; deploy
 future presentation assets with their matching generated mapping.
 
-The resolver supports all 99 currently ready rooms. It resets `WOH-STATE` to
-zero on every invocation and uses native ZIL conditions. The 11 incomplete
+The resolver supports all 101 currently ready rooms. It resets `WOH-STATE` to
+zero on every invocation and uses native ZIL conditions. The 9 incomplete
 rooms have no recognition branch. Ready predicates are validated for coverage,
 overlap and supported observations before code generation. No YAML is loaded
 by the target application.

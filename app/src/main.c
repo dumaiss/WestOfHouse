@@ -1,6 +1,7 @@
 #include "kos.h"
 #include "kos/mouse.h"
 #include "kos/key.h"
+#include "kos/snd.h"
 #include "game.h"
 #include "render.h"
 #include "probe.h"
@@ -15,6 +16,62 @@ static struct mouse mouse;
 static char story_path[128];
 woh_probe_t woh_probe;
 static uint8_t waiting, finished, suppress_lf;
+
+/* Background music: the archive's PCM stream (WOH_MUSIC_RESOURCE),
+ * looped through libsnd's PCM player (kos/snd.h), which holds the sound
+ * card for it.  Optional: without the resource, a sound card or the
+ * real-time interrupt the game runs silent.
+ *
+ * It plays while the game waits for input, fed on every interrupt, and
+ * pauses while the game works on a command: the RT clock's lane holds
+ * would halve the speed of the story reads and scene loads of a turn,
+ * which would then outlast the player's buffering.  Each pause and resume
+ * glides the DAC, so a turn is a short fade. */
+static uint8_t music_stage[1024];
+static kos_reader_t music_reader;
+static uint8_t music_on;
+
+static void music_start(void)
+{
+    if (resources_music(&music_reader) < 0) return;
+    if (snd_pcm_open(&music_reader,music_stage,sizeof(music_stage)) < 0) return;
+    if (snd_pcm_play(SND_PCM_LOOP) < 0) { snd_pcm_close(); return; }
+    music_on = 1;
+}
+
+static void music_stop(void)
+{
+    if (!music_on) return;
+    snd_pcm_close();
+    music_on = 0;
+}
+
+/* The game is working on a command: no RT clock while it does. */
+static void music_pause(void)
+{
+    if (music_on) (void)snd_pcm_pause();
+}
+
+/* The game waits for input: feed the music, resuming it after a turn. */
+static void music_service(void)
+{
+    if (!music_on) return;
+    if (snd_pcm_service() == SND_PCM_PAUSED && snd_pcm_resume() < 0)
+        music_stop();          /* a stream that cannot resume ends */
+}
+
+/* An empty input wait: while music plays, feed it on every interrupt (the
+ * ring holds 192 ms, the staging one read) and poll the keyboard every
+ * eighth; otherwise the SDK's input pacing. */
+static void input_wait(void)
+{
+    uint8_t i;
+    if (!music_on) { idle_input(); return; }
+    for (i = 0; i < 8u; ++i) {
+        idle();
+        music_service();
+    }
+}
 
 static void probe(void)
 {
@@ -36,6 +93,9 @@ static int close_menu(void)
 /* Keyboard and menu actions both enter here, including parser confirmations. */
 static int submit(const char *text)
 {
+    /* The turn's work starts here (the panel redraw included): pause
+     * first, so the music fades rather than starves. */
+    music_pause();
     if (close_menu() < 0) return -1;
     panel_begin(&panel,text);
     /* Show acceptance before input tokenization and story execution. The
@@ -162,8 +222,17 @@ int main(int argc, char **argv)
     woh_probe.magic[0] = 'W'; woh_probe.magic[1] = 'O';
     woh_probe.magic[2] = 'H'; woh_probe.magic[3] = '0';
     if (render_title() < 0) { error = "title resource display failed"; goto done; }
+    music_start();
     woh_probe.title = 1;
-    key = key_get();
+    for (;;) {
+        if (key_pending() < 0) break;
+        key = key_poll();
+        if (key != KEY_NONE) break;
+        music_service();
+        input_wait();
+    }
+    idle_input_ready();
+    music_pause();             /* the game screen and story load next */
     woh_probe.title = 0;
     if (render_game_screen() < 0) { error = "game screen initialization failed"; goto done; }
     panel_init(&panel);
@@ -180,6 +249,7 @@ int main(int argc, char **argv)
     woh_probe.magic[2] = 'H'; woh_probe.magic[3] = '0';
     for (;;) {
         if (!waiting) {
+            music_pause();
             status = game_step(&game);
             if (status == ZVM_NEED_INPUT || status == ZVM_FINISHED) {
                 game_output_finish(&panel);
@@ -199,14 +269,16 @@ int main(int argc, char **argv)
             }
         }
         /* Empty input waits use SDK pacing. Each bounded VM slice returns
-         * here too, so pointer movement does not wait for the whole turn. */
+         * here too, so pointer movement and the music's feed do not wait
+         * for the whole turn; the music is fed only while the game waits. */
+        if (waiting) music_service();
         if (mouse_event() < 0) { error = "mouse rendering failed"; break; }
         probe();
         if (waiting) {
             result = key_pending();
             if (result < 0) { error = "keyboard read failed"; break; }
             key = key_poll();
-            if (key == KEY_NONE) idle_input();
+            if (key == KEY_NONE) input_wait();
             else {
                 idle_input_ready();
                 result = keyboard(key);
@@ -216,6 +288,7 @@ int main(int argc, char **argv)
         }
     }
 done:
+    music_stop();
     vm_error = (uint8_t)zvm_error(&game.vm);
     pc = zvm_program_counter(&game.vm);
     game_close(&game);

@@ -1,0 +1,22 @@
+{
+  "schema": "woh_approved_art_packaging_v1",
+  "scene_pairs": 20,
+  "resources": 43,
+  "approved_image_and_hotspot_payloads_match": true,
+  "story_matches_darkness_aware_build": true,
+  "music": [
+    {
+      "id": "advent4.pcm",
+      "sha256": "60d872a2bcc4937ca8bd3846a021130081662c101a9bff9a4ea3e1caa1e47bfc"
+    }
+  ],
+  "archive": "app/build/WestOfHouse/WOH.KPR",
+  "archive_bytes": 4533248,
+  "archive_sha256": "4ee73143223d673d8d66fe6fc24497bf86a8169af208b91542b70138f1500475",
+  "executable": "app/build/WestOfHouse/woh.exe",
+  "executable_bytes": 80476,
+  "executable_sha256": "efeed99c95aea6775a7182c169d2edd821ce82df20de75b74fb69491e15165d3",
+  "archive_verify_unpack_comparison": "passed by resource builder for every payload",
+  "executable_pack_validation": "passed",
+  "target_mame_run": false
+}

@@ -1,0 +1,453 @@
+{
+  "schema": "woh_white_house_completion_v1",
+  "target": [
+    256,
+    159
+  ],
+  "runtime_mapping": "generated-zil/woh-state-ids.json",
+  "runtime_mapping_sha256": "fac10745f9bcaff4aa469691821db5bd8a3ff68adb7e4d9d02c8336c0548ad50",
+  "records": [
+    {
+      "asset_key": "room-180-state-1",
+      "room": "WEST-OF-HOUSE",
+      "runtime_room": 180,
+      "runtime_state": 1,
+      "original": "assets/source/white-house/originals/room-180-state-1.png",
+      "original_sha256": "30ae0d408cd44cd188af679fd76c0a5a31a840129526a916613cdcef0c34d102",
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "phase1_specification": "assets/source/art-direction/rooms/WEST-OF-HOUSE/states/1.json",
+      "origin": "existing selected illustration",
+      "generation_metadata": "assets/source/white-house/metadata/room-180-state-1.json",
+      "source_size": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "asset_key": "room-180-state-2",
+      "room": "WEST-OF-HOUSE",
+      "runtime_room": 180,
+      "runtime_state": 2,
+      "original": "assets/source/white-house/originals/room-180-state-2.png",
+      "original_sha256": "14834299c5d3c4e7ca4faf88bb779ea94bcd3389a9ed9aac5a44b1b3ab881285",
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "phase1_specification": "assets/source/art-direction/rooms/WEST-OF-HOUSE/states/2.json",
+      "origin": "existing selected illustration",
+      "generation_metadata": "assets/source/white-house/metadata/room-180-state-2.json",
+      "source_size": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "asset_key": "room-81-state-1",
+      "room": "NORTH-OF-HOUSE",
+      "runtime_room": 81,
+      "runtime_state": 1,
+      "original": "assets/source/white-house/originals/room-81-state-1.png",
+      "original_sha256": "35c72846709cf21287a1698525955b52318b3f5ac68f0fadafa46f511b5a33ca",
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "phase1_specification": "assets/source/art-direction/rooms/NORTH-OF-HOUSE/states/1.json",
+      "origin": "existing selected illustration",
+      "generation_metadata": "assets/source/white-house/metadata/room-81-state-1.json",
+      "source_size": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "asset_key": "room-80-state-1",
+      "room": "SOUTH-OF-HOUSE",
+      "runtime_room": 80,
+      "runtime_state": 1,
+      "original": "assets/source/white-house/originals/room-80-state-1.png",
+      "original_sha256": "9f8f08ec4fa3629e3158576d131964691bccb9d38cbf2dc43217ec1228896226",
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "phase1_specification": "assets/source/art-direction/rooms/SOUTH-OF-HOUSE/states/1.json",
+      "origin": "existing selected illustration",
+      "generation_metadata": "assets/source/white-house/metadata/room-80-state-1.json",
+      "source_size": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "asset_key": "room-79-state-1",
+      "room": "EAST-OF-HOUSE",
+      "runtime_room": 79,
+      "runtime_state": 1,
+      "original": "assets/source/white-house/originals/room-79-state-1.png",
+      "original_sha256": "9a01f7967c76dffb35dbb3843eb792353d0972fef8db3236ee4c2a4d6d3a88d7",
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "phase1_specification": "assets/source/art-direction/rooms/EAST-OF-HOUSE/states/1.json",
+      "origin": "existing selected illustration",
+      "generation_metadata": "assets/source/white-house/metadata/room-79-state-1.json",
+      "source_size": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "asset_key": "room-79-state-2",
+      "room": "EAST-OF-HOUSE",
+      "runtime_room": 79,
+      "runtime_state": 2,
+      "original": "assets/source/white-house/originals/room-79-state-2.png",
+      "original_sha256": "d8946397139731533cad24cc61c56e2c135ec8f15e08ba2a7aa19487ff99e250",
+      "crop_box": [
+        0,
+        0,
+        1448,
+        899
+      ],
+      "phase1_specification": "assets/source/art-direction/rooms/EAST-OF-HOUSE/states/2.json",
+      "origin": "existing selected illustration",
+      "generation_metadata": "assets/source/white-house/metadata/room-79-state-2.json",
+      "source_size": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "asset_key": "room-203-state-1",
+      "room": "KITCHEN",
+      "runtime_room": 203,
+      "runtime_state": 1,
+      "original": "assets/source/white-house/originals/room-203-state-1.png",
+      "original_sha256": "34f9d904e66b82d9342ccd5438ee58faceca6ceb28dcf0b1ad1e40e93e22ffad",
+      "crop_box": [
+        0,
+        3,
+        1586,
+        988
+      ],
+      "phase1_specification": "assets/source/art-direction/rooms/KITCHEN/states/1.json",
+      "origin": "existing selected illustration",
+      "generation_metadata": "assets/source/white-house/metadata/room-203-state-1.json",
+      "source_size": [
+        1586,
+        992
+      ]
+    },
+    {
+      "asset_key": "room-203-state-2",
+      "room": "KITCHEN",
+      "runtime_room": 203,
+      "runtime_state": 2,
+      "original": "assets/source/white-house/originals/room-203-state-2.png",
+      "original_sha256": "661b6744058cff67f37613f3da436cbef1544674fcb31e8c67d013bd069ca2c0",
+      "crop_box": [
+        0,
+        4,
+        1585,
+        988
+      ],
+      "phase1_specification": "assets/source/art-direction/rooms/KITCHEN/states/2.json",
+      "origin": "existing selected illustration",
+      "generation_metadata": "assets/source/white-house/metadata/room-203-state-2.json",
+      "source_size": [
+        1585,
+        992
+      ]
+    },
+    {
+      "asset_key": "room-201-state-1",
+      "room": "ATTIC",
+      "runtime_room": 201,
+      "runtime_state": 1,
+      "original": "assets/source/white-house-completion/originals/room-201-state-1.png",
+      "original_sha256": "46e4a6b4a5dec38deba48b183856ef03c008067aa940f6cdb1ec10f19d868841",
+      "crop_box": [
+        0,
+        93,
+        1448,
+        992
+      ],
+      "phase1_specification": "assets/source/art-direction/rooms/ATTIC/states/1.json",
+      "origin": "reference-guided edit",
+      "generation_metadata": "assets/source/white-house-completion/metadata/room-201-state-1.json",
+      "generation_prompt": "assets/source/white-house-completion/prompts/room-201-state-1.md",
+      "generation_prompt_sha256": "de9ac71fe2a6ab96140adcf7e1d9defa051de815073cc2733d7d380d5522fd39",
+      "source_size": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "asset_key": "room-201-state-2",
+      "room": "ATTIC",
+      "runtime_room": 201,
+      "runtime_state": 2,
+      "original": "assets/source/white-house-completion/originals/room-201-state-2.png",
+      "original_sha256": "c29079b5f06b9b7c28e7dfdd4645ba03474824a992b82c540768bea681196af6",
+      "crop_box": [
+        0,
+        93,
+        1448,
+        992
+      ],
+      "phase1_specification": "assets/source/art-direction/rooms/ATTIC/states/2.json",
+      "origin": "reference-guided edit",
+      "generation_metadata": "assets/source/white-house-completion/metadata/room-201-state-2.json",
+      "generation_prompt": "assets/source/white-house-completion/prompts/room-201-state-2.md",
+      "generation_prompt_sha256": "9b1407d738d580b5fb768f4e5f0517715393c295e6692ce9b5acd8441f52ccf1",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "visibility": "pitch-black"
+    },
+    {
+      "asset_key": "room-193-state-1",
+      "room": "LIVING-ROOM",
+      "runtime_room": 193,
+      "runtime_state": 1,
+      "original": "assets/source/house-interiors/originals/room-193-state-unbound.png",
+      "original_sha256": "6f5b6e207380148fba3df5da4a03f8f3e240f949b2af8994c68f171ce130d7d3",
+      "crop_box": [
+        0,
+        145,
+        1448,
+        1044
+      ],
+      "phase1_specification": "assets/source/art-direction/rooms/LIVING-ROOM/states/1.json",
+      "origin": "existing selected illustration",
+      "generation_metadata": "assets/source/house-interiors/manifest.json",
+      "source_size": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "asset_key": "room-193-state-2",
+      "room": "LIVING-ROOM",
+      "runtime_room": 193,
+      "runtime_state": 2,
+      "original": "assets/source/white-house-completion/originals/room-193-state-2.png",
+      "original_sha256": "4ec3aeb3a9813190294a553be3a22201c53d9272b1ea39c2b77463b01aeb2947",
+      "crop_box": [
+        0,
+        145,
+        1448,
+        1044
+      ],
+      "phase1_specification": "assets/source/art-direction/rooms/LIVING-ROOM/states/2.json",
+      "origin": "reference-guided edit",
+      "generation_metadata": "assets/source/white-house-completion/metadata/room-193-state-2.json",
+      "generation_prompt": "assets/source/white-house-completion/prompts/room-193-state-2.md",
+      "generation_prompt_sha256": "c6478fe0e47556cb0d29127c89cf6e06547ecb90c634317e378d195da8c8896c",
+      "source_size": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "asset_key": "room-193-state-3",
+      "room": "LIVING-ROOM",
+      "runtime_room": 193,
+      "runtime_state": 3,
+      "original": "assets/source/white-house-completion/originals/room-193-state-3.png",
+      "original_sha256": "65a4141ee26c380c210eafb6b5401dd743a01e23dfd3d3dfd45d67c0be82e366",
+      "crop_box": [
+        0,
+        145,
+        1448,
+        1044
+      ],
+      "phase1_specification": "assets/source/art-direction/rooms/LIVING-ROOM/states/3.json",
+      "origin": "reference-guided edit",
+      "generation_metadata": "assets/source/white-house-completion/metadata/room-193-state-3.json",
+      "generation_prompt": "assets/source/white-house-completion/prompts/room-193-state-3.md",
+      "generation_prompt_sha256": "e1036f7e863902fcf1012ce6a8d56cfe07e9220f77037ed994a8b49901c84b20",
+      "source_size": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "asset_key": "room-193-state-4",
+      "room": "LIVING-ROOM",
+      "runtime_room": 193,
+      "runtime_state": 4,
+      "original": "assets/source/white-house-completion/originals/room-193-state-4.png",
+      "original_sha256": "fd69596671b26d0b08e4250feccd5447d7a7ea22f1078cbbbbca2aa702d7024a",
+      "crop_box": [
+        0,
+        145,
+        1448,
+        1044
+      ],
+      "phase1_specification": "assets/source/art-direction/rooms/LIVING-ROOM/states/4.json",
+      "origin": "reference-guided edit",
+      "generation_metadata": "assets/source/white-house-completion/metadata/room-193-state-4.json",
+      "generation_prompt": "assets/source/white-house-completion/prompts/room-193-state-4.md",
+      "generation_prompt_sha256": "c973bbfd8280f00264256f009f1da725c45a2ba0e3d48a4969a3d698db451c7e",
+      "source_size": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "asset_key": "room-193-state-5",
+      "room": "LIVING-ROOM",
+      "runtime_room": 193,
+      "runtime_state": 5,
+      "original": "assets/source/white-house-completion/originals/room-193-state-5.png",
+      "original_sha256": "1a0ba94af726609b5e0c6442d3a6ee962dba004bddc1f46370b586ec514f577f",
+      "crop_box": [
+        0,
+        145,
+        1448,
+        1044
+      ],
+      "phase1_specification": "assets/source/art-direction/rooms/LIVING-ROOM/states/5.json",
+      "origin": "reference-guided edit",
+      "generation_metadata": "assets/source/white-house-completion/metadata/room-193-state-5.json",
+      "generation_prompt": "assets/source/white-house-completion/prompts/room-193-state-5.md",
+      "generation_prompt_sha256": "cb83c6387dbdc51d4ee8aeb574c1cf4813b45b7a507e0518e0a4138ad9e3dd7c",
+      "source_size": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "asset_key": "room-193-state-6",
+      "room": "LIVING-ROOM",
+      "runtime_room": 193,
+      "runtime_state": 6,
+      "original": "assets/source/white-house-completion/originals/room-193-state-6.png",
+      "original_sha256": "d7651f19d1c113a48981a7c11a482e60062b288951eb4015f7314c10f63f42ea",
+      "crop_box": [
+        0,
+        145,
+        1448,
+        1044
+      ],
+      "phase1_specification": "assets/source/art-direction/rooms/LIVING-ROOM/states/6.json",
+      "origin": "reference-guided edit",
+      "generation_metadata": "assets/source/white-house-completion/metadata/room-193-state-6.json",
+      "generation_prompt": "assets/source/white-house-completion/prompts/room-193-state-6.md",
+      "generation_prompt_sha256": "3e6c034433275f346d48aeb8c2cf81f700e305825adee5210f6ec3f58f2d0cfc",
+      "source_size": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "asset_key": "room-193-state-7",
+      "room": "LIVING-ROOM",
+      "runtime_room": 193,
+      "runtime_state": 7,
+      "original": "assets/source/white-house-completion/originals/room-193-state-7.png",
+      "original_sha256": "007ce3eec7c66b83e2c61227fcd27e660f16b7bd51e7338a8ff3e49e6855f67e",
+      "crop_box": [
+        0,
+        145,
+        1448,
+        1044
+      ],
+      "phase1_specification": "assets/source/art-direction/rooms/LIVING-ROOM/states/7.json",
+      "origin": "reference-guided edit",
+      "generation_metadata": "assets/source/white-house-completion/metadata/room-193-state-7.json",
+      "generation_prompt": "assets/source/white-house-completion/prompts/room-193-state-7.md",
+      "generation_prompt_sha256": "a9a195c3131ef83449b5364584a5a402b086911feaf0dd9c4fb7e76ace6efa0d",
+      "source_size": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "asset_key": "room-193-state-8",
+      "room": "LIVING-ROOM",
+      "runtime_room": 193,
+      "runtime_state": 8,
+      "original": "assets/source/white-house-completion/originals/room-193-state-8.png",
+      "original_sha256": "809a68639d7ae91be6c8fcc07d655e1eeeddfea9b68fb775d9bf6709625dc8d1",
+      "crop_box": [
+        0,
+        145,
+        1448,
+        1044
+      ],
+      "phase1_specification": "assets/source/art-direction/rooms/LIVING-ROOM/states/8.json",
+      "origin": "reference-guided edit",
+      "generation_metadata": "assets/source/white-house-completion/metadata/room-193-state-8.json",
+      "generation_prompt": "assets/source/white-house-completion/prompts/room-193-state-8.md",
+      "generation_prompt_sha256": "4a50cceefe3c56590c0ce4399de8c25e4e7b05c741075d1aa6ec4bae0a36e25b",
+      "source_size": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "asset_key": "room-72-state-1",
+      "room": "CELLAR",
+      "runtime_room": 72,
+      "runtime_state": 1,
+      "original": "assets/source/house-interiors/originals/room-72-state-1.png",
+      "original_sha256": "72a070ef932a25d58daad2b3f8b7ac64beab6041cbe4e9062880b0087c19ba8d",
+      "crop_box": [
+        0,
+        93,
+        1448,
+        992
+      ],
+      "phase1_specification": "assets/source/art-direction/rooms/CELLAR/states/1.json",
+      "origin": "existing selected illustration",
+      "generation_metadata": "assets/source/house-interiors/manifest.json",
+      "source_size": [
+        1448,
+        1086
+      ]
+    },
+    {
+      "asset_key": "room-72-state-2",
+      "room": "CELLAR",
+      "runtime_room": 72,
+      "runtime_state": 2,
+      "original": "assets/source/white-house-completion/originals/room-72-state-2.png",
+      "original_sha256": "79fe231ca0076835b98ce3850ae9b4624166c45dd4443b6b6117ee3eca9f99a9",
+      "crop_box": [
+        0,
+        93,
+        1448,
+        992
+      ],
+      "phase1_specification": "assets/source/art-direction/rooms/CELLAR/states/2.json",
+      "origin": "reference-guided edit",
+      "generation_metadata": "assets/source/white-house-completion/metadata/room-72-state-2.json",
+      "generation_prompt": "assets/source/white-house-completion/prompts/room-72-state-2.md",
+      "generation_prompt_sha256": "b8f01619d4de05b5a73ad20bad63b8aa93ec687e8661e38e7913cf40c24199f9",
+      "source_size": [
+        1448,
+        1086
+      ],
+      "visibility": "pitch-black"
+    }
+  ]
+}

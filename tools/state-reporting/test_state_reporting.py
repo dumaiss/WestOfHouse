@@ -25,9 +25,9 @@ class GeneratorTests(unittest.TestCase):
 
     def test_all_ready_rooms_and_stable_local_ids(self):
         text, mapping = generate(self.dictionary)
-        self.assertEqual(99, sum(r['status'] == 'ready' for r in mapping['rooms']))
-        self.assertEqual(11, sum(r['status'] == 'incomplete' for r in mapping['rooms']))
-        self.assertEqual(99, text.count('(<EQUAL? ,HERE '))
+        self.assertEqual(101, sum(r['status'] == 'ready' for r in mapping['rooms']))
+        self.assertEqual(9, sum(r['status'] == 'incomplete' for r in mapping['rooms']))
+        self.assertEqual(101, text.count('(<EQUAL? ,HERE '))
         self.assertIn('<SETG WOH-STATE 0>', text)
         self.assertNotIn('<TELL', text)
         reversed_input = copy.deepcopy(self.dictionary)
@@ -172,6 +172,73 @@ class StoryTests(unittest.TestCase):
         vm.advance('look')
         self.assertEqual((self.symbols['objects']['SANDY-CAVE'], 0), self.observed(vm))
         self.results['incomplete_sandy_cave'] = self.observed(vm)
+
+    def test_living_room_all_eight_presentations(self):
+        vm = self.machine()
+        self.place(vm, 'LIVING-ROOM')
+        room = next(r for r in self.dictionary['rooms'] if r['id'] == 'LIVING-ROOM')
+        mapping = next(r for r in self.mapping['rooms'] if r['room'] == 'LIVING-ROOM')
+        numeric = {s['id']: s['value'] for s in mapping['states']}
+        trap = self.symbols['objects']['TRAP-DOOR']
+        results = []
+        for magic, rug, opened in itertools.product((False, True), repeat=3):
+            readings = {'MAGIC-FLAG': magic, 'RUG-MOVED': rug, 'TRAP-DOOR.OPENBIT': opened}
+            vm.set_global(self.symbols['globals']['MAGIC-FLAG'], int(magic))
+            vm.set_global(self.symbols['globals']['RUG-MOVED'], int(rug))
+            vm.attribute(trap, self.symbols['constants']['OPENBIT'], opened)
+            text = vm.advance('look').decode('ascii')
+            matches = [s for s in room['states'] if evaluate(s['match'], readings)]
+            self.assertEqual(1, len(matches))
+            actual = self.observed(vm)
+            self.assertEqual((self.symbols['objects']['LIVING-ROOM'], numeric[matches[0]['id']]), actual)
+            self.assertEqual(magic, 'cyclops-shaped' in text)
+            self.assertEqual(opened, 'open trap door' in text)
+            results.append({'values': readings, 'state': actual[1]})
+        self.assertEqual(set(range(1, 9)), {r['state'] for r in results})
+        self.results['living_room_fixture'] = results
+
+    def test_house_walkthrough_preserves_gameplay_and_reports_attic(self):
+        baseline = VM(self.library, self.baseline/'ZORK1.Z3')
+        instrumented = VM(self.library, self.instrumented/'ZORK1.Z3')
+        commands = [None, 'north', 'east', 'open window', 'enter', 'west',
+                    'take lamp', 'turn on lamp', 'east', 'up', 'look', 'down',
+                    'west', 'move rug', 'open trap door', 'close trap door']
+        results = []
+        for command in commands:
+            self.assertEqual(baseline.advance(command), instrumented.advance(command), command)
+            here, state = self.observed(instrumented)
+            self.assertGreater(state, 0)
+            if command == 'up':
+                self.assertEqual((self.symbols['objects']['ATTIC'], 1), (here, state))
+            results.append({'command': command, 'room': here, 'state': state})
+        self.assertNotEqual(results[-4]['state'], results[-3]['state'])
+        self.assertNotEqual(results[-3]['state'], results[-2]['state'])
+        self.assertEqual(results[-3]['state'], results[-1]['state'])
+        self.results['house_walkthrough'] = results
+
+    def test_attic_and_cellar_use_shared_light_not_lantern_inventory(self):
+        vm = self.machine()
+        for command in ['north', 'east', 'open window', 'enter', 'up']:
+            vm.advance(command)
+        self.assertEqual((self.symbols['objects']['ATTIC'], 2), self.observed(vm))
+        self.assertIn(b'pitch black', vm.advance('look'))
+        # Return by the known stair rather than attempting random dark movement.
+        for command in ['down', 'west', 'take lamp', 'east', 'up']:
+            vm.advance(command)
+        self.assertEqual((self.symbols['objects']['ATTIC'], 2), self.observed(vm))
+        states = []
+        for command, expected in [('turn on lamp', 1), ('turn off lamp', 2), ('turn on lamp', 1)]:
+            vm.advance(command)
+            self.assertEqual((self.symbols['objects']['ATTIC'], expected), self.observed(vm))
+            states.append(self.observed(vm))
+        for command in ['down', 'west', 'move rug', 'open trap door', 'down']:
+            vm.advance(command)
+        self.assertEqual((self.symbols['objects']['CELLAR'], 1), self.observed(vm))
+        for command, expected in [('turn off lamp', 2), ('turn on lamp', 1)]:
+            vm.advance(command)
+            self.assertEqual((self.symbols['objects']['CELLAR'], expected), self.observed(vm))
+            states.append(self.observed(vm))
+        self.results['house_visibility_transitions'] = states
 
     def test_loud_room_shared_input_path(self):
         vm = self.machine()

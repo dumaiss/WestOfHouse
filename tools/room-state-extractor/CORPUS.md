@@ -1,4 +1,18 @@
-# Room-state recognition: corrected corpus results
+# Current corpus after house-room extraction
+
+Attic and Living Room are now ready: **101 ready rooms, 9 incomplete**.
+The current dictionary has 184 states: 149 resolved, 31 unresolved, 2 ambiguous
+and 2 contradictory; 82 single-state rooms and 28 multi-state rooms.
+One room has overlaps and seven have coverage gaps. The only changed room
+definitions are ATTIC and CELLAR (lit plus pitch black), and LIVING-ROOM
+(eight LOOK states).
+All previously ready room definitions and numeric state IDs are unchanged.
+
+See [HOUSE-STATES.md](HOUSE-STATES.md) and the generated diagnostics for current
+results. The following section records the earlier readiness correction and its
+original counts; its blocker list is historical.
+
+# Historical readiness correction
 
 The correction changes readiness scope, not state discovery. All **110 room
 observation lists and 187 state entries** are unchanged, including their IDs and

@@ -18,8 +18,8 @@ class ResourceTests(unittest.TestCase):
 
     def test_mapping_and_explicit_selection(self):
         pairs=build.declaration(self.manifest)
-        self.assertEqual(len(pairs['scene']),8)
-        self.assertEqual(len(self.manifest['resources']),18)
+        self.assertEqual(len(pairs['scene']),20)
+        self.assertEqual(len(self.manifest['resources']),43)
         self.assertNotIn((201,0),pairs['scene'])
         self.assertIn('WoHTitle.img',[r['id'] for r in self.manifest['resources']])
 
@@ -42,6 +42,21 @@ class ResourceTests(unittest.TestCase):
             path.write_bytes(b'orphan')
             with self.assertRaisesRegex(ValueError,'Orphan'):build.declaration(self.manifest)
         finally:path.unlink(missing_ok=True)
+
+    def test_one_background_music_stream(self):
+        music=[r for r in self.manifest['resources'] if r['type']=='music']
+        self.assertEqual([r['id'] for r in music],['advent4.pcm'])
+        codec,rate,samples=build.pcm_header(build.local(music[0]['path']))
+        self.assertEqual((codec,rate),(1,16000))
+        self.assertGreater(samples,0)
+        # A second stream, or a music row that is not a .pcm, is refused.
+        self.rejects(lambda m:m['resources'].append(dict(music[0],id='second.pcm')))
+        self.rejects(lambda m:[r.update(path='assets/runtime/story/zork1.z3') for r in m['resources'] if r['type']=='music'])
+        with tempfile.TemporaryDirectory() as temp:
+            bad=Path(temp)/'bad.pcm'
+            data=bytearray(build.local(music[0]['path']).read_bytes()[:4096])
+            bad.write_bytes(bytes(data))
+            with self.assertRaisesRegex(ValueError,'Invalid PCM'):build.pcm_header(bad)
 
     def test_preserved_art_and_payloads(self):
         report=build.read(build.ROOT/'assets/review/migration.json')

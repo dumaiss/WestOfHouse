@@ -1,29 +1,29 @@
 {
   "schema": "room_state_diagnostics_v2",
   "source_hashes": {
-    "1actions.zil": "94be62a8e11e488e866dc1fc126d63bcf2674fa1fd3710cca1d8d01cb3fb4f8b",
+    "1actions.zil": "443b9e0082f51b04ae053418039005945efa29945d945102cf7d494fef02fdf7",
     "1dungeon.zil": "8e223dc75ce64cff8542266101742ea73774533787c5257e8df4a262e4f02766",
     "gclock.zil": "92c4d66f18eeba8de1497215a0e17ade6c2cf1e5e050f016cf99160e41b154c6",
     "gglobals.zil": "5945abfeeff71cd2b2088653c7572d3c72bf14d5af65c41b4425d945a6bb6e0a",
     "gmacros.zil": "d665c73e9231429a772877357fd56d57c946838a5260a74f705c2dc898ebd8f5",
     "gmain.zil": "712e27ab29d36f3d36c7994ec6d41011cb869990d8780a03bb2ee8148d3f1740",
-    "gparser.zil": "5c996d3048925ac8781a00c56ce66ec2e58df2c075cc587bceef6355b5c9c1a1",
+    "gparser.zil": "869e1391bdd1518495a9f36391ec36045f5f5af401f18edb921b5c9cfd442397",
     "gsyntax.zil": "b0f0b4de6068bb85cf96306a16e07f410518669d12260682d3ac71e2e42b5621",
     "gverbs.zil": "e1150d6300e262f774b59fe96f8139980dfad3c41f0e93f3af49140b5f57e74e",
-    "zork1.zil": "12bbbe01a0df6f542b06145abdc28a42591bd8333f02cc6761501b1ef018e104"
+    "zork1.zil": "3a96d90419db3907951d05fbd0032b3b935775db9f8c41c13bf1f5addaebac9e"
   },
   "summary": {
     "rooms_processed": 110,
-    "rooms_ready": 99,
-    "rooms_not_ready": 11,
-    "single_state_rooms": 83,
-    "multiple_state_rooms": 27,
-    "resolved_states": 139,
-    "unresolved_states": 42,
-    "ambiguous_states": 4,
+    "rooms_ready": 101,
+    "rooms_not_ready": 9,
+    "single_state_rooms": 82,
+    "multiple_state_rooms": 28,
+    "resolved_states": 149,
+    "unresolved_states": 31,
+    "ambiguous_states": 2,
     "contradictory_states": 2,
-    "rooms_with_recognition_overlaps": 2,
-    "rooms_with_recognition_coverage_gaps": 9,
+    "rooms_with_recognition_overlaps": 1,
+    "rooms_with_recognition_coverage_gaps": 7,
     "rooms_with_recognition_uncertainty": 0,
     "observation_types": [
       "global",
@@ -111,28 +111,20 @@
     },
     {
       "room": "ATTIC",
-      "status": "incomplete",
+      "status": "ready",
       "validation": {
-        "ready": false,
-        "blocking_reasons": [
-          "unresolved_states",
-          "recognition_coverage_gap"
-        ],
+        "ready": true,
+        "blocking_reasons": [],
         "state_status": {
-          "INITIAL": "unresolved",
-          "POST-ROPE-FUNCTION-03A35DFC4152": "resolved",
-          "POST-ROPE-FUNCTION-11683019530A": "unresolved",
-          "POST-ROPE-FUNCTION-F678716CD25E": "unresolved"
+          "INITIAL": "resolved",
+          "VISIBILITY-DARK": "resolved"
         },
         "observation_issues": [],
         "contradictory_states": [],
         "overlaps": [],
-        "coverage_gap": {
-          "DOME-FLAG": false,
-          "ROPE.NDESCBIT": true
-        },
+        "coverage_gap": null,
         "uncertainty": [],
-        "predicate_partition_complete": false
+        "predicate_partition_complete": true
       },
       "states": [
         {
@@ -143,134 +135,25 @@
             "line": 1443
           },
           "condition": {
-            "unknown": "No source-proven default complement for presentation variants"
-          },
-          "status": "unresolved",
-          "unsupported_expressions": [
-            "No source-proven default complement for presentation variants"
-          ]
-        },
-        {
-          "id": "POST-ROPE-FUNCTION-03A35DFC4152",
-          "basis": "explicit_presentation_mutation",
-          "source": {
-            "file": "1actions.zil",
-            "line": 3030
-          },
-          "condition": {
-            "all": [
-              {
-                "ref": "DOME-FLAG",
-                "eq": false
-              },
-              {
-                "ref": "ROPE.NDESCBIT",
-                "eq": false
-              }
-            ]
+            "ref": "LIT",
+            "ne": 0
           },
           "status": "resolved",
           "unsupported_expressions": []
         },
         {
-          "id": "POST-ROPE-FUNCTION-11683019530A",
-          "basis": "explicit_presentation_mutation",
+          "id": "VISIBILITY-DARK",
+          "basis": "shared_darkness_description",
           "source": {
-            "file": "1actions.zil",
-            "line": 3030
+            "file": "gverbs.zil",
+            "line": 1637
           },
           "condition": {
-            "all": [
-              {
-                "any": [
-                  {
-                    "not": {
-                      "unknown": ".RLOC"
-                    }
-                  },
-                  {
-                    "not": {
-                      "unknown": "<IN? .RLOC ,ROOMS>"
-                    }
-                  }
-                ]
-              },
-              {
-                "ref": "ROPE.parent",
-                "eq": "ATTIC"
-              },
-              {
-                "ref": "DOME-FLAG",
-                "eq": true
-              },
-              {
-                "ref": "ROPE.NDESCBIT",
-                "eq": true
-              },
-              {
-                "unknown": "<EQUAL? ,PRSI ,RAILING>"
-              },
-              {
-                "unknown": "<SET RLOC <LOC ,ROPE>>"
-              }
-            ]
+            "ref": "LIT",
+            "eq": 0
           },
-          "status": "unresolved",
-          "unsupported_expressions": [
-            ".RLOC",
-            "<IN? .RLOC ,ROOMS>",
-            "<EQUAL? ,PRSI ,RAILING>",
-            "<SET RLOC <LOC ,ROPE>>"
-          ]
-        },
-        {
-          "id": "POST-ROPE-FUNCTION-F678716CD25E",
-          "basis": "explicit_presentation_mutation",
-          "source": {
-            "file": "1actions.zil",
-            "line": 3030
-          },
-          "condition": {
-            "all": [
-              {
-                "ref": "DOME-FLAG",
-                "eq": true
-              },
-              {
-                "ref": "ROPE.NDESCBIT",
-                "eq": true
-              },
-              {
-                "not": {
-                  "any": [
-                    {
-                      "not": {
-                        "unknown": ".RLOC"
-                      }
-                    },
-                    {
-                      "not": {
-                        "unknown": "<IN? .RLOC ,ROOMS>"
-                      }
-                    }
-                  ]
-                }
-              },
-              {
-                "unknown": "<EQUAL? ,PRSI ,RAILING>"
-              },
-              {
-                "unknown": "<SET RLOC <LOC ,ROPE>>"
-              }
-            ]
-          },
-          "status": "unresolved",
-          "unsupported_expressions": [
-            ".RLOC",
-            "<IN? .RLOC ,ROOMS>",
-            "<EQUAL? ,PRSI ,RAILING>",
-            "<SET RLOC <LOC ,ROPE>>"
-          ]
+          "status": "resolved",
+          "unsupported_expressions": []
         }
       ]
     },
@@ -371,7 +254,8 @@
         "ready": true,
         "blocking_reasons": [],
         "state_status": {
-          "LOOK-584D7B5798BA": "resolved"
+          "LOOK-584D7B5798BA": "resolved",
+          "VISIBILITY-DARK": "resolved"
         },
         "observation_issues": [],
         "contradictory_states": [],
@@ -388,7 +272,24 @@
             "file": "1actions.zil",
             "line": 532
           },
-          "condition": true,
+          "condition": {
+            "ref": "LIT",
+            "ne": 0
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "VISIBILITY-DARK",
+          "basis": "shared_darkness_description",
+          "source": {
+            "file": "gverbs.zil",
+            "line": 1637
+          },
+          "condition": {
+            "ref": "LIT",
+            "eq": 0
+          },
           "status": "resolved",
           "unsupported_expressions": []
         }
@@ -2564,85 +2465,30 @@
     },
     {
       "room": "LIVING-ROOM",
-      "status": "incomplete",
+      "status": "ready",
       "validation": {
-        "ready": false,
-        "blocking_reasons": [
-          "unresolved_states",
-          "ambiguous_states",
-          "recognition_coverage_gap"
-        ],
+        "ready": true,
+        "blocking_reasons": [],
         "state_status": {
-          "LOOK-01BE1293376B": "unresolved",
-          "LOOK-4C35D2A006EC": "unresolved",
-          "LOOK-5B4C4750931F": "unresolved",
-          "LOOK-8B511529C3C2": "unresolved",
-          "LOOK-9ADA81680DF7": "unresolved",
-          "LOOK-BACFA7AD6B78": "unresolved",
-          "LOOK-DAB1A6534E35": "unresolved",
-          "LOOK-F63F105AE16A": "unresolved",
-          "POST-RUG-FCN-8536C292402B": "ambiguous",
-          "POST-TRAP-DOOR-FCN-AE99A4D6CC11": "ambiguous"
+          "LOOK-12D6CBF94BFE": "resolved",
+          "LOOK-3C6469886505": "resolved",
+          "LOOK-5AC43322EDEC": "resolved",
+          "LOOK-61C0DBB76304": "resolved",
+          "LOOK-6C431F0D8929": "resolved",
+          "LOOK-8C68B2B893CB": "resolved",
+          "LOOK-9BC48C0752B7": "resolved",
+          "LOOK-DAF0F91818C8": "resolved"
         },
         "observation_issues": [],
         "contradictory_states": [],
-        "overlaps": [
-          {
-            "states": [
-              "POST-RUG-FCN-8536C292402B",
-              "POST-TRAP-DOOR-FCN-AE99A4D6CC11"
-            ],
-            "witness": {
-              "RUG-MOVED": true,
-              "TRAP-DOOR.INVISIBLE": false,
-              "TRAP-DOOR.OPENBIT": false,
-              "TRAP-DOOR.TOUCHBIT": false
-            }
-          }
-        ],
-        "coverage_gap": {
-          "RUG-MOVED": false,
-          "TRAP-DOOR.INVISIBLE": false,
-          "TRAP-DOOR.OPENBIT": false,
-          "TRAP-DOOR.TOUCHBIT": true
-        },
+        "overlaps": [],
+        "coverage_gap": null,
         "uncertainty": [],
-        "predicate_partition_complete": false
+        "predicate_partition_complete": true
       },
       "states": [
         {
-          "id": "LOOK-01BE1293376B",
-          "basis": "conditional_room_description",
-          "source": {
-            "file": "1actions.zil",
-            "line": 450
-          },
-          "condition": {
-            "all": [
-              {
-                "ref": "MAGIC-FLAG",
-                "eq": false
-              },
-              {
-                "ref": "TRAP-DOOR.OPENBIT",
-                "eq": true
-              },
-              {
-                "unknown": ".RUG?"
-              },
-              {
-                "unknown": "<SET RUG? ,RUG-MOVED>"
-              }
-            ]
-          },
-          "status": "unresolved",
-          "unsupported_expressions": [
-            ".RUG?",
-            "<SET RUG? ,RUG-MOVED>"
-          ]
-        },
-        {
-          "id": "LOOK-4C35D2A006EC",
+          "id": "LOOK-12D6CBF94BFE",
           "basis": "conditional_room_description",
           "source": {
             "file": "1actions.zil",
@@ -2664,7 +2510,8 @@
                           "eq": true
                         },
                         {
-                          "unknown": ".RUG?"
+                          "ref": "RUG-MOVED",
+                          "ne": false
                         }
                       ]
                     },
@@ -2673,25 +2520,89 @@
                       "eq": true
                     },
                     {
-                      "unknown": ".RUG?"
+                      "ref": "RUG-MOVED",
+                      "ne": false
                     }
                   ]
                 }
-              },
-              {
-                "unknown": "<SET RUG? ,RUG-MOVED>"
               }
             ]
           },
-          "status": "unresolved",
-          "unsupported_expressions": [
-            ".RUG?",
-            ".RUG?",
-            "<SET RUG? ,RUG-MOVED>"
-          ]
+          "status": "resolved",
+          "unsupported_expressions": []
         },
         {
-          "id": "LOOK-5B4C4750931F",
+          "id": "LOOK-3C6469886505",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 450
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "MAGIC-FLAG",
+                "eq": false
+              },
+              {
+                "ref": "TRAP-DOOR.OPENBIT",
+                "eq": true
+              },
+              {
+                "ref": "RUG-MOVED",
+                "ne": false
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-5AC43322EDEC",
+          "basis": "conditional_room_description",
+          "source": {
+            "file": "1actions.zil",
+            "line": 450
+          },
+          "condition": {
+            "all": [
+              {
+                "ref": "MAGIC-FLAG",
+                "ne": false
+              },
+              {
+                "not": {
+                  "any": [
+                    {
+                      "all": [
+                        {
+                          "ref": "TRAP-DOOR.OPENBIT",
+                          "eq": true
+                        },
+                        {
+                          "ref": "RUG-MOVED",
+                          "ne": false
+                        }
+                      ]
+                    },
+                    {
+                      "ref": "TRAP-DOOR.OPENBIT",
+                      "eq": true
+                    },
+                    {
+                      "ref": "RUG-MOVED",
+                      "ne": false
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "status": "resolved",
+          "unsupported_expressions": []
+        },
+        {
+          "id": "LOOK-61C0DBB76304",
           "basis": "conditional_room_description",
           "source": {
             "file": "1actions.zil",
@@ -2717,169 +2628,25 @@
                           "eq": true
                         },
                         {
-                          "unknown": ".RUG?"
+                          "ref": "RUG-MOVED",
+                          "ne": false
                         }
                       ]
                     },
                     {
-                      "unknown": ".RUG?"
+                      "ref": "RUG-MOVED",
+                      "ne": false
                     }
                   ]
                 }
-              },
-              {
-                "unknown": "<SET RUG? ,RUG-MOVED>"
               }
             ]
           },
-          "status": "unresolved",
-          "unsupported_expressions": [
-            ".RUG?",
-            ".RUG?",
-            "<SET RUG? ,RUG-MOVED>"
-          ]
+          "status": "resolved",
+          "unsupported_expressions": []
         },
         {
-          "id": "LOOK-8B511529C3C2",
-          "basis": "conditional_room_description",
-          "source": {
-            "file": "1actions.zil",
-            "line": 450
-          },
-          "condition": {
-            "all": [
-              {
-                "ref": "MAGIC-FLAG",
-                "eq": false
-              },
-              {
-                "ref": "TRAP-DOOR.OPENBIT",
-                "eq": true
-              },
-              {
-                "not": {
-                  "any": [
-                    {
-                      "all": [
-                        {
-                          "ref": "TRAP-DOOR.OPENBIT",
-                          "eq": true
-                        },
-                        {
-                          "unknown": ".RUG?"
-                        }
-                      ]
-                    },
-                    {
-                      "unknown": ".RUG?"
-                    }
-                  ]
-                }
-              },
-              {
-                "unknown": "<SET RUG? ,RUG-MOVED>"
-              }
-            ]
-          },
-          "status": "unresolved",
-          "unsupported_expressions": [
-            ".RUG?",
-            ".RUG?",
-            "<SET RUG? ,RUG-MOVED>"
-          ]
-        },
-        {
-          "id": "LOOK-9ADA81680DF7",
-          "basis": "conditional_room_description",
-          "source": {
-            "file": "1actions.zil",
-            "line": 450
-          },
-          "condition": {
-            "all": [
-              {
-                "ref": "MAGIC-FLAG",
-                "ne": false
-              },
-              {
-                "not": {
-                  "any": [
-                    {
-                      "all": [
-                        {
-                          "ref": "TRAP-DOOR.OPENBIT",
-                          "eq": true
-                        },
-                        {
-                          "unknown": ".RUG?"
-                        }
-                      ]
-                    },
-                    {
-                      "ref": "TRAP-DOOR.OPENBIT",
-                      "eq": true
-                    },
-                    {
-                      "unknown": ".RUG?"
-                    }
-                  ]
-                }
-              },
-              {
-                "unknown": "<SET RUG? ,RUG-MOVED>"
-              }
-            ]
-          },
-          "status": "unresolved",
-          "unsupported_expressions": [
-            ".RUG?",
-            ".RUG?",
-            "<SET RUG? ,RUG-MOVED>"
-          ]
-        },
-        {
-          "id": "LOOK-BACFA7AD6B78",
-          "basis": "conditional_room_description",
-          "source": {
-            "file": "1actions.zil",
-            "line": 450
-          },
-          "condition": {
-            "all": [
-              {
-                "ref": "MAGIC-FLAG",
-                "eq": false
-              },
-              {
-                "not": {
-                  "all": [
-                    {
-                      "ref": "TRAP-DOOR.OPENBIT",
-                      "eq": true
-                    },
-                    {
-                      "unknown": ".RUG?"
-                    }
-                  ]
-                }
-              },
-              {
-                "unknown": ".RUG?"
-              },
-              {
-                "unknown": "<SET RUG? ,RUG-MOVED>"
-              }
-            ]
-          },
-          "status": "unresolved",
-          "unsupported_expressions": [
-            ".RUG?",
-            ".RUG?",
-            "<SET RUG? ,RUG-MOVED>"
-          ]
-        },
-        {
-          "id": "LOOK-DAB1A6534E35",
+          "id": "LOOK-6C431F0D8929",
           "basis": "conditional_room_description",
           "source": {
             "file": "1actions.zil",
@@ -2896,21 +2663,16 @@
                 "ne": false
               },
               {
-                "unknown": ".RUG?"
-              },
-              {
-                "unknown": "<SET RUG? ,RUG-MOVED>"
+                "ref": "RUG-MOVED",
+                "ne": false
               }
             ]
           },
-          "status": "unresolved",
-          "unsupported_expressions": [
-            ".RUG?",
-            "<SET RUG? ,RUG-MOVED>"
-          ]
+          "status": "resolved",
+          "unsupported_expressions": []
         },
         {
-          "id": "LOOK-F63F105AE16A",
+          "id": "LOOK-8C68B2B893CB",
           "basis": "conditional_room_description",
           "source": {
             "file": "1actions.zil",
@@ -2920,6 +2682,10 @@
             "all": [
               {
                 "ref": "MAGIC-FLAG",
+                "ne": false
+              },
+              {
+                "ref": "RUG-MOVED",
                 "ne": false
               },
               {
@@ -2930,68 +2696,95 @@
                       "eq": true
                     },
                     {
-                      "unknown": ".RUG?"
+                      "ref": "RUG-MOVED",
+                      "ne": false
                     }
                   ]
                 }
-              },
-              {
-                "unknown": ".RUG?"
-              },
-              {
-                "unknown": "<SET RUG? ,RUG-MOVED>"
               }
             ]
           },
-          "status": "unresolved",
-          "unsupported_expressions": [
-            ".RUG?",
-            ".RUG?",
-            "<SET RUG? ,RUG-MOVED>"
-          ]
+          "status": "resolved",
+          "unsupported_expressions": []
         },
         {
-          "id": "POST-RUG-FCN-8536C292402B",
-          "basis": "explicit_presentation_mutation",
+          "id": "LOOK-9BC48C0752B7",
+          "basis": "conditional_room_description",
           "source": {
             "file": "1actions.zil",
-            "line": 579
+            "line": 450
           },
           "condition": {
             "all": [
               {
-                "ref": "TRAP-DOOR.INVISIBLE",
+                "ref": "MAGIC-FLAG",
                 "eq": false
               },
               {
                 "ref": "RUG-MOVED",
-                "eq": true
+                "ne": false
+              },
+              {
+                "not": {
+                  "all": [
+                    {
+                      "ref": "TRAP-DOOR.OPENBIT",
+                      "eq": true
+                    },
+                    {
+                      "ref": "RUG-MOVED",
+                      "ne": false
+                    }
+                  ]
+                }
               }
             ]
           },
-          "status": "ambiguous",
+          "status": "resolved",
           "unsupported_expressions": []
         },
         {
-          "id": "POST-TRAP-DOOR-FCN-AE99A4D6CC11",
-          "basis": "explicit_presentation_mutation",
+          "id": "LOOK-DAF0F91818C8",
+          "basis": "conditional_room_description",
           "source": {
             "file": "1actions.zil",
-            "line": 504
+            "line": 450
           },
           "condition": {
             "all": [
               {
-                "ref": "TRAP-DOOR.OPENBIT",
+                "ref": "MAGIC-FLAG",
                 "eq": false
               },
               {
-                "ref": "TRAP-DOOR.TOUCHBIT",
-                "eq": false
+                "ref": "TRAP-DOOR.OPENBIT",
+                "eq": true
+              },
+              {
+                "not": {
+                  "any": [
+                    {
+                      "all": [
+                        {
+                          "ref": "TRAP-DOOR.OPENBIT",
+                          "eq": true
+                        },
+                        {
+                          "ref": "RUG-MOVED",
+                          "ne": false
+                        }
+                      ]
+                    },
+                    {
+                      "ref": "RUG-MOVED",
+                      "ne": false
+                    }
+                  ]
+                }
               }
             ]
           },
-          "status": "ambiguous",
+          "status": "resolved",
           "unsupported_expressions": []
         }
       ]

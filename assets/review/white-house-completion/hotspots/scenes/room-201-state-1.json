@@ -1,0 +1,230 @@
+{
+  "schema": "scene_hotspots_v1",
+  "room": 201,
+  "state": 1,
+  "room_name": "ATTIC",
+  "binding": "mapped",
+  "asset_key": "room-201-state-1",
+  "image_size": [
+    256,
+    159
+  ],
+  "image": {
+    "path": "assets/review/white-house-completion/rgb/room-201-state-1.png",
+    "sha256": "789c754ca8fe3253031b4ada9ef067491127c80886714a2f410d398b94b21cbe",
+    "original_path": "assets/source/white-house-completion/originals/room-201-state-1.png",
+    "original_sha256": "46e4a6b4a5dec38deba48b183856ef03c008067aa940f6cdb1ec10f19d868841",
+    "crop_box": [
+      0,
+      93,
+      1448,
+      992
+    ],
+    "coordinate_reference": "final RGB preview; no additional scaling transform"
+  },
+  "hotspots": [
+    {
+      "object_id": "STAIRS",
+      "label": "Stairs",
+      "rect": [
+        0,
+        75,
+        94,
+        84
+      ],
+      "confidence": "high",
+      "background": false,
+      "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+      "actions": [
+        {
+          "label": "Examine",
+          "command": "examine stairs",
+          "source_refs": [
+            "SRC-OBJECT-STAIRS"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 199,
+            "expression": "<SYNTAX EXAMINE OBJECT (MANY) = V-EXAMINE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        },
+        {
+          "label": "Go down",
+          "command": "down",
+          "source_refs": [
+            "SRC-OBJECT-STAIRS"
+          ],
+          "parser_source": {
+            "kind": "room_exit_direction",
+            "note": "Direction is established by the source room exit, not a new game action."
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        }
+      ],
+      "id": "h1",
+      "provenance": {
+        "pointer": "/scene/objects/3",
+        "source_refs": [
+          "SRC-OBJECT-STAIRS"
+        ]
+      }
+    },
+    {
+      "object_id": "ATTIC-TABLE",
+      "label": "Table",
+      "rect": [
+        154,
+        98,
+        102,
+        61
+      ],
+      "confidence": "high",
+      "background": false,
+      "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+      "actions": [
+        {
+          "label": "Examine",
+          "command": "examine table",
+          "source_refs": [
+            "SRC-OBJECT-ATTIC-TABLE"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 199,
+            "expression": "<SYNTAX EXAMINE OBJECT (MANY) = V-EXAMINE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        }
+      ],
+      "id": "h2",
+      "provenance": {
+        "pointer": "/scene/objects/0",
+        "source_refs": [
+          "SRC-OBJECT-ATTIC-TABLE"
+        ]
+      }
+    },
+    {
+      "object_id": "KNIFE",
+      "label": "Knife",
+      "rect": [
+        189,
+        107,
+        49,
+        19
+      ],
+      "confidence": "high",
+      "background": false,
+      "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+      "actions": [
+        {
+          "label": "Examine",
+          "command": "examine knife",
+          "source_refs": [
+            "SRC-OBJECT-KNIFE"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 199,
+            "expression": "<SYNTAX EXAMINE OBJECT (MANY) = V-EXAMINE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        },
+        {
+          "label": "Take",
+          "command": "take knife",
+          "source_refs": [
+            "SRC-OBJECT-KNIFE"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 469,
+            "expression": "<SYNTAX TAKE OBJECT (FIND TAKEBIT) (ON-GROUND IN-ROOM MANY) = V-TAKE PRE-TAKE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        }
+      ],
+      "id": "h3",
+      "provenance": {
+        "pointer": "/scene/objects/1",
+        "source_refs": [
+          "SRC-OBJECT-KNIFE"
+        ]
+      }
+    },
+    {
+      "object_id": "ROPE",
+      "label": "Rope",
+      "rect": [
+        205,
+        70,
+        51,
+        35
+      ],
+      "confidence": "high",
+      "background": false,
+      "basis": "Identified visually in the final preview; generous rectangle includes frame or support where useful.",
+      "actions": [
+        {
+          "label": "Examine",
+          "command": "examine rope",
+          "source_refs": [
+            "SRC-OBJECT-ROPE"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 199,
+            "expression": "<SYNTAX EXAMINE OBJECT (MANY) = V-EXAMINE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        },
+        {
+          "label": "Take",
+          "command": "take rope",
+          "source_refs": [
+            "SRC-OBJECT-ROPE"
+          ],
+          "parser_source": {
+            "file": "gsyntax.zil",
+            "line": 469,
+            "expression": "<SYNTAX TAKE OBJECT (FIND TAKEBIT) (ON-GROUND IN-ROOM MANY) = V-TAKE PRE-TAKE>"
+          },
+          "authority": "Suggestion only; the original parser validates and executes it."
+        }
+      ],
+      "id": "h4",
+      "provenance": {
+        "pointer": "/scene/objects/2",
+        "source_refs": [
+          "SRC-OBJECT-ROPE"
+        ]
+      }
+    }
+  ],
+  "unresolved": [],
+  "localization": {
+    "method": "Assistant visual inspection of final RGB crops",
+    "observations": "assets/source/white-house-completion/observations.json",
+    "observations_sha256": "4eede9b95b5bb8e64e9414ff94cbc2c22a7adeb9fc0ea1368190d15fed3bda90"
+  },
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/attic.scene.json",
+    "scene_sha256": "283854d3af70c890542361897e8bd7f2fb54878cc67e5d5f91a0a5deef52c5f0",
+    "zil_source_sha256": {
+      "1actions.zil": "443b9e0082f51b04ae053418039005945efa29945d945102cf7d494fef02fdf7",
+      "1dungeon.zil": "8e223dc75ce64cff8542266101742ea73774533787c5257e8df4a262e4f02766",
+      "gclock.zil": "92c4d66f18eeba8de1497215a0e17ade6c2cf1e5e050f016cf99160e41b154c6",
+      "gglobals.zil": "5945abfeeff71cd2b2088653c7572d3c72bf14d5af65c41b4425d945a6bb6e0a",
+      "gmacros.zil": "d665c73e9231429a772877357fd56d57c946838a5260a74f705c2dc898ebd8f5",
+      "gmain.zil": "712e27ab29d36f3d36c7994ec6d41011cb869990d8780a03bb2ee8148d3f1740",
+      "gparser.zil": "869e1391bdd1518495a9f36391ec36045f5f5af401f18edb921b5c9cfd442397",
+      "gsyntax.zil": "b0f0b4de6068bb85cf96306a16e07f410518669d12260682d3ac71e2e42b5621",
+      "gverbs.zil": "e1150d6300e262f774b59fe96f8139980dfad3c41f0e93f3af49140b5f57e74e",
+      "zork1.zil": "3a96d90419db3907951d05fbd0032b3b935775db9f8c41c13bf1f5addaebac9e"
+    },
+    "phase1_specification": "assets/source/art-direction/rooms/ATTIC/states/1.json",
+    "pilot_manifest": "assets/source/white-house-completion/manifest.json"
+  },
+  "overlap_policy": "smallest matching rectangle; authored order breaks equal-area ties; half-open edges"
+}

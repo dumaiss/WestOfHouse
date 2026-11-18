@@ -1,0 +1,99 @@
+{
+  "schema": "scene_art_v1",
+  "kind": "state",
+  "room": "ATTIC",
+  "title": "Attic",
+  "runtime_room": 201,
+  "runtime_state": 1,
+  "symbolic_state": "INITIAL",
+  "condition": {
+    "ref": "LIT",
+    "ne": 0
+  },
+  "extracted_states": [],
+  "description_ids": [
+    "LDESC"
+  ],
+  "canonical": [
+    {
+      "text": "This is the attic. The only exit is a stairway leading down.",
+      "pointer": "/scene/descriptions/0/text/0",
+      "source_refs": [
+        "SRC-ROOM-ATTIC"
+      ]
+    }
+  ],
+  "required_environmental_features": [
+    "This is the attic. The only exit is a stairway leading down."
+  ],
+  "required_visible_objects": [
+    "ATTIC-TABLE",
+    "ROPE"
+  ],
+  "artistic": {
+    "continuity": [
+      "WHITE-HOUSE"
+    ],
+    "camera": "Stand clear of the downward stair and view the roof space obliquely.",
+    "composition": "Use the roof volume and sole stair opening to organize the view; arrange the source-listed attic belongings as coarse room dressing.",
+    "lighting_palette": "Dim warm-brown timber against cool shadow.",
+    "assumptions": [
+      "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+    ]
+  },
+  "state_artistic": {
+    "visual_treatment": "Depict the complete lit room presentation. Preserve the existing selected scene; lighting can come from any available game light source, not a new window or invented lamp.",
+    "omit_source_dressing": []
+  },
+  "invariants": {
+    "canonical_text": [],
+    "artistic": {
+      "continuity": [
+        "WHITE-HOUSE"
+      ],
+      "camera": "Stand clear of the downward stair and view the roof space obliquely.",
+      "composition": "Use the roof volume and sole stair opening to organize the view; arrange the source-listed attic belongings as coarse room dressing.",
+      "lighting_palette": "Dim warm-brown timber against cool shadow.",
+      "assumptions": [
+        "Camera, framing, lighting palette and unspecified surface finishes are artistic choices."
+      ]
+    }
+  },
+  "changes": [
+    "This is the attic. The only exit is a stairway leading down."
+  ],
+  "reference": null,
+  "asset_key": "room-201-state-1",
+  "target": {
+    "width": 256,
+    "height": 159,
+    "hardware": "Yamaha V9958",
+    "eventual_encoding": "YJK",
+    "phase": 1,
+    "source_aspect": "4:3 landscape",
+    "crop": "Safe center crop from 4:3 to 256:159; protect subjects within the central 82.8% of source height and central 90% of width."
+  },
+  "prompt": "Create one complete static illustration of Attic.\n\nViewpoint: Stand clear of the downward stair and view the roof space obliquely.\n\nThe scene establishes these features: This is the attic. The only exit is a stairway leading down.\n\nComposition: Use the roof volume and sole stair opening to organize the view; arrange the source-listed attic belongings as coarse room dressing.\n\nAppearance of this illustration: Depict the complete lit room presentation. Preserve the existing selected scene; lighting can come from any available game light source, not a new window or invented lamp.\n\nCanonical room dressing: table; A large coil of rope is lying in the corner. Preserve this coarse room presentation unless the state description above specifies a different appearance.\n\nLighting and color: Dim warm-brown timber against cool shadow.\n\nShared world design: Modest colonial timber dwelling, simple pitched roof, weathered white painted boards; do not introduce extra doors or windows. Pale plaster and dark brown timber inside. Keep roof pitch, wall finish, trim proportions and window construction across views.\n\nStyle: Painterly adventure-game illustration recalling fine late-1980s and early-1990s computer artwork; natural proportions, restrained brushwork, readable silhouettes and broad tonal masses. Aim for roughly 256 visually significant colors, broad related color regions, controlled shading and clear dark/light separation. No exact RGB-count requirement, photographic color noise, excessive gradients or microtextures.\n\nKeep this room camera, underlying architecture, terrain layout, light direction and palette consistent across its variants. Depict the complete scene, including the appearance stated above.\n\nLandscape source composition near 4:3. Final scene is 256 by 159 pixels. Allow safe center cropping to 256:159, keeping essential subjects inside the central 82.8 percent of source height and away from the side boundaries. Use clear silhouettes and broad readable shapes at that final size.\n\nExclude game UI, borders, captions, labels, readable lettering, photographic detail, pixel grids and enlarged pixels. Do not add characters, significant props, openings or events beyond the established scene. Do not depict an action in progress or a before/after collage.\n",
+  "negative_prompt": "No UI, borders, readable text, photorealism, pixel grid, invented props, extra exits or transient action events.",
+  "provenance": {
+    "scene_file": "assets/source/scene-facts/attic.scene.json",
+    "scene_sha256": "283854d3af70c890542361897e8bd7f2fb54878cc67e5d5f91a0a5deef52c5f0",
+    "runtime_source": {
+      "file": "1dungeon.zil",
+      "line": 1443,
+      "expression": "<ROOM ATTIC (IN ROOMS) (LDESC \"This is the attic. The only exit is a stairway leading down.\") (DESC \"Attic\") (DOWN TO KITCHEN) (FLAGS RLANDBIT SACREDBIT) (GLOBAL STAIRS)>"
+    },
+    "mapping_file": "generated-zil/woh-state-ids.json",
+    "mapping_sha256": "fac10745f9bcaff4aa469691821db5bd8a3ff68adb7e4d9d02c8336c0548ad50",
+    "dictionary_file": "generated-room-states/room-states.yaml",
+    "dictionary_sha256": "9eff0d15621441d15a6fb427d75b65ddb1a5d8fa7f6d6fe48c223b1d42d25695",
+    "story_sha256": "dabcfa053043aeaebfb9d0839c0a05e31a277fc2aeb724111bcdb85be60a1e3d"
+  },
+  "unresolved": [
+    {
+      "kind": "legacy_state_relationship_unresolved",
+      "state": "INITIAL",
+      "detail": "Runtime ID and presentation text are verified; no equivalent legacy state condition was proven. Source descriptions remain traced directly."
+    }
+  ]
+}

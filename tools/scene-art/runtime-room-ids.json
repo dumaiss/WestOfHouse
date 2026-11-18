@@ -1,7 +1,7 @@
 {
   "schema": "scene_art_room_bindings_v1",
-  "story_sha256": "cce1fdc54f18a6616e124db2de245aec1da943b458ebdee61bf1c6ff0a4038d4",
-  "compiled_data_sha256": "5432eba0f77079f7b2b3e7072335acd8d6973947f691751dcc707cee7c9a0444",
+  "story_sha256": "dabcfa053043aeaebfb9d0839c0a05e31a277fc2aeb724111bcdb85be60a1e3d",
+  "compiled_data_sha256": "4e4648ab3ae40f31c1805e16f5e5f45f25a08986c8a2a0d90a35a3bfda551159",
   "method": "One-based .OBJECT declaration order from matching instrumented ZILf ZAP; derived with existing tools/state-reporting/bindings.py.",
   "rooms": {
     "ARAGAIN-FALLS": 29,
