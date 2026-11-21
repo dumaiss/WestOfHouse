@@ -13,6 +13,13 @@ typedef struct {
 	uint8_t local_count, store_var, has_store, argument_count;
 } zvm_frame_t;
 
+/* A page window: a page the backend lent, its tag (address bits 9..16: a V3
+ * story is at most 128 KiB) and the backend generation it was lent at. */
+typedef struct {
+	uint8_t *page;
+	uint8_t tag, generation;
+} zvm_window_t;
+
 /* Backend, execution state and host callbacks. Layout fits the public storage. */
 typedef struct {
 	/* Exactly one backend: flat_story, or read_byte/write_byte + memory_user. */
@@ -20,6 +27,13 @@ typedef struct {
 	zvm_memory_read_fn read_byte;
 	zvm_memory_write_fn write_byte;
 	void *memory_user;
+	/* Page fast path: instruction fetches, two data windows (the newest
+	 * first) and writes. The Z80 paths in memory.c and decode.c read these offsets. */
+	zvm_memory_page_fn page;
+	const volatile uint8_t *page_generation;
+	zvm_window_t fetch, data, data2, write;
+	/* Pages wholly inside the story (story_size / 512, at most 255). */
+	uint8_t full_pages;
 	uint32_t story_size, pc;
 	uint16_t static_base, globals_addr, objects_addr;
 	/* sp counts used words; frame_count includes the non-returnable root. */
@@ -69,6 +83,8 @@ typedef struct {
 zvm_error_t zvm_mem_read(const zvm_state_t *s, uint32_t address, uint8_t *out);
 zvm_error_t zvm_mem_write(zvm_state_t *s, uint32_t address, uint8_t value);
 zvm_error_t zvm_mem_word(const zvm_state_t *s, uint32_t address, uint16_t *out);
+/* An instruction-stream byte: zvm_mem_read through the fetch window. */
+zvm_error_t zvm_mem_fetch(const zvm_state_t *s, uint32_t address, uint8_t *out);
 /* Decode only; no variable evaluation or execution side effects. */
 zvm_error_t zvm_decode(const zvm_state_t *s, uint32_t address, zvm_instruction_t *instruction);
 /* indirect changes variable-zero behavior only; see variables.c. */

@@ -96,6 +96,22 @@ zvm_error_t zvm_init_memory(zvm_t *vm, zvm_memory_read_fn read_fn, zvm_memory_wr
 	return validate_header(vm);
 }
 
+zvm_error_t zvm_set_page_access(zvm_t *vm, zvm_memory_page_fn page,
+				const volatile uint8_t *generation)
+{
+	zvm_state_t *s;
+	if (!vm || (page && !generation))
+		return ZVM_EINVAL;
+	s = ZVM_STATE(vm);
+	if (!s->read_byte)
+		return ZVM_ESTATE;
+	s->page = page;
+	s->page_generation = generation;
+	s->full_pages = s->story_size >> 9 > 255ul ? 255u : (uint8_t)(s->story_size >> 9);
+	s->fetch.page = s->data.page = s->data2.page = s->write.page = 0;
+	return ZVM_OK;
+}
+
 /* Execution reset only: story bytes, callbacks and other retained state are
  * not restored. This is not an implementation of the restart opcode. */
 zvm_error_t zvm_reset(zvm_t *vm)

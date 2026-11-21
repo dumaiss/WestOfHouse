@@ -4,23 +4,38 @@
 #include "probe.h"
 #include <assert.h>
 #include <stdlib.h>
-static uint8_t source[131070], original[131070], backing[32768];
+static uint8_t source[131070], original[131070], backing[32768], l2_backing[32768];
 static uint32_t source_size;
-static int file_open, allocated, source_calls;
-static int missing, allocation_failure, source_failure, staging_failure, dynamic_failure;
+static int file_open, allocated, l2_allocated, source_calls;
+static int missing, allocation_failure, l2_failure, source_failure, staging_failure, dynamic_failure;
 woh_probe_t woh_probe;
 static panel_t panel;
 extern game_t game;
 int open(const char *path,unsigned char flags)
 { (void)path;(void)flags; if(missing) return -KOS_ENOENT; assert(!file_open); file_open=1; return 1; }
 int close(unsigned int handle) { assert(handle==1 && file_open); file_open=0; return 0; }
+/* Handle 17 is the dynamic memory, 18 the second level of static pages. */
 int xalloc(unsigned int size,unsigned int flags)
-{ (void)flags; assert(size<=sizeof(backing)); if(allocation_failure) return -KOS_ENOSPC; assert(!allocated); allocated=1; return 17; }
-int xfree(unsigned int handle) { assert(handle==17 && allocated); allocated=0; return 0; }
+{
+ (void)flags;
+ if(!allocated) { assert(size<=sizeof(backing)); if(allocation_failure) return -KOS_ENOSPC; allocated=1; return 17; }
+ assert(!l2_allocated && size<=sizeof(l2_backing)); if(l2_failure) return -KOS_ENOSPC; l2_allocated=1; return 18;
+}
+int xfree(unsigned int handle)
+{
+ if(handle==18) { assert(l2_allocated); l2_allocated=0; return 0; }
+ assert(handle==17 && allocated); allocated=0; return 0;
+}
 int xread(unsigned int h,unsigned int offset,void *out,unsigned int n)
-{ assert(h==17 && allocated && offset+n<=sizeof(backing)); if(dynamic_failure) return -KOS_EIO; memcpy(out,backing+offset,n); return (int)n; }
+{
+ if(h==18) { assert(l2_allocated && offset+n<=sizeof(l2_backing)); memcpy(out,l2_backing+offset,n); return (int)n; }
+ assert(h==17 && allocated && offset+n<=sizeof(backing)); if(dynamic_failure) return -KOS_EIO; memcpy(out,backing+offset,n); return (int)n;
+}
 int xwrite(unsigned int h,unsigned int offset,const void *data,unsigned int n)
-{ assert(h==17 && allocated && offset+n<=sizeof(backing)); memcpy(backing+offset,data,n); return (int)n; }
+{
+ if(h==18) { assert(l2_allocated && offset+n<=sizeof(l2_backing)); memcpy(l2_backing+offset,data,n); return (int)n; }
+ assert(h==17 && allocated && offset+n<=sizeof(backing)); memcpy(backing+offset,data,n); return (int)n;
+}
 static int read_at(void *context,uint32_t offset,void *out,uint16_t n)
 {
  (void)context; ++source_calls;
@@ -31,8 +46,8 @@ int kos_reader_from_handle(kos_reader_t *reader,kos_handle_source_t *handle)
 { reader->context=handle; reader->read_at=read_at; reader->size=source_size; return 0; }
 static void reset(void)
 {
- assert(!file_open && !allocated);
- source_calls=missing=allocation_failure=source_failure=staging_failure=dynamic_failure=0;
+ assert(!file_open && !allocated && !l2_allocated);
+ source_calls=missing=allocation_failure=l2_failure=source_failure=staging_failure=dynamic_failure=0;
  memcpy(source,original,source_size);
  panel_init(&panel); panel_begin(&panel,0);
 }
@@ -61,9 +76,16 @@ int main(int argc,char **argv)
  assert(advance()==ZVM_NEED_INPUT && game_observe(&game)==0 && game.here==81 && game.state==1);
  game_output_finish(&panel); game_close(&game);
  assert(!memcmp(source,original,source_size));
+ /* No room for the second level: the game plays from the source. */
+ reset(); l2_failure=1; assert(game_open(&game,"story",&panel)==0 && !game.cache.l2_handle);
+ assert(advance()==ZVM_NEED_INPUT && game_observe(&game)==0 && game.here==180);
+ game_output_finish(&panel); panel_finish(&panel);
+ panel_begin(&panel,"north"); assert(zvm_submit_input(&game.vm,"north")==ZVM_OK);
+ assert(advance()==ZVM_NEED_INPUT && game_observe(&game)==0 && game.here==81);
+ game_output_finish(&panel); game_close(&game);
  reset(); assert(game_open(&game,"story",&panel)==0);
  dynamic_failure=1; assert(advance()==ZVM_FAULT); game_close(&game);
  reset(); assert(!strcmp(game_load_error(-5),"no XMEM available for story memory"));
- puts("game integration tests passed: actual story, movement, file/read/binding/allocation/staging/VM faults and cleanup");
+ puts("game integration tests passed: actual story, movement, file/read/binding/allocation/staging/VM faults, second level and cleanup");
  return 0;
 }

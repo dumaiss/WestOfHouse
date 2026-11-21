@@ -34,17 +34,29 @@ typedef enum {
 } zvm_error_t;
 
 /* Fixed caller-owned storage keeps allocation explicit while hiding internals.
- * The pointer member supplies suitable alignment on both host and Z80 ABI. */
+ * The pointer member supplies suitable alignment on both host and Z80 ABI;
+ * the size holds the state of every build (profiling included) with room. */
 typedef union {
 	void *_alignment;
-	uint8_t _storage[1536];
+#if defined(__SDCC)
+	uint8_t _storage[1088];
+#else
+	uint8_t _storage[1216];
+#endif
 } zvm_t;
 
 /* All callbacks are synchronous. Keep user storage alive until release or
  * replacement; do not recursively drive the same VM from a callback.
- * Memory callbacks copy one byte; they never lend a mapped-memory pointer. */
+ * Memory callbacks copy one byte; only the optional page callback lends a
+ * pointer, and only to the backend's resident copy of a page. */
 typedef zvm_error_t (*zvm_memory_read_fn)(void *user, uint32_t address, uint8_t *value);
 typedef zvm_error_t (*zvm_memory_write_fn)(void *user, uint32_t address, uint8_t value);
+/* The backend's resident copy of the 512-byte page holding `address` (a
+ * pointer to the page's first byte), or NULL to serve that page through the
+ * byte callbacks. With `write` set the VM stores into the page: the backend
+ * lends only a page it can write back (dynamic memory) and treats it as
+ * modified from then on. */
+typedef uint8_t *(*zvm_memory_page_fn)(void *user, uint32_t address, uint8_t write);
 typedef zvm_error_t (*zvm_output_fn)(void *user, uint8_t channel, uint8_t byte);
 typedef zvm_error_t (*zvm_status_fn)(void *user, uint16_t location, uint16_t value1,
 				     uint16_t value2, uint8_t time_mode);
@@ -60,6 +72,13 @@ zvm_error_t zvm_init(zvm_t *vm, uint8_t *story, uint32_t story_size);
  * does not compute the original checksum; use zvm_set_story_checksum(). */
 zvm_error_t zvm_init_memory(zvm_t *vm, zvm_memory_read_fn read_byte, zvm_memory_write_fn write_byte,
 			    void *user, uint32_t story_size);
+/* Optional fast path for zvm_init_memory backends. The VM reads and writes
+ * bytes straight in pages that `page` lent while the byte at `generation`
+ * keeps its value; the backend changes that byte whenever it refills or
+ * reuses any page, and its byte callbacks update the same resident copy.
+ * NULL `page` turns the fast path off. */
+zvm_error_t zvm_set_page_access(zvm_t *vm, zvm_memory_page_fn page,
+				const volatile uint8_t *generation);
 /* Reset PC, evaluation stack, root frame, status and error only. Story bytes
  * and other state are retained: this is not a complete story restart. */
 zvm_error_t zvm_reset(zvm_t *vm);

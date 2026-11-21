@@ -69,12 +69,12 @@ $(ZVM_LIB): $(ZVM_OBJS)
 	rm -f $@
 	$(SDAR) -rcD $@ $(ZVM_OBJS)
 
-$(eval $(call exe_program,zvmtest,tests,zvmtest.c story_cache.c story_cache_z80.c stack_probe.c state_report.c,STACK=$(ZVM_STACK),LIBS=zvm,INCLUDES=include:$(KOS_SDK_ROOT)/include/kos))
+$(eval $(call exe_program,zvmtest,tests,zvmtest.c story_cache.c story_cache_setup.c story_cache_l2.c story_cache_z80.c stack_probe.c state_report.c,STACK=$(ZVM_STACK),LIBS=zvm,INCLUDES=include:$(KOS_SDK_ROOT)/include/kos))
 # Makefile/SDK edits must not reuse objects compiled with previous settings.
 # Include public VM headers for the application too (the SDK tracks tests/*.h).
 $(ZVM_OBJS) $(zvmtest_COBJS): Makefile $(KOS_RULES) $(EXE_HEADERS)
 $(zvmtest_COBJS): include/zvm.h include/zvm_profile.h
-$(KOS_BUILD)/user/zvmtest/zvmtest.rel $(KOS_BUILD)/user/zvmtest/story_cache.rel $(KOS_BUILD)/user/zvmtest/story_cache_z80.rel: tests/story_cache.h
+$(KOS_BUILD)/user/zvmtest/zvmtest.rel $(KOS_BUILD)/user/zvmtest/story_cache.rel $(KOS_BUILD)/user/zvmtest/story_cache_setup.rel $(KOS_BUILD)/user/zvmtest/story_cache_l2.rel $(KOS_BUILD)/user/zvmtest/story_cache_z80.rel: tests/story_cache.h
 $(KOS_BUILD)/user/zvmtest/zvmtest.rel $(KOS_BUILD)/user/zvmtest/stack_probe.rel: tests/stack_probe.h
 .PHONY: all release help publish test test-cache clean run-zork test-zork
 all: zvmtest
@@ -123,7 +123,7 @@ test: $(ZVM_LIB) test-cache
 	$(KOS_PYTHON) $(KOS_SDK_ROOT)/tools/exepack.py validate $(KOS_BUILD)/user/zvmtest.exe
 test-cache:
 	mkdir -p $(ZVM_BUILD)/host
-	$(CC) $(ZVM_FLAGS) -std=c99 -Wall -Wextra -Werror -Itests/host/include -I$(KOS_SDK_ROOT)/include/abi -I$(KOS_SDK_ROOT)/include -Iinclude -Itests tests/test_story_cache.c tests/story_cache.c $(KOS_READER_FULL_SOURCE) -o $(ZVM_BUILD)/host/test_story_cache
+	$(CC) $(ZVM_FLAGS) -std=c99 -Wall -Wextra -Werror -Itests/host/include -I$(KOS_SDK_ROOT)/include/abi -I$(KOS_SDK_ROOT)/include -Iinclude -Itests tests/test_story_cache.c tests/story_cache.c tests/story_cache_setup.c tests/story_cache_l2.c $(KOS_READER_FULL_SOURCE) -o $(ZVM_BUILD)/host/test_story_cache
 	$(ZVM_BUILD)/host/test_story_cache
 run-zork: zvmtest
 	$(KOS_PYTHON) $(KOS_SDK_ROOT)/tools/exerun.py --exe $(KOS_BUILD)/user/zvmtest.exe --map $(KOS_BUILD)/user/zvmtest/zvmtest.map --card $(ZORK_CARD) --rundir $(KOS_BUILD)/run-zork --mame "$(KOS_MAME)" --flash "$(KOS_FLASH)" --plugins "$(KOS_MAME_PLUGINS)" $(ZORK_ASSETS) --args "-p /fs/ZORK1.Z3"

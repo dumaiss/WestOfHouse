@@ -5,6 +5,25 @@
 
 /* Cache-slot sentinel only. A page tag of 255 is a valid story address tag. */
 #define NO_PAGE 255u
+#if defined(WOH_PROFILE) && WOH_PROFILE
+#include "kos/timer.h"
+/* Diagnostic build only: story-page I/O time in timer counts (25.6 us). */
+uint32_t woh_prof_io_static, woh_prof_io_dynamic;
+uint32_t woh_prof_static_misses, woh_prof_dyn_misses, woh_prof_flushes;
+int woh_prof_timer;
+uint32_t woh_prof_now(void)
+{
+	uint32_t t = 0;
+	if (woh_prof_timer > 0)
+		(void)timer_now(woh_prof_timer, &t);
+	return t;
+}
+#define IO_START(v) uint32_t v = woh_prof_now()
+#define IO_ADD(total, v) (total += woh_prof_now() - (v))
+#else
+#define IO_START(v) ((void)0)
+#define IO_ADD(total, v) ((void)0)
+#endif
 #if defined(__SDCC) && defined(ZVM_CACHE_ASM) && ZVM_CACHE_ASM
 #define story_cache_read story_cache_read_slow
 #endif
@@ -47,9 +66,16 @@ static uint16_t dynamic_length(const story_cache_t *c, uint8_t tag)
 
 static int dynamic_write(story_cache_t *c, uint16_t offset, const void *src, uint16_t n)
 {
+	int r;
+	IO_START(t0);
 	COUNT(c, xwrite_calls, 1);
 	COUNT(c, xwrite_bytes, n);
-	return xwrite(c->dynamic_handle, offset, src, n);
+	r = xwrite(c->dynamic_handle, offset, src, n);
+	IO_ADD(woh_prof_io_dynamic, t0);
+#if defined(WOH_PROFILE) && WOH_PROFILE
+	++woh_prof_flushes;
+#endif
+	return r;
 }
 
 static zvm_error_t flush_page(story_cache_t *c, uint8_t index)
@@ -63,55 +89,6 @@ static zvm_error_t flush_page(story_cache_t *c, uint8_t index)
 			  c->bytes + (uint16_t)index * STORY_CACHE_PAGE_SIZE, n) != (int)n)
 		return ZVM_ESTATE;
 	p->dirty = 0;
-	return ZVM_OK;
-}
-
-zvm_error_t story_cache_init(story_cache_t *c, const kos_reader_t *reader, uint16_t dynamic_size,
-			     unsigned int dynamic_handle)
-{
-	if (!c || !reader || !reader->read_at || !dynamic_size || dynamic_size > 32768u ||
-	    dynamic_size > reader->size || reader->size > 131070ul || !dynamic_handle)
-		return ZVM_EINVAL;
-	/* Copy first so borrowing c->reader itself is also supported. */
-	c->reader = *reader;
-	c->dynamic_size = dynamic_size;
-	c->dynamic_handle = dynamic_handle;
-	memset(c->pages, 0, sizeof(c->pages));
-	c->dyn_hot = c->static_hot = NO_PAGE;
-	c->dyn_next = c->static_next = 0;
-#if defined(ZVM_PROFILE) && ZVM_PROFILE
-	c->profile_enabled = 0;
-	memset(&c->stats, 0, sizeof(c->stats));
-#endif
-	return ZVM_OK;
-}
-
-zvm_error_t story_cache_prepare(story_cache_t *c, uint32_t story_end, uint16_t *checksum)
-{
-	uint32_t at;
-	uint16_t n, i, sum = 0;
-	uint16_t capacity = (uint16_t)sizeof(c->bytes);
-	if (!checksum || story_end < 64ul || story_end > c->reader.size)
-		return ZVM_EINVAL;
-	/* Scratch must never overwrite a live (possibly dirty) page. */
-	for (i = 0; i < STORY_CACHE_PAGES; ++i)
-		if (c->pages[i].valid)
-			return ZVM_ESTATE;
-	for (at = 0; at < c->dynamic_size; at += n) {
-		n = (uint16_t)(c->dynamic_size - at > capacity ? capacity : c->dynamic_size - at);
-		if (kos_reader_read_full(&c->reader, at, c->bytes, n) != (int)n ||
-		    dynamic_write(c, (uint16_t)at, c->bytes, n) != (int)n)
-			return ZVM_ESTATE;
-	}
-	/* Read the original source rather than dynamic memory changed by the VM. */
-	for (at = 64; at < story_end; at += n) {
-		n = (uint16_t)(story_end - at > capacity ? capacity : story_end - at);
-		if (kos_reader_read_full(&c->reader, at, c->bytes, n) != (int)n)
-			return ZVM_EBOUNDS;
-		for (i = 0; i < n; ++i)
-			sum = (uint16_t)(sum + c->bytes[i]);
-	}
-	*checksum = sum;
 	return ZVM_OK;
 }
 
@@ -153,9 +130,12 @@ static zvm_error_t find_page(story_cache_t *c, uint32_t address, uint8_t *found)
 		}
 	}
 	c->pages[index].valid = 0;
+	++c->generation;
 	if (*hot == index)
 		*hot = NO_PAGE;
 	start = (uint32_t)tag << 9;
+	{
+	IO_START(t0);
 	if (dynamic) {
 		n = dynamic_length(c, tag);
 		COUNT(c, xread_calls, 1);
@@ -166,8 +146,29 @@ static zvm_error_t find_page(story_cache_t *c, uint32_t address, uint8_t *found)
 		n = (uint16_t)(c->reader.size - start > STORY_CACHE_PAGE_SIZE
 				   ? STORY_CACHE_PAGE_SIZE
 				   : c->reader.size - start);
-		got = kos_reader_read_full(&c->reader, start,
-					   c->bytes + (uint16_t)index * STORY_CACHE_PAGE_SIZE, n);
+		got = 0;
+#if STORY_L2_PAGES
+		if (c->l2_count)
+			got = story_cache_l2_get(c, tag, c->bytes + (uint16_t)index * STORY_CACHE_PAGE_SIZE, n);
+#endif
+		if (got != (int)n) {
+			got = kos_reader_read_full(&c->reader, start,
+						   c->bytes + (uint16_t)index * STORY_CACHE_PAGE_SIZE, n);
+#if STORY_L2_PAGES
+			if (got == (int)n && c->l2_count)
+				story_cache_l2_put(c, tag, c->bytes + (uint16_t)index * STORY_CACHE_PAGE_SIZE, n);
+#endif
+		}
+	}
+#if defined(WOH_PROFILE) && WOH_PROFILE
+	if (dynamic) {
+		IO_ADD(woh_prof_io_dynamic, t0);
+		++woh_prof_dyn_misses;
+	} else {
+		IO_ADD(woh_prof_io_static, t0);
+		++woh_prof_static_misses;
+	}
+#endif
 	}
 	if (got != (int)n)
 		return dynamic ? ZVM_ESTATE : ZVM_EBOUNDS;
@@ -185,6 +186,21 @@ hit:
 	*hot = index;
 	*found = index;
 	return ZVM_OK;
+}
+
+uint8_t *story_cache_page(void *user, uint32_t address, uint8_t write)
+{
+	story_cache_t *c = (story_cache_t *)user;
+	uint8_t index;
+	if (address >= (write ? (uint32_t)c->dynamic_size : c->reader.size))
+		return 0;
+	if ((c->dynamic_size & 511u) && (uint8_t)(address >> 9) == (uint8_t)(c->dynamic_size >> 9))
+		return 0;
+	if (find_page(c, address, &index) != ZVM_OK)
+		return 0;
+	if (write)
+		c->pages[index].dirty = 1;
+	return c->bytes + (uint16_t)index * STORY_CACHE_PAGE_SIZE;
 }
 
 zvm_error_t story_cache_read(void *user, uint32_t address, uint8_t *value)

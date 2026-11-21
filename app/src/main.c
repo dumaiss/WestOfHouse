@@ -6,6 +6,48 @@
 #include "render.h"
 #include "probe.h"
 #include "resources.h"
+#if WOH_PROFILE
+#include "kos/timer.h"
+#include "kos/fs.h"
+#if ZVM_PROFILE
+#include "zvm_profile.h"
+#endif
+/* Diagnostic build only (make WOH_PROFILE=1): cumulative per-turn totals in
+ * timer counts (25.6 us), written to PROF.BIN at exit. */
+extern game_t game;
+typedef struct {
+    uint32_t t_end, vm, io_static, io_dynamic, render;
+    uint32_t static_misses, dyn_misses, dyn_evictions, xreads, xwrites, instructions, byte_reads;
+    uint16_t here;
+} prof_row_t;
+static int prof_file;
+static uint32_t prof_vm, prof_render;
+extern uint32_t woh_prof_io_static, woh_prof_io_dynamic;
+extern uint32_t woh_prof_static_misses, woh_prof_dyn_misses, woh_prof_flushes;
+extern int woh_prof_timer;
+uint32_t woh_prof_now(void);   /* story_cache.c: resident */
+static void prof_row(void)
+{
+    prof_row_t row, *r = &row;
+    if (prof_file < 1) return;
+    r->t_end = woh_prof_now(); r->vm = prof_vm; r->render = prof_render;
+    r->io_static = woh_prof_io_static; r->io_dynamic = woh_prof_io_dynamic;
+    r->static_misses = woh_prof_static_misses; r->dyn_misses = woh_prof_dyn_misses;
+    r->dyn_evictions = woh_prof_flushes;
+    r->here = game.here;
+    (void)write((unsigned int)prof_file,r,sizeof(*r));
+}
+static void prof_write(void)
+{
+    if (prof_file > 0) close((unsigned int)prof_file);
+    prof_file = 0;
+}
+#define PROF_START(v) uint32_t v = woh_prof_now()
+#define PROF_ADD(total,v) (total += woh_prof_now() - (v))
+#else
+#define PROF_START(v) ((void)0)
+#define PROF_ADD(total,v) ((void)0)
+#endif
 
 /* Separate the large VM/cache object from controller BSS so the SDK can
  * place it above C000h without moving the controller's other data. */
@@ -27,16 +69,22 @@ static uint8_t waiting, finished, suppress_lf;
  * would halve the speed of the story reads and scene loads of a turn,
  * which would then outlast the player's buffering.  Each pause and resume
  * glides the DAC, so a turn is a short fade. */
+#if WOH_PROFILE
+static uint8_t music_stage[1];   /* the profile build runs silent */
+#else
 static uint8_t music_stage[1024];
+#endif
 static kos_reader_t music_reader;
 static uint8_t music_on;
 
 static void music_start(void)
 {
+#if !WOH_PROFILE
     if (resources_music(&music_reader) < 0) return;
     if (snd_pcm_open(&music_reader,music_stage,sizeof(music_stage)) < 0) return;
     if (snd_pcm_play(SND_PCM_LOOP) < 0) { snd_pcm_close(); return; }
     music_on = 1;
+#endif
 }
 
 static void music_stop(void)
@@ -242,6 +290,13 @@ int main(int argc, char **argv)
     }
     result = game_open_reader(&game,&reader,&panel);
     if (result < 0) { error = game_load_error(result); goto done; }
+#if WOH_PROFILE
+    woh_prof_timer = timer_open();
+    prof_file = open("PROF.BIN",KFS_O_WRITE|KFS_O_CREATE|KFS_O_TRUNC);
+#if ZVM_PROFILE
+    game.cache.profile_enabled = 1;
+#endif
+#endif
     handle = mouse_open();
     if (handle > 0) mouse_init(&mouse,handle,256,212);
     woh_probe.output_hash = 5381ul;
@@ -250,7 +305,11 @@ int main(int argc, char **argv)
     for (;;) {
         if (!waiting) {
             music_pause();
-            status = game_step(&game);
+            {
+                PROF_START(t0);
+                status = game_step(&game);
+                PROF_ADD(prof_vm,t0);
+            }
             if (status == ZVM_NEED_INPUT || status == ZVM_FINISHED) {
                 game_output_finish(&panel);
                 finished = status == ZVM_FINISHED;
@@ -260,8 +319,15 @@ int main(int argc, char **argv)
                 }
                 if (game_observe(&game) < 0) { error = "global inspection failed"; break; }
                 panel_finish(&panel);
-                if (render_scene(game.here,game.state) < 0 || render_panel(&panel,0) < 0 ||
-                    render_prompt(&panel,!finished) < 0) { error = "screen update failed"; break; }
+                {
+                    PROF_START(t1);
+                    if (render_scene(game.here,game.state) < 0 || render_panel(&panel,0) < 0 ||
+                        render_prompt(&panel,!finished) < 0) { error = "screen update failed"; break; }
+                    PROF_ADD(prof_render,t1);
+                }
+#if WOH_PROFILE
+                prof_row();
+#endif
                 waiting = 1;
                 ++woh_probe.epoch;
             } else if (status != ZVM_YIELDED && status != ZVM_READY) {
@@ -289,6 +355,10 @@ int main(int argc, char **argv)
     }
 done:
     music_stop();
+#if WOH_PROFILE
+    prof_write();
+    if (woh_prof_timer > 0) close((unsigned int)woh_prof_timer);
+#endif
     vm_error = (uint8_t)zvm_error(&game.vm);
     pc = zvm_program_counter(&game.vm);
     game_close(&game);

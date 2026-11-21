@@ -56,7 +56,7 @@ def build(directory, pages, fast=False):
     if fast:
         flags.append("-DZVM_CACHE_ASM=1")
     objects = []
-    for source in [ROOT / "tests/story_cache.c", ROOT / "tests/story_cache_z80.c", ROOT / "tests/cacheperf.c",
+    for source in [ROOT / "tests/story_cache.c", ROOT / "tests/story_cache_setup.c", ROOT / "tests/story_cache_l2.c", ROOT / "tests/story_cache_z80.c", ROOT / "tests/cacheperf.c",
                    OS_ROOT / "user/sdk/src/reader_full.c"]:
         obj = directory / (source.stem + ".rel")
         command(["sdcc", *flags, source, "-o", obj], directory)

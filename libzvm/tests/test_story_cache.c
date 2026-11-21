@@ -8,14 +8,22 @@
 #define SOURCE_SIZE 131070ul
 #define DYNAMIC_SIZE 11282u
 static uint8_t source[SOURCE_SIZE], original[SOURCE_SIZE];
-static uint8_t backing[32768], expected[32768];
+static uint8_t backing[32768], expected[32768], l2_backing[32768];
 static story_cache_t cache;
 static uint32_t random_state = 1;
 static unsigned int reads, writes, source_reads, max_read, max_write;
 static int fail_read, fail_write, fail_source, short_source;
+static unsigned int l2_reads, l2_writes;
+static int fail_l2_write;
 
 int xread(unsigned int handle, unsigned int offset, void *dst, unsigned int n)
 {
+	if (handle == 23u) {
+		assert(offset + n <= sizeof(l2_backing) && n <= 512u && !(offset & 511u));
+		++l2_reads;
+		memcpy(dst, l2_backing + offset, n);
+		return (int)n;
+	}
 	assert(handle == 17u && offset + n <= DYNAMIC_SIZE && n <= 512u);
 	++reads;
 	if (fail_read) {
@@ -29,6 +37,16 @@ int xread(unsigned int handle, unsigned int offset, void *dst, unsigned int n)
 
 int xwrite(unsigned int handle, unsigned int offset, const void *src, unsigned int n)
 {
+	if (handle == 23u) {
+		assert(offset + n <= sizeof(l2_backing) && n <= 512u && !(offset & 511u));
+		++l2_writes;
+		if (fail_l2_write) {
+			fail_l2_write = 0;
+			return -5;
+		}
+		memcpy(l2_backing + offset, src, n);
+		return (int)n;
+	}
 	assert(handle == 17u && offset + n <= DYNAMIC_SIZE && n <= 4096u);
 	++writes;
 	if (n > max_write)
@@ -60,7 +78,7 @@ static int read_at(void *context, uint32_t offset, void *dst, uint16_t n)
 	return (int)n;
 }
 
-static void reset(void)
+static void reset_l2(uint8_t l2_pages)
 {
 	kos_reader_t reader;
 	uint16_t sum, reference = 0;
@@ -76,6 +94,11 @@ static void reset(void)
 	reader.read_at = read_at;
 	reader.size = SOURCE_SIZE;
 	assert(story_cache_init(&cache, &reader, DYNAMIC_SIZE, 17) == ZVM_OK);
+	l2_reads = l2_writes = 0;
+	fail_l2_write = 0;
+	memset(l2_backing, 0xdd, sizeof(l2_backing));
+	if (l2_pages)
+		assert(story_cache_attach_l2(&cache, 23u, l2_pages) == ZVM_OK);
 #if defined(ZVM_PROFILE) && ZVM_PROFILE
 	cache.profile_enabled = 1;
 #endif
@@ -88,6 +111,11 @@ static void reset(void)
 	assert(max_read == sizeof(cache.bytes) && max_write == sizeof(cache.bytes));
 	assert(backing[DYNAMIC_SIZE] == 0xcc);
 	short_source = 0;
+}
+
+static void reset(void)
+{
+	reset_l2(0);
 }
 
 static uint8_t read_byte(uint32_t at)
@@ -216,12 +244,61 @@ static void failures(void)
 	assert(!memcmp(source, original, sizeof(source)));
 }
 
+/* The second level: prepare fills it with the first static pages (from the
+ * page holding the dynamic/static boundary), a static miss it holds costs
+ * no source read, a page read from the source is kept for the next miss,
+ * and a failed copy leaves the entry empty. */
+static void second_level(void)
+{
+	const uint32_t first = (uint32_t)(DYNAMIC_SIZE / 512u) * 512u;
+	unsigned int i, before;
+	uint32_t address;
+#if STORY_L2_PAGES >= 8
+	reset_l2(8);
+	assert(l2_writes == 8u);
+	assert(!memcmp(l2_backing, source + first, 8u * 512u));
+	before = source_reads;
+	for (i = 0; i < 8u; ++i)
+		assert(read_byte(first + (uint32_t)i * 512u + 300u) == source[first + i * 512u + 300u]);
+	assert(source_reads == before && l2_reads == 8u);
+	/* Beyond the filled pages: the source, then kept. */
+	address = 65536ul + 1024u;
+	assert(read_byte(address) == source[address]);
+	assert(source_reads == before + 1u && l2_writes == 9u);
+	for (i = 0; i < STATIC_CACHE_PAGES; ++i)
+		read_byte(first + (uint32_t)i * 512u);
+	before = source_reads;
+	assert(read_byte(address + 5u) == source[address + 5u]);
+	assert(source_reads == before);
+	/* A failed copy: the page still reads, and the next miss goes to the
+	 * source again. */
+	fail_l2_write = 1;
+	assert(read_byte(90000ul) == source[90000ul]);
+	/* Push it out of the resident slots with pages it has not got (the
+	 * second level's pages 4..7). */
+	for (i = 0; i < STATIC_CACHE_PAGES; ++i)
+		read_byte(first + (uint32_t)(i + 4u) * 512u);
+	before = source_reads;
+	assert(read_byte(90001ul) == source[90001ul]);
+	assert(source_reads == before + 1u);
+	/* Randomized against the source with a small second level: the clock
+	 * replaces entries all the time. */
+	reset_l2(6);
+	for (i = 0; i < 20000u; ++i) {
+		address = DYNAMIC_SIZE + random_next() % (SOURCE_SIZE - DYNAMIC_SIZE);
+		assert(read_byte(address) == source[address]);
+	}
+	assert(!memcmp(source, original, sizeof(source)));
+#endif
+}
+
 int main(void)
 {
 	boundaries();
 	associative();
 	randomized();
 	failures();
+	second_level();
 	printf("story_cache: PASS dynamic=%u static=%u storage=%lu bytes\n", DYN_CACHE_PAGES,
 	       STATIC_CACHE_PAGES, (unsigned long)sizeof(cache.bytes));
 	return 0;

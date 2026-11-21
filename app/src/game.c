@@ -53,12 +53,19 @@ static int game_load(game_t *g, panel_t *panel)
     if (story_cache_init(&g->cache, &g->cache.reader, dynamic, (unsigned int)handle) != ZVM_OK) {
         xfree((unsigned int)handle); return -6;
     }
+    /* Static pages in banked memory; without room the game reads them all
+     * from the card. */
+    handle = xalloc(STORY_L2_PAGES * STORY_CACHE_PAGE_SIZE, KOS_XMEM_FLAG_NONE);
+    if (handle > 0 && story_cache_attach_l2(&g->cache, (unsigned int)handle,
+                                            (uint8_t)STORY_L2_PAGES) != ZVM_OK)
+        xfree((unsigned int)handle);
     if (story_cache_prepare(&g->cache, end, &checksum) != ZVM_OK) return -7;
     if (zvm_init_memory(&g->vm, story_cache_read, story_cache_write, &g->cache,
                         g->cache.reader.size) != ZVM_OK) return -8;
     g->initialized = 1;
     if (zvm_set_story_checksum(&g->vm, checksum) != ZVM_OK ||
-        zvm_set_output_callback(&g->vm, game_output, panel) != ZVM_OK) return -9;
+        zvm_set_output_callback(&g->vm, game_output, panel) != ZVM_OK ||
+        zvm_set_page_access(&g->vm, story_cache_page, &g->cache.generation) != ZVM_OK) return -9;
     return 0;
 }
 
@@ -76,6 +83,9 @@ void game_close(game_t *g)
     if (g->initialized) { zvm_release(&g->vm); g->initialized = 0; }
     if (g->cache.dynamic_handle) {
         xfree(g->cache.dynamic_handle); g->cache.dynamic_handle = 0;
+    }
+    if (g->cache.l2_handle) {
+        xfree(g->cache.l2_handle); g->cache.l2_handle = 0;
     }
     if (g->file > 0) { close((unsigned int)g->file); g->file = 0; }
 }
