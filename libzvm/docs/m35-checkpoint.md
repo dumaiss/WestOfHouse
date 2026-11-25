@@ -133,7 +133,7 @@ console snapshots. Review parser against complete captures; it joins
 wrapped fields and last complete copies win. `--out` JSON. Partial parsed
 file `build/m35/baseline-profile-partial.json` exists.
 
-### Synthetic/ASM packages (completed locally, gameplay A/B pending)
+### Synthetic/ASM packages (completed locally, gameplay paired-build pending)
 
 - `/root/cpu_audit`: GPT-6.1Sol high; readonly platform/SDCC/ZIP80audit,
   then24byte independent `src/zchar.asm` helper and text.c conditional call.

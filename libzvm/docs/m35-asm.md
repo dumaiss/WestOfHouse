@@ -7,7 +7,7 @@ Current build directories include cache sizes and stack/ASM variants; the
 directory table below describes the earlier isolated experiment.
 
 `ZVM_ASM=1` selects one Z80 helper in `src/zchar.asm`. The default remains
-`ZVM_ASM=0` while gameplay A/B evaluation is pending. `src/text.c` calls it
+`ZVM_ASM=0` while gameplay paired-build evaluation is pending. `src/text.c` calls it
 only when both SDCC and the assembly build flag are present; host builds
 retain the original C expression.
 

@@ -2,20 +2,6 @@
  * Object entries are nine bytes, following 31 two-byte default properties. */
 #include "zvm_internal.h"
 
-static zvm_error_t entry_address(const zvm_state_t *s, uint8_t object, uint32_t *address)
-{
-	uint32_t p;
-	if (!s || !address || !object)
-		return ZVM_EINVAL;
-	{
-		uint32_t n = (uint32_t)object - 1ul;
-		p = (uint32_t)s->objects_addr + 62ul + (n << 3) + n;
-	}
-	if (p + 9ul > s->story_size)
-		return ZVM_EBOUNDS;
-	*address = p;
-	return ZVM_OK;
-}
 
 zvm_error_t zvm_object_links_internal(const zvm_state_t *s, uint8_t object, uint8_t *parent,
 				      uint8_t *sibling, uint8_t *child)
@@ -28,7 +14,7 @@ zvm_error_t zvm_object_links_internal(const zvm_state_t *s, uint8_t object, uint
 		*parent = *sibling = *child = 0;
 		return ZVM_OK;
 	}
-	e = entry_address(s, object, &p);
+	e = zvm_object_entry_address(s, object, &p);
 	if (e)
 		return e;
 	if (zvm_mem_read(s, p + 4ul, parent) || zvm_mem_read(s, p + 5ul, sibling) ||
@@ -46,7 +32,7 @@ zvm_error_t zvm_object_attribute_internal(const zvm_state_t *s, uint8_t object, 
 	zvm_error_t e;
 	if (!set || attr >= 32u || !object)
 		return ZVM_EINVAL;
-	e = entry_address(s, object, &p);
+	e = zvm_object_entry_address(s, object, &p);
 	if (e)
 		return e;
 	p += (uint32_t)(attr >> 3);
@@ -72,7 +58,7 @@ static zvm_error_t prop_table(const zvm_state_t *s, uint8_t object, uint32_t *at
 	uint16_t table;
 	uint8_t words;
 	zvm_error_t e;
-	e = entry_address(s, object, &p);
+	e = zvm_object_entry_address(s, object, &p);
 	if (e)
 		return e;
 	e = zvm_mem_word(s, p + 7ul, &table);
@@ -87,26 +73,6 @@ static zvm_error_t prop_table(const zvm_state_t *s, uint8_t object, uint32_t *at
 	return ZVM_OK;
 }
 
-zvm_error_t zvm_object_name_addr(const zvm_state_t *s, uint8_t object, uint32_t *address)
-{
-	uint32_t p;
-	uint16_t t;
-	uint8_t words;
-	zvm_error_t e;
-	if (!address || !object)
-		return ZVM_EINVAL;
-	e = entry_address(s, object, &p);
-	if (e)
-		return e;
-	e = zvm_mem_word(s, p + 7ul, &t);
-	if (e)
-		return e;
-	e = zvm_mem_read(s, t, &words);
-	if (e)
-		return e;
-	*address = (uint32_t)t + 1ul;
-	return ZVM_OK;
-}
 
 zvm_error_t zvm_object_prop_addr(const zvm_state_t *s, uint8_t object, uint8_t property,
 				 uint32_t *address, uint8_t *length)
@@ -241,7 +207,7 @@ zvm_error_t zvm_object_remove(zvm_state_t *s, uint8_t object)
 	zvm_error_t e;
 	if (!object)
 		return ZVM_OK;
-	e = entry_address(s, object, &p);
+	e = zvm_object_entry_address(s, object, &p);
 	if (e)
 		return e;
 	e = zvm_object_links_internal(s, object, &parent, &sibling, &child);
@@ -249,7 +215,7 @@ zvm_error_t zvm_object_remove(zvm_state_t *s, uint8_t object)
 		return e;
 	if (!parent)
 		return ZVM_OK;
-	e = entry_address(s, parent, &pp);
+	e = zvm_object_entry_address(s, parent, &pp);
 	if (e)
 		return e;
 	e = zvm_mem_read(s, pp + 6ul, &cur);
@@ -258,13 +224,13 @@ zvm_error_t zvm_object_remove(zvm_state_t *s, uint8_t object)
 	prev = 0;
 	for (n = 0; cur && n < 255u; ++n) {
 		uint32_t cp;
-		e = entry_address(s, cur, &cp);
+		e = zvm_object_entry_address(s, cur, &cp);
 		if (e)
 			return e;
 		if (cur == object) {
 			if (prev) {
 				uint32_t vp;
-				e = entry_address(s, prev, &vp);
+				e = zvm_object_entry_address(s, prev, &vp);
 				if (e)
 					return e;
 				e = zvm_mem_write(s, vp + 5ul, sibling);
@@ -294,10 +260,10 @@ zvm_error_t zvm_object_insert(zvm_state_t *s, uint8_t object, uint8_t dest)
 		return ZVM_OK;
 	if (!dest || object == dest)
 		return ZVM_EINVAL;
-	e = entry_address(s, object, &op);
+	e = zvm_object_entry_address(s, object, &op);
 	if (e)
 		return e;
-	e = entry_address(s, dest, &dp);
+	e = zvm_object_entry_address(s, dest, &dp);
 	if (e)
 		return e;
 	walk = dest;

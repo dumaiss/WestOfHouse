@@ -2,6 +2,14 @@
 
 `libzvm` is a statically linked Z-machine V3 interpreter for SDCC/Z80. The original story remains authoritative for game logic. The library provides no graphics, terminal UI, filesystem, or game-specific interaction loop. It emits characters and status events only through caller-owned callbacks. The caller owns `zvm_t`, the story allocation or memory backend, and any host-service boundary.
 
+## Execution core
+
+`compact.c` and `compact_fetch.asm` implement the streaming V3 interpreter
+through the public library API. See [streaming interpreter](compact-core.md)
+for build and mapping rules. The older instruction-record driver and dispatch
+exist only in `tests/reference_execute.c` and `tests/reference_opcodes.c` as
+host regression oracles; they are not a selectable production implementation.
+
 ## Module layout
 
 The implementation keeps responsibilities split across focused translation units:
@@ -9,10 +17,10 @@ The implementation keeps responsibilities split across focused translation units
 - `zvm.c`: public lifecycle, header validation, and accessors.
 - `memory.c`: flat and callback-backed logical story memory.
 - `decode.c`: bounded V3 instruction parsing, store/branch metadata, and inline-text boundaries.
-- `execute.c`: budgeted fetch/decode/operand evaluation loop and VM fault state.
+- `compact.c`, `compact_fetch.asm`: budgeted streaming execution, operand evaluation,
+  opcode dispatch and VM fault state.
 - `variables.c`: evaluation stack, locals, globals, and direct/indirect variable access.
 - `frames.c`: bounded Z-machine call frames and return handling.
-- `opcodes.c`: arithmetic, branching, calls, stack/object dispatch, text/input services, random, verification and explicit unsupported results.
 - `objects.c`: V3 object links, attributes, and properties.
 - `text.c`: streaming packed-text decoder, abbreviation expansion, and output callback.
 - `dictionary.c`: V3 dictionary lookup and bounded tokenization into story memory.
@@ -50,8 +58,11 @@ requirements. This backend is an application concern, not part of the VM API.
 The Makefile declares callback-calling archive members to the SDK placer.
 Opcode dispatch uses ordinary calls; automatic placement and SDK veneers handle
 executable zones. No custom bank-call mechanism is introduced. A host backend
-must obey the single-aperture rule and may not retain mapped pointers across
-operations that change the mapping.
+must obey the single-aperture rule. The mapped-story backend keeps the VM
+execution closure resident and lends native page views through `memory.c`. A
+current-region identity validates those views; an invalid sentinel rejects them
+outside the execution scope. A view may be dereferenced only while its region
+is mapped. See the public `zvm_set_page_access` contract.
 
 See [README](../README.md) for build/test commands and SDK path overrides, and
 [CONTRIBUTING](../CONTRIBUTING.md) for target constraints and verification layers.

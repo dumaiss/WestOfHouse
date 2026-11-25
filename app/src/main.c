@@ -22,18 +22,32 @@ typedef struct {
 } prof_row_t;
 static int prof_file;
 static uint32_t prof_vm, prof_render;
-extern uint32_t woh_prof_io_static, woh_prof_io_dynamic;
-extern uint32_t woh_prof_static_misses, woh_prof_dyn_misses, woh_prof_flushes;
-extern int woh_prof_timer;
-uint32_t woh_prof_now(void);   /* story_cache.c: resident */
+static uint32_t prof_load_counts;
+static int woh_prof_timer;
+static uint32_t woh_prof_now(void)
+{
+    uint32_t now = 0;
+    if (woh_prof_timer > 0) (void)timer_now(woh_prof_timer,&now);
+    return now;
+}
 static void prof_row(void)
 {
     prof_row_t row, *r = &row;
+#if ZVM_PROFILE
+    const zvm_profile_t *vm = zvm_profile_get(&game.vm);
+#endif
     if (prof_file < 1) return;
     r->t_end = woh_prof_now(); r->vm = prof_vm; r->render = prof_render;
-    r->io_static = woh_prof_io_static; r->io_dynamic = woh_prof_io_dynamic;
-    r->static_misses = woh_prof_static_misses; r->dyn_misses = woh_prof_dyn_misses;
-    r->dyn_evictions = woh_prof_flushes;
+    r->io_static = game.mapped.page_loads; r->io_dynamic = game.mapped.page_writes;
+    r->static_misses = game.mapped.page_loads; r->dyn_misses = 0;
+    r->dyn_evictions = game.mapped.page_writes;
+    r->xreads = game.mapped.remaps; r->xwrites = game.mapped.page_writes;
+#if ZVM_PROFILE
+    r->instructions = vm ? vm->instructions : 0;
+    r->byte_reads = vm ? vm->byte_reads : 0;
+#else
+    r->instructions = 0; r->byte_reads = 0;
+#endif
     r->here = game.here;
     (void)write((unsigned int)prof_file,r,sizeof(*r));
 }
@@ -288,14 +302,20 @@ int main(int argc, char **argv)
     if (render_scene(0,0) < 0 || render_panel(&panel,0) < 0 || render_prompt(&panel,0) < 0) {
         error = "initial screen failed"; goto done;
     }
-    result = game_open_reader(&game,&reader,&panel);
-    if (result < 0) { error = game_load_error(result); goto done; }
 #if WOH_PROFILE
     woh_prof_timer = timer_open();
-    prof_file = open("PROF.BIN",KFS_O_WRITE|KFS_O_CREATE|KFS_O_TRUNC);
-#if ZVM_PROFILE
-    game.cache.profile_enabled = 1;
+    {
+        uint32_t t0 = woh_prof_now(), t1;
+        result = game_open_reader(&game,&reader,&panel);
+        t1 = woh_prof_now();
+        prof_load_counts = t1 - t0;
+    }
+#else
+    result = game_open_reader(&game,&reader,&panel);
 #endif
+    if (result < 0) { error = game_load_error(result); goto done; }
+#if WOH_PROFILE
+    prof_file = open("PROF.BIN",KFS_O_WRITE|KFS_O_CREATE|KFS_O_TRUNC);
 #endif
     handle = mouse_open();
     if (handle > 0) mouse_init(&mouse,handle,256,212);
@@ -357,6 +377,9 @@ done:
     music_stop();
 #if WOH_PROFILE
     prof_write();
+    printf("\rwoh: preload_bytes=%lu mapped_objects=%u load_counts=%lu map_remaps=%lu\r\n",
+           (unsigned long)game.mapped.bytes, (unsigned)game.mapped.count,
+           (unsigned long)prof_load_counts, (unsigned long)game.mapped.remaps);
     if (woh_prof_timer > 0) close((unsigned int)woh_prof_timer);
 #endif
     vm_error = (uint8_t)zvm_error(&game.vm);
@@ -370,6 +393,13 @@ done:
         printf("\rwoh: %s (code %d, VM %u, PC %lu)\r\n",error,result,
                (unsigned)vm_error,(unsigned long)pc);
         printf("\rwoh: resource archive %s\r\n",story_path);
+        printf("\rPress any key to return to shell.\r\n");
+        /* Do not let the shell clear the diagnostic before it can be read. */
+        for (;;) {
+            if (key_pending() < 0) break;
+            if (key_poll() != KEY_NONE) break;
+            input_wait();
+        }
         return 1;
     }
     printf("\rwoh: finished\r\n");

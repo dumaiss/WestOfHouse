@@ -4,7 +4,9 @@
 
 Read the [embedding guide](docs/embedding.md), public `include/zvm.h` and
 [architecture map](docs/architecture.md) first. Follow one instruction through
-`decode.c`, `execute.c` and `opcodes.c`, then into its service module. Keep
+`compact.c` and `compact_fetch.asm`, then into its service module.
+The instruction-record driver/dispatch under `tests/reference_*.c` are test
+oracles only. Keep
 lifecycle code in `zvm.c`; text, dictionary, objects, frames and memory each have
 their own translation unit.
 
@@ -20,8 +22,9 @@ mandatory dependency of the VM.
   assembly inside its formatting guards.
 - Explain ownership, VM encodings, invariants and target constraints in comments.
   Name numeric opcode cases so the dispatch can be read beside the decoder.
-- Use logical integer addresses for story memory. Never expose a native pointer
-  into a mapped story page. Route reads and writes through `memory.c`.
+- Use logical integer addresses for story memory. Route reads and writes through
+  `memory.c`; only its optional page-access backend may lend native pointers,
+  under the residency and validity contract in `zvm_set_page_access`.
 - Preserve operand evaluation and callback order. Variable zero pops/pushes for
   ordinary access and peeks/replaces for indirect access. These distinctions
   matter even when a repeated expression appears simpler.
@@ -48,8 +51,11 @@ and packing compatibility. Callback-calling members are declared in the
 Makefile's `KOS_POINTER_MEMBERS_zvm`; ordinary opcode calls remain eligible for
 automatic placement. Do not add custom cross-bank call machinery.
 
-A backend change must respect the single mapping aperture: do not retain mapped
-pointers across calls that can change mapping. XMEM uses 8 KiB slots, has a
+A backend change must respect the single mapping aperture. Mapped page views
+may be cached only when the mapping-identity byte invalidates them before any
+unrelated mapping can be used, and the entire execution closure stays resident.
+An identity must always refer to the same native addresses and backing storage;
+use an invalid sentinel outside the resident execution scope. XMEM uses 8 KiB slots, has a
 32 KiB per-object limit and a 16 KiB mappable limit; object counts and bank
 resources are shared with far code. Consult the actual allocator and report
 allocations rather than deriving availability from story size alone.

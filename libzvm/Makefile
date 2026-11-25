@@ -1,7 +1,8 @@
 # Build against the exported KonaOS SDK; no OS checkout is modified.
 .DEFAULT_GOAL := all
-KOS_SDK_ROOT ?= ../../ZephyrOS/build/kos-sdk-0.2.0
-# Accepted M3.5 configuration. ZVM_ASM is the experimental text helper;
+KOS_SDK_ROOT ?= ../../ZephyrOS/build-mk2/sys/kos-sdk-0.2.0-mk2
+KOS_BOARD ?= mk2
+# Streaming interpreter configuration. ZVM_ASM is the experimental text helper;
 # ZVM_CACHE_ASM is the accepted cache fast path and stays enabled by default.
 ZVM_PROFILE ?= 0
 ZVM_ASM ?= 0
@@ -51,8 +52,9 @@ ZORK_ASSETS = --asset $(ZORK_STORY)=ZORK1.Z3 $(if $(strip $(ZORK_BINDINGS)),--as
 # SDK card directories persist: keep optional reporting metadata out of the
 # original fixture's card when switching between the two launch targets.
 ZORK_CARD = $(KOS_BUILD)/card$(if $(strip $(ZORK_BINDINGS)),-state,)
-ZVM_SOURCES := zvm memory variables frames objects decode execute opcodes text dictionary input services
+ZVM_SOURCES := zvm memory variables frames objects object_name compact text dictionary input services
 ZVM_OBJS := $(addprefix $(KOS_BUILD)/libzvm/,$(addsuffix .rel,$(ZVM_SOURCES)))
+ZVM_OBJS += $(KOS_BUILD)/libzvm/compact_fetch.rel
 ifeq ($(ZVM_ASM),1)
 ZVM_OBJS += $(KOS_BUILD)/libzvm/zchar.rel
 endif
@@ -76,11 +78,12 @@ $(ZVM_OBJS) $(zvmtest_COBJS): Makefile $(KOS_RULES) $(EXE_HEADERS)
 $(zvmtest_COBJS): include/zvm.h include/zvm_profile.h
 $(KOS_BUILD)/user/zvmtest/zvmtest.rel $(KOS_BUILD)/user/zvmtest/story_cache.rel $(KOS_BUILD)/user/zvmtest/story_cache_setup.rel $(KOS_BUILD)/user/zvmtest/story_cache_l2.rel $(KOS_BUILD)/user/zvmtest/story_cache_z80.rel: tests/story_cache.h
 $(KOS_BUILD)/user/zvmtest/zvmtest.rel $(KOS_BUILD)/user/zvmtest/stack_probe.rel: tests/stack_probe.h
-.PHONY: all release help publish test test-cache clean run-zork test-zork
+.PHONY: library all release help publish test test-cache clean run-zork test-zork
 all: zvmtest
+library: $(ZVM_LIB)
 
 # Only the accepted configuration may publish the two delivery artifacts.
-# Explicit profiling/reference/experimental builds never overwrite them.
+# Explicit profiling/experimental builds never overwrite them.
 ifeq ($(ZVM_CONFIG),$(ZVM_RELEASE_CONFIG))
 zvmtest: publish
 publish: $(zvmtest_EXE) $(ZVM_LIB)
@@ -109,6 +112,8 @@ help:
 	  'Get the executable: build/ZVMTEST.EXE' \
 	  'Get the library:    build/libzvm.lib' \
 	  'make test           Host fixtures, target build and package validation' \
+	  'make library        Build the streaming interpreter archive' \
+	  'make test-compact   Compare streaming/reference cores and check Z80 fetch' \
 	  'make run-zork       Interactive original story through the SDK MAME runner' \
 	  'make story          Build generated state-reporting story and ZVMTest bundle' \
 	  'make run-state-zork Play the instrumented story with numeric reporting' \
@@ -117,7 +122,7 @@ help:
 
 test: $(ZVM_LIB) test-cache
 	mkdir -p $(ZVM_BUILD)/host
-	$(CC) $(ZVM_FLAGS) -std=c99 -Wall -Wextra -Werror -Itests/host/include -I$(KOS_SDK_ROOT)/include/abi -I$(KOS_SDK_ROOT)/include -Iinclude -Isrc tests/test_zvm.c $(addprefix src/,$(addsuffix .c,$(ZVM_SOURCES))) -o $(ZVM_BUILD)/host/test_zvm
+	$(CC) $(ZVM_FLAGS) -std=c99 -Wall -Wextra -Werror -Itests/host/include -I$(KOS_SDK_ROOT)/include/abi -I$(KOS_SDK_ROOT)/include -Iinclude -Isrc tests/test_zvm.c src/decode.c $(addprefix src/,$(addsuffix .c,$(ZVM_SOURCES))) -o $(ZVM_BUILD)/host/test_zvm
 	$(ZVM_BUILD)/host/test_zvm
 	$(MAKE) zvmtest
 	$(KOS_PYTHON) $(KOS_SDK_ROOT)/tools/exepack.py validate $(KOS_BUILD)/user/zvmtest.exe
@@ -165,3 +170,14 @@ run-state-zork: story
 
 test-state-reporting:
 	cd .. && $(KOS_PYTHON) -m unittest discover -s tools/state-reporting -v
+
+# Compare the streaming engine with the reference at every bounded slice.
+.PHONY: test-compact
+test-compact:
+	mkdir -p $(ZVM_BUILD)/host
+	$(CC) -std=c99 -Wall -Wextra -Werror -Itests/host/include -I$(KOS_SDK_ROOT)/include/abi -Iinclude -Isrc -c tests/reference_execute.c -o $(ZVM_BUILD)/host/reference_execute.o
+	$(CC) -std=c99 -Wall -Wextra -Werror -Itests/host/include -I$(KOS_SDK_ROOT)/include/abi -Iinclude -Isrc tests/test_compact_story.c tests/reference_opcodes.c $(ZVM_BUILD)/host/reference_execute.o $(wildcard src/*.c) -o $(ZVM_BUILD)/host/test_compact_story
+	$(ZVM_BUILD)/host/test_compact_story $(ZORK_STORY)
+	$(CC) -std=c99 -Wall -Wextra -Werror -Itests/host/include -I$(KOS_SDK_ROOT)/include/abi -Iinclude -Isrc tests/test_zvm.c $(wildcard src/*.c) -o $(ZVM_BUILD)/host/test_compact_fixture
+	$(ZVM_BUILD)/host/test_compact_fixture
+	$(KOS_PYTHON) tests/test_compact_fetch.py

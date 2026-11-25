@@ -54,7 +54,7 @@ Preserved under `build/m35/`:
 - `run-baseline-profile-final/console.txt`: complete profiled normal baseline.
 - `run-cache1-c/`, `run-cache4-c/`, `run-cache4-profile/`: isolated C variants.
 - `run-cache4-asm/`: rejected packed-text assembly experiment.
-- `run-cache-fast/`, `run-cache-fast-profile/`: accepted cache ASM A/B and
+- `run-cache-fast/`, `run-cache-fast-profile/`: accepted cache ASM paired-build and
   profiled stack diagnostic; `run-final/`: final presentation/resource build.
 - `run-interactive2/` and `run-interactive3/`: actual SDK keyboard input.
 - `synthetic-{baseline,current,asm}.json`, `cache-synthetic{,-fast}.json`:
@@ -79,7 +79,7 @@ otherwise -a/-p/-b would silently select the wrong path.
 | --- | --- | --- |
 |1: paging/XMEM churn | Startup: 407 instructions, 219 XMEM reads, 74 writes and 44 reader requests; 11.137 profiled seconds. Turn 2 alone caused roughly 545 reads/196 writes/176 reader requests for 1518 instructions. | Four resident pages per partition, associative lookup and bounded round-robin. Risks: dirty coherence, partial fills, 17-bit addresses and shared boundary. |
 |2: source CPU/protocol overhead | The stdio adapter uses `fread(dst,1,n)`, with a per-item loop even when lower reads are buffered. Startup staging/checksum issued 193 application fread requests. | Borrowed `kos_reader_from_handle`, descriptor-sized staging/checksum reads, cache storage reused as scratch. No assumption of one syscall per byte. |
-|3: cached-read CPU | After paging improvements, 84,420 of 85,547 cache accesses hit. Simulator hot reads still cost roughly 3,000 T each. | Assembly handles bounds-checked current-page hits; every other path restores the ABI and tail-calls C. Whole-game A/B acceptance required. |
+|3: cached-read CPU | After paging improvements, 84,420 of 85,547 cache accesses hit. Simulator hot reads still cost roughly 3,000 T each. | Assembly handles bounds-checked current-page hits; every other path restores the ABI and tail-calls C. Whole-game paired-build acceptance required. |
 |4: packed text | A small shift helper improved the isolated text phase 4.69%. | Evaluated but disabled by default: only 0.023% across the ten commands. |
 |5: console | Discarding output saves about 0.6 seconds across ten commands, roughly 1.1% of the final run. | Existing SDK128-byte buffering retained. Additional console buffering was not justified. CRLF conversion stays in the host adapter and fixes diagonal output. |
 

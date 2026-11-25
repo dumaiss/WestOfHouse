@@ -14,7 +14,7 @@ typedef struct {
 } zvm_frame_t;
 
 /* A page window: a page the backend lent, its tag (address bits 9..16: a V3
- * story is at most 128 KiB) and the backend generation it was lent at. */
+ * story is at most 128 KiB) and the backend validity byte it was lent at (cache generation or mapped region). */
 typedef struct {
 	uint8_t *page;
 	uint8_t tag, generation;
@@ -67,7 +67,7 @@ typedef char zvm_context_size_check[(sizeof(zvm_state_t) <= sizeof(zvm_t)) ? 1 :
 
 /* Normalized opcodes: 2OP 0..31, 1OP 128..143, 0OP 176..191, VAR 224..255.
  * Operand types: 0 large constant, 1 small constant, 2 variable number.
- * operands[] still contains encoded values; execute.c performs evaluation. */
+ * operands[] contains encoded values for decoder checks and the test-only oracle. */
 typedef enum { ZI_LONG = 0, ZI_SHORT = 1, ZI_VAR = 2 } zvm_form_t;
 
 typedef struct {
@@ -102,6 +102,7 @@ zvm_error_t zvm_object_get_prop(const zvm_state_t *s, uint8_t object, uint8_t pr
 zvm_error_t zvm_object_next_prop(const zvm_state_t *s, uint8_t object, uint8_t property,
 				 uint8_t *next);
 zvm_error_t zvm_object_prop_length(const zvm_state_t *s, uint32_t address, uint8_t *length);
+zvm_error_t zvm_object_entry_address(const zvm_state_t *s, uint8_t object, uint32_t *address);
 zvm_error_t zvm_object_name_addr(const zvm_state_t *s, uint8_t object, uint32_t *address);
 zvm_error_t zvm_object_remove(zvm_state_t *s, uint8_t object);
 zvm_error_t zvm_object_insert(zvm_state_t *s, uint8_t object, uint8_t destination);

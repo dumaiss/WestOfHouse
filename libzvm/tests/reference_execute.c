@@ -1,3 +1,4 @@
+/* Test-only regression oracle; never linked into the production library. */
 /* Cooperative instruction driver: decode, evaluate operands, then dispatch.
  * Errors become VM faults here; input and instruction budgets return to the host. */
 #include "zvm_internal.h"
@@ -22,7 +23,7 @@ static uint8_t variable_number_operand(const zvm_instruction_t *i, uint8_t n)
 	return i->form == ZI_VAR && i->opcode == 233u;
 }
 
-zvm_status_t zvm_run(zvm_t *vm, uint16_t budget)
+zvm_status_t zvm_reference_run(zvm_t *vm, uint16_t budget)
 {
 	zvm_state_t *s;
 	uint16_t used;
@@ -93,3 +94,4 @@ zvm_status_t zvm_run(zvm_t *vm, uint16_t budget)
 	s->status = ZVM_YIELDED;
 	return s->status;
 }
+

@@ -64,7 +64,7 @@ class ResourceTests(unittest.TestCase):
             self.assertEqual(build.sha(build.ROOT/row['path']),row['sha256'],row['path'])
 
     def test_incremental_and_deterministic_archive(self):
-        sdk=build.ROOT.parent/'ZephyrOS/build/kos-sdk-0.2.0'
+        sdk=build.ROOT.parent/'ZephyrOS/build-mk2/sys/kos-sdk-0.2.0-mk2'
         with tempfile.TemporaryDirectory() as temp:
             folder=Path(temp);archive=folder/'WOH.KPR'
             pairs,changed=build.build_rows(self.manifest,sdk,folder,False)

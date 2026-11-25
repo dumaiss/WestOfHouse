@@ -6,7 +6,7 @@ import unittest
 from collections import Counter
 
 ROOT = Path(__file__).resolve().parents[1]
-SDK = Path(os.environ.get('WOH_SDK_ROOT',ROOT.parent.parent/'ZephyrOS/build/kos-sdk-0.2.0'))
+SDK = Path(os.environ.get('WOH_SDK_ROOT',ROOT.parent.parent/'ZephyrOS/build-mk2/sys/kos-sdk-0.2.0-mk2'))
 spec = importlib.util.spec_from_file_location('woh_extend',ROOT/'tools/extend_gfx.py')
 extension = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(extension)

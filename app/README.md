@@ -1,6 +1,6 @@
 # West of House
 
-Build with `make -C app` from the repository root. The deployment directory is:
+Build for Mk2 with `make -C app` from the repository root. The deployment directory is:
 
 ```
 app/build/WestOfHouse/
@@ -29,8 +29,14 @@ See [asset organization and maintenance](../assets/README.md) for the manifest,
 source/review separation, conversion, hotspot editing and KRES inspection.
 Use the current sibling SDK (`make sdk` in ZephyrOS); no OS rebuild is required.
 The SDK includes the focused KRES residency and decoder-only TUI changes.
-The optimized libzvm configuration is preserved: four dynamic and four static
-cache pages, with the existing assembly cache path.
+The default SDK is `../../ZephyrOS/build-mk2/sys/kos-sdk-0.2.0-mk2` relative
+to `app/`; override `KOS_SDK_ROOT` for another installation. The application
+preloads the complete story into 8 KiB mappable RAM objects. Its streaming VM
+execution path and output callbacks stay resident while story RAM is mapped;
+valid page views use direct Z80 pointer accesses without copying story blocks.
+The mapping is restored on each return to the application. See
+[mapped story memory](../libzvm/docs/mapped-story.md) and
+[streaming interpreter](../libzvm/docs/compact-core.md).
 
 ## Checks
 

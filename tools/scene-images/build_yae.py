@@ -20,7 +20,7 @@ def sha(path):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--sdk', type=Path,
-                        default=PROJECT.parent/'ZephyrOS/build/kos-sdk-0.2.0')
+                        default=PROJECT.parent/'ZephyrOS/build-mk2/sys/kos-sdk-0.2.0-mk2')
     args = parser.parse_args()
     encoder = args.sdk.resolve()/'tools/kimg.py'
     spec = importlib.util.spec_from_file_location('woh_yae_encoder', encoder)

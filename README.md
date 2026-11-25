@@ -30,6 +30,13 @@ The leaflet has been updated. The rest of the empire is under construction.
 
 ---
 
+## Building for Zephyr-80 Mk2
+
+Run `make -C app` using the sibling ZephyrOS Mk2 SDK. The complete deployment
+bundle is `app/build/WestOfHouse/`: `woh.exe`, `WOH.KPR` and `SHA256SUMS`.
+The interpreter executes from permanent RAM and accesses the preloaded story
+through mapped RAM. See [application build and deployment](app/README.md).
+
 ## Origins and Acknowledgments
 
 West of House is an independent, illustrated adaptation of Zork I, originally created by Marc Blank, Dave Lebling, Bruce Daniels, and Tim Anderson, and published by Infocom.

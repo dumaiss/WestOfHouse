@@ -16,7 +16,7 @@ import sys
 HERE = Path(__file__).resolve().parent
 ZVM = HERE.parents[1]
 OS_ROOT = ZVM.parents[1] / "ZephyrOS"
-SDK = OS_ROOT / "build/kos-sdk-0.2.0"
+SDK = OS_ROOT / "build-mk2/sys/kos-sdk-0.2.0-mk2"
 SIMCORE = OS_ROOT / "tests/simcore"
 STORY = ZVM.parent / "assets/runtime/story/zork1.z3"
 FLAGS = ["-DDYN_CACHE_PAGES=4", "-DSTATIC_CACHE_PAGES=4", "-DZVM_CACHE_ASM=1"]
@@ -45,7 +45,7 @@ def build(out, extra_sources, extra_asm, defines=()):
         obj = out / (path.stem + ".rel")
         run(["sdcc", *cflags, path, "-o", obj], out)
         objects.append(obj)
-    for path in [HERE / "entry.asm", *extra_asm]:
+    for path in [HERE / "entry.asm", ZVM / "src/compact_fetch.asm", *extra_asm]:
         obj = out / (path.stem + ".rel")
         run(["sdasz80", "-plosgffw", obj, path], out)
         objects.insert(0, obj) if path.name == "entry.asm" else objects.append(obj)

@@ -48,14 +48,14 @@ typedef union {
 /* All callbacks are synchronous. Keep user storage alive until release or
  * replacement; do not recursively drive the same VM from a callback.
  * Memory callbacks copy one byte; only the optional page callback lends a
- * pointer, and only to the backend's resident copy of a page. */
+ * pointer with the validity contract described by zvm_set_page_access(). */
 typedef zvm_error_t (*zvm_memory_read_fn)(void *user, uint32_t address, uint8_t *value);
 typedef zvm_error_t (*zvm_memory_write_fn)(void *user, uint32_t address, uint8_t value);
-/* The backend's resident copy of the 512-byte page holding `address` (a
+/* The backend's native view of the 512-byte page holding `address` (a
  * pointer to the page's first byte), or NULL to serve that page through the
  * byte callbacks. With `write` set the VM stores into the page: the backend
- * lends only a page it can write back (dynamic memory) and treats it as
- * modified from then on. */
+ * lends only writable dynamic memory. A cache must treat that page as dirty;
+ * a mapped RAM backend writes through directly. */
 typedef uint8_t *(*zvm_memory_page_fn)(void *user, uint32_t address, uint8_t write);
 typedef zvm_error_t (*zvm_output_fn)(void *user, uint8_t channel, uint8_t byte);
 typedef zvm_error_t (*zvm_status_fn)(void *user, uint16_t location, uint16_t value1,
@@ -74,8 +74,13 @@ zvm_error_t zvm_init_memory(zvm_t *vm, zvm_memory_read_fn read_byte, zvm_memory_
 			    void *user, uint32_t story_size);
 /* Optional fast path for zvm_init_memory backends. The VM reads and writes
  * bytes straight in pages that `page` lent while the byte at `generation`
- * keeps its value; the backend changes that byte whenever it refills or
- * reuses any page, and its byte callbacks update the same resident copy.
+ * keeps its value. For resident caches, change that byte on any refill/reuse
+ * and update the same cache through byte callbacks. A mapped backend may
+ * instead use the byte as the current mapping identity, provided each identity
+ * always gives every lent page the same native address/backing storage.
+ * All VM execution, callbacks, state and stack must stay visible while mapped.
+ * Set an invalid identity outside the execution scope and before restoring
+ * the caller's mapping. Never lend pointers outside that scope.
  * NULL `page` turns the fast path off. */
 zvm_error_t zvm_set_page_access(zvm_t *vm, zvm_memory_page_fn page,
 				const volatile uint8_t *generation);

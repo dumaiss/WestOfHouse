@@ -50,9 +50,9 @@ def run_case(name, story, bindings, arguments, script, args):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--mode', choices=['all','keyboard','benchmark'], default='all')
-    parser.add_argument('--sdk', type=Path, default=ROOT.parent/'ZephyrOS/build/kos-sdk-0.2.0')
-    parser.add_argument('--mame', type=Path, default=ROOT.parent/'Zephyr-80/Code/MODERN/Emulator/mame/mamepbitz')
-    parser.add_argument('--flash', type=Path, default=ROOT.parent/'ZephyrOS/build/konaos.bin')
+    parser.add_argument('--sdk', type=Path, default=ROOT.parent/'ZephyrOS/build-mk2/sys/kos-sdk-0.2.0-mk2')
+    parser.add_argument('--mame', type=Path, default=ROOT.parent/'Zephyr-80/Code/MODERN/Emulator/mame/mamepbitzd')
+    parser.add_argument('--flash', type=Path, default=ROOT.parent/'ZephyrOS/build-mk2/konaos-mk2.bin')
     parser.add_argument('--plugins', type=Path, default=ROOT.parent/'Zephyr-80/Code/MODERN/Emulator/mame/plugins')
     parser.add_argument('--wall-timeout', type=int, default=240)
     parser.add_argument('--no-build', action='store_true', help='Use the already built matching acceptance bundle')

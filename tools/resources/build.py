@@ -307,7 +307,7 @@ def pack(manifest, sdk, archive, build):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--sdk', type=Path, default=ROOT.parent/'ZephyrOS/build/kos-sdk-0.2.0')
+    p.add_argument('--sdk', type=Path, default=ROOT.parent/'ZephyrOS/build-mk2/sys/kos-sdk-0.2.0-mk2')
     p.add_argument('--manifest', type=Path, default=ROOT/'assets/manifests/resources.json')
     p.add_argument('--build', type=Path, default=ROOT/'app/build/assets')
     p.add_argument('--archive', type=Path, default=ROOT/'app/build/WestOfHouse/WOH.KPR')

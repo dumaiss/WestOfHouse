@@ -13,4 +13,7 @@ int xread(unsigned int, unsigned int, void *, unsigned int);
 int xwrite(unsigned int, unsigned int, const void *, unsigned int);
 int xalloc(unsigned int, unsigned int);
 int xfree(unsigned int);
+int xmap(unsigned int, unsigned int *);
+unsigned char aperture_open(unsigned char);
+void aperture_close(unsigned char);
 #endif

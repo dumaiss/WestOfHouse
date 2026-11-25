@@ -1,15 +1,16 @@
 #ifndef WOH_GAME_H
 #define WOH_GAME_H
 #include "zvm.h"
-#include "story_cache.h"
+#include "mapped_story.h"
 #include "panel.h"
 typedef struct {
     zvm_t vm;
-    story_cache_t cache;
+	kos_reader_t reader;
     kos_handle_source_t source;
     int file;
     uint8_t initialized;
     uint16_t here, state;
+    mapped_story_t mapped;
 } game_t;
 int game_open(game_t *game, const char *path, panel_t *panel);
 /* Borrows the reader; its owner closes it after game_close. */

@@ -16,7 +16,7 @@ owns no filesystem, terminal, TUI, XMEM mapper or allocation policy.
 
 Run from this directory. Target builds need SDCC, `sdar`, `sdasz80`, Python 3
 and the exported KonaOS SDK. The default SDK path is
-`../../ZephyrOS/build/kos-sdk-0.2.0`; override it for another installation:
+`../../ZephyrOS/build-mk2/sys/kos-sdk-0.2.0-mk2`; override it for another installation:
 
 ```sh
 make                         # Optimized library and ZVMTEST
@@ -29,13 +29,14 @@ make KOS_SDK_ROOT=/path/to/kos-sdk
 build prints these absolute paths. The production target build needs only the
 exported SDK.
 
-Plain `make` and `make zvmtest` use the accepted M3.5 configuration: four dynamic
-and four static cache pages, the Z80 cache fast path, a 512-byte native stack,
-and no profiling, stack probe or experimental text helper. `make release`
+Plain `make` and `make zvmtest` use the streaming interpreter and Mk2 SDK.
+ZVMTEST uses four dynamic and four static cache pages, the Z80 cache fast path
+and a 512-byte native stack, with no profiling, stack probe or experimental
+text helper. The game uses the mapped-story backend instead of that cache. `make release`
 explicitly selects those settings even when configuration overrides are present.
 
-Intermediate optimized files live under `build/optimized/`. Explicit diagnostic,
-reference and experimental configurations live under `build/variants/` and never
+Intermediate optimized files live under `build/optimized/`. Diagnostic and
+experimental configurations live under `build/variants/` and never
 overwrite the delivery artifacts. For example:
 
 ```sh
@@ -105,3 +106,6 @@ remain future work. See [M3.5 acceptance](docs/m35-performance.md) for measured
 resources and limitations, and [the cache assembly contract](docs/m35-cache-asm.md)
 for its private ABI. Historical reports describe the versions measured; their
 archived evidence is retained under [docs/m35-data](docs/m35-data/README.md).
+
+The [streaming core](docs/compact-core.md) uses the existing
+library API and supports resident execution with a host-managed story mapping.

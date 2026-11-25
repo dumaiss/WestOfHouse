@@ -73,6 +73,6 @@ def check(directory, sdk):
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('directory',type=Path)
-    parser.add_argument('--sdk',type=Path,default=ROOT.parent/'ZephyrOS/build/kos-sdk-0.2.0')
+    parser.add_argument('--sdk',type=Path,default=ROOT.parent/'ZephyrOS/build-mk2/sys/kos-sdk-0.2.0-mk2')
     args=parser.parse_args()
     check(args.directory,args.sdk)
